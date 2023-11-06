@@ -4,8 +4,11 @@ using UnityEngine;
 namespace RMC.UnitTesting.Samples.CharacterBasic
 {
     /// <summary>
-    /// This performs common math operations on
-    /// operands of a and b.
+    /// This character allows simple movement
+    ///
+    /// NOTE: This 'basic' version uses one main class
+    /// that combines MonoBehavior logic with non-MonoBehaviour
+    /// logic. RESULT: This is LESS testable than the 'advanced' version.
     /// </summary>
     public class CharacterBasic : MonoBehaviour
     {

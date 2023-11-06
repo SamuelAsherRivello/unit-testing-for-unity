@@ -4,7 +4,8 @@ using UnityEngine;
 namespace RMC.UnitTesting.Samples.CharacterBasic
 {
     /// <summary>
-    /// The Example is the main entry point to the demo
+    /// This example is the main entry point for the
+    /// <see cref="CharacterBasic"/> demonstration
     /// </summary>
     public class CharacterBasicExample: MonoBehaviour
     {

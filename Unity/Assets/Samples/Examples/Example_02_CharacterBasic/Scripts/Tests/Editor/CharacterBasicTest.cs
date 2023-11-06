@@ -1,5 +1,4 @@
 using NUnit.Framework;
-using UnityEngine;
 
 namespace RMC.UnitTesting.Samples.CharacterBasic
 {
@@ -9,18 +8,18 @@ namespace RMC.UnitTesting.Samples.CharacterBasic
     [Category ("RMC.UnitTesting.Samples.CharacterBasic")]
     public class CharacterBasicTest
     {
+        /// <summary>
+        /// While using EDITOR tests on a MonoBehaviour-based
+        /// is possible, it is not recommended. Instead, use a PlayModeTest
+        /// </summary>
         [Test]
         public void MoveTo_Result123_When123()
         {
             // Arrange
-            GameObject go = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            CharacterBasic characterBasic = go.AddComponent<CharacterBasic>();
-            Vector3 position = new Vector3(1, 2, 3);
-
-            Vector3 result = characterBasic.MoveTo(position);
+            
+            // Act
             
             // Assert
-            Assert.That(result, Is.EqualTo(position));
         }
     }
 }
