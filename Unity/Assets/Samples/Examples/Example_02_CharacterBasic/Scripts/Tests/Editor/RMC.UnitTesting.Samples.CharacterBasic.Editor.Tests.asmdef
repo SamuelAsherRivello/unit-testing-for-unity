@@ -1,5 +1,5 @@
 {
-    "name": "RMC.UnitTesting.Samples.CharacterMovement.Editor.Tests",
+    "name": "RMC.UnitTesting.Samples.CharacterBasic.Editor.Tests",
     "rootNamespace": "",
     "references": [
         "GUID:a96440fe69aa47c4da8386f400dbf636"

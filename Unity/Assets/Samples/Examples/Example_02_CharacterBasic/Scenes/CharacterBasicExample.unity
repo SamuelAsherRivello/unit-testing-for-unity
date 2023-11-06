@@ -228,7 +228,7 @@ GameObject:
   - component: {fileID: 1560767551}
   - component: {fileID: 1560767552}
   m_Layer: 0
-  m_Name: CharacterMovementExample
+  m_Name: CharacterBasicExample
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -329,7 +329,7 @@ Camera:
   m_GameObject: {fileID: 1966294651}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -380,7 +380,7 @@ Transform:
   m_GameObject: {fileID: 1966294651}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

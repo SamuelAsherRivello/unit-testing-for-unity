@@ -1,5 +1,5 @@
 {
-    "name": "RMC.UnitTesting.Samples.CharacterMovement.Runtime",
+    "name": "RMC.UnitTesting.Samples.CharacterBasic.Runtime",
     "rootNamespace": "",
     "references": [],
     "includePlatforms": [],
