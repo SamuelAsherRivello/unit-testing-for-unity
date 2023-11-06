@@ -1,0 +1,18 @@
+{
+    "name": "RMC.UnitTesting.Samples.CharacterMovement.Editor.Tests",
+    "rootNamespace": "",
+    "references": [
+        "GUID:a96440fe69aa47c4da8386f400dbf636"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
