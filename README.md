@@ -3,7 +3,8 @@
 
 This is the official repo for the "Unit Testing For Unity" course.
 
-<img width="200" src="./Unity/Assets/Documentation/ReadMe/Art/Sprites/ProjectIcon.png" alt="Best Practices">
+<img width="200" src="./Unity/Assets/Samples/Shared/Documentation/ReadMe/Art/Sprites/ProjectIcon.png" alt="Best Practices">
+
 
 **Getting Started**
 1. Download this repo (*.zip or *.git)
