@@ -1,5 +1,5 @@
 {
-    "name": "RMC.MyProject.ReadMe.Editor",
+    "name": "RMC.UnitTesting.Shared.ReadMe.Editor",
     "rootNamespace": "",
     "references": [
         "GUID:71cedef0a99da6f4fa432b8c4cbe9626",

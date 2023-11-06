@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 
 namespace RMC.UnitTesting.Samples.MyMathSystem
@@ -7,6 +8,7 @@ namespace RMC.UnitTesting.Samples.MyMathSystem
     /// </summary>
     public class MyMathSystemExample: MonoBehaviour
     {
+        [ExcludeFromCodeCoverage]
         protected void Awake ()
         {
             MyMathSystem myMathSystem = new MyMathSystem();
