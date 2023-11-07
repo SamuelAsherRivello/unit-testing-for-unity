@@ -1,3 +1,4 @@
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace RMC.UnitTesting.Samples.CharacterPhysics
@@ -5,12 +6,27 @@ namespace RMC.UnitTesting.Samples.CharacterPhysics
     /// <summary>
     /// This class will handle Unity specific logic
     /// </summary>
+    [RequireComponent(typeof(Rigidbody))]
     public class CharacterPhysicsMb : MonoBehaviour
     {
+        public Rigidbody Rigidbody { get { return _rigidbody;}}
+        private Rigidbody _rigidbody;
         private CharacterPhysics _characterPhysics;
-
+        
         private void Awake()
         {
+            //////////////////////////////////////////////
+            // USE PHYSICS
+            _rigidbody = gameObject.GetComponent<Rigidbody>();
+            if (_rigidbody == null)
+            {
+                _rigidbody = gameObject.AddComponent<Rigidbody>();
+            }
+            _rigidbody.isKinematic = false;
+            _rigidbody.useGravity = false;
+            //////////////////////////////////////////////
+    
+       
             _characterPhysics = new CharacterPhysics(this);
         }
         
@@ -26,13 +42,15 @@ namespace RMC.UnitTesting.Samples.CharacterPhysics
     public class CharacterPhysics
     {
         public float Speed { get { return _speed;}}
-        private const float _speed = 0.5f;
+        public Vector3 Position { get { return _characterPhysicsMb.transform.position;} }
 
-        private CharacterPhysicsMb _characterMB;
+        private const float _speed = 50f;
 
-        public CharacterPhysics(CharacterPhysicsMb characterMB)
+        private CharacterPhysicsMb _characterPhysicsMb;
+
+        public CharacterPhysics(CharacterPhysicsMb characterPhysicsMb)
         {
-            _characterMB = characterMB;
+            _characterPhysicsMb = characterPhysicsMb;
         }
 
         public enum MoveType
@@ -71,34 +89,42 @@ namespace RMC.UnitTesting.Samples.CharacterPhysics
         {
             if (moveType == MoveType.Left)
             {
-                MoveBy(new Vector3(-_speed, 0, 0));
+                AddForce(new Vector3(-_speed, 0, 0));
             }
             if (moveType == MoveType.Right)
             {
-                MoveBy(new Vector3(_speed, 0, 0));
+                AddForce(new Vector3(_speed, 0, 0));
             }
             if (moveType == MoveType.Up)
             {
-                MoveBy(new Vector3(0, _speed, 0));
+                AddForce(new Vector3(0, _speed, 0));
             }
             if (moveType == MoveType.Down)
             {
-                MoveBy(new Vector3(0, -_speed, 0));
+                AddForce(new Vector3(0, -_speed, 0));
             }
 
-            return _characterMB.transform.position;
+            return _characterPhysicsMb.transform.position;
         }
         
         public Vector3 MoveTo(Vector3 position)
         {
-            _characterMB.transform.position = position;
-            return _characterMB.transform.position;
+            //////////////////////////////////////////////
+            // USE PHYSICS
+            _characterPhysicsMb.Rigidbody.MovePosition(position);
+            //////////////////////////////////////////////
+            
+            return _characterPhysicsMb.transform.position;
         }
 
-        public Vector3 MoveBy(Vector3 position)
+        public Vector3 AddForce(Vector3 position)
         {
-            _characterMB.transform.position += position;
-            return _characterMB.transform.position;
+            //////////////////////////////////////////////
+            // USE PHYSICS
+            _characterPhysicsMb.Rigidbody.AddForce(position);
+            //////////////////////////////////////////////
+  
+            return _characterPhysicsMb.transform.position;
         }
     }
 }

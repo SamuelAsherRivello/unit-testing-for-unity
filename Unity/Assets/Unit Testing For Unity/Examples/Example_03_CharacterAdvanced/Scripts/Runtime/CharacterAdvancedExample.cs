@@ -13,6 +13,7 @@ namespace RMC.UnitTesting.Samples.CharacterAdvanced
         protected void Awake ()
         {
             GameObject go = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            go.name = "CharacterAdvanced";
             CharacterAdvancedMb characterAdvancedMb  = go.AddComponent<CharacterAdvancedMb>();
             CharacterAdvanced characterAdvanced = new CharacterAdvanced(characterAdvancedMb);
 

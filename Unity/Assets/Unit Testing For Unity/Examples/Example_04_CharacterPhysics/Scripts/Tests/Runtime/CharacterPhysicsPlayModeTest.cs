@@ -1,5 +1,7 @@
+using System.Collections;
 using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.TestTools;
 
 
 namespace RMC.UnitTesting.Samples.CharacterPhysics
@@ -12,6 +14,7 @@ namespace RMC.UnitTesting.Samples.CharacterPhysics
     {
         private GameObject _testGameObject;
         private CharacterPhysics _characterPhysics;
+        private const float WaitSeconds = 0.5f; 
 
         /// <summary>
         /// Setup method to initialize the test environment before each test is run
@@ -40,18 +43,23 @@ namespace RMC.UnitTesting.Samples.CharacterPhysics
         /// <summary>
         /// Test to check if the character moves left correctly
         /// </summary>
-        [Test]
-        public void MoveByKeyCode_ResultMovesLeft_WhenMovesLeft()
+        [UnityTest]
+        public IEnumerator MoveByKeyCode_ResultXIsLessThan_WhenMovesLeft()
         {
             // Arrange
             Vector3 initialPosition = _testGameObject.transform.position;
-            Vector3 expectedPosition = initialPosition + new Vector3(-_characterPhysics.Speed, 0, 0);
 
             // Act
-            Vector3 newPosition = _characterPhysics.MoveByKeyCode(CharacterPhysics.MoveType.Left);
+            _characterPhysics.MoveByKeyCode(CharacterPhysics.MoveType.Left);
 
+            // Await
+            yield return new WaitForSeconds(WaitSeconds);
+            Vector3 result = _characterPhysics.Position;
+            
             // Assert
-            Assert.AreEqual(expectedPosition, newPosition);
+            Assert.IsTrue(result.x < initialPosition.x );
+            Assert.IsTrue(Mathf.Approximately(result.y,initialPosition.y) ); //Same Value
+            Assert.IsTrue(Mathf.Approximately(result.z,initialPosition.z) ); //Same Value
         }
 
         /// <summary>
@@ -59,52 +67,43 @@ namespace RMC.UnitTesting.Samples.CharacterPhysics
         ///
         /// OPTIONAL: Similar tests would be written for MoveType.Up and MoveType.Down
         /// </summary>
-        [Test]
-        public void MoveByKeyCode_ResultMovesRight_WhenMovesRight()
+        [UnityTest]
+        public IEnumerator MoveByKeyCode_ResultXIsGreaterThan_WhenMovesRight()
         {
             // Arrange
             Vector3 initialPosition = _testGameObject.transform.position;
-            Vector3 expectedPosition = initialPosition + new Vector3(_characterPhysics.Speed, 0, 0);
 
             // Act
-            Vector3 newPosition = _characterPhysics.MoveByKeyCode(CharacterPhysics.MoveType.Right);
+            _characterPhysics.MoveByKeyCode(CharacterPhysics.MoveType.Right);
 
+            // Await
+            yield return new WaitForSeconds(WaitSeconds);
+            Vector3 result = _characterPhysics.Position;
+            
             // Assert
-            Assert.AreEqual(expectedPosition, newPosition);
+            Assert.IsTrue(result.x > initialPosition.x );
+            Assert.IsTrue(Mathf.Approximately(result.y,initialPosition.y) ); //Same Value
+            Assert.IsTrue(Mathf.Approximately(result.z,initialPosition.z) ); //Same Value
         }
 
         /// <summary>
         /// Test to check if the character moves to a specific position correctly
         /// </summary>
-        [Test]
-        public void MoveTo_Result10_10_10_WhenInput10_10_10()
+        [UnityTest]
+        public IEnumerator MoveTo_Result10_10_10_WhenInput10_10_10()
         {
             // Arrange
             Vector3 newPosition = new Vector3(10, 10, 10);
 
             // Act
-            Vector3 returnedPosition = _characterPhysics.MoveTo(newPosition);
-
+            _characterPhysics.MoveTo(newPosition);
+            
+            // Await
+            yield return new WaitForSeconds(WaitSeconds);
+            Vector3 result = _characterPhysics.Position;
+            
             // Assert
-            Assert.AreEqual(newPosition, returnedPosition);
-        }
-
-        /// <summary>
-        /// Test to check if the character moves by a specific offset correctly
-        /// </summary>
-        [Test]
-        public void MoveBy_Result01_01_01_WhenInput01_01_01()
-        {
-            // Arrange
-            Vector3 offset = new Vector3(1, 1, 1);
-            Vector3 initialPosition = _testGameObject.transform.position;
-            Vector3 expectedPosition = initialPosition + offset;
-
-            // Act
-            Vector3 returnedPosition = _characterPhysics.MoveBy(offset);
-
-            // Assert
-            Assert.AreEqual(expectedPosition, returnedPosition);
+            Assert.AreEqual(newPosition, result);
         }
     }
 }

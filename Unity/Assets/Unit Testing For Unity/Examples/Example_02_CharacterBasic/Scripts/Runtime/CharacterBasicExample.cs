@@ -13,6 +13,7 @@ namespace RMC.UnitTesting.Samples.CharacterBasic
         protected void Awake ()
         {
             GameObject go = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            go.name = "CharacterBasic";
             CharacterBasic characterBasic = go.AddComponent<CharacterBasic>();
 
             Vector3 position = new Vector3(0, 0, 0);

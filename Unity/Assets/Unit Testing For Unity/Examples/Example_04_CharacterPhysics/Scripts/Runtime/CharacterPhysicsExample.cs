@@ -13,6 +13,7 @@ namespace RMC.UnitTesting.Samples.CharacterPhysics
         protected void Awake ()
         {
             GameObject go = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            go.name = "CharacterPhysics";
             CharacterPhysicsMb characterPhysicsMb  = go.AddComponent<CharacterPhysicsMb>();
             CharacterPhysics characterPhysics = new CharacterPhysics(characterPhysicsMb);
 
