@@ -1,3 +1,4 @@
+#if REMOVE_THIS_LINE_TO_USE_THIS_TEMPLATE
 using System.Collections;
 using NUnit.Framework;
 using UnityEngine;
@@ -107,3 +108,4 @@ namespace RMC.UnitTesting.Shared.Templates
 		}
 	}
 }
+#endif //REMOVE_THIS_LINE_TO_USE_THIS_TEMPLATE

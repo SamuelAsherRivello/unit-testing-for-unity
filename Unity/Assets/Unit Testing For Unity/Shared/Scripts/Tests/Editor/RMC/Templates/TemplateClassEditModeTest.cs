@@ -1,3 +1,4 @@
+#if REMOVE_THIS_LINE_TO_USE_THIS_TEMPLATE
 using System.Collections;
 using NUnit.Framework;
 using UnityEngine.TestTools;
@@ -10,7 +11,8 @@ namespace RMC.UnitTesting.Shared.Templates
 
 	/// <summary>
 	/// Replace with comments...
-	/// </summary>
+	/// </summary
+	
 	[Category ("RMC.UnitTesting.Shared.Templates")]
 	public class TemplateClassEditModeTest
 	{
@@ -89,3 +91,4 @@ namespace RMC.UnitTesting.Shared.Templates
 		}
 	}
 }
+#endif //REMOVE_THIS_LINE_TO_USE_THIS_TEMPLATE
