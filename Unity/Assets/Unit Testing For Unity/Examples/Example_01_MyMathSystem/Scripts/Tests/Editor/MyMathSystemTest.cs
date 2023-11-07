@@ -8,6 +8,9 @@ namespace RMC.UnitTesting.Samples.MyMathSystem
     [Category ("RMC.UnitTesting.Samples.MyMathSystem")]
     public class MyMathSystemTest
     {
+        private static int[] ValuesA = new int[] { -1, -2, -3, 0, 1, 2, 3 };
+        private static int[] ValuesB = new int[] { -1, -2, -3, 0, 1, 2, 3 };
+        
         [Test]
         public void Add_ResultIs15_When5And10()
         {
@@ -34,13 +37,10 @@ namespace RMC.UnitTesting.Samples.MyMathSystem
             Assert.That(sum, Is.EqualTo(5));
         }
         
-        static int[] valuesA = new int[] { -1, -2, -3, 0, 1, 2, 3 };
-        static int[] valuesB = new int[] { -1, -2, -3, 0, 1, 2, 3 };
-        
         [Test]
         public void Add_ResultIsCorrect_WhenValues(
-            [ValueSource("valuesA")] int valuesA, 
-            [ValueSource("valuesB")] int valuesB )
+            [ValueSource("ValuesA")] int valuesA, 
+            [ValueSource("ValuesB")] int valuesB )
         {
             // Arrange
             MyMathSystem myMathSystem = new MyMathSystem();
@@ -50,6 +50,21 @@ namespace RMC.UnitTesting.Samples.MyMathSystem
             
             // Assert
             Assert.That(sum, Is.EqualTo(valuesA + valuesB));
+        }
+        
+        [Test]
+        public void Subtract_ResultIsCorrect_WhenValues(
+            [ValueSource("ValuesA")] int valuesA, 
+            [ValueSource("ValuesB")] int valuesB )
+        {
+            // Arrange
+            MyMathSystem myMathSystem = new MyMathSystem();
+            
+            // Act
+            int sum = myMathSystem.Subtract(valuesA, valuesB);
+            
+            // Assert
+            Assert.That(sum, Is.EqualTo(valuesA - valuesB));
         }
     }
 }
