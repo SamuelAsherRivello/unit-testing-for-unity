@@ -29,7 +29,7 @@ This is the official repo for the [Unit Testing For Unity](https://www.udemy.com
 
 **Structure**
 * `Unity/` - Open this folder in the Unity Editor
-* `Unity/Assets/Scenes/` - Open any Scene. Press 'Play'!
+* `Unity/Assets/Unit Testing For Unity/Examples/` - Open any Scene. Press 'Play'!
 
 **Dependencies**
 * `Various` - Already included via [Unity Package Manager](https://docs.unity3d.com/Manual/upm-ui.html) as this [Version](./Unity/Packages/manifest.json)
