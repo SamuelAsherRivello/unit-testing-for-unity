@@ -34,6 +34,7 @@ namespace RMC.UnitTesting.Samples.CharacterBasic
             Object.DestroyImmediate(_testGameObject);
             _testGameObject = null;
             _characterBasic = null;
+            
         }
 
         /// <summary>

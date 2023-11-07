@@ -1,9 +1,9 @@
 
 # Unit Testing For Unity
 
-This is the official repo for the "Unit Testing For Unity" course.
+This is the official repo for the [Unit Testing For Unity](https://www.udemy.com/course/unit-testing-for-unity/) course.
 
-<img width="200" src="./Unity/Assets/Samples/Shared/Documentation/ReadMe/Art/Sprites/ProjectIcon.png" alt="Best Practices">
+<img width="200" src="./Unity/Assets/Unit Testing For Unity/Shared/Documentation/ReadMe/Art/Sprites/ProjectIcon.png" alt="Best Practices">
 
 
 **Getting Started**
@@ -13,13 +13,13 @@ This is the official repo for the "Unit Testing For Unity" course.
 1. Enjoy
 
 
----
-
 # Overview
+
+<img width="400" src="./Unity/Assets/Unit Testing For Unity/Shared/Documentation/Images/Screenshot.png" alt="Best Practices">
 
 **Documentation**
 * `ReadMe.md` - The primary documentation for this repo
-* `Unity/Assets/Documentation/ReadMe.asset` - Select this asset in Unity to get started
+* `Unity/Assets/Unit Testing For Unity/Shared/Documentation/ReadMe.asset` - Select this asset in Unity to get started
 
 **Configuration**
 * `Unity Target` - [Standalone MAC/PC](https://support.unity.com/hc/en-us/articles/206336795-What-platforms-are-supported-by-Unity-)

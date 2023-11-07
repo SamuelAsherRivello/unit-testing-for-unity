@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36cf3b74950b299408cc642cd2423789, type: 3}
+  m_Name: ReadMe
+  m_EditorClassIdentifier: 
+  Title: Unit Testing For Unity
+  Icon: {fileID: 2800000, guid: 7c0822b0780ca4a74b276e50db2c68a3, type: 3}
+  Sections:
+  - TextHeading: Welcome
+    TextSubheading: 
+    TextBody: This is the official Unity sample project for the "Unit Testing For
+      Unity" course.\n\nThis training allows you to create and maintain robust Unity
+      classes and architectures. Enjoy!
+    LinkName: 
+    LinkUrl: 
+    PingObjectName: 
+    PingObjectGuid: 
+    MenuItemName: 
+    MenuItemPath: 
+  - TextHeading: 
+    TextSubheading: 
+    TextBody: Course
+    LinkName: Udemy.com/course/unit-testing-for-unity/
+    LinkUrl: https://www.udemy.com/course/unit-testing-for-unity/
+    PingObjectName: 
+    PingObjectGuid: 
+    MenuItemName: 
+    MenuItemPath: 
+  - TextHeading: 
+    TextSubheading: 
+    TextBody: Sample Project
+    LinkName: GitHub.com/SamuelAsherRivello/unit-testing-for-unity/
+    LinkUrl: https://github.com/SamuelAsherRivello/unit-testing-for-unity/
+    PingObjectName: 
+    PingObjectGuid: 
+    MenuItemName: 
+    MenuItemPath: 
+  - TextHeading: Getting Started
+    TextSubheading: 
+    TextBody: Explore these examples to learn more.
+    LinkName: 
+    LinkUrl: 
+    PingObjectName: 
+    PingObjectGuid: 
+    MenuItemName: 
+    MenuItemPath: 
+  - TextHeading: 
+    TextSubheading: 
+    TextBody: 
+    LinkName: 
+    LinkUrl: 
+    PingObjectName: Example_01_MyMathSystem
+    PingObjectGuid: 1327a78403361844aa54ee525d39fbb9
+    MenuItemName: 
+    MenuItemPath: 
+  - TextHeading: 
+    TextSubheading: 
+    TextBody: 
+    LinkName: 
+    LinkUrl: 
+    PingObjectName: Example_02_CharacterBasic
+    PingObjectGuid: 1324d7df588744849986a1cf21f83ecd
+    MenuItemName: 
+    MenuItemPath: 
+  - TextHeading: 
+    TextSubheading: 
+    TextBody: 
+    LinkName: 
+    LinkUrl: 
+    PingObjectName: More...
+    PingObjectGuid: bfab0bf5995ad644c886b4edf38348e3
+    MenuItemName: 
+    MenuItemPath: 
+  HasLoadedLayout: 0
