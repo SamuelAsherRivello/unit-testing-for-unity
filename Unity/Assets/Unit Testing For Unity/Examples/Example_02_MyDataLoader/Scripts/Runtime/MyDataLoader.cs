@@ -1,4 +1,6 @@
 using UnityEngine.Events;
+using UnityEngine.Networking;
+using System.Threading.Tasks;
 
 namespace RMC.UnitTesting.Samples.MyDataLoader
 {
@@ -15,9 +17,12 @@ namespace RMC.UnitTesting.Samples.MyDataLoader
         public string Result { get; private set; }
         public bool IsLoaded { get { return Result != string.Empty ; }}
         
-        public void Load (string url)
+        public async Task Load (string url)
         {
-            Result = "Hello World!";
+            Result = string.Empty;
+            UnityWebRequest www = UnityWebRequest.Get(url);
+            await www.SendWebRequest();
+            Result = www.downloadHandler.text;
             OnLoaded.Invoke(Result);
         }
     }
