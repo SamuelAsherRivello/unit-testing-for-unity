@@ -1,11 +1,11 @@
 {
-    "name": "RMC.UnitTesting.Samples.MyDataLoaderBasic.Runtime.Tests",
+    "name": "RMC.UnitTesting.Samples.MyDataLoaderAdvanced.Runtime.Tests",
     "rootNamespace": "",
     "references": [
         "GUID:27619889b8ba8c24980f49ee34dbb44a",
         "GUID:0acc523941302664db1f4e527237feb3",
         "GUID:1bd920aa2cc01364d8e15ad9ca79abf3",
-        "GUID:24097d6e86a1f2f4a82836a04f918dc5"
+        "GUID:db7b763a3117acf4186249f9d7452d90"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

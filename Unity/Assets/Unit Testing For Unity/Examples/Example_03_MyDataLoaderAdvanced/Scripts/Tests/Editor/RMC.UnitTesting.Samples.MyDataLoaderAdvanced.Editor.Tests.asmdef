@@ -1,0 +1,20 @@
+{
+    "name": "RMC.UnitTesting.Samples.MyDataLoaderAdvanced.Editor.Tests",
+    "rootNamespace": "",
+    "references": [
+        "GUID:db7b763a3117acf4186249f9d7452d90"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "NSubstitute.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
