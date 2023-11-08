@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 
+#pragma warning disable CS4014 // Ignore await warning
 namespace RMC.UnitTesting.Samples.MyDataLoader
 {
     /// <summary>
@@ -9,19 +10,21 @@ namespace RMC.UnitTesting.Samples.MyDataLoader
     public class MyDataLoaderExample: MonoBehaviour
     {
         [ExcludeFromCodeCoverage]
-        protected async void Awake ()
+        protected void Awake ()
         {
-            MyDataLoader myDataLoader = new MyDataLoader();
-            string url = "https://www.google.com/anyurl/";
             string result = "";
+            MyDataLoader myDataLoader = new MyDataLoader();
+            
+            //Load the page contents from a dummy page. The page contents are not important.
+            string url = "https://github.com/SamuelAsherRivello/unit-testing-for-unity/";
             
             myDataLoader.OnLoaded.AddListener((string data) =>
             {
                 result = data;
-                Debug.Log($"Result = {result}");
+                Debug.Log($"Result.Length = {result.Length}");
             });
-            myDataLoader.Load(url);
             
+            myDataLoader.LoadAsync(url);
             
             Debug.Log($"This Scene has no UI. It has only console logging.");
         }

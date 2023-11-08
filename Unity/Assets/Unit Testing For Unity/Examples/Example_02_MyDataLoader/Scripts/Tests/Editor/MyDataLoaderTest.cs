@@ -1,5 +1,7 @@
 using NUnit.Framework;
+using UnityEngine;
 
+#pragma warning disable CS4014 // Ignore await warning
 namespace RMC.UnitTesting.Samples.MyDataLoader
 {
     /// <summary>
@@ -8,27 +10,22 @@ namespace RMC.UnitTesting.Samples.MyDataLoader
     [Category ("RMC.UnitTesting.Samples.MyDataLoader")]
     public class MyDataLoaderTest
     {
-        private static int[] ValuesA = new int[] { -1, -2, -3, 0, 1, 2, 3 };
-        private static int[] ValuesB = new int[] { -1, -2, -3, 0, 1, 2, 3 };
-        
+        private const string _url = "https://github.com/SamuelAsherRivello/unit-testing-for-unity/";
+
         [Test]
-        public void Load_ResultIsHelloWorld_WhenIsLoaded()
+        public void LoadAsync_ResultContainsDOCTYPE_WhenIsLoaded()
         {
             // Arrange
             MyDataLoader myDataLoader = new MyDataLoader();
-            string url = "https://www.google.com/anyurl/";
-            string result = "";
+            
+            myDataLoader.OnLoaded.AddListener((string result) =>
+            {
+                // Assert
+                Assert.That(result.Contains("DOCTYPE"), Is.True);
+            });
             
             // Act
-            myDataLoader.OnLoaded.AddListener((string data) =>
-            {
-                result = data;
-            });
-            myDataLoader.Load(url);
-            
-            // Assert
-            Assert.That(result, Is.EqualTo("Hello World!"));
+            myDataLoader.LoadAsync(_url);
         }
-        
     }
 }

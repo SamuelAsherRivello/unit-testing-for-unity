@@ -1,36 +1,49 @@
+
 using System.Collections;
+using System.Threading.Tasks;
 using NUnit.Framework;
+using RMC.UnitTesting.Shared.Extensions;
 using UnityEngine;
 using UnityEngine.TestTools;
 
+#pragma warning disable CS4014 // Ignore await warning
 namespace RMC.UnitTesting.Samples.MyDataLoader
 {
     /// <summary>
     /// This Unit Test validates that code executes as expected.
     /// </summary>
-    [Category ("RMC.UnitTesting.Samples.MyDataLoader")]
+    [Category("RMC.UnitTesting.Samples.MyDataLoader")]
     public class MyDataLoaderPlayModeTest
     {
+        private const string _url = "https://github.com/SamuelAsherRivello/unit-testing-for-unity/";
+
         [UnityTest]
-        public IEnumerator Load_ResultIsHelloWorld_WhenIsLoaded()
+        public IEnumerator LoadAsync_ResultContainsDOCTYPE_WhenIsLoaded()
         {
-            // Arrange
-            MyDataLoader myDataLoader = new MyDataLoader();
-            string url = "https://www.google.com/anyurl/";
-            string result = "";
-            
-            // Act
-            myDataLoader.OnLoaded.AddListener((string data) =>
+            ////////////////////////////////////////////////////
+            // SETUP: Allow for async code within a [UnityTest]
+            ////////////////////////////////////////////////////
+            yield return Run().AsCoroutine();
+            async Task Run() 
             {
-                result = data;
-            });
-            myDataLoader.Load(url);
-            
-            // Await
-            yield return new WaitUntil(() => myDataLoader.IsLoaded);
-            
-            // Assert
-            Assert.That(result, Is.EqualTo("Hello World!"));
+                ////////////////////////////////////////////////////
+                // TEST: Now add the test logic
+                ////////////////////////////////////////////////////
+
+                // Arrange
+                MyDataLoader myDataLoader = new MyDataLoader();
+
+                string result = "";
+
+                // Act
+                myDataLoader.OnLoaded.AddListener((string data) => { result = data; });
+
+                // Await
+                await myDataLoader.LoadAsync(_url);
+
+                // Assert
+                Assert.That(result.Contains("DOCTYPE"), Is.True);
+            }
         }
     }
 }

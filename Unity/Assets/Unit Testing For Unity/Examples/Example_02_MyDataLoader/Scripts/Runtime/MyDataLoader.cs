@@ -17,7 +17,7 @@ namespace RMC.UnitTesting.Samples.MyDataLoader
         public string Result { get; private set; }
         public bool IsLoaded { get { return Result != string.Empty ; }}
         
-        public async Task Load (string url)
+        public async Task LoadAsync (string url)
         {
             Result = string.Empty;
             UnityWebRequest www = UnityWebRequest.Get(url);
