@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace RMC.UnitTesting.Samples.MyDataLoader
+namespace RMC.UnitTesting.Shared.Networking
 {
     /// <summary>
     /// This is a helper that makes calling a simple url easier

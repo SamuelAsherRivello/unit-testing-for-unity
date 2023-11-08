@@ -1,8 +1,9 @@
 using UnityEngine.Events;
 using UnityEngine.Networking;
 using System.Threading.Tasks;
+using RMC.UnitTesting.Shared.Networking;
 
-namespace RMC.UnitTesting.Samples.MyDataLoader
+namespace RMC.UnitTesting.Samples.MyDataLoaderBasic
 {
     public class StringUnityEvent : UnityEvent<string>{}
     
@@ -10,7 +11,7 @@ namespace RMC.UnitTesting.Samples.MyDataLoader
     /// This performs common math operations on
     /// operands of a and b.
     /// </summary>
-    public class MyDataLoader
+    public class MyDataLoaderBasic
     {
         public StringUnityEvent OnLoaded = new StringUnityEvent();
         

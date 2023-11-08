@@ -1,5 +1,5 @@
 {
-    "name": "RMC.UnitTesting.Samples.MyDataLoader.Editor.Tests",
+    "name": "RMC.UnitTesting.Samples.MyDataLoaderBasic.Editor.Tests",
     "rootNamespace": "",
     "references": [
         "GUID:24097d6e86a1f2f4a82836a04f918dc5"

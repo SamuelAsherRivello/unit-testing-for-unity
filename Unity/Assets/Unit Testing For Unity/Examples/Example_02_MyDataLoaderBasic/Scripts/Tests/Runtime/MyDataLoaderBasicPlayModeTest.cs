@@ -7,13 +7,13 @@ using UnityEngine;
 using UnityEngine.TestTools;
 
 #pragma warning disable CS4014 // Ignore await warning
-namespace RMC.UnitTesting.Samples.MyDataLoader
+namespace RMC.UnitTesting.Samples.MyDataLoaderBasic
 {
     /// <summary>
     /// This Unit Test validates that code executes as expected.
     /// </summary>
-    [Category("RMC.UnitTesting.Samples.MyDataLoader")]
-    public class MyDataLoaderPlayModeTest
+    [Category("RMC.UnitTesting.Samples.MyDataLoaderBasic")]
+    public class MyDataLoaderBasicPlayModeTest
     {
         private const string _url = "https://github.com/SamuelAsherRivello/unit-testing-for-unity/";
 
@@ -31,7 +31,7 @@ namespace RMC.UnitTesting.Samples.MyDataLoader
                 ////////////////////////////////////////////////////
 
                 // Arrange
-                MyDataLoader myDataLoader = new MyDataLoader();
+                MyDataLoaderBasic myDataLoader = new MyDataLoaderBasic();
 
                 string result = "";
 
