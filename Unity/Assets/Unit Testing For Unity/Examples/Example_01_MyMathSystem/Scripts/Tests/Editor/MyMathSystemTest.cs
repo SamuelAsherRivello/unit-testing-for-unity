@@ -8,6 +8,10 @@ namespace RMC.UnitTesting.Samples.MyMathSystem
     [Category ("RMC.UnitTesting.Samples.MyMathSystem")]
     public class MyMathSystemTest
     {
+        /// <summary>
+        /// Learn More: Parameterized Tests...
+        /// * https://docs.unity3d.com/Packages/com.unity.test-framework@2.0/manual/reference-tests-parameterized.html
+        /// </summary>
         private static int[] ValuesA = new int[] { -1, -2, -3, 0, 1, 2, 3 };
         private static int[] ValuesB = new int[] { -1, -2, -3, 0, 1, 2, 3 };
         
