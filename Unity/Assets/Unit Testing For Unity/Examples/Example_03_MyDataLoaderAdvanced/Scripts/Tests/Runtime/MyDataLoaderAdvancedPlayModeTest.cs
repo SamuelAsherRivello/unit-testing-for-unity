@@ -33,7 +33,7 @@ namespace RMC.UnitTesting.Samples.MyDataLoaderAdvanced
                 ////////////////////////////////////////////////////
                 
                 // Arrange
-                string expectedResult = "DOCTYPE"; // Silly test, to prove we loaded any webpage
+                string expectedResult = "DOCTYPE"; // Silly test, to prove we loaded a webpage
                 UnityWebRequestNetworkService networkService = new UnityWebRequestNetworkService();
                 MyDataLoaderAdvanced myDataLoader = new MyDataLoaderAdvanced(networkService);
 
