@@ -31,6 +31,7 @@ namespace RMC.UnitTesting.Samples.MyDataLoaderBasic
                 ////////////////////////////////////////////////////
 
                 // Arrange
+                string expectedResult = "DOCTYPE"; // Silly test, to prove we loaded any webpage
                 MyDataLoaderBasic myDataLoader = new MyDataLoaderBasic();
 
                 string result = "";
@@ -42,7 +43,7 @@ namespace RMC.UnitTesting.Samples.MyDataLoaderBasic
                 await myDataLoader.LoadAsync(_url);
 
                 // Assert
-                Assert.That(result.Contains("DOCTYPE"), Is.True);
+                Assert.That(result.Contains(expectedResult), Is.True);
             }
         }
     }

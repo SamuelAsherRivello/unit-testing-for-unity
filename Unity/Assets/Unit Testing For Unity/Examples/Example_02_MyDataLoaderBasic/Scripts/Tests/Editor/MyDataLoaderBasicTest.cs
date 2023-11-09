@@ -16,12 +16,13 @@ namespace RMC.UnitTesting.Samples.MyDataLoaderBasic
         public void LoadAsync_ResultContainsDOCTYPE_WhenIsLoaded()
         {
             // Arrange
+            string expectedResult = "DOCTYPE"; // Silly test, to prove we loaded any webpage
             MyDataLoaderBasic myDataLoader = new MyDataLoaderBasic();
             
             myDataLoader.OnLoaded.AddListener((string result) =>
             {
                 // Assert
-                Assert.That(result.Contains("DOCTYPE"), Is.True);
+                Assert.That(result.Contains(expectedResult), Is.True);
             });
             
             // Act

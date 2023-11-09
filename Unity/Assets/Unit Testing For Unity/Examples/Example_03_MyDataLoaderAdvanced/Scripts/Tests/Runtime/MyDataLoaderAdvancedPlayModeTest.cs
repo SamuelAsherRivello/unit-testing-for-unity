@@ -28,8 +28,14 @@ namespace RMC.UnitTesting.Samples.MyDataLoaderAdvanced
                 // TEST: Now add the test logic
                 ////////////////////////////////////////////////////
 
+                ////////////////////////////////////////////////////
+                // NOTE: We cannot use NSubstitute in PlayMode. Its a limitation of Unity.
+                ////////////////////////////////////////////////////
+                
                 // Arrange
-                MyDataLoaderAdvanced myDataLoader = new MyDataLoaderAdvanced();
+                string expectedResult = "DOCTYPE"; // Silly test, to prove we loaded any webpage
+                UnityWebRequestNetworkService networkService = new UnityWebRequestNetworkService();
+                MyDataLoaderAdvanced myDataLoader = new MyDataLoaderAdvanced(networkService);
 
                 string result = "";
 
@@ -40,7 +46,7 @@ namespace RMC.UnitTesting.Samples.MyDataLoaderAdvanced
                 await myDataLoader.LoadAsync(_url);
 
                 // Assert
-                Assert.That(result.Contains("DOCTYPE"), Is.True);
+                Assert.That(result.Contains(expectedResult), Is.True);
             }
         }
     }

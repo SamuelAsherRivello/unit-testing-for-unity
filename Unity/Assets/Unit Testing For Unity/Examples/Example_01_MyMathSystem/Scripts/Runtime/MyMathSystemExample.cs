@@ -17,7 +17,7 @@ namespace RMC.UnitTesting.Samples.MyMathSystem
             int b = 10;
             int result = myMathSystem.Add(a, b);
             
-            Debug.Log($"This Scene has no UI. It has only console logging.");
+            Debug.Log($"Instructions: This Scene has no UI. See Unity Console.");
             Debug.Log($"Result = {result}");
         }
 

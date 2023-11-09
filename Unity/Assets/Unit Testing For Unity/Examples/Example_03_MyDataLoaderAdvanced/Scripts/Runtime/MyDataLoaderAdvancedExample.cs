@@ -13,7 +13,9 @@ namespace RMC.UnitTesting.Samples.MyDataLoaderAdvanced
         protected void Awake ()
         {
             string result = "";
-            MyDataLoaderAdvanced myDataLoader = new MyDataLoaderAdvanced();
+
+            UnityWebRequestNetworkService networkService = new UnityWebRequestNetworkService();
+            MyDataLoaderAdvanced myDataLoader = new MyDataLoaderAdvanced(networkService);
             
             //Load the page contents from a dummy page. The page contents are not important.
             string url = "https://github.com/SamuelAsherRivello/unit-testing-for-unity/";
@@ -27,7 +29,7 @@ namespace RMC.UnitTesting.Samples.MyDataLoaderAdvanced
             
             myDataLoader.LoadAsync(url);
             
-            Debug.Log($"This Scene has no UI. It has only console logging.");
+            Debug.Log($"Instructions: This Scene has no UI. See Unity Console.");
         }
 
     }

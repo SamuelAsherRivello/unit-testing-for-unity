@@ -1,0 +1,28 @@
+Here are some extra notes on the dependencies used in this project.
+In production, you may or may not want to use these dependencies.
+Please do your own research.
+
+
+////////////////////
+UNITY TEST FRAMEWORK
+This project uses an experimental version of this Unity Test Framework...
+https://forum.unity.com/threads/unity-test-framework-2-0-ready-for-feedback.1230126/
+
+Which enables many features used in the sample project such as...
+https://docs.unity3d.com/Packages/com.unity.test-framework@2.0/manual/reference-async-tests.html
+
+
+////////////////////
+UNITY CODE COVERAGE
+This project uses a production version of Unity Code Coverage...
+https://docs.unity3d.com/Packages/com.unity.testtools.codecoverage@1.2/manual/index.html
+
+
+////////////////////
+NSUBSTITUTE
+
+This project uses a community-based Unity version of NSubstitute...
+https://github.com/Thundernerd/Unity3D-NSubstitute/tree/main
+
+Which is based on non-Unity technology for testing...
+https://nsubstitute.github.io/help/creating-a-substitute/#substituting_infrequently_and_carefully_for_classes

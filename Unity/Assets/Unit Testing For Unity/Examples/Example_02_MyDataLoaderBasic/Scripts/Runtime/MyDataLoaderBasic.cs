@@ -1,3 +1,4 @@
+using System;
 using UnityEngine.Events;
 using UnityEngine.Networking;
 using System.Threading.Tasks;
@@ -8,8 +9,9 @@ namespace RMC.UnitTesting.Samples.MyDataLoaderBasic
     public class StringUnityEvent : UnityEvent<string>{}
     
     /// <summary>
-    /// This performs common math operations on
-    /// operands of a and b.
+    /// Load text data from a web url.
+    /// This is not a real-world example.
+    /// It is a simple demo of asynchronous operations.
     /// </summary>
     public class MyDataLoaderBasic
     {
@@ -17,9 +19,18 @@ namespace RMC.UnitTesting.Samples.MyDataLoaderBasic
         
         public string Result { get; private set; }
         public bool IsLoaded { get { return Result != string.Empty ; }}
+
+        public MyDataLoaderBasic()
+        {
+            Result = string.Empty;
+        }
         
         public async Task LoadAsync (string url)
         {
+            if (string.IsNullOrEmpty(url))
+            {
+                throw new ArgumentException();
+            }
             Result = string.Empty;
             UnityWebRequest www = UnityWebRequest.Get(url);
             await www.SendWebRequest();
