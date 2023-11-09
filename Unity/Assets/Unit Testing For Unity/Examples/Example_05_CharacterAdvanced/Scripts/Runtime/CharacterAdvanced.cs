@@ -7,16 +7,11 @@ namespace RMC.UnitTesting.Samples.CharacterAdvanced
     /// </summary>
     public class CharacterAdvancedMb : MonoBehaviour
     {
-        private CharacterAdvanced _characterAdvanced;
+        public CharacterAdvanced CharacterAdvanced { set; get; }
 
-        private void Awake()
-        {
-            _characterAdvanced = new CharacterAdvanced(this);
-        }
-        
         private void Update()
         {
-            _characterAdvanced.MoveByInput();
+            CharacterAdvanced.MoveByInput();
         }
     }
 
@@ -33,6 +28,7 @@ namespace RMC.UnitTesting.Samples.CharacterAdvanced
         public CharacterAdvanced(CharacterAdvancedMb characterMB)
         {
             _characterMB = characterMB;
+            _characterMB.CharacterAdvanced = this;
         }
 
         public enum MoveType

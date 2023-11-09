@@ -36,14 +36,6 @@ namespace RMC.UnitTesting.Samples.MyDataLoaderAdvanced
         [Test]
         public async Task MockLoadAsync_ResultContainsMockedData_WhenIsLoaded()
         {
-            ////////////////////////////////////////////////////
-            // NOTE: We can use NSubstitute in EditMode
-            // SPECIFIC PACKAGE ALREADY INCLUDED IN PROJECT:
-            //      https://github.com/Thundernerd/Unity3D-NSubstitute/tree/main
-            // GENERAL GUIDE:
-            //      https://nsubstitute.github.io/help/creating-a-substitute/#substituting_infrequently_and_carefully_for_classes
-            ////////////////////////////////////////////////////
-
             // Arrange
             string expectedResult = "MockedData";
             var networkService = Substitute.For<INetworkService>();
