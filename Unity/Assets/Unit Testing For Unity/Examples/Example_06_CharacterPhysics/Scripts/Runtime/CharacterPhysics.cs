@@ -9,10 +9,14 @@ namespace RMC.UnitTesting.Samples.CharacterPhysics
     [RequireComponent(typeof(Rigidbody))]
     public class CharacterPhysicsMb : MonoBehaviour
     {
-        public Rigidbody Rigidbody { get { return _rigidbody;}}
+        public Rigidbody Rigidbody
+        {
+            get { return _rigidbody; }
+        }
+
         private Rigidbody _rigidbody;
-        private CharacterPhysics _characterPhysics;
-        
+        public CharacterPhysics CharacterPhysics { set; get; }
+
         private void Awake()
         {
             //////////////////////////////////////////////
@@ -26,13 +30,11 @@ namespace RMC.UnitTesting.Samples.CharacterPhysics
             _rigidbody.useGravity = false;
             //////////////////////////////////////////////
     
-       
-            _characterPhysics = new CharacterPhysics(this);
         }
         
         private void Update()
         {
-            _characterPhysics.MoveByInput();
+            CharacterPhysics.MoveByInput();
         }
     }
 
@@ -51,6 +53,7 @@ namespace RMC.UnitTesting.Samples.CharacterPhysics
         public CharacterPhysics(CharacterPhysicsMb characterPhysicsMb)
         {
             _characterPhysicsMb = characterPhysicsMb;
+            _characterPhysicsMb.CharacterPhysics = this;
         }
 
         public enum MoveType
