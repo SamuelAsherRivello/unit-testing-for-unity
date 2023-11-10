@@ -12,8 +12,35 @@ This is the official repo for the [Unit Testing For Unity](https://www.udemy.com
 1. Open this repo in the Unity Editor
 1. Enjoy
 
+# Unit Testing For Unity - Course
+
+### Available Now
+
+We all start projects with the best of intentions. But during development we often find our projects do not meet our expectations for organization, scalability, and for our quality of life as developers. 
+
+Enroll in the <a href="https://bit.ly/unit-testing-for-unity-on-udemy">Online Course</a> today.
+
+### Video
+
+Watch the <a href="https://bit.ly/unit-testing-for-unity-trailer">Trailer Video</a> now.
+
+<a href="https://bit.ly/unit-testing-for-unity-trailer">
+<img width="400" src="https://i3.ytimg.com/vi/_Stg9foOK80/maxresdefault.jpg" alt="Unit Testing For Unity Trailer"></a>
+
+
+
 
 # Overview
+
+With the Unity Course Sample Project in this repo, you can...
+
+* Learn Unit Testing & Test-Driven-Development (TDD) Fundamentals
+* Plan & create consistently clean code
+* Reinforce your knowledge with practical, relevant coding assignments
+* Apply your learnings in the many included Unity Sample Projects
+ 
+
+**Screenshot**
 
 <img width="400" src="./Unity/Assets/Unit Testing For Unity/Shared/Documentation/Images/Screenshot.png" alt="Best Practices">
 
