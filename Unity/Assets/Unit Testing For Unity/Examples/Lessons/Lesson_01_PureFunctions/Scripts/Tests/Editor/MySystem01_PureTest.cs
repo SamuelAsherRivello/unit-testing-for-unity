@@ -6,18 +6,18 @@ namespace RMC.UnitTesting.Examples.PureFunctions
     /// This Unit Test validates that code executes as expected.
     /// </summary>
     [Category ("RMC.UnitTesting.Samples.PureFunctions")]
-    public class MyPureSystemTest
+    public class MySystem01_PureTest
     {
         [Test]
-        public void GetProduct_ResultIs20_WhenInputIs_2_10()
+        public void ConvertValue_ResultIs20_WhenInputIs_2_10()
         {
             // Arrange
-            MyPureSystem myPureSystem = new MyPureSystem();
             int value = 2;
             int multiplier = 10;
-            
+            MySystem01_Pure system = new MySystem01_Pure();
+
             // Act
-            int result = myPureSystem.ConvertValue(value, multiplier);
+            int result = system.ConvertValue(value, multiplier);
             
             // Assert
             Assert.That(result, Is.EqualTo(20));

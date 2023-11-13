@@ -9,24 +9,24 @@ namespace RMC.UnitTesting.Examples.PureFunctions
     /// This Unit Test validates that code executes as expected.
     /// </summary>
     [Category ("RMC.UnitTesting.Samples.PureFunctions")]
-    public class MyPureSystemPlayModeTest
+    public class MySystem02_NonPurePlayModeTest
     {
         [UnityTest]
-        public IEnumerator ConvertValue_ResultIs20_WhenInputIs_2_10_()
+        public IEnumerator ConvertValue_ResultIs30_WhenInputIs_3_()
         {
             // Arrange
-            int value = 2;
+            int value = 3;
             int multiplier = 10;
-            MySystem01_Pure system = new MySystem01_Pure();
-
+            MySystem02_NonPure system = new MySystem02_NonPure(multiplier);
+            
             // Act
-            int result = system.ConvertValue(value, multiplier);
-        
+            int result = system.ConvertValue(value);
+            
             // Await
             yield return new WaitForSeconds(0.2f);
-        
+            
             // Assert
-            Assert.That(result, Is.EqualTo(20));
+            Assert.That(result, Is.EqualTo(30));
         }
     }
 }

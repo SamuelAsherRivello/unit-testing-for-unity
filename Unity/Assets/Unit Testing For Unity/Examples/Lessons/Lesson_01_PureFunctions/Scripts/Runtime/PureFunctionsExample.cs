@@ -11,12 +11,12 @@ namespace RMC.UnitTesting.Examples.PureFunctions
         [ExcludeFromCodeCoverage]
         protected void Awake ()
         {
-            MyPureSystem myPureSystem = new MyPureSystem();
+            MySystem01_Pure mySystem01Pure = new MySystem01_Pure();
             int value = 2;
             int multiplier = 10;
             
             // Act
-            int result = myPureSystem.ConvertValue(value, multiplier);
+            int result = mySystem01Pure.ConvertValue(value, multiplier);
             
             Debug.Log($"Instructions: This Scene has no UI. See Unity Console.");
             Debug.Log($"Result = {result}");
