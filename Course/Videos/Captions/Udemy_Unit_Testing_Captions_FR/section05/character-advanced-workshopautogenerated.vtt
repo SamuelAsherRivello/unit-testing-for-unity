@@ -1,271 +1,271 @@
 WEBVTT
 
 00:00.260 --> 00:03.380
-Hello and welcome to Unit Testing for unity.
+Bonjour et bienvenue à Unit Testing for unity.
 
 00:03.410 --> 00:07.340
-In this workshop we're looking at the character class in an advanced version.
+Dans cet atelier, nous examinons la classe de personnage dans une version avancée.
 
 00:07.340 --> 00:09.290
-Let's take a look at this demo in action.
+Jetons un coup d'œil à cette démo en action.
 
 00:09.290 --> 00:11.330
-Here we're going to open up our unity.
+Ici, nous allons ouvrir notre unité.
 
 00:11.360 --> 00:13.310
-We're going to open up our sample project.
+Nous allons ouvrir notre projet d'exemple.
 
 00:13.310 --> 00:18.830
-And we're going to take a look at a scene inside for the character advanced situation here I want to
+Et nous allons jeter un coup d'œil à une scène à l'intérieur pour la situation avancée du personnage ici, je veux
 
 00:18.830 --> 00:21.620
-talk a little bit about code separation.
+parler un peu de la séparation des codes.
 
 00:21.650 --> 00:26.420
-Earlier in one of the workshops, I talked about the different dependencies that you'd have.
+Plus tôt, dans l'un des ateliers, j'ai parlé des différentes dépendances que l'on peut avoir.
 
 00:26.420 --> 00:28.670
-For example, if you're calling a back end server.
+Par exemple, si vous appelez un serveur dorsal.
 
 00:28.670 --> 00:35.840
-And in that situation, we used a substitute library to mock out and not need to call the back end.
+Dans ce cas, nous avons utilisé une bibliothèque de substitution pour nous moquer et ne pas avoir besoin d'appeler le serveur final.
 
 00:35.870 --> 00:42.230
-It's a similar discussion here where we're looking at what are the dependency involved with a particular
+Il s'agit d'une discussion similaire ici, où nous examinons les dépendances impliquées par une bibliothèque particulière.
 
 00:42.230 --> 00:48.950
-test scenario, and how do we be aware of those different dependencies, and what do we want to do about
+scénario de test particulier, et comment sommes-nous conscients de ces différentes dépendances, et que voulons-nous faire à ce sujet ?
 
 00:48.950 --> 00:49.190
-it?
+de ces dépendances ?
 
 00:49.220 --> 00:51.740
-Here we're not going to use the substitute library.
+Ici, nous n'allons pas utiliser la bibliothèque de substitution.
 
 00:51.740 --> 00:56.270
-We're going to think about separating our monobehaviour from other code and taking a look.
+Nous allons penser à séparer notre monobehaviour du reste du code et à y jeter un coup d'oeil.
 
 00:56.480 --> 00:58.250
-So here we are inside unity.
+Nous voici donc à l'intérieur de unity.
 
 00:58.580 --> 00:59.750
-We've got a production class.
+Nous avons une classe de production.
 
 00:59.750 --> 01:00.560
-Let's take a look at it.
+Jetons-y un coup d'œil.
 
 01:00.560 --> 01:01.160
-Running.
+En cours d'exécution.
 
 01:04.840 --> 01:07.810
-Down here, we see that we can move around with our arrow keys.
+Ici, nous voyons que nous pouvons nous déplacer à l'aide des touches fléchées.
 
 01:07.810 --> 01:11.350
-Just like in the basic example, the end user experience is the same.
+Comme dans l'exemple de base, l'expérience de l'utilisateur final est la même.
 
 01:11.350 --> 01:16.630
-And that's something of an interesting example here, that some of the changes that we do for the code
+Il s'agit d'un exemple intéressant : certains changements apportés au code
 
 01:16.630 --> 01:21.550
-quality and testability of our systems doesn't necessarily impact the end user.
+qualité du code et la testabilité de nos systèmes n'ont pas nécessairement d'impact sur l'utilisateur final.
 
 01:21.580 --> 01:22.680
-That's a positive.
+C'est un point positif.
 
 01:22.690 --> 01:25.570
-So let's take a look at the production code here.
+Jetons donc un coup d'œil au code de production.
 
 01:25.570 --> 01:27.640
-We'll open up the character advanced example.
+Nous allons ouvrir l'exemple de caractère avancé.
 
 01:27.640 --> 01:29.200
-Here's a complete example.
+Voici un exemple complet.
 
 01:29.200 --> 01:35.140
-What we're doing inside the wake of this example class is we're creating a primitive for the cube.
+Ce que nous faisons dans le sillage de cette classe d'exemple, c'est que nous créons une primitive pour le cube.
 
 01:35.140 --> 01:37.600
-We give it a name for organization sake.
+Nous lui donnons un nom pour des raisons d'organisation.
 
 01:37.690 --> 01:45.310
-Then instead of one line here where we just add a component that has all of our functionality, we do
+Ensuite, au lieu d'une ligne ici où nous ajoutons simplement un composant qui a toutes nos fonctionnalités, nous faisons
 
 01:45.340 --> 01:46.480
-two steps.
+deux étapes.
 
 01:46.720 --> 01:52.000
-This is reminding me a little bit of the dependency injection we saw in the My Data loader example.
+Cela me rappelle un peu l'injection de dépendance que nous avons vue dans l'exemple du chargeur de données.
 
 01:52.000 --> 01:55.300
-But this is a different use case with different dependencies.
+Mais il s'agit d'un cas d'utilisation différent avec des dépendances différentes.
 
 01:55.300 --> 02:00.250
-So instead of just one add component line we do the add component.
+Au lieu d'une seule ligne d'ajout de composant, nous ajoutons un composant.
 
 02:00.250 --> 02:05.590
-And then we create our own non monobehaviour character advanced class.
+Puis nous créons notre propre classe avancée de caractère non monobehaviour.
 
 02:05.590 --> 02:07.840
-And we pass in the Monobehaviour.
+Et nous passons le Monobehaviour.
 
 02:07.840 --> 02:12.700
-So we're passing in the dependency that the character advance is going to use.
+Nous passons donc la dépendance que le caractère avancé va utiliser.
 
 02:12.730 --> 02:19.240
-Now character advanced is not a monobehaviour, and thereby we have more flexibility with how we want
+Maintenant, l'avance de caractère n'est pas un comportement unique, et nous avons donc plus de flexibilité sur la façon dont nous voulons que l'avance de caractère soit utilisée.
 
 02:19.240 --> 02:19.810
-to test it.
+de le tester.
 
 02:19.840 --> 02:23.110
-We could test it at edit mode, for example, more easily.
+Nous pourrions le tester en mode édition, par exemple, plus facilement.
 
 02:23.260 --> 02:28.330
-Again, whenever you're using Monobehaviours that's more appropriate for play mode tests.
+Encore une fois, lorsque vous utilisez des Monobehaviours, c'est plus approprié pour les tests en mode lecture.
 
 02:28.360 --> 02:31.270
-It's not a hard rule, but that's one way to think about it.
+Ce n'est pas une règle absolue, mais c'est une façon de voir les choses.
 
 02:31.270 --> 02:37.960
-So here, by separating our monobehaviour from our non monobehaviour, we've got a few more options.
+Ici, en séparant notre monobehaviour de notre non-monobehaviour, nous avons un peu plus d'options.
 
 02:37.990 --> 02:43.360
-Now we're still here in a play play mode environment because this is the production code.
+Nous sommes toujours dans un environnement en mode "play play" car il s'agit du code de production.
 
 02:43.360 --> 02:46.270
-Let's step in and see how our source code is changed.
+Entrons et voyons comment notre code source est modifié.
 
 02:46.270 --> 02:48.340
-So here we are in the character advanced.
+Nous voici donc dans le caractère avancé.
 
 02:48.370 --> 02:50.530
-You'll see that it looks pretty familiar.
+Vous verrez que cela nous est assez familier.
 
 02:50.530 --> 02:56.400
-Most of the code in here is going to be just like the previous basic example, a few exceptions.
+La majeure partie du code ici sera identique à l'exemple de base précédent, à quelques exceptions près.
 
 02:56.410 --> 03:02.980
-One is that the character advanced is going to take in a reference in its constructor to the Monobehaviour.
+L'une d'entre elles est que le caractère avancé va prendre une référence au Monobehaviour dans son constructeur.
 
 03:03.010 --> 03:08.200
-This is because it needs to know some things about the Monobehaviour, particularly around its transform
+En effet, il a besoin de savoir certaines choses sur le Monobehaviour, notamment en ce qui concerne sa transformation.
 
 03:08.200 --> 03:09.040
-position.
+sa position.
 
 03:09.130 --> 03:15.700
-There's also a situation where we need to use the second line and tell the Monobehaviour a reference
+Il y a aussi une situation où nous devons utiliser la deuxième ligne et indiquer une référence au Monobehaviour
 
 03:15.700 --> 03:18.130
-back to us as the character advanced.
+qui nous renvoie à l'avancement du caractère.
 
 03:18.160 --> 03:24.790
-This is just so that the Monobehaviour, whenever it calls update can tell us to do the proper move.
+C'est juste pour que le Monobehaviour, à chaque fois qu'il appelle la mise à jour, puisse nous dire de faire le mouvement approprié.
 
 03:24.820 --> 03:30.280
-There's other ways you could organize this, but for simplicity's sake, we're passing in the monobehaviour
+Il y a d'autres façons d'organiser cela, mais pour des raisons de simplicité, nous passons dans le monobehaviour
 
 03:30.280 --> 03:31.660
-and handling it this way.
+et nous le gérons de cette façon.
 
 03:31.990 --> 03:34.480
-Let's see what other changes we see in the code base.
+Voyons quels sont les autres changements dans la base de code.
 
 03:35.800 --> 03:38.140
-The move type is the same as the basic.
+Le type de déplacement est identique à celui de la base.
 
 03:38.170 --> 03:40.360
-The move by input is the same.
+Le déplacement par entrée est le même.
 
 03:41.260 --> 03:45.610
-Down here the move by key code is very similar if not identical.
+Ici, le mouvement par code de touche est très similaire, voire identique.
 
 03:46.480 --> 03:52.930
-And then down here in the move to and move by, you can notice that we are getting and setting the position
+Et ici, dans le déplacement vers et le déplacement par, vous pouvez remarquer que nous obtenons et définissons la position
 
 03:52.930 --> 03:55.630
-on the transform of the Monobehaviour.
+sur la transformation du Monobehaviour.
 
 03:55.630 --> 04:02.590
-So again we have mostly a non monobehaviour class here doing what it can do without any dependency on
+Encore une fois, nous avons une classe non monobehaviour qui fait ce qu'elle peut faire sans dépendre de
 
 04:02.590 --> 04:08.130
-Monobehaviour and only in the most necessary spots does it address the Monobehaviour.
+Monobehaviour et ce n'est que dans les endroits les plus nécessaires qu'elle s'adresse au Monobehaviour.
 
 04:08.140 --> 04:14.140
-That separation begins to help us think about how could we test just the monobehaviour if we could,
+Cette séparation commence à nous aider à réfléchir à la façon dont nous pourrions tester uniquement le monobehaviour si nous le pouvions,
 
 04:14.170 --> 04:17.140
-how could we test just the non monobehaviour if we could?
+comment pourrions-nous tester uniquement le comportement non monobloc si nous le pouvions ?
 
 04:17.170 --> 04:22.570
-Now, this isn't a perfect example because it's kind of the mid step as we're going along learning about
+Ce n'est pas un exemple parfait, car il s'agit d'une étape intermédiaire dans l'apprentissage de la méthode
 
 04:22.570 --> 04:24.370
-how we can properly separate these.
+comment les séparer correctement.
 
 04:24.370 --> 04:25.900
-But I think it's a good learning.
+Mais je pense que c'est un bon apprentissage.
 
 04:25.900 --> 04:29.800
-So look at the source code here for character advanced.
+Regardez donc le code source ici pour le caractère avancé.
 
 04:29.800 --> 04:33.880
-Compare it to character Basic on your own time and see the differences there.
+Comparez-le à character Basic sur votre propre temps et voyez les différences.
 
 04:34.030 --> 04:36.910
-Then let's take a look at the example that we do.
+Regardons ensuite l'exemple que nous faisons.
 
 04:36.910 --> 04:37.240
-Again.
+Encore une fois.
 
 04:37.270 --> 04:38.830
-Here's the example that we saw.
+Voici l'exemple que nous avons vu.
 
 04:38.830 --> 04:40.000
-So it's these two lines.
+Il s'agit donc de ces deux lignes.
 
 04:40.000 --> 04:41.200
-That's really the key.
+C'est vraiment la clé.
 
 04:41.230 --> 04:47.290
-We're going to add a component of the character advanced Monobehaviour onto our game object.
+Nous allons ajouter un composant du Monobehaviour avancé sur notre objet de jeu.
 
 04:47.290 --> 04:49.580
-And then we're going to create a new character advanced.
+Puis nous allons créer un nouveau personnage avancé.
 
 04:49.580 --> 04:50.740
-That's a separate step.
+C'est une étape distincte.
 
 04:50.740 --> 04:54.310
-So you could imagine we would be able to test those two things in isolation.
+On pourrait donc imaginer que nous soyons en mesure de tester ces deux choses isolément.
 
 04:54.310 --> 04:56.650
-Now they are quite dependent on each other.
+Or, elles sont très dépendantes l'une de l'autre.
 
 04:56.680 --> 04:58.390
-There's ways that we could massage that.
+Il y a des moyens de masser cela.
 
 04:58.390 --> 05:01.300
-So that one does not directly depend on the other.
+Pour que l'un ne dépende pas directement de l'autre.
 
 05:01.300 --> 05:07.660
-Or we could do something like we did in the data loader example and use a substitute library so that
+Ou nous pourrions faire quelque chose comme nous l'avons fait dans l'exemple du chargeur de données et utiliser une bibliothèque de substitution de sorte que
 
 05:07.660 --> 05:10.080
-we're mocking in the dependency instead.
+nous nous moquons de la dépendance à la place.
 
 05:10.090 --> 05:15.730
-But again, for simplicity of just learning how to separate a monobehaviour apart, I think we've done
+Mais encore une fois, pour simplifier l'apprentissage de la séparation d'un monobehaviour, je pense que nous avons fait
 
 05:15.730 --> 05:16.510
-the case here.
+l'affaire ici.
 
 05:16.510 --> 05:21.430
-You can run those tests with the edit mode and the play mode on your own time and take a look at this.
+Vous pouvez exécuter ces tests avec le mode édition et le mode lecture à votre guise et jeter un coup d'oeil à ceci.
 
 05:21.640 --> 05:27.760
-But for me, I think we're done talking about the differences in separating monobehaviour and non monobehaviour.
+Mais pour moi, je pense que nous avons fini de parler des différences entre les comportements monoblocs et les comportements non monoblocs.
 
 05:27.790 --> 05:28.450
-Thanks.
+Merci à tous.

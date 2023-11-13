@@ -1,313 +1,313 @@
 WEBVTT
 
 00:02.840 --> 00:04.730
-So why do unit testing?
+Alors pourquoi faire des tests unitaires ?
 
 00:04.880 --> 00:06.200
-I like to start with this quote.
+J'aime bien commencer par cette citation.
 
 00:06.200 --> 00:07.050
-I'll read it here.
+Je vais la lire ici.
 
 00:07.070 --> 00:14.150
-Every decision we make, be it technology, process, or people, can be viewed as a form of investment.
+Chaque décision que nous prenons, qu'il s'agisse de technologie, de processus ou de personnes, peut être considérée comme une forme d'investissement.
 
 00:14.510 --> 00:19.040
-These investments come with a cost and we trust that they'll pay off.
+Ces investissements ont un coût et nous sommes convaincus qu'ils seront rentables.
 
 00:19.250 --> 00:24.950
-So if you're already familiar with game development and you're able to get some of the functionality
+Si vous êtes déjà familiarisé avec le développement de jeux et que vous êtes en mesure d'obtenir certaines fonctionnalités
 
 00:24.950 --> 00:29.480
-you have in your mind into the projects and share them with the players who are playing your game,
+que vous avez en tête dans les projets et les partager avec les joueurs qui jouent à votre jeu,
 
 00:29.480 --> 00:32.520
-it may not be quite clear what the value of unit testing is.
+il se peut que la valeur des tests unitaires ne soit pas tout à fait claire.
 
 00:32.540 --> 00:38.060
-Unit testing should be first and foremost thought of as an optional activity that you can add on top
+Les tests unitaires doivent avant tout être considérés comme une activité facultative que vous pouvez ajouter à votre jeu.
 
 00:38.060 --> 00:39.640
-of to your production code.
+à votre code de production.
 
 00:39.650 --> 00:47.210
-In one way, your end users never see that functionality, but the idea and the benefits that come from
+D'une certaine manière, vos utilisateurs finaux ne voient jamais cette fonctionnalité, mais l'idée et les avantages qui en découlent sont les suivants
 
 00:47.210 --> 00:53.960
-unit testing, particularly test driven development, we hope will give us a payoff for that investment.
+Nous espérons que les tests unitaires, et en particulier le développement piloté par les tests, nous permettront de rentabiliser cet investissement.
 
 00:53.990 --> 01:01.010
-We will have classes and systems that operate more dependably, that are more robust, but that are
+Nous aurons des classes et des systèmes qui fonctionneront de manière plus fiable, qui seront plus robustes, mais qui seront aussi plus sûrs.
 
 01:01.010 --> 01:08.330
-less error prone and will allow you to add more features for your users at a more rapid and confident
+moins sujettes aux erreurs et qui vous permettront d'ajouter plus de fonctionnalités pour vos utilisateurs à un rythme plus rapide et plus sûr.
 
 01:08.330 --> 01:11.670
-pace, with unit testing as one of your skills.
+avec les tests unitaires comme l'une de vos compétences.
 
 01:11.690 --> 01:15.190
-Now, in this world of unit testing, there's so many different terms.
+Dans le monde des tests unitaires, il existe de nombreux termes différents.
 
 01:15.200 --> 01:18.320
-Some of the ones that we see on here, I'll just read a couple of them.
+Je vais vous en lire quelques-uns.
 
 01:18.320 --> 01:23.660
-Composition and abstraction, referring to the way that your classes and your architectures can fit
+Composition et abstraction, se référant à la façon dont vos classes et vos architectures peuvent s'adapter.
 
 01:23.660 --> 01:24.470
-together.
+ensemble.
 
 01:24.710 --> 01:29.120
-Classes and methods just being object oriented programming fundamentals.
+Les classes et les méthodes sont des éléments fondamentaux de la programmation orientée objet.
 
 01:29.120 --> 01:34.630
-Then things like mock and assertion and range act and assert as well.
+Puis des choses comme mock et assertion et range act et assert aussi.
 
 01:34.640 --> 01:37.850
-These are things that are refer specifically to unit testing.
+Ce sont des choses qui se réfèrent spécifiquement aux tests unitaires.
 
 01:37.850 --> 01:42.500
-We're going to be covering kind of in an informal way, all of the terms that we see here.
+Nous allons couvrir de manière informelle tous les termes que nous voyons ici.
 
 01:42.500 --> 01:44.810
-We'll probably be covering them now in the latter.
+Nous allons probablement les aborder maintenant dans la dernière partie.
 
 01:44.810 --> 01:46.040
-Professional development.
+Le développement professionnel.
 
 01:46.040 --> 01:52.010
-When you start out as a game developer inside unity, learning the unity tool, learning the theory
+Lorsque vous commencez en tant que développeur de jeux à l'intérieur d'unity, en apprenant l'outil unity, en apprenant la théorie
 
 01:52.010 --> 01:56.840
-behind unity and of course the C-sharp coding, you notice that you're graduating.
+derrière unity et bien sûr le codage en C-sharp, vous remarquez que vous obtenez votre diplôme.
 
 01:56.840 --> 02:01.700
-The concepts are getting more and more complex as you go through these different topics.
+Les concepts deviennent de plus en plus complexes au fur et à mesure que vous abordez ces différents sujets.
 
 02:01.730 --> 02:06.050
-Things like classes in OOP, which are things you learn early in development.
+Des choses comme les classes dans la POO, qui sont des choses que vous apprenez tôt dans le développement.
 
 02:06.050 --> 02:13.340
-Later in your career, you'll focus more on getting your projects to be more modular, reusable, adding
+Plus tard dans votre carrière, vous vous concentrerez davantage sur la modularité de vos projets, leur réutilisation, l'ajout de nouvelles fonctionnalités, etc.
 
 02:13.370 --> 02:18.800
-testing, which is the core here, and then talking largely about the architecture of your projects.
+des tests, ce qui est l'essentiel ici, et parler en grande partie de l'architecture de vos projets.
 
 02:18.830 --> 02:25.460
-A sign of a well architected project is one that when you're adding that 101st feature, it doesn't
+Le signe d'un projet bien architecturé est qu'au moment d'ajouter la 101e fonctionnalité, il n'est pas nécessaire d'ajouter une nouvelle fonctionnalité.
 
 02:25.460 --> 02:26.900
-break everything else you've got.
+ne brise pas tout ce que vous avez déjà.
 
 02:26.930 --> 02:33.050
-Now, here we see one possible path of a junior developer moving through a career.
+Nous voyons ici l'un des parcours possibles d'un développeur junior au cours de sa carrière.
 
 02:33.050 --> 02:38.600
-And it's particularly interesting that the skills that we're talking about here are really what moves
+Il est particulièrement intéressant de constater que les compétences dont nous parlons ici sont vraiment celles qui font évoluer
 
 02:38.600 --> 02:42.890
-you from a beginning developer to a junior to a senior.
+d'un développeur débutant à un développeur junior, puis à un développeur senior.
 
 02:42.890 --> 02:49.070
-It's really these types of practical knowledge that you're adding to your skill set that will help you
+Ce sont vraiment ces types de connaissances pratiques que vous ajoutez à votre ensemble de compétences qui vous aideront à
 
 02:49.070 --> 02:55.040
-get a promotion within your current role, or find new roles and opportunities to contribute in other
+à obtenir une promotion dans votre fonction actuelle, ou à trouver de nouvelles fonctions et possibilités de contribution dans d'autres domaines.
 
 02:55.040 --> 02:55.790
-teams.
+équipes.
 
 02:55.820 --> 03:02.030
-Now, not every team uses unit testing in the programming world, and I think particularly in game development,
+Toutes les équipes n'utilisent pas les tests unitaires dans le monde de la programmation, et je pense que c'est particulièrement le cas dans le développement de jeux,
 
 03:02.030 --> 03:07.670
-you don't find it as often as you do with some other programming platforms and paradigms, but it is
+On ne les trouve pas aussi souvent qu'avec d'autres plates-formes et paradigmes de programmation, mais c'est le cas.
 
 03:07.670 --> 03:08.870
-just as important here.
+tout aussi important ici.
 
 03:08.870 --> 03:11.150
-Let's look at why unit testing is important.
+Voyons pourquoi les tests unitaires sont importants.
 
 03:11.150 --> 03:12.460
-I'll read along here.
+Je vais lire ici.
 
 03:12.470 --> 03:19.100
-As your project grows with more scripts, classes, and methods, it becomes difficult for you to ensure
+Au fur et à mesure que votre projet s'enrichit de scripts, de classes et de méthodes, il devient difficile de s'assurer que les tests unitaires sont effectués.
 
 03:19.100 --> 03:23.810
-that a change in one part of your code doesn't break something somewhere else.
+qu'un changement dans une partie de votre code ne casse pas quelque chose ailleurs.
 
 03:23.900 --> 03:28.850
-Automated testing helps you check that your code is functioning as expected.
+Les tests automatisés vous aident à vérifier que votre code fonctionne comme prévu.
 
 03:29.150 --> 03:35.870
-Testing saves time by finding where and when problems occur as soon as they're introduced in development,
+Les tests permettent de gagner du temps en trouvant où et quand les problèmes surviennent dès qu'ils sont introduits dans le développement,
 
 03:35.870 --> 03:42.290
-rather than relying on manual testing, or even the more expensive waiting for your end users, your
+plutôt que de s'appuyer sur des tests manuels, ou même sur l'attente, plus coûteuse, de vos utilisateurs finaux, de vos clients et de vos partenaires.
 
 03:42.290 --> 03:47.030
-game players to report a bug, let's talk a little bit about the value of finding your errors early.
+joueurs pour signaler un bogue, parlons un peu de la valeur de la détection précoce des erreurs.
 
 03:47.030 --> 03:54.410
-Now, many of us as developers think that the game development process is all about adding new features
+En tant que développeurs, nous sommes nombreux à penser que le processus de développement d'un jeu se résume à l'ajout de nouvelles fonctionnalités.
 
 03:54.410 --> 03:59.540
-and feeling like the faster you add them, the more value you offer to your end users.
+et pensent que plus vous les ajoutez rapidement, plus vous offrez de valeur à vos utilisateurs finaux.
 
 03:59.570 --> 04:05.300
-Now, while that is a fun way to start a project, we all know the results that come from adding features
+Bien que ce soit une façon amusante de commencer un projet, nous connaissons tous les résultats qui découlent de l'ajout de fonctionnalités.
 
 04:05.300 --> 04:13.160
-too fast early in development, especially on top of a code base that is not well designed, well architected
+trop rapidement au début du développement, en particulier sur une base de code qui n'est pas bien conçue, bien architecturée
 
 04:13.160 --> 04:14.210
-or well tested.
+ou bien testée.
 
 04:14.210 --> 04:21.620
-What research in the game development industry shows is something of the 80 over 20 rule that 80% of
+Les recherches menées dans l'industrie du développement de jeux illustrent la règle des 80 sur 20, selon laquelle 80 % des projets de développement de jeux sont des projets de développement de jeux.
 
 04:21.620 --> 04:25.250
-development bugs come from just 20% of your features.
+développement proviennent de seulement 20 % de vos fonctionnalités.
 
 04:25.250 --> 04:29.780
-Core complexity often sits in a narrow corner of the codebase.
+La complexité de base se situe souvent dans un coin étroit de la base de code.
 
 04:29.780 --> 04:36.080
-Project, organization, or a lack thereof can cause tremendous reoccurring issues.
+Le projet, l'organisation ou le manque d'organisation peuvent être à l'origine de problèmes récurrents considérables.
 
 04:36.110 --> 04:42.050
-You end up fighting those same old fires again and again, because you don't have the design and the
+Vous finissez par lutter contre les mêmes vieux incendies, encore et encore, parce que vous n'avez pas la conception et l'organisation nécessaires.
 
 04:42.050 --> 04:46.070
-testing to prove that that area is confidently developed.
+d'essais pour prouver que cette zone est développée en toute confiance.
 
 04:47.120 --> 04:49.770
-80% of the dev time is coding maintenance.
+80 % du temps de développement est consacré à la maintenance du code.
 
 04:49.790 --> 04:55.190
-Now that is a scary thing to hear, but this is what we see on large code base.
+C'est une chose effrayante à entendre, mais c'est ce que nous voyons sur les grandes bases de code.
 
 04:55.220 --> 05:01.100
-Imagine shipping a game in six months and supporting it for 1 or 2 years more while you're doing bug
+Imaginez que vous livriez un jeu en six mois et que vous le souteniez pendant 1 ou 2 ans de plus pendant que vous faites le bug.
 
 05:01.100 --> 05:03.210
-fixes and adding new features.
+corrections de bugs et l'ajout de nouvelles fonctionnalités.
 
 05:03.230 --> 05:05.800
-That's an example of a very simple game.
+C'est un exemple de jeu très simple.
 
 05:05.810 --> 05:12.020
-Even in that process, we find that 80% of the time that you spend in a developer is not adding those
+Même dans ce processus, nous constatons que 80 % du temps que vous passez en tant que développeur n'est pas consacré à l'ajout de ces fonctionnalités.
 
 05:12.020 --> 05:12.890
-new features.
+nouvelles fonctionnalités.
 
 05:12.890 --> 05:20.030
-It's narrowing down and finding bugs in old systems and doing refactors as the first six months.
+Il s'agit d'identifier et de trouver des bogues dans les anciens systèmes et de procéder à des remaniements au cours des six premiers mois.
 
 05:20.060 --> 05:24.050
-Architecture may not fit the second six months of architecture.
+L'architecture peut ne pas correspondre au deuxième semestre de l'architecture.
 
 05:24.080 --> 05:29.300
-Your project is going to grow and your team is going to learn, so you're going to be making changes
+Votre projet va se développer et votre équipe va apprendre, vous allez donc procéder à des changements
 
 05:29.300 --> 05:30.150
-along the way.
+en cours de route.
 
 05:30.170 --> 05:31.430
-No problems there.
+Aucun problème.
 
 05:31.460 --> 05:33.950
-These changes are often called refactoring.
+Ces changements sont souvent appelés "refactoring".
 
 05:33.950 --> 05:39.860
-Refactoring is making your code more efficient and offering the same value to your end consumers.
+La refonte consiste à rendre votre code plus efficace tout en offrant la même valeur à vos clients finaux.
 
 05:39.890 --> 05:45.530
-Every refactor allows you to have a new starting point to add even new features on top.
+Chaque refactorisation vous permet d'avoir un nouveau point de départ pour ajouter de nouvelles fonctionnalités.
 
 05:45.530 --> 05:52.460
-So what we see here is that by establishing good practices of doing testing, that's going to help that
+Ce que nous voyons ici, c'est qu'en établissant de bonnes pratiques en matière de tests, cela va contribuer à ce que
 
 05:52.460 --> 05:56.450
-code maintenance, it's going to help that 80% where we do spend a lot of our time.
+la maintenance du code, cela va aider les 80% où nous passons une grande partie de notre temps.
 
 05:56.450 --> 06:02.480
-And as I alluded to earlier, let's take a look here that the cost of software bugs increases over time.
+Et comme je l'ai déjà mentionné, voyons ici que le coût des bogues logiciels augmente avec le temps.
 
 06:02.480 --> 06:08.420
-Now, this particular slice of research shows that if you're having conversation with a colleague about
+Cette tranche de recherche particulière montre que si vous discutez avec un collègue des points suivants
 
 06:08.420 --> 06:13.250
-a game feature, and one of you points out something that may be a problem, they're fixing it in,
+d'un jeu et que l'un d'entre vous signale un problème, il le corrige,
 
 06:13.280 --> 06:15.420
-that conversation is super cheap.
+Cette conversation est très bon marché.
 
 06:15.440 --> 06:22.340
-Let's call that the one x amount of time and effort very low as you go through and you implement that
+Appelons cela une x quantité de temps et d'efforts très faible au fur et à mesure que vous la mettez en œuvre.
 
 06:22.340 --> 06:28.430
-project, finding that same bug after you've coded, it is more difficult to find and more difficult
+projet, trouver ce même bogue après l'avoir codé, c'est plus difficile à trouver et plus difficile
 
 06:28.430 --> 06:30.860
-to fix and make sure you fix it.
+de le corriger et de s'assurer que vous le corrigez.
 
 06:30.860 --> 06:36.860
-Well, then once you do your testing, you pass this on to your customers to test and then you ship
+Une fois que vous avez effectué vos tests, vous les transmettez à vos clients pour qu'ils les testent, puis vous les expédiez.
 
 06:36.860 --> 06:38.400
-it to your end game players.
+à vos joueurs finaux.
 
 06:38.420 --> 06:41.000
-Imagine a game player finding that same issue.
+Imaginez qu'un joueur rencontre le même problème.
 
 06:41.030 --> 06:44.330
-They're going to have to be disappointed about it.
+Il devra être déçu.
 
 06:44.330 --> 06:47.510
-Perhaps that affects negatively how they think of the game.
+Peut-être que cela affecte négativement l'idée qu'ils se font du jeu.
 
 06:47.510 --> 06:50.060
-They may you may even lose them as a game player.
+Il se peut même que vous les perdiez en tant que joueur.
 
 06:50.060 --> 06:55.400
-But if they're a vocal person and you have a good channel for customer support and they send that in,
+Mais s'il s'agit d'une personne qui s'exprime et que vous disposez d'un bon canal d'assistance à la clientèle et qu'elle envoie son message,
 
 06:55.430 --> 07:00.950
-it goes into your bug ticketing system, eventually gets assigned, eventually gets fixed, maybe it
+il entre dans votre système de tickets de bogues, finit par être assigné, finit par être corrigé, peut-être qu'il
 
 07:00.950 --> 07:06.950
-is or isn't fixed properly, and then you ship that update out to end users, hoping that that user's
+est ou n'est pas corrigé correctement, puis vous envoyez cette mise à jour aux utilisateurs finaux, en espérant qu'elle leur sera utile.
 
 07:06.980 --> 07:08.270
-needs have been addressed.
+ont été pris en compte.
 
 07:08.300 --> 07:09.590
-It's much more expensive.
+C'est beaucoup plus cher.
 
 07:09.590 --> 07:10.210
-At the end.
+A la fin.
 
 07:10.220 --> 07:15.480
-We'll see that unit testing allows for us to, first of all, design our software better.
+Nous allons voir que les tests unitaires nous permettent, tout d'abord, de mieux concevoir nos logiciels.
 
 07:15.500 --> 07:22.550
-Second of all, put tests into your project so that these automated tests will find that bug earlier.
+Deuxièmement, mettre des tests dans son projet pour que ces tests automatisés trouvent le bug plus tôt.
 
 07:22.550 --> 07:28.130
-Perhaps in the integration stage, as we're seeing here, it's not as good as fixing it in that first
+Peut-être que dans la phase d'intégration, comme nous le voyons ici, ce n'est pas aussi bien que de le corriger dans la première phase d'intégration.
 
 07:28.130 --> 07:32.240
-conversation, but it's a much better than waiting for the project to be released.
+conversation, mais c'est beaucoup mieux que d'attendre que le projet soit publié.
 
 07:32.480 --> 07:38.090
-So some of the best practices that are highlighted here are creating maintainable code, increasing
+Certaines des meilleures pratiques mises en évidence ici sont la création d'un code facile à maintenir, l'augmentation de la productivité et la réduction des coûts.
 
 07:38.090 --> 07:44.150
-the automation and testing you have in your code, catching your bugs early and often, and fixing those
+l'automatisation et les tests de votre code, la détection précoce et fréquente des bogues et leur correction.
 
 07:44.150 --> 07:46.490
-bugs before you add new features.
+avant d'ajouter de nouvelles fonctionnalités.

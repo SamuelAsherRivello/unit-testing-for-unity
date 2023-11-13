@@ -1,322 +1,322 @@
 WEBVTT
 
 00:00.020 --> 00:01.220
-Test driven development.
+Développement piloté par les tests.
 
 00:01.220 --> 00:04.790
-Here's an example of a test class with a test method.
+Voici un exemple de classe de test avec une méthode de test.
 
 00:04.790 --> 00:08.330
-Already in the course, we've seen how to run an existing test.
+Déjà dans le cours, nous avons vu comment exécuter un test existant.
 
 00:08.360 --> 00:11.080
-We've seen how to create new tests from scratch.
+Nous avons vu comment créer de nouveaux tests à partir de zéro.
 
 00:11.090 --> 00:17.450
-Test Driven development, or TDD, is the practice of adding tests before you add your production code.
+Le développement piloté par les tests, ou TDD, consiste à ajouter des tests avant d'ajouter le code de production.
 
 00:17.450 --> 00:21.180
-For some, especially those new to testing, this can seem odd.
+Pour certains, en particulier ceux qui découvrent les tests, cela peut sembler étrange.
 
 00:21.200 --> 00:26.300
-We'll learn more about the technique, and note that you can mix test driven development with traditional
+Nous allons en apprendre davantage sur cette technique, et noter que vous pouvez combiner le développement piloté par les tests avec le développement traditionnel.
 
 00:26.330 --> 00:29.360
-testing however you like into your own workflows.
+comme vous le souhaitez dans vos propres flux de travail.
 
 00:29.390 --> 00:36.500
-TDD creates tests that specify and validate what code will do once it's created.
+Le TDD crée des tests qui spécifient et valident ce que le code va faire une fois qu'il est créé.
 
 00:36.950 --> 00:38.120
-Here's the workflow.
+Voici le flux de travail.
 
 00:38.150 --> 00:39.560
-You create a new test.
+Vous créez un nouveau test.
 
 00:39.590 --> 00:44.120
-You add just enough implementation within it so that the code compiles.
+Vous ajoutez juste assez d'implémentation pour que le code se compile.
 
 00:44.120 --> 00:50.180
-Since we've added just enough production code for this code to compile, perhaps even having an empty
+Puisque nous avons ajouté juste assez de code de production pour que ce code compile, peut-être même en ayant un code de production vide.
 
 00:50.210 --> 00:51.260
-implementation.
+de l'implémentation.
 
 00:51.260 --> 00:53.900
-We run the test and the test fails.
+Nous exécutons le test et celui-ci échoue.
 
 00:54.260 --> 01:00.290
-That's expected, and it's actually a very good place to start by first seeing a failing test.
+C'est normal, et c'est en fait un très bon point de départ en voyant d'abord un test qui échoue.
 
 01:00.290 --> 01:05.960
-If we have more confidence that the test once it passes actually means something, you then refactor
+Si nous avons plus confiance dans le fait que le test, une fois qu'il a réussi, signifie réellement quelque chose, vous pouvez alors refactoriser.
 
 01:05.960 --> 01:09.310
-your production code until the code passes and then move on.
+votre code de production jusqu'à ce qu'il réussisse, puis vous passez à autre chose.
 
 01:09.330 --> 01:15.860
-TDD is not simply the order of testing first and writing your production code second.
+Le TDD n'est pas simplement l'ordre de tester d'abord et d'écrire le code de production ensuite.
 
 01:15.860 --> 01:19.060
-It's also a way of thinking about your projects.
+C'est aussi une façon de penser vos projets.
 
 01:19.070 --> 01:24.080
-Some of this you really need to practice in order to feel the results.
+Il faut vraiment pratiquer certaines choses pour en ressentir les effets.
 
 01:24.080 --> 01:30.980
-But what I find with more TDD experience is that you think about your new code differently, you're
+Mais ce que je constate avec plus d'expérience en TDD, c'est que vous pensez à votre nouveau code différemment, vous êtes
 
 01:30.980 --> 01:37.370
-more focused in your development, you create more atomic code that does just one thing.
+vous êtes plus concentré dans votre développement, vous créez plus de code atomique qui ne fait qu'une seule chose.
 
 01:37.370 --> 01:42.020
-And when you have your testing code pass, it's a more meaningful pass.
+Et lorsque votre code de test est validé, il l'est de manière plus significative.
 
 01:42.050 --> 01:46.280
-Another way to look at this flow is that you write a failing test.
+Une autre façon de voir ce flux est d'écrire un test qui échoue.
 
 01:46.280 --> 01:51.530
-You make the test pass, and then you refactor your code to meet any other goals.
+Vous faites passer le test, puis vous remaniez votre code pour atteindre d'autres objectifs.
 
 01:51.530 --> 01:54.710
-You have optimization, coding standards.
+Vous avez l'optimisation, les normes de codage.
 
 01:54.710 --> 01:55.490
 ET cetera.
 
 01:55.940 --> 01:57.060
-And then you repeat.
+Et puis vous répétez.
 
 01:57.080 --> 01:58.490
-Let's see this in action.
+Voyons cela en action.
 
 01:58.490 --> 02:01.210
-We'll open up a unity project that's got a test already.
+Nous allons ouvrir un projet unity qui a déjà un test.
 
 02:01.220 --> 02:08.690
-We'll use TDD to add a new test, create just enough production code for it to compile, see a failing
+Nous allons utiliser le TDD pour ajouter un nouveau test, créer juste assez de code de production pour qu'il compile, voir un échec du test.
 
 02:08.690 --> 02:12.050
-result, and then refactor until we have a passing result.
+puis remanier jusqu'à ce que le résultat soit satisfaisant.
 
 02:12.820 --> 02:16.090
-Here we are in a fairly empty unity project.
+Nous voici dans un projet unity assez vide.
 
 02:16.090 --> 02:22.450
-I've made sure that the test framework is already added in the package manager as shown earlier, and
+Je me suis assuré que le framework de test est déjà ajouté dans le gestionnaire de paquets comme montré précédemment, et
 
 02:22.450 --> 02:25.390
-I've copied one test in for us to begin with.
+J'ai copié un test pour commencer.
 
 02:25.420 --> 02:28.250
-Let's take a look at that test here in edit mode.
+Jetons un coup d'œil à ce test en mode édition.
 
 02:28.270 --> 02:33.660
-I have one test providing coverage on the add method of a simple math class.
+J'ai un test qui couvre la méthode add d'une classe mathématique simple.
 
 02:33.670 --> 02:35.720
-Let's run the test it passes.
+Exécutons le test qu'il réussit.
 
 02:35.740 --> 02:37.120
-Let's take a look at the code.
+Jetons un coup d'œil au code.
 
 02:37.120 --> 02:41.300
-And here we see the one test we're familiar with from earlier in the presentation.
+Nous voyons ici le test que nous connaissons depuis le début de la présentation.
 
 02:41.320 --> 02:45.160
-Now let's perform some test driven development as discussed here.
+Effectuons maintenant un développement piloté par les tests, comme nous l'avons vu ici.
 
 02:45.190 --> 02:51.280
-The idea is that if we were to expand the functionality of the math system, we have a few approaches.
+L'idée est que si nous devions étendre la fonctionnalité du système mathématique, nous disposons de plusieurs approches.
 
 02:51.310 --> 02:57.010
-We could either go create that production code without any testing and afterwards.
+Nous pourrions soit créer ce code de production sans aucun test et après.
 
 02:57.930 --> 03:01.260
-And afterwards maybe we add tests, or maybe we don't.
+Et après, peut-être que nous ajoutons des tests, ou peut-être que nous n'en ajoutons pas.
 
 03:02.310 --> 03:08.400
-However, with test driven development, we're going to test first before we've added any production
+Cependant, avec le développement piloté par les tests, nous allons d'abord tester avant d'ajouter la moindre production.
 
 03:08.400 --> 03:08.970
-code.
+code de production.
 
 03:09.730 --> 03:10.930
-Let's see how that works.
+Voyons comment cela fonctionne.
 
 03:10.930 --> 03:12.340
-I'll imagine I'm creating.
+Je vais imaginer que je suis en train de créer.
 
 03:12.910 --> 03:16.600
-Let's imagine the math system needs a subtract method.
+Imaginons que le système mathématique ait besoin d'une méthode de soustraction.
 
 03:17.830 --> 03:22.150
-Now this subtract method doesn't exist yet, as we'll see when we look at the source code.
+Cette méthode de soustraction n'existe pas encore, comme nous le verrons dans le code source.
 
 03:22.950 --> 03:24.780
-But let's make a test for it anyway.
+Mais faisons tout de même un test.
 
 03:25.650 --> 03:28.980
-I'll start by adding the test attribute.
+Commençons par ajouter l'attribut test.
 
 03:29.190 --> 03:33.030
-I'll name the method with what is under test.
+Je vais nommer la méthode avec ce qui est testé.
 
 03:33.060 --> 03:39.990
-What's the expected result and in what situation I expect for subtract, the result would be five.
+Quel est le résultat attendu et dans quelle situation je m'attends à ce que pour subtract, le résultat soit cinq.
 
 03:40.020 --> 03:45.000
-If I pass in ten and five, ten minus five is five.
+Si je passe dix et cinq, dix moins cinq donne cinq.
 
 03:45.030 --> 03:48.870
-To set up the test, I instantiate a new copy of my math system.
+Pour mettre en place le test, j'instancie une nouvelle copie de mon système mathématique.
 
 03:49.080 --> 03:52.120
-I get the result by calling the subtract method.
+J'obtiens le résultat en appelant la méthode subtract.
 
 03:52.140 --> 03:56.730
-The red text here indicates my code editor knows there's no subtract method.
+Le texte rouge indique que mon éditeur de code sait qu'il n'y a pas de méthode de soustraction.
 
 03:56.730 --> 04:01.200
-And finally, we expect our method to return a value of five.
+Enfin, nous nous attendons à ce que notre méthode renvoie une valeur de cinq.
 
 04:01.230 --> 04:04.980
-Because I copy and pasted this from the earlier example, it says 15.
+Comme j'ai fait un copier-coller de l'exemple précédent, le résultat est 15.
 
 04:05.010 --> 04:06.060
-I'll change that now.
+Je vais changer cela maintenant.
 
 04:06.090 --> 04:08.070
-Now it's checking the proper assumption.
+Maintenant, l'hypothèse correcte est vérifiée.
 
 04:08.670 --> 04:13.050
-Now we know this is not going to compile, but let's save and return to unity.
+Nous savons maintenant que cela ne va pas compiler, mais sauvegardons et retournons à unity.
 
 04:13.080 --> 04:19.530
-Let's note two things one, the console window is properly showing that there's a compiler error, and
+Notons deux choses : premièrement, la fenêtre de la console indique bien qu'il y a une erreur de compilation, et deuxièmement, la fenêtre de la console indique bien qu'il y a une erreur de compilation.
 
 04:19.530 --> 04:24.150
-two notice in the test runner window we don't yet see our new method.
+deuxièmement, dans la fenêtre du lanceur de test, nous ne voyons pas encore notre nouvelle méthode.
 
 04:24.180 --> 04:26.520
-These are good things to note in TDD.
+Ce sont de bonnes choses à noter en TDD.
 
 04:26.550 --> 04:30.810
-The next step is to make just enough code that it compiles.
+L'étape suivante consiste à créer juste assez de code pour qu'il se compile.
 
 04:30.840 --> 04:34.570
-It's very important we don't finish the implementation at this stage.
+Il est très important de ne pas terminer l'implémentation à ce stade.
 
 04:34.590 --> 04:36.780
-Here's the source code for our math system.
+Voici le code source de notre système mathématique.
 
 04:36.780 --> 04:41.920
-Here's the very simplest implementation I can do that gets the code to compile.
+Voici l'implémentation la plus simple que je puisse faire pour compiler le code.
 
 04:41.940 --> 04:45.610
-Notice that I don't finish the proper implementation.
+Remarquez que je ne termine pas l'implémentation correcte.
 
 04:45.630 --> 04:52.480
-Now in this example, it seems trivial because we know all we need to do is subtract a and b.
+Dans cet exemple, cela semble trivial car nous savons que tout ce que nous avons à faire est de soustraire a et b.
 
 04:52.500 --> 04:58.320
-However, normally in test driven development, the implementation of a given method would be more complex
+Cependant, dans le cadre d'un développement piloté par les tests, l'implémentation d'une méthode donnée est normalement plus complexe.
 
 04:58.320 --> 04:59.400
-and take more time.
+et prendrait plus de temps.
 
 04:59.430 --> 05:03.390
-Regardless, we always stop here once we have enough to compile.
+Quoi qu'il en soit, nous nous arrêtons toujours ici une fois que nous avons suffisamment de données à compiler.
 
 05:04.090 --> 05:05.250
-Let's look at the test.
+Regardons le test.
 
 05:05.260 --> 05:07.840
-Our code editor properly no longer shows.
+Notre éditeur de code ne s'affiche plus correctement.
 
 05:07.840 --> 05:09.010
-Subtract and red.
+Soustraction et rouge.
 
 05:09.460 --> 05:11.260
-Let's save and check unity.
+Sauvegardons et vérifions l'unité.
 
 05:11.290 --> 05:13.600
-Now we don't see any console errors.
+Nous ne voyons plus d'erreurs dans la console.
 
 05:13.630 --> 05:14.170
-Great.
+C'est parfait.
 
 05:14.170 --> 05:15.400
-Everything is compiling.
+Tout se compile.
 
 05:15.400 --> 05:19.210
-And now our test runner window properly shows the new test method.
+Et maintenant, la fenêtre de notre test runner affiche correctement la nouvelle méthode de test.
 
 05:19.210 --> 05:20.290
-Let's run all tests.
+Exécutons tous les tests.
 
 05:20.290 --> 05:26.320
-You can consider the testing of failure because one or more test methods fail.
+Vous pouvez considérer le test de l'échec parce qu'une ou plusieurs méthodes de test échouent.
 
 05:26.320 --> 05:32.290
-When we look at when we select the failing method, we see some small input there we see a bit of output
+Lorsque nous sélectionnons la méthode qui échoue, nous voyons une petite entrée et un peu de sortie.
 
 05:32.320 --> 05:34.120
-text that shows why it failed.
+qui montre pourquoi elle a échoué.
 
 05:34.240 --> 05:38.410
-It's expecting five, but instead it's returning zero.
+Il s'attendait à cinq, mais au lieu de cela, il a retourné zéro.
 
 05:38.410 --> 05:40.420
-Now why did we go through the motions here?
+Pourquoi avons-nous fait tout ce travail ?
 
 05:40.420 --> 05:46.600
-It may seem trivial, but it's an important distinction that we create a test we believe tests the proper
+Cela peut sembler trivial, mais c'est une distinction importante : nous créons un test qui, selon nous, teste la bonne méthode.
 
 05:46.600 --> 05:49.120
-functionality, and we first see it fail.
+fonctionnalité, et que nous le voyons échouer pour la première fois.
 
 05:49.120 --> 05:55.420
-That gives us a good basis to know when a proper implementation gives a pass with confidence.
+Cela nous donne une bonne base pour savoir quand une implémentation correcte donne un succès avec confiance.
 
 05:55.420 --> 05:57.040
-Let's add the proper implementation.
+Ajoutons l'implémentation correcte.
 
 05:57.040 --> 06:02.050
-Here we assume that the first parameter coming in would be larger than the second, and we simply return
+Ici, nous supposons que le premier paramètre entrant est plus grand que le second, et nous renvoyons simplement
 
 06:02.050 --> 06:04.080
-and we simply return a minus b.
+et nous renvoyons simplement a moins b.
 
 06:04.090 --> 06:05.560
-Let's save and run the test.
+Sauvegardons et exécutons le test.
 
 06:07.440 --> 06:12.480
-Now the test runs well and we've completed our first example of test driven development.
+Le test s'exécute correctement et nous avons terminé notre premier exemple de développement piloté par les tests.
 
 06:12.480 --> 06:13.410
-That's it.
+C'est tout.
 
 06:13.800 --> 06:20.580
-Now, I know from my own experience that it took me time and practice with testing to really feel the
+Je sais par expérience qu'il m'a fallu du temps et de la pratique avec les tests pour vraiment ressentir l'importance du développement piloté par les tests.
 
 06:20.580 --> 06:21.390
-benefits.
+avantages.
 
 06:21.420 --> 06:29.820
-While we've had a brief overview with unit testing, creating unit tests and test driven development,
+Nous avons eu un bref aperçu des tests unitaires, de la création de tests unitaires et du développement piloté par les tests,
 
 06:30.420 --> 06:35.070
-I hope you're beginning to see some of the benefits that could work well for you.
+J'espère que vous commencez à voir certains des avantages qui pourraient vous convenir.
 
 06:35.100 --> 06:39.360
-Combining what you've learned here about testing with MVC architecture.
+Combiner ce que vous avez appris ici sur les tests avec l'architecture MVC.
 
 06:39.390 --> 06:47.340
-You have the tools to create projects that are more modular, scalable, optimized, robust, and dependable.
+Vous disposez des outils nécessaires pour créer des projets plus modulaires, plus évolutifs, plus optimisés, plus robustes et plus fiables.
 
 06:47.370 --> 06:52.440
-The combination of testing and good architecture is really powerful.
+La combinaison des tests et d'une bonne architecture est vraiment puissante.
 
 06:52.470 --> 06:53.430
-Thanks.
+Merci à tous.

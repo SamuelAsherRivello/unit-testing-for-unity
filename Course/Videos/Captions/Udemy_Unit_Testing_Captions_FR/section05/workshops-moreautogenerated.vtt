@@ -4,85 +4,85 @@ WEBVTT
 Hi.
 
 00:00.320 --> 00:06.050
-That covers a lot of the different topics that I wanted to have in the workshop so far, but there's
+Cela couvre une grande partie des différents sujets que je voulais aborder dans l'atelier jusqu'à présent.
 
 00:06.050 --> 00:08.570
-plenty of room for more topics in the future.
+beaucoup de place pour d'autres sujets à l'avenir.
 
 00:08.570 --> 00:10.940
-We've seen in the workshops covered so far.
+Nous avons vu dans les ateliers couverts jusqu'à présent.
 
 00:10.940 --> 00:17.930
-This simplest example learning the test runner, seeing how we can make playmode tests, edit mode tests,
+Cet exemple le plus simple nous permet d'apprendre à utiliser le gestionnaire de tests, de voir comment nous pouvons faire des tests en mode lecture, des tests en mode édition,
 
 00:17.960 --> 00:23.420
-learning a little bit about the differences of play mode and edit mode, and why you would want to test
+apprendre un peu sur les différences entre le mode lecture et le mode édition, et pourquoi vous voudriez tester
 
 00:23.420 --> 00:25.930
-in one or the other, or both.
+dans l'un ou l'autre, ou dans les deux.
 
 00:25.940 --> 00:32.060
-Then we also saw some of the options we have when we have asynchronous functionality, or when we're
+Nous avons également vu quelques-unes des options dont nous disposons lorsque nous avons une fonctionnalité asynchrone, ou lorsque nous sommes en train de tester une fonctionnalité asynchrone, ou lorsque nous sommes en train de tester une fonctionnalité asynchrone.
 
 00:32.060 --> 00:34.040
-dependent on other systems.
+dépendons d'autres systèmes.
 
 00:34.040 --> 00:38.540
-What could we do to reduce that dependency for the sake of the test?
+Que pourrions-nous faire pour réduire cette dépendance dans l'intérêt du test ?
 
 00:38.570 --> 00:43.760
-Along the way there, we're learning some different things about dependency injection and separating
+En cours de route, nous apprenons différentes choses sur l'injection de dépendances et la séparation
 
 00:43.760 --> 00:45.230
-the concerns of our code.
+les préoccupations de notre code.
 
 00:45.260 --> 00:51.290
-Those principles are useful in production code anyway, and we're beginning to see some of the ways
+Ces principes sont de toute façon utiles dans le code de production, et nous commençons à voir certaines des façons dont le code de production peut être utilisé.
 
 00:51.290 --> 00:58.400
-that when you prepare your code to be more testable, we're also creating code that is designed well
+que lorsque vous préparez votre code pour qu'il soit plus testable, nous créons également un code qui est bien conçu.
 
 00:58.400 --> 00:59.660
-for production.
+pour la production.
 
 00:59.660 --> 01:06.290
-So having dependency injection allows flexibility that you can use at runtime, reducing the complexity
+L'injection de dépendances offre donc une flexibilité que l'on peut utiliser au moment de l'exécution, ce qui réduit la complexité.
 
 01:06.290 --> 01:12.920
-of your systems by passing in flexible varieties of different dependencies when you need to.
+de vos systèmes en passant des variétés flexibles de différentes dépendances lorsque vous en avez besoin.
 
 01:12.950 --> 01:20.540
-We've also seen by separating a monolithic large monobehaviour into just what we need from the monobehaviour
+Nous avons également constaté qu'en séparant un grand comportement monolithique en ce dont nous avons besoin du comportement monolithique, il est possible d'améliorer la qualité du système.
 
 01:20.540 --> 01:27.200
-and moving the other code into a lighter weight non monobehaviour class, we again get some flexibility
+et en déplaçant le reste du code dans une classe plus légère sans monobehaviour, nous obtenons à nouveau une certaine flexibilité.
 
 01:27.200 --> 01:32.150
-that is useful in production and also helps us here in the testing world.
+qui est utile en production et qui nous aide également dans le monde des tests.
 
 01:32.150 --> 01:38.780
-I think overall some of the challenges that we're seeing are what happens when you have multiple dependencies
+Je pense qu'en général, certains des défis que nous voyons sont ce qui se passe lorsque vous avez des dépendances multiples
 
 01:38.780 --> 01:43.250
-or lots of systems called from one particular method.
+ou de nombreux systèmes appelés à partir d'une méthode particulière.
 
 01:43.610 --> 01:49.250
-That might be a sign that that method is bloated and doing too much, or it might be a sign that it's
+Cela peut être le signe que cette méthode est surchargée et qu'elle en fait trop, ou bien qu'elle est
 
 01:49.250 --> 01:51.680
-a lean and appropriate designed one.
+une méthode allégée et bien conçue.
 
 01:51.680 --> 01:57.350
-But we need to have some additional thoughts and considerations when we go to testing that functionality.
+Mais nous devons avoir quelques réflexions et considérations supplémentaires lorsque nous testons cette fonctionnalité.
 
 01:57.350 --> 01:59.600
-So I hope this has been helpful for you.
+J'espère que cela vous a été utile.
 
 01:59.600 --> 02:06.680
-I look forward to covering even more topics in this series as well, and they'll be added again in over
+J'ai hâte d'aborder d'autres sujets dans cette série, et ils seront ajoutés au fur et à mesure.
 
 02:06.680 --> 02:07.190
-time.
+temps.
 
 02:07.190 --> 02:08.300
-So thanks again.
+Merci encore.

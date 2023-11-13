@@ -1,196 +1,196 @@
 WEBVTT
 
 00:00.020 --> 00:03.440
-Creating unit tests, test class and test methods.
+Création des tests unitaires, classe de test et méthodes de test.
 
 00:03.440 --> 00:07.100
-Here's the code for a test class containing one test method.
+Voici le code d'une classe de test contenant une méthode de test.
 
 00:07.100 --> 00:12.370
-Inside we follow the optional paradigm of arrange, act, and assert.
+A l'intérieur, nous suivons le paradigme optionnel de arrange, act et assert.
 
 00:12.380 --> 00:14.870
-That's the convention I use for all of my testing.
+C'est la convention que j'utilise pour tous mes tests.
 
 00:14.870 --> 00:18.980
-So we've seen what a test looks like and how to run an existing test.
+Nous avons donc vu à quoi ressemble un test et comment exécuter un test existant.
 
 00:19.010 --> 00:20.620
-Now let's create our own test.
+Maintenant, créons notre propre test.
 
 00:20.630 --> 00:22.550
-We'll open up an empty project.
+Nous allons ouvrir un projet vide.
 
 00:22.580 --> 00:29.690
-Open the test Runner window, create a test folder, a test class, and a method inside that test.
+Ouvrons la fenêtre Test Runner, créons un dossier de test, une classe de test et une méthode à l'intérieur de ce test.
 
 00:29.720 --> 00:31.610
-Then we'll run the test and see the result.
+Nous allons ensuite exécuter le test et voir le résultat.
 
 00:31.610 --> 00:33.920
-Here we are in a fairly empty project.
+Nous voici dans un projet relativement vide.
 
 00:33.920 --> 00:37.310
-I do have the unity test framework added already.
+J'ai déjà ajouté le framework de test unity.
 
 00:37.310 --> 00:39.470
-Let's open up the test runner window.
+Ouvrons la fenêtre d'exécution des tests.
 
 00:39.470 --> 00:46.370
-Since the project has no edit mode tests and no play mode tests, each of those tabs offers some options
+Puisque le projet n'a pas de tests en mode édition ni en mode lecture, chacun de ces onglets offre quelques options
 
 00:46.370 --> 00:47.540
-here to get us started.
+pour nous aider à démarrer.
 
 00:47.540 --> 00:53.480
-First, we'll create an edit Mode test assembly folder by clicking the button that creates a new folder
+Tout d'abord, nous allons créer un dossier d'assemblage de test en mode édition en cliquant sur le bouton qui crée un nouveau dossier.
 
 00:53.480 --> 00:59.930
-in our project window, including an assembly setup for testing unity assemblies and the assembly definition
+dans notre fenêtre de projet, y compris une configuration d'assemblage pour tester les assemblages unity et la définition de l'assemblage
 
 00:59.930 --> 01:07.220
-file is outside the scope of this course, but in brief, this signals unity that things within this
+Le fichier de définition d'assemblage n'entre pas dans le cadre de ce cours, mais en bref, il signale à unity que les choses qui se trouvent dans ce fichier de définition d'assemblage ne sont pas des assemblages.
 
 01:07.220 --> 01:11.630
-given folder should be compiled, should be compiled in a unique way.
+dossier donné doivent être compilées, doivent être compilées d'une manière unique.
 
 01:11.630 --> 01:16.310
-So now that we have that test assembly folder set up, we can create our first test class.
+Maintenant que le dossier de l'assemblage de test est configuré, nous pouvons créer notre première classe de test.
 
 01:16.310 --> 01:21.290
-Each of these steps can be done manually without using the window, but I'll continue by clicking the
+Chacune de ces étapes peut être réalisée manuellement sans utiliser la fenêtre, mais je vais continuer en cliquant sur le bouton
 
 01:21.290 --> 01:26.390
-next button here to create a test script in the current folder in the project window, that creates
+bouton suivant ici pour créer un script de test dans le dossier actuel de la fenêtre de projet, qui crée
 
 01:26.420 --> 01:29.460
-a new test class, and it gives us two test methods.
+une nouvelle classe de test et nous donne deux méthodes de test.
 
 01:29.480 --> 01:32.350
-Notice in the test runner window everything shows up.
+Remarquez que tout s'affiche dans la fenêtre du programme de test.
 
 01:32.360 --> 01:33.770
-I'll run all those tests.
+Je vais exécuter tous ces tests.
 
 01:33.770 --> 01:35.040
-All the tests pass.
+Tous les tests sont réussis.
 
 01:35.060 --> 01:37.160
-Let's take a look at the code that's generated.
+Jetons un coup d'oeil au code généré.
 
 01:37.160 --> 01:41.990
-At this point, you're free to rename the class and these methods however you see fit.
+À ce stade, vous êtes libre de renommer la classe et ces méthodes comme bon vous semble.
 
 01:41.990 --> 01:45.530
-And then of course copy and paste to add more methods within.
+Et bien sûr de faire des copier-coller pour ajouter d'autres méthodes à l'intérieur de la classe.
 
 01:45.530 --> 01:50.840
-There's no limit to the number of test methods you can have in a test class, but generally you use
+Il n'y a pas de limite au nombre de méthodes de test que vous pouvez avoir dans une classe de test, mais en général vous utilisez
 
 01:50.840 --> 01:57.890
-the class to organize certain topics, perhaps one test class for each production class, and then one
+la classe pour organiser certains sujets, peut-être une classe de test pour chaque classe de production, et ensuite une classe de test pour chaque classe de production, et ensuite une classe de test pour chaque classe de production.
 
 01:57.890 --> 02:00.440
-test method within for each method.
+méthode de test pour chaque méthode.
 
 02:00.440 --> 02:03.290
-In production, you want to test something like that.
+En production, vous voulez tester quelque chose comme ça.
 
 02:03.290 --> 02:07.010
-These comments are automatically generated by unity and are quite helpful.
+Ces commentaires sont générés automatiquement par unity et sont très utiles.
 
 02:07.520 --> 02:10.310
-I'll go over the highlights here using the test.
+Je vais passer en revue les points saillants en utilisant le test.
 
 02:10.640 --> 02:15.740
-Using the test attribute sets us up for a normal edit mode test.
+L'utilisation de l'attribut test nous permet d'effectuer un test normal en mode édition.
 
 02:15.740 --> 02:22.100
-Using the unity test attribute allows us to execute a test over multiple frames.
+L'utilisation de l'attribut unity test nous permet d'exécuter un test sur plusieurs images.
 
 02:22.100 --> 02:26.630
-Now, I mentioned before that using unity test is best fit for play mode.
+J'ai déjà mentionné que l'utilisation de unity test est plus adaptée au mode lecture.
 
 02:26.660 --> 02:31.160
-You have much more options at what type of asynchronous functionality you can do there.
+Vous avez beaucoup plus d'options sur le type de fonctionnalité asynchrone que vous pouvez faire ici.
 
 02:31.160 --> 02:38.060
-It is indeed possible here, and as the comment suggests, you can use yield return null to skip a frame.
+C'est en effet possible ici, et comme le suggère le commentaire, vous pouvez utiliser yield return null pour sauter une frame.
 
 02:38.060 --> 02:42.920
-For example, doing the setup, then waiting a frame and doing the test.
+Par exemple, faire le setup, puis attendre une frame et faire le test.
 
 02:42.920 --> 02:43.910
-Something like that.
+Quelque chose comme ça.
 
 02:43.910 --> 02:46.220
-For example doing the setup code.
+Par exemple, le code d'installation.
 
 02:46.220 --> 02:47.660
-Waiting a frame.
+Attente d'une image.
 
 02:48.220 --> 02:52.240
-And then doing the assertion, something like that here, back into unity.
+Et ensuite faire l'assertion, quelque chose comme ça ici, dans l'unité.
 
 02:52.240 --> 02:54.580
-I will tab over to the.
+Je vais tabuler sur le.
 
 02:55.200 --> 02:57.720
-Play mode and follow the same steps.
+Play mode et suivre les mêmes étapes.
 
 02:57.720 --> 03:03.870
-First, we'll create a play mode test assembly folder, and then I'll create a test script.
+Tout d'abord, nous allons créer un dossier d'assemblage de test de mode de jeu, puis je vais créer un script de test.
 
 03:03.870 --> 03:04.710
-In this folder.
+Dans ce dossier.
 
 03:04.710 --> 03:09.840
-We can see in the test runner that we've got one test class that contains two test methods.
+Nous pouvons voir dans le programme d'exécution des tests que nous avons une classe de test qui contient deux méthodes de test.
 
 03:10.350 --> 03:13.250
-I'll run all and we see that everything passes.
+Je lance tous les tests et nous voyons que tout passe.
 
 03:13.260 --> 03:15.230
-Let's take a look at the generated code.
+Jetons un coup d'œil au code généré.
 
 03:15.240 --> 03:21.870
-The code generated here is actually identical in both play mode and edit mode.
+Le code généré ici est en fait identique en mode lecture et en mode édition.
 
 03:21.900 --> 03:24.120
-They give you very similar starting points.
+Les points de départ sont très similaires.
 
 03:24.120 --> 03:25.050
-That's it.
+C'est tout.
 
 03:26.390 --> 03:31.910
-We're beginning to see that with the test runner window and just a little bit of added C-sharp, we
+Nous commençons à voir qu'avec la fenêtre du test runner et juste un peu de C dièse ajouté, nous pouvons
 
 03:31.910 --> 03:35.110
-can do more things with our unity projects than we have before.
+pouvons faire plus de choses avec nos projets unity que nous ne l'avons fait auparavant.
 
 03:35.120 --> 03:40.490
-If you're new to unit testing, you're familiar with using unity to create runtime code.
+Si vous êtes novice en matière de tests unitaires, vous êtes familier avec l'utilisation de unity pour créer du code d'exécution.
 
 03:40.490 --> 03:42.740
-But testing code is something different.
+Mais tester du code est quelque chose de différent.
 
 03:43.300 --> 03:46.660
-It's never directly experienced by your end users.
+Les utilisateurs finaux n'en font jamais l'expérience directe.
 
 03:47.110 --> 03:52.200
-This code only runs in test mode and it's not even packaged into your end build.
+Ce code ne s'exécute qu'en mode test et n'est même pas intégré à votre version finale.
 
 03:52.210 --> 03:58.790
-We start to look at tests now as a small window into moments in time in a larger application.
+Nous commençons à considérer les tests comme une petite fenêtre sur des moments précis d'une application plus vaste.
 
 03:58.810 --> 04:02.930
-Testing with a narrow focus to ensure we get consistent results.
+Tester en se concentrant sur un point précis pour s'assurer d'obtenir des résultats cohérents.
 
 04:02.950 --> 04:08.200
-Up to now, we've been talking mostly about adding new tests to existing code.
+Jusqu'à présent, nous avons surtout parlé de l'ajout de nouveaux tests au code existant.
 
 04:08.230 --> 04:13.300
-Next, we'll look at how to add tests while we're developing code with test driven development.
+Ensuite, nous allons voir comment ajouter des tests pendant que nous développons du code avec le développement piloté par les tests.
 
 04:13.330 --> 04:14.110
-Thanks.
+Merci de votre compréhension.
