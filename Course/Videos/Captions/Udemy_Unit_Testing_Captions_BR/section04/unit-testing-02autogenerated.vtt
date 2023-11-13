@@ -1,0 +1,412 @@
+WEBVTT
+
+00:00.050 --> 00:03.640
+Set up for the test runner window and test classes.
+
+00:03.650 --> 00:07.250
+The source code for the test framework is available through the package manager.
+
+00:07.250 --> 00:10.800
+You can add the package searching for test framework.
+
+00:10.820 --> 00:15.530
+Import the test framework and optionally import code coverage tooling.
+
+00:15.530 --> 00:21.110
+The unity test framework includes all the libraries needed to test your C-sharp code now as an individual
+
+00:21.110 --> 00:21.770
+or a team.
+
+00:21.770 --> 00:26.540
+If you're new to testing, you don't have to test all of your code at once.
+
+00:26.540 --> 00:32.450
+You can slowly, over time, start testing the more of your code that is covered with tests, the better
+
+00:32.450 --> 00:34.020
+you'll have more confidence.
+
+00:34.040 --> 00:36.320
+Some ways you can integrate it into your team.
+
+00:36.320 --> 00:37.640
+That's nice and easy.
+
+00:37.820 --> 00:44.540
+Are adding tests only for new features, or add testing to key systems before a major refactor.
+
+00:44.540 --> 00:48.650
+And a great way to get started is testing just during bug fixes.
+
+00:48.650 --> 00:55.010
+If a user reports a bug, you first replicate the existence of the bug with a failing test.
+
+00:55.040 --> 00:57.790
+Then you fix the code and the test passes.
+
+00:57.800 --> 01:03.260
+You can leave this test behind as a legacy, so you're sure that that bug doesn't return in the future.
+
+01:03.290 --> 01:08.840
+The concept of code coverage refers to how much of your code base is covered with tests.
+
+01:08.930 --> 01:16.250
+If you have one class and three methods in your entire project, and all three of them have tests,
+
+01:16.250 --> 01:18.290
+then you have 100% coverage.
+
+01:18.290 --> 01:23.480
+Generally speaking, the higher the coverage, the better you can open up that code coverage window,
+
+01:23.480 --> 01:30.440
+run your tests and you get robust results showing you not just the percentage per class and system,
+
+01:30.440 --> 01:36.830
+but within every class, you get a line by line readout of which methods have coverage and which don't.
+
+01:37.130 --> 01:38.300
+It's very useful.
+
+01:38.300 --> 01:43.670
+You can track how much of your code is being tested, locate any vulnerabilities you have during your
+
+01:43.670 --> 01:48.710
+testing process, and also monitor your increasing coverage over time.
+
+01:48.710 --> 01:52.390
+With those libraries installed, you can create your first test.
+
+01:52.400 --> 01:58.730
+Open up the Test Runner window, create a test folder in your assets, create your first class and your
+
+01:58.730 --> 02:03.890
+first method in that class at that point, those tests will show up in the Test Runner window where
+
+02:03.890 --> 02:06.350
+you can click run and see them execute.
+
+02:06.350 --> 02:09.080
+Here's an example of a test class with a test method.
+
+02:09.110 --> 02:11.780
+Notice it looks like pretty normal C sharp.
+
+02:11.780 --> 02:16.850
+The test attribute shown there in the square brackets is the secret sauce.
+
+02:16.850 --> 02:22.220
+Here, the system looks for any methods marked with that attribute to consider it a test.
+
+02:22.220 --> 02:26.600
+As I mentioned, testing is an art form and there's many different ways to approach it.
+
+02:26.630 --> 02:35.210
+A nice device I use is within each method to divide it up into three sections arrange, act, and assert.
+
+02:35.240 --> 02:39.800
+In arrange, you do one or more lines that's required to set up the test.
+
+02:39.800 --> 02:45.650
+In the act portion, you execute whatever it is that's specifically related to the test, and then you
+
+02:45.650 --> 02:46.400
+do the assert.
+
+02:46.430 --> 02:49.430
+Asserting means to assume something is true.
+
+02:49.430 --> 02:52.280
+So the testing framework comes in assert library.
+
+02:52.280 --> 02:56.450
+Imagine we have a custom math system that allows you to add two numbers together.
+
+02:56.450 --> 03:01.430
+We could assert that the sum of five plus ten equals 15.
+
+03:01.430 --> 03:03.860
+And we'd consider that a successful test.
+
+03:03.890 --> 03:06.110
+We'd run it and see that it passes.
+
+03:06.110 --> 03:07.520
+Let's see this in action.
+
+03:07.520 --> 03:10.520
+I'll open up a unity project that's got a test ready.
+
+03:10.550 --> 03:13.940
+We'll take a look at how it works and run the test.
+
+03:14.880 --> 03:17.520
+Here we are in an empty unity project.
+
+03:17.520 --> 03:20.290
+I'll begin by setting up the test framework.
+
+03:20.340 --> 03:22.260
+So I'll open the package manager.
+
+03:26.800 --> 03:30.830
+The package manager shows which packages are already installed.
+
+03:30.850 --> 03:36.610
+It's possible that the project you begin with already has the test framework added.
+
+03:37.190 --> 03:39.960
+But if it doesn't, here's how you can add it yourself.
+
+03:39.980 --> 03:44.720
+Search in the Unity Registry for test framework and install the latest version.
+
+03:44.750 --> 03:51.650
+Next, for optional additional features, search the unity registry for code coverage and install.
+
+03:51.980 --> 03:54.320
+Code coverage has some optional samples.
+
+03:54.320 --> 03:55.790
+I won't install them here.
+
+03:56.590 --> 04:02.020
+Now reviewing the packages we have in the project, we see both the test framework and optionally if
+
+04:02.020 --> 04:04.020
+you chose to install it, coding coverage.
+
+04:04.030 --> 04:07.210
+Now this project is fully compatible to have unit testing.
+
+04:08.940 --> 04:11.520
+To get started, we'll open up the test runner window.
+
+04:11.970 --> 04:14.220
+The test runner window has two tabs.
+
+04:14.250 --> 04:16.230
+Edit mode and play mode.
+
+04:16.440 --> 04:21.810
+Because we have no tests added, the window is very helpful and offers some clickable creation options
+
+04:21.810 --> 04:24.270
+to make tests for us in a later demo.
+
+04:24.300 --> 04:26.670
+I'll show how to create tests from scratch.
+
+04:26.880 --> 04:30.180
+For now, I'll just paste one in that I have already prepared.
+
+04:31.010 --> 04:37.790
+The testing shown here was pasted in from the mini Max sample project for the course to help us focus.
+
+04:37.790 --> 04:40.310
+I've removed everything except the test we want to look at.
+
+04:40.310 --> 04:45.050
+Let's explore the test Runner window, starting with the edit mode here in the Edit Mode tab.
+
+04:45.050 --> 04:49.520
+By default, all of the tests in the project are listed here in the Edit Mode tab.
+
+04:49.520 --> 04:55.700
+By default, all the tests available anywhere in the assets folder and packages folder are shown.
+
+04:55.700 --> 04:59.690
+You can filter by category to see only some of the tests.
+
+04:59.690 --> 05:04.760
+We don't have many tests here, but just for demos sake, I'll choose the category for our samples.
+
+05:04.760 --> 05:08.600
+Now the window shows a hierarchy of all the tests organized by namespace.
+
+05:08.600 --> 05:15.380
+When I expand all at the lower levels, I see the test class and then a test method under.
+
+05:15.380 --> 05:18.500
+We can run all the tests and see that they pass.
+
+05:18.500 --> 05:22.010
+We can select an individual test and run the selected.
+
+05:22.010 --> 05:24.140
+Whether the test passes or fails.
+
+05:24.140 --> 05:27.470
+We have an easy way to get to the source code with a right click menu.
+
+05:30.070 --> 05:31.810
+Here's the complete test code.
+
+05:32.230 --> 05:34.990
+This is the same we saw earlier in the presentation.
+
+05:34.990 --> 05:36.280
+Let's go over the highlights.
+
+05:36.280 --> 05:40.900
+We have an optional category attribute that helps organize our testing.
+
+05:41.110 --> 05:43.000
+That dropdown that I showed.
+
+05:43.240 --> 05:43.960
+Filters.
+
+05:43.960 --> 05:47.860
+Based on this value you can have many test classes that are in the same category.
+
+05:47.890 --> 05:50.830
+You can have many test classes that are in the same category.
+
+05:50.830 --> 05:52.330
+Then we have the test attribute.
+
+05:52.330 --> 05:57.100
+This is what tells the test framework that this method is actually a test method.
+
+05:57.820 --> 06:00.590
+Without this, it won't show up in the test runner window.
+
+06:00.610 --> 06:05.770
+Then we use the familiar but optional paradigm of arrange, act, and assert.
+
+06:05.800 --> 06:10.060
+This is just a way that I use as a convention to organize my test logic.
+
+06:10.060 --> 06:14.710
+Also, when I name my tests, I choose to name them based on what is under the test.
+
+06:14.740 --> 06:17.560
+What is the expectation and what is the situation?
+
+06:17.560 --> 06:23.890
+So here I'm testing the add method that the result will be 15 when I pass five and ten as the operands.
+
+06:23.920 --> 06:25.780
+Let's tab over to play mode.
+
+06:25.810 --> 06:30.970
+The play mode tab looks very similar, and it looks like it's showing the exact same test, but it's
+
+06:30.970 --> 06:31.280
+not.
+
+06:31.300 --> 06:32.230
+I'll open the source.
+
+06:32.230 --> 06:34.240
+Here's the source code for a play mode test.
+
+06:34.240 --> 06:35.470
+So how is this different?
+
+06:35.500 --> 06:40.240
+The primary difference is where it's located in the project window.
+
+06:40.270 --> 06:41.500
+I'll show that in a moment.
+
+06:41.500 --> 06:47.470
+An optional difference I choose is that for my tests in play mode, I append the class with play mode
+
+06:47.500 --> 06:51.530
+test, whereas in editor mode I just append with test.
+
+06:51.550 --> 06:52.870
+That helps me organize.
+
+06:52.900 --> 06:56.560
+Now here for demo sake, I'm testing the exact same behavior.
+
+06:56.560 --> 06:58.870
+Once in edit mode and once in play mode.
+
+06:58.870 --> 07:01.150
+That's probably not necessary for you.
+
+07:01.180 --> 07:08.170
+You instead test by default in edit mode and only use play mode testing when you need to capture play
+
+07:08.170 --> 07:13.480
+mode events such as Start Awake or Game object functionality.
+
+07:13.510 --> 07:14.860
+Collision detection.
+
+07:14.860 --> 07:16.840
+Other things that only happen at runtime.
+
+07:16.840 --> 07:21.040
+As discussed in the course, I use the same method naming convention we saw before.
+
+07:21.040 --> 07:22.060
+Let's note two.
+
+07:22.150 --> 07:23.920
+Let's note two key differences.
+
+07:23.920 --> 07:29.230
+Here we use a unity test attribute, not a test attribute as we saw before.
+
+07:29.230 --> 07:34.300
+And in addition to arrange, act, and assert, there's an optional await paradigm.
+
+07:34.300 --> 07:41.050
+This is used here just to demonstrate the fact that while edit mode tests execute synchronously, play
+
+07:41.050 --> 07:44.590
+mode tests can execute asynchronously.
+
+07:44.590 --> 07:49.750
+So if you have any code that requires asynchronous testing, play mode is a great option.
+
+07:49.750 --> 07:52.470
+Let's take a look at the project window to see the organization.
+
+07:52.480 --> 07:57.940
+Notice that the edit mode test is in an editor folder, and notice that the play mode test is in a runtime
+
+07:57.940 --> 07:58.330
+folder.
+
+07:58.330 --> 08:03.490
+That difference, together with the differences in the assembly definition files.
+
+08:03.520 --> 08:09.760
+Adjacent to these tests is how the system knows that one is an editor test and one is a play mode test.
+
+08:09.790 --> 08:11.220
+I'll run the play mode test.
+
+08:11.230 --> 08:13.300
+Finally, I'll run the play mode test.
+
+08:13.330 --> 08:16.870
+The test runner window behaves the same with one exception.
+
+08:16.900 --> 08:18.730
+Because these are play mode tests.
+
+08:18.730 --> 08:25.570
+Unity will create an anonymous scene, execute the test in isolation, and then destroy the scene.
+
+08:25.570 --> 08:29.620
+While this all happens quite rapidly, you'll notice it happening here as I.
+
+08:29.620 --> 08:35.890
+Plus as I press run all instead of running all the tests in one millisecond, for example, as the edit
+
+08:35.890 --> 08:39.490
+mode may do here, it takes several milliseconds to execute.
+
+08:39.490 --> 08:46.090
+Here we got a chance to see a test running, seeing the test runner window and seeing the basics.
+
+08:46.120 --> 08:48.970
+Next, let's take a look at how we'd create our own tests.
