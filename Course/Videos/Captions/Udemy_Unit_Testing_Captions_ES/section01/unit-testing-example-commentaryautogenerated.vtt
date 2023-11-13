@@ -1,145 +1,145 @@
 WEBVTT
 
 00:02.920 --> 00:07.120
-So let's take a step back and just look quickly at a fundamental example here.
+Demos un paso atrás y veamos rápidamente un ejemplo fundamental.
 
 00:07.120 --> 00:09.100
-So this is not a unit test here.
+Esto no es una prueba unitaria.
 
 00:09.100 --> 00:16.270
-And this represents a unity class something that I would consider production code meaning not test code.
+Y esto representa una clase de unidad algo que yo consideraría código de producción es decir, no código de prueba.
 
 00:16.270 --> 00:19.990
-And this would be in your perhaps a math game.
+Y esto sería en tu quizás un juego de matemáticas.
 
 00:19.990 --> 00:23.890
-It's a very simple my math system class that does two things.
+Es una clase muy simple de mi sistema matemático que hace dos cosas.
 
 00:23.890 --> 00:26.140
-It can add and it can subtract.
+Puede sumar y puede restar.
 
 00:26.140 --> 00:27.820
-So we have the add method.
+Así que tenemos el método de suma.
 
 00:27.820 --> 00:31.300
-Notice I'm passing in an int integer a and b.
+Fíjate que estoy pasando un entero int a y b.
 
 00:31.300 --> 00:33.970
-I add those together and I return that value.
+Los sumo y devuelvo ese valor.
 
 00:33.970 --> 00:40.540
-Now if this was used in your game and you wanted to be sure it was working faithfully, you would just
+Ahora bien, si esto se utilizara en tu juego y quisieras estar seguro de que funciona fielmente, sólo tendrías que
 
 00:40.540 --> 00:48.640
-play your game and you would hope that a successful add operation implementation gives you on screen,
+jugar tu juego y esperarías que la implementación de una operación de adición exitosa te diera en pantalla,
 
 00:48.640 --> 00:50.500
-easy to judge results.
+resultados fáciles de juzgar.
 
 00:50.500 --> 00:52.210
-But that's not always the case.
+Pero ese no es siempre el caso.
 
 00:52.210 --> 00:59.470
-Maybe this is adding A and B and C by accident, and you might not notice that perhaps your score system
+Tal vez esto es la adición de A y B y C por accidente, y usted podría no darse cuenta de que tal vez su sistema de puntuación
 
 00:59.470 --> 01:05.470
-is increasing from one to 2 to 4 doing bad math, and you just don't happen to catch it.
+está incrementando de 1 a 2 a 4 haciendo mal las matemáticas, y simplemente no te das cuenta.
 
 01:05.500 --> 01:11.920
-The nice thing about adding a unit test is you're able to test more situations than you may come across
+Lo bueno de añadir una prueba unitaria es que eres capaz de probar más situaciones de las que te puedes encontrar
 
 01:11.920 --> 01:15.370
-as the game player, and do it more systematically.
+como jugador, y hacerlo de forma más sistemática.
 
 01:15.370 --> 01:18.400
-Let's take a quick look at our very first unit test.
+Vamos a echar un vistazo rápido a nuestra primera prueba de unidad.
 
 01:18.400 --> 01:21.850
-And it's going to be a unit test on top of this system here.
+Y va a ser una prueba de unidad en la parte superior de este sistema aquí.
 
 01:22.870 --> 01:25.540
-So this is a separate class.
+Así que esta es una clase separada.
 
 01:25.540 --> 01:31.060
-And by putting the the code base here, we're seeing in a certain spot in your project.
+Y poniendo la base de código aquí, estamos viendo en un lugar determinado en su proyecto.
 
 01:31.060 --> 01:36.600
-And by marking the method as the arrow shows with test, unity will treat it a little bit differently.
+Y marcando el método como muestra la flecha con test, unity lo tratará un poco diferente.
 
 01:36.610 --> 01:42.880
-This doesn't need to be called anywhere from inside your production code, but look how easy it is inside
+Esto no tiene que ser llamado en cualquier lugar dentro de su código de producción, pero mira lo fácil que es dentro de
 
 01:42.880 --> 01:43.570
-in the body.
+en el cuerpo.
 
 01:43.570 --> 01:49.960
-Here we see we're using the arrange, act and assert methodology, and we'll go deeper into that methodology
+Aquí vemos que estamos usando la metodología arrange, act y assert, y profundizaremos en esa metodología
 
 01:49.960 --> 01:50.380
-there.
+allí.
 
 01:50.380 --> 01:53.950
-It's an optional approach that just helps you organize your thoughts.
+Es un enfoque opcional que simplemente te ayuda a organizar tus pensamientos.
 
 01:53.950 --> 01:56.380
-So first we create an instance of the class.
+Así que primero creamos una instancia de la clase.
 
 01:56.380 --> 01:59.020
-Then we call a method on that class.
+Luego llamamos a un método de esa clase.
 
 01:59.020 --> 02:04.990
-And then we assert or we assume that this is going to be our expected result.
+Y entonces afirmamos o asumimos que este va a ser nuestro resultado esperado.
 
 02:05.020 --> 02:12.010
-Now this test will pass if the assertion is correct and it will fail if the assertion is incorrect.
+Ahora esta prueba pasará si la afirmación es correcta y fallará si la afirmación es incorrecta.
 
 02:12.040 --> 02:18.820
-Now, it may seem silly to pass five and ten and check that it turns 15, because again, our implementation
+Ahora, puede parecer una tontería pasar cinco y diez y comprobar que cumple 15, porque de nuevo, nuestra implementación
 
 02:18.820 --> 02:20.110
-code is so simple.
+código es tan simple.
 
 02:20.110 --> 02:26.080
-But these are the fundamental ideas that when we apply them to even larger classes, it's going to be
+Pero estas son las ideas fundamentales que cuando las aplicamos a clases aún más grandes, va a ser
 
 02:26.080 --> 02:26.800
-important.
+importante.
 
 02:26.920 --> 02:28.900
-So that's our course overview.
+Este es el resumen de nuestro curso.
 
 02:28.900 --> 02:31.240
-Let's just think about what we've learned here.
+Pensemos en lo que hemos aprendido aquí.
 
 02:31.240 --> 02:35.980
-We've talked a bit about how and why unit testing is important to a project.
+Hemos hablado un poco sobre cómo y por qué las pruebas unitarias son importantes para un proyecto.
 
 02:35.980 --> 02:39.640
-I've hinted a little bit about why it's quite rare in game development.
+He insinuado un poco acerca de por qué es bastante raro en el desarrollo de juegos.
 
 02:39.670 --> 02:45.490
-One reason is that we as game developers, we love adding new features, and this feels a little bit
+Una de las razones es que nosotros, como desarrolladores de juegos, nos encanta añadir nuevas características, y esto se siente un poco
 
 02:45.490 --> 02:48.070
-more like slowing us down.
+que nos ralentiza.
 
 02:48.070 --> 02:53.500
-But when we looked at that 80 over 20 rule, we see, you know, we're quite surprised that actually
+Pero cuando nos fijamos en que 80 sobre 20 regla, vemos, ya sabes, estamos bastante sorprendidos de que en realidad
 
 02:53.500 --> 02:59.800
-most of our life as game developers is spent on fixing and maintaining existing features, not in adding
+la mayor parte de nuestra vida como desarrolladores de juegos se gasta en la fijación y el mantenimiento de las características existentes, no en la adición de
 
 02:59.800 --> 03:00.490
-new ones.
+nuevas.
 
 03:00.490 --> 03:07.420
-So recognizing that and seeing that unit testing will help us create those new features, as well as
+Así que reconocer eso y ver que las pruebas unitarias nos ayudarán a crear esas nuevas características, así como
 
 03:07.420 --> 03:13.630
-give us much more code confidence in the 80% of the maintenance that we're spending in our project.
+darnos mucha más confianza en el código en el 80% del mantenimiento que estamos gastando en nuestro proyecto.
 
 03:13.630 --> 03:19.210
-It is going to easily pay benefits to you as a game developer, and it's a wonderful skill to learn.
+Te va a reportar beneficios fácilmente como desarrollador de juegos, y es una habilidad maravillosa de aprender.
 
 03:19.210 --> 03:20.500
-So let's get started.
+Así que vamos a empezar.

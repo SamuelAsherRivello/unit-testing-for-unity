@@ -1,142 +1,142 @@
 WEBVTT
 
 00:00.230 --> 00:01.180
-The unity.
+La unidad.
 
 00:01.190 --> 00:02.270
-Overview.
+Vista general.
 
 00:02.780 --> 00:09.100
-The games industry is big and getting bigger amongst leisure time activities.
+La industria de los juegos es grande y cada vez más grande entre las actividades de ocio.
 
 00:09.110 --> 00:16.910
-Playing interactive experiences like video games has become increasingly popular on a weekly basis.
+Jugar a experiencias interactivas como los videojuegos es cada vez más popular.
 
 00:16.940 --> 00:20.150
-It makes up the most of these activities.
+Constituye la mayor parte de estas actividades.
 
 00:20.300 --> 00:26.070
-The size of the global game development industry is tremendously big.
+El tamaño de la industria mundial de desarrollo de juegos es tremendamente grande.
 
 00:26.090 --> 00:30.860
-You can see across different continents the size of the global game market.
+Puedes ver a través de los diferentes continentes el tamaño del mercado global del juego.
 
 00:30.890 --> 00:36.620
-There's many ways that game development teams can solve the challenges of developing games.
+Hay muchas formas en que los equipos de desarrollo de juegos pueden resolver los retos que plantea el desarrollo de juegos.
 
 00:36.620 --> 00:42.710
-Choosing a middleware a real time engine like unity brings a lot of features and services to a game
+Elegir un middleware un motor en tiempo real como unity aporta un montón de características y servicios a un juego
 
 00:42.710 --> 00:46.340
-development team, and allows you to create content more quickly.
+equipo de desarrollo, y permite crear contenidos más rápidamente.
 
 00:46.370 --> 00:52.610
-Unity is an industry leading choice for over a decade, and you can create content that is 2D, 3D,
+Unity es una opción líder en la industria desde hace más de una década, y puedes crear contenidos en 2D, 3D,
 
 00:52.640 --> 00:56.450
-VR, AR across all different sorts of industries.
+VR, AR en todo tipo de industrias.
 
 00:56.480 --> 01:01.840
-Gaming, of course, but also architecture, simulation and feature films.
+Juegos, por supuesto, pero también arquitectura, simulación y largometrajes.
 
 01:01.850 --> 01:04.470
-Unity is the name of the company.
+Unity es el nombre de la empresa.
 
 01:04.490 --> 01:09.680
-Its services, the platform you build on, and the runtime engine itself.
+Sus servicios, la plataforma sobre la que se construye y el propio motor de ejecución.
 
 01:09.710 --> 01:14.420
-Unity is just one development platform you can choose from, but it's tremendously popular.
+Unity es sólo una de las plataformas de desarrollo que puedes elegir, pero es tremendamente popular.
 
 01:14.450 --> 01:20.300
-Of the top 1000 performing mobile games, over 70% are created with unity.
+De los 1000 mejores juegos para móviles, más del 70% están creados con Unity.
 
 01:20.450 --> 01:22.940
-Unity is created with everyone in mind.
+Unity se ha creado pensando en todos.
 
 01:22.940 --> 01:24.050
-Let's see more.
+Veamos más.
 
 02:16.880 --> 02:19.970
-Here's a screenshot from a popular type of game.
+Aquí hay una captura de pantalla de un popular tipo de juego.
 
 02:19.970 --> 02:23.990
-We can see here some of the essentials of video game development.
+Aquí podemos ver algunos de los elementos esenciales del desarrollo de videojuegos.
 
 02:23.990 --> 02:28.670
-There's UI, these on screen elements text and the minimap.
+Hay UI, estos elementos en pantalla el texto y el minimapa.
 
 02:28.700 --> 02:31.130
-These things make up the user interface.
+Estos elementos forman la interfaz de usuario.
 
 02:31.430 --> 02:38.720
-There's the input taking input from finger swipes on a mobile device, gamepad controllers on a console,
+Está la entrada de datos, que se obtiene al deslizar el dedo en un dispositivo móvil o al controlar el gamepad en una consola,
 
 02:38.750 --> 02:39.830
-mouse, and keyboard.
+ratón y teclado.
 
 02:39.830 --> 02:44.930
-On PC, there's rendering the audio and the graphics, of course, to the user.
+En el PC, hay que renderizar el audio y los gráficos, por supuesto, para el usuario.
 
 02:44.960 --> 02:49.160
-These can be 2D or 3D, and these elements can be animated.
+Estos pueden ser 2D o 3D, y estos elementos pueden ser animados.
 
 02:49.160 --> 02:54.560
-There's many different types of animations in video game development, from the screen fading in and
+Hay muchos tipos diferentes de animaciones en el desarrollo de videojuegos, desde la pantalla que se desvanece en y
 
 02:54.560 --> 02:57.290
-out to the way the character walks around the world.
+hasta la forma en que el personaje camina por el mundo.
 
 02:57.290 --> 03:01.340
-And finally, there's the scripting or coding that you do in unity.
+Y por último, está el scripting o codificación que haces en unity.
 
 03:01.340 --> 03:03.230
-That's the C-sharp programming language.
+Es el lenguaje de programación C-sharp.
 
 03:03.230 --> 03:06.580
-So when we think of unity, what are the features that are built in?
+Cuando pensamos en Unity, ¿cuáles son las características que incorpora?
 
 03:06.590 --> 03:11.720
-Well, by choosing unity as the middleware solution, you get a lot of features out of the box.
+Bueno, al elegir unity como la solución de middleware, se obtienen muchas características de la caja.
 
 03:11.720 --> 03:14.480
-All the ones I just talked about and much, much more.
+Todas de las que acabo de hablar y mucho, mucho más.
 
 03:14.480 --> 03:18.590
-In addition to these features, there's also optional services.
+Además de estas características, también hay servicios opcionales.
 
 03:18.890 --> 03:26.180
-Unity provides different services for acquiring and measuring your users, providing back end functionality
+Unity proporciona diferentes servicios para la adquisición y medición de tus usuarios, proporcionando funcionalidad back-end
 
 03:26.180 --> 03:27.830
-as well as multiplayer.
+así como multijugador.
 
 03:28.250 --> 03:33.290
-Overall, game teams can choose the tools and platforms that make sense for them.
+En general, los equipos de juego pueden elegir las herramientas y plataformas que más les convengan.
 
 03:33.940 --> 03:39.670
-Creating your own game engine is possible, but requires tremendous resources in a larger team.
+Crear tu propio motor de juego es posible, pero requiere enormes recursos en un equipo más grande.
 
 03:39.820 --> 03:46.210
-The end result may be more customizable, however, choosing something off the shelf like unity, which
+El resultado final puede ser más personalizable, sin embargo, la elección de algo fuera de la plataforma como la unidad, que
 
 03:46.210 --> 03:53.710
-brings these features and services, allows teams to offer end users much more content more quickly.
+trae estas características y servicios, permite a los equipos ofrecer a los usuarios finales mucho más contenido más rápidamente.
 
 03:53.710 --> 03:55.400
-And of the choices out there.
+Y de las opciones que hay.
 
 03:55.420 --> 04:01.630
-Unity is among the most powerful and popular options we've seen that the games industry is big and it's
+Unity es una de las opciones más potentes y populares que hemos visto que la industria de los juegos es grande y es
 
 04:01.630 --> 04:02.350
-growing.
+creciendo.
 
 04:02.530 --> 04:08.560
-Unity is a powerful option to choose and includes features and services out of the box.
+Unity es una opción poderosa para elegir e incluye características y servicios fuera de la caja.
 
 04:08.590 --> 04:14.030
-Next, we'll continue looking at unity, particularly its structure and organization.
+A continuación, seguiremos analizando Unity, en particular su estructura y organización.
 
 04:14.050 --> 04:14.890
-Thanks.
+Gracias.

@@ -1,499 +1,499 @@
 WEBVTT
 
 00:00.260 --> 00:02.360
-Hello and welcome to Unit Testing for unity.
+Hola y bienvenidos a Unit Testing for unity.
 
 00:02.390 --> 00:06.020
-We're going to be looking at my data loader in advanced version here.
+Vamos a ver mi cargador de datos en versión avanzada aquí.
 
 00:06.020 --> 00:12.170
-To see this demo in action we're going to open up unity Download and use the Source sample project for
+Para ver esta demo en acción vamos a abrir unity Download y utilizar el proyecto de ejemplo Source para
 
 00:12.170 --> 00:12.920
-this course.
+este curso.
 
 00:12.920 --> 00:15.020
-And we'll take a look at a key scene here.
+Y vamos a echar un vistazo a una escena clave aquí.
 
 00:15.020 --> 00:17.210
-That is the My Data loader advanced.
+Este es el cargador My Data avanzado.
 
 00:17.210 --> 00:23.210
-Some of the concepts I'm going to talk about here include dependency injection as we see and end substitute.
+Algunos de los conceptos que voy a hablar aquí incluyen la inyección de dependencia como vemos y sustituto final.
 
 00:23.210 --> 00:29.150
-Here we are inside unity I've got this scene for the My Data loader advanced ready and ready to go here.
+Aquí estamos dentro de unity tengo esta escena para el cargador de My Data avanzado y listo para funcionar aquí.
 
 00:29.150 --> 00:34.070
-So we'll go ahead and run that scene for quite a lot of these scenes in the workshop.
+Así que vamos a seguir adelante y ejecutar esa escena para un buen montón de estas escenas en el taller.
 
 00:34.070 --> 00:38.840
-Running the production scene is not the interesting thing, but I always encourage you to do it just
+Ejecutar la escena de producción no es lo interesante, pero siempre os animo a hacerlo sólo
 
 00:38.840 --> 00:39.890
-as a starting point.
+como punto de partida.
 
 00:39.890 --> 00:46.310
-So here we see simple console log that says length of the data loaded is this.
+Así que aquí vemos simple registro de la consola que dice longitud de los datos cargados es este.
 
 00:46.340 --> 00:50.120
-That value is not too important, but you can dig into that example class if you want to take a look
+Ese valor no es demasiado importante, pero puedes indagar en esa clase de ejemplo si quieres echarle un vistazo
 
 00:50.120 --> 00:50.480
-at it.
+en él.
 
 00:50.480 --> 00:52.160
-Let's run the test for it.
+Vamos a ejecutar la prueba para ello.
 
 00:54.550 --> 00:58.090
-So up here I've got my category set to my data loader advanced.
+Así que aquí arriba tengo mi categoría establecida en mi cargador de datos avanzado.
 
 00:58.090 --> 01:02.320
-So we're only seeing the test related to that and only in edit mode.
+Así que sólo estamos viendo la prueba relacionada con eso y sólo en el modo de edición.
 
 01:02.350 --> 01:06.490
-There's also a play mode test you can take a look at on your own time, but I think that the edit mode
+También hay una prueba de modo de reproducción que puedes echar un vistazo en tu tiempo libre, pero creo que el modo de edición
 
 01:06.490 --> 01:07.630
-is more interesting here.
+es más interesante aquí.
 
 01:07.630 --> 01:09.490
-So I will do run all.
+Así que voy a hacer correr todo.
 
 01:15.130 --> 01:19.450
-And here we see we've got two tests and they both pass with a green check, which is great.
+Y aquí vemos que tenemos dos pruebas y ambas pasan con una marca verde, lo que es genial.
 
 01:19.480 --> 01:24.510
-Let's look at both the load async and the mock load async and take a look at how they work.
+Echemos un vistazo a la carga asíncrona y al simulacro de carga asíncrona y veamos cómo funcionan.
 
 01:24.520 --> 01:26.260
-So here we are in the sample code.
+Aquí estamos en el código de ejemplo.
 
 01:26.260 --> 01:31.060
-If you followed along from the last video and I hope you do, we went over the method that we're looking
+Si has seguido a lo largo del último video y espero que lo hagas, nos fuimos sobre el método que estamos buscando
 
 01:31.060 --> 01:38.920
-at here, which uses an actual call to a web server, loads the data back and checks the value of it.
+aquí, que utiliza una llamada real a un servidor web, carga los datos de nuevo y comprueba el valor de la misma.
 
 01:38.920 --> 01:42.370
-This closely resembles what the production use case would it be?
+¿Esto se parece mucho a lo que sería el caso de uso en producción?
 
 01:42.370 --> 01:44.830
-But we've talked about some of the problems there.
+Pero ya hemos hablado de algunos problemas.
 
 01:44.860 --> 01:49.030
-Am I testing my code or am I testing Unity Web Service underneath it?
+¿Estoy probando mi código o estoy probando Unity Web Service debajo de él?
 
 01:49.180 --> 01:50.140
-My testing that?
+¿Estoy probando eso?
 
 01:50.140 --> 01:53.140
-Or am I testing the back end of github.com?
+¿O estoy probando el backend de github.com?
 
 01:53.140 --> 02:00.010
-And if it's a stable server, you want to focus your tests on your own custom code and have as least
+Y si se trata de un servidor estable, querrás centrar tus pruebas en tu propio código personalizado y tener como mínimo
 
 02:00.010 --> 02:01.810
-and fewest dependencies as possible.
+y menos dependencias posibles.
 
 02:01.810 --> 02:03.990
-So there's some problems with this.
+Así que hay algunos problemas con esto.
 
 02:04.000 --> 02:09.910
-The first thing that I did when I went about this is to think about dependency injection.
+Lo primero que hice cuando me puse a ello fue pensar en la inyección de dependencias.
 
 02:09.910 --> 02:16.510
-Let's say that in production I want to have one way that I call this and that it is implemented, that
+Digamos que en producción quiero tener una forma de llamar a esto y que se implemente, que
 
 02:16.510 --> 02:18.340
-is using Unity web service.
+es usando el servicio web de Unity.
 
 02:18.370 --> 02:22.690
-Then for testing, maybe I want to have a second way that I want to approach it.
+Entonces, para las pruebas, tal vez quiero tener una segunda forma de abordarlo.
 
 02:22.720 --> 02:29.800
-Now, you could have a flag in your code base that says something like is debug equals true or is production
+Ahora, usted podría tener una bandera en su base de código que dice algo así como es la depuración es igual a verdadero o es la producción
 
 02:29.800 --> 02:30.700
-equals false?
+igual a falso?
 
 02:30.700 --> 02:35.260
-And in your production code do certain things in test mode and certain things not.
+Y en tu código de producción hacer ciertas cosas en modo de prueba y ciertas cosas no.
 
 02:35.290 --> 02:39.850
-I see a lot of that happen in code bases, but that's generally not a good practice.
+Veo mucho de eso en bases de código, pero generalmente no es una buena práctica.
 
 02:39.850 --> 02:45.790
-You're polluting your production code with really stuff that's only for tests, so it's not as appropriate.
+Estas contaminando tu codigo de produccion con cosas que son solo para pruebas, asi que no es tan apropiado.
 
 02:45.820 --> 02:47.200
-This is a better solution here.
+Esta es una mejor solución.
 
 02:47.200 --> 02:49.810
-Let's take a look at what we do well.
+Echemos un vistazo a lo que hacemos bien.
 
 02:49.810 --> 02:55.600
-In the previous basic example, I did not have a concept of a network service, nor did I pass it in
+En el ejemplo básico anterior, no tenía el concepto de un servicio de red, ni lo pasé en
 
 02:55.600 --> 02:56.110
-here.
+aquí.
 
 02:56.140 --> 02:59.440
-We just created it and it always worked one way.
+Simplemente lo creamos y siempre funcionó de una manera.
 
 02:59.440 --> 03:03.670
-But the dependency injection here is that I decide.
+Pero la inyección de dependencia aquí es que yo decido.
 
 03:03.670 --> 03:07.080
-Here's some custom way that this could work.
+Aquí hay una forma personalizada en que esto podría funcionar.
 
 03:07.090 --> 03:11.290
-Here's some of the logic that I could swap out in a few different ways.
+Aquí hay algo de la lógica que podría cambiar de diferentes maneras.
 
 03:11.290 --> 03:13.930
-I declare it here in one line, and then I pass it in.
+Lo declaro aquí en una línea, y luego lo paso.
 
 03:13.930 --> 03:17.440
-So you could imagine having several different network services.
+Así que puedes imaginar tener varios servicios de red diferentes.
 
 03:17.440 --> 03:22.000
-I could have one that's just for testing, one that's just for production, one that just writes to
+Podría tener uno que es sólo para pruebas, uno que es sólo para producción, uno que sólo escribe a
 
 03:22.000 --> 03:26.560
-a local disk, one that is appropriate for a particular backend server.
+un disco local, uno que sea apropiado para un servidor backend en particular.
 
 03:26.560 --> 03:27.370
-ET cetera.
+Etcétera.
 
 03:27.400 --> 03:30.070
-This has production use cases as well.
+Esto también tiene casos de uso en producción.
 
 03:30.070 --> 03:31.980
-This idea of dependency injection.
+Esta idea de inyección de dependencia.
 
 03:31.990 --> 03:34.270
-Now why do we call it dependency injection.
+¿Por qué lo llamamos inyección de dependencias?
 
 03:34.270 --> 03:43.960
-It's because instead of my data loader advanced always doing one thing, I pass in some info that decides
+Es porque en lugar de que mi cargador de datos avanzado haga siempre una cosa, le paso alguna información que decide
 
 03:43.960 --> 03:45.490
-how it's going to operate.
+cómo va a funcionar.
 
 03:45.490 --> 03:52.000
-So rather than the class itself knowing everything here, I'm passing in a dependency in this case to
+Así que en lugar de que la propia clase lo sepa todo aquí, estoy pasando una dependencia en este caso a
 
 03:52.000 --> 03:54.160
-the Unity Web Request Network service.
+el servicio Unity Web Request Network.
 
 03:54.160 --> 04:00.340
-So let's take a look at how that's structured, and then we'll see why it is helpful for us as we do
+Así que vamos a echar un vistazo a cómo está estructurado, y luego vamos a ver por qué es útil para nosotros como lo hacemos
 
 04:00.340 --> 04:01.180
-our testing.
+nuestras pruebas.
 
 04:01.300 --> 04:05.050
-So here's the complete source code for the My Data loader advanced.
+Así que aquí está el código fuente completo para el My Data loader advanced.
 
 04:05.080 --> 04:07.330
-Now two things I want to focus on here.
+Ahora dos cosas en las que quiero centrarme aquí.
 
 04:07.330 --> 04:11.420
-One is that in its constructor I pass in that dependency.
+Una es que en su constructor le paso esa dependencia.
 
 04:11.440 --> 04:18.970
-Now dependency injection and how to create flexible classes from this concept of dependency injection
+Ahora inyección de dependencia y cómo crear clases flexibles a partir de este concepto de inyección de dependencia
 
 04:18.970 --> 04:21.580
-are really outside of the scope of this class.
+están realmente fuera del alcance de esta clase.
 
 04:21.610 --> 04:24.130
-It's a really good thing for you to go and look at.
+Es algo realmente bueno para que vayas y lo mires.
 
 04:24.130 --> 04:30.640
-You could google something like D I for unity or dependency injection for unity, or even dependency
+Puedes buscar en google algo como D I para unity o inyección de dependencia para unity, o incluso dependencia
 
 04:30.640 --> 04:35.320
-injection in object oriented programming, and see some more of those general concepts.
+en programación orientada a objetos, y ver algunos más de esos conceptos generales.
 
 04:35.320 --> 04:41.040
-But assuming you have somewhat of a familiarity, especially given my my explanation, I just gave there,
+Pero suponiendo que usted tiene algo de una familiaridad, especialmente teniendo en cuenta mi mi explicación, Acabo de dar allí,
 
 04:41.050 --> 04:42.340
-let's move forward with it.
+Sigamos adelante.
 
 04:42.370 --> 04:49.720
-Now that I'm passing in that as a dependency here and storing it, then any time I call our core functionality
+Ahora que estoy pasando en que como una dependencia aquí y almacenarlo, entonces cada vez que llamo a nuestra funcionalidad básica
 
 04:49.750 --> 04:56.470
-of load async, what I do is I say, okay, when I'm ready to load async, just tell my network service
+de carga asíncrona, lo que hago es decir, bien, cuando estoy listo para cargar asíncrona, sólo decirle a mi servicio de red
 
 04:56.470 --> 04:57.630
-to load async.
+que cargue async.
 
 04:57.640 --> 05:04.930
-Now you can imagine if I've passed in a network service that does a load async for a back end server
+Ahora puedes imaginar si he pasado un servicio de red que hace una carga asíncrona para un servidor back-end
 
 05:04.930 --> 05:06.700
-of a particular technology.
+de una tecnología en particular.
 
 05:06.730 --> 05:08.320
-This line here would do that.
+Esta línea de aquí lo haría.
 
 05:08.550 --> 05:14.800
-That if I passed in something else that did a writing to disk or reading from disk as a different type
+Que si yo pasara algo más que hiciera una escritura a disco o lectura de disco como un tipo diferente
 
 05:14.800 --> 05:17.890
-of network service, this is the line here that would really change.
+de servicio de red, esta es la línea aquí que realmente cambiaría.
 
 05:17.890 --> 05:24.010
-So I don't have to have 2 or 3 different versions of the my data loader advanced here.
+Así que no tengo que tener 2 o 3 versiones diferentes de mi cargador de datos avanzado aquí.
 
 05:24.010 --> 05:29.040
-Instead, I pass in a custom implementation that handles that particular detail in a unique way.
+En su lugar, paso una implementación personalizada que maneja ese detalle particular de una manera única.
 
 05:29.050 --> 05:33.030
-It's a very powerful way for you to have your code be more flexible.
+Es una forma muy poderosa de hacer que tu código sea más flexible.
 
 05:33.040 --> 05:41.290
-Now, now that we've talked about passing in a dependency and how it is able to wrap the functionality
+Ahora, ahora que hemos hablado de pasar una dependencia y cómo es capaz de envolver la funcionalidad
 
 05:41.290 --> 05:44.560
-here, let's look at what the source for this particular one is.
+aquí, vamos a ver lo que la fuente de este particular es.
 
 05:44.560 --> 05:49.150
-So up here in the same class file I've got a couple things to talk about.
+Así que aquí arriba en el mismo archivo de clase tengo un par de cosas de las que hablar.
 
 05:49.150 --> 05:51.490
-One, I created an interface.
+Una, he creado una interfaz.
 
 05:51.610 --> 05:59.140
-This interface here of I network service declares okay, anybody who wants to be considered as a viable
+Esta interfaz aquí de I servicio de red declara bien, cualquiera que quiera ser considerado como un viable
 
 05:59.140 --> 06:04.900
-dependency to be passed in here has to have some method or methods available.
+tiene que tener algún método o métodos disponibles.
 
 06:04.900 --> 06:09.820
-And in this case, it just needs to have the load async and take a string URL.
+Y en este caso, sólo tiene que tener la carga asíncrona y tomar una cadena URL.
 
 06:09.850 --> 06:10.620
-That's it.
+Y ya está.
 
 06:10.630 --> 06:14.530
-Now if you're not too familiar with with interfaces.
+Ahora, si no estás muy familiarizado con las interfaces.
 
 06:14.820 --> 06:16.440
-Please go check out interfaces.
+Por favor, echa un vistazo a las interfaces.
 
 06:16.440 --> 06:22.200
-You could look at something like interfaces versus classes in C-sharp or in unity, and you'll see lots
+Puedes mirar algo como interfaces versus clases en C-sharp o en unity, y verás un montón de...
 
 06:22.200 --> 06:23.040
-of examples.
+de ejemplos.
 
 06:23.040 --> 06:29.850
-But an important distinction here is that the interface defines what the public API is, but it doesn't
+Pero una distinción importante aquí es que la interfaz define lo que la API pública es, pero no lo hace
 
 06:29.850 --> 06:31.920
-worry about doing the implementation.
+se preocupa de hacer la implementación.
 
 06:31.980 --> 06:35.430
-The implementation is declared down here in a public class.
+La implementación se declara aquí abajo en una clase pública.
 
 06:35.460 --> 06:37.590
-Now classes you're probably more familiar with.
+Ahora las clases con las que probablemente estés más familiarizado.
 
 06:37.920 --> 06:42.480
-And what we do here is we implement a particular flavor of that.
+Y lo que hacemos aquí es implementar un sabor particular de eso.
 
 06:42.480 --> 06:48.240
-I network service in this particular flavor should look very familiar to you from the previous video.
+I servicio de red en este sabor particular debe ser muy familiar para usted desde el vídeo anterior.
 
 06:48.270 --> 06:50.640
-This is the exact same implementation.
+Esta es exactamente la misma implementación.
 
 06:50.910 --> 06:58.020
-We're just using unity web request and then doing its send web request methodology.
+Sólo estamos usando unity web request y luego haciendo su metodología send web request.
 
 06:58.020 --> 07:03.420
-So now that we've looked at the source code coming back here, we can see, okay, we're just creating
+Así que ahora que hemos mirado el código fuente de volver aquí, podemos ver, bien, sólo estamos creando
 
 07:03.420 --> 07:06.150
-a custom class that handles a little bit of the functionality.
+una clase personalizada que maneja un poco de la funcionalidad.
 
 07:06.150 --> 07:08.430
-And we pass that custom class in there.
+Y pasamos esa clase personalizada ahí.
 
 07:08.430 --> 07:12.920
-But we now have a my data loader advanced class that is much more flexible.
+Pero ahora tenemos una clase avanzada de mi cargador de datos que es mucho más flexible.
 
 07:12.930 --> 07:17.600
-Now, why specifically in the world of testing, is dependency injection relevant?
+Ahora, ¿por qué específicamente en el mundo de las pruebas, la inyección de dependencia es relevante?
 
 07:17.610 --> 07:23.280
-Well, we have a wonderful utility that we can use inside unity for our unit testing.
+Bueno, tenemos una maravillosa utilidad que podemos utilizar dentro de unity para nuestras pruebas unitarias.
 
 07:23.280 --> 07:28.710
-This is a library called N substitute and it's been included here in the sample project.
+Esta es una biblioteca llamada N sustituto y se ha incluido aquí en el proyecto de ejemplo.
 
 07:28.710 --> 07:31.890
-Let's take a look at another test method just below the other one.
+Echemos un vistazo a otro método de prueba justo debajo del otro.
 
 07:31.890 --> 07:35.790
-And this is going to use what is called a mock of a class.
+Y esto va a utilizar lo que se llama un simulacro de una clase.
 
 07:35.790 --> 07:41.190
-So here we have a very similar creation of the My Data loader advanced.
+Así que aquí tenemos una creación muy similar del cargador My Data avanzado.
 
 07:41.190 --> 07:46.980
-And instead of passing in the unity web request version, we're going to do something that looks quite
+Y en lugar de pasar la versión de la petición web de la unidad, vamos a hacer algo que parece bastante
 
 07:47.010 --> 07:47.760
-odd here.
+extraño aquí.
 
 07:47.760 --> 07:50.820
-We're going to use substitute library.
+Vamos a usar una librería sustituta.
 
 07:50.820 --> 07:58.170
-And what we're going to do here is we're going to say hey on the fly in these two lines, go create
+Y lo que vamos a hacer aquí es que vamos a decir hey sobre la marcha en estas dos líneas, ir a crear
 
 07:58.170 --> 08:02.910
-me a class that can handle just the functionality I need.
+una clase que pueda manejar la funcionalidad que necesito.
 
 08:02.910 --> 08:09.900
-But because it's a mock class, it doesn't necessarily have to actually go call the server.
+Pero como es una clase simulada, no necesariamente tiene que llamar al servidor.
 
 08:09.900 --> 08:15.330
-What it's going to do instead is, at key moments, return a predictable value to us.
+Lo que va a hacer en su lugar es, en momentos clave, devolvernos un valor predecible.
 
 08:15.330 --> 08:24.570
-Now remember, our flow here is that the test tells the data loader to go load a URL inside the data
+Ahora recuerda, nuestro flujo aquí es que la prueba le dice al cargador de datos que vaya a cargar una URL dentro de los datos
 
 08:24.570 --> 08:28.650
-loader tells the network service to go load a URL.
+El cargador le dice al servicio de red que cargue una URL.
 
 08:28.680 --> 08:35.340
-That last step, the end result is it takes a half a second, goes and loads from the server and returns
+Ese último paso, el resultado final es que tarda medio segundo, va y carga desde el servidor y devuelve
 
 08:35.370 --> 08:36.780
-a string back.
+una cadena de vuelta.
 
 08:36.780 --> 08:41.670
-So all I really need in a mock situation is okay, don't even call a server.
+Así que todo lo que realmente necesito en una situación simulada es bien, ni siquiera llamar a un servidor.
 
 08:41.670 --> 08:45.240
-Just when I call this you give me a string back.
+Solo cuando llame a esto me devuelves una cadena.
 
 08:45.240 --> 08:54.630
-So I'm saying here with this language that I want any time I call load async and I pass in any string
+Así que estoy diciendo aquí con este lenguaje que quiero que cada vez que llame a load async y le pase cualquier cadena
 
 08:54.630 --> 08:59.370
-for the URL, then return the word mocked data.
+para la URL, a continuación, devolver la palabra mocked data.
 
 08:59.640 --> 09:05.970
-Then down here, I could make sure that I'm getting the expected result that I want, instead of checking
+Entonces aquí abajo, podría asegurarme de que estoy obteniendo el resultado esperado que quiero, en lugar de comprobar
 
 09:05.970 --> 09:09.930
-that it has doctype in the return as I did previously.
+que tiene doctype en el retorno como hice anteriormente.
 
 09:09.930 --> 09:13.650
-I can check for the mock data here.
+Aquí puedo comprobar los datos simulados.
 
 09:13.650 --> 09:22.290
-So what we're seeing here is a very simple example, and it might not seem useful, but imagine in a
+Así que lo que estamos viendo aquí es un ejemplo muy simple, y puede no parecer útil, pero imagina en un
 
 09:22.290 --> 09:29.460
-more complex example where we weren't just loading data, we were loading it, reading, writing, transforming
+ejemplo más complejo en el que no sólo cargáramos datos, sino que los cargáramos, leyéramos, escribiéramos, transformáramos
 
 09:29.460 --> 09:32.730
-the data, doing quite a bit, maybe a 5 or 6 different methods.
+los datos, haciendo un poco, tal vez 5 o 6 métodos diferentes.
 
 09:32.760 --> 09:39.060
-All of them could be pointing to wildly different systems, but when we really want to test just the
+Todos ellos podrían estar apuntando a sistemas muy diferentes, pero cuando realmente queremos probar sólo el
 
 09:39.060 --> 09:48.210
-data loader, then we want to pass in mocked abilities for those other systems to be just kind of temporarily
+cargador de datos, entonces queremos pasar en habilidades simuladas para los otros sistemas a ser sólo una especie de temporalmente
 
 09:48.210 --> 09:52.130
-ignored so we can focus on just what we have at hand here.
+para que podamos centrarnos en lo que tenemos entre manos.
 
 09:52.140 --> 09:54.360
-Now let's take a look at what would happen.
+Ahora echemos un vistazo a lo que pasaría.
 
 09:54.360 --> 09:56.850
-So I call the load async.
+Así que llamo a la carga async.
 
 09:56.850 --> 10:03.960
-What's going to happen is this system inside is going to return the predicted value.
+Lo que va a pasar es que este sistema va a devolver el valor previsto.
 
 10:03.960 --> 10:08.130
-And the data loader is then going to call loaded.
+Y el cargador de datos va a llamar cargado.
 
 10:08.130 --> 10:14.070
-And it's going to have its result value be the value that we expect it to be.
+Y va a hacer que su valor resultante sea el valor que esperamos que sea.
 
 10:14.070 --> 10:18.210
-So let's run this inside the unity editor.
+Así que vamos a ejecutar esto dentro del editor de la unidad.
 
 10:18.210 --> 10:19.680
-So we'll hit run all here.
+Así que vamos a pulsar ejecutar todo aquí.
 
 10:22.010 --> 10:23.380
-And it works quite quickly.
+Y funciona bastante rápido.
 
 10:23.390 --> 10:29.180
-Let's even compare if I just run load async which is actually calling a server.
+Comparemos incluso si sólo ejecuto load async que en realidad está llamando a un servidor.
 
 10:33.100 --> 10:34.120
-It was quick.
+Fue rápido.
 
 10:34.150 --> 10:38.620
-Then if I call mock load async which is not calling any server.
+Entonces si llamo a mock load async que no está llamando a ningún servidor.
 
 10:42.510 --> 10:47.720
-May not be evident from the video, but it's much faster to call the MOC.
+Puede que no sea evidente en el video, pero es mucho más rápido llamar al MOC.
 
 10:47.730 --> 10:53.060
-And that makes sense because we're not actually calling a server and waiting for a result.
+Y eso tiene sentido porque en realidad no estamos llamando a un servidor y esperando un resultado.
 
 10:53.070 --> 10:56.550
-So this isn't just to save us a few seconds.
+Así que esto no es sólo para ahorrarnos unos segundos.
 
 10:56.580 --> 11:00.180
-It's again for us to focus as we're designing our tests.
+Es de nuevo para que nos centremos cuando estamos diseñando nuestras pruebas.
 
 11:00.210 --> 11:02.670
-What actually do we want to test?
+¿Qué es lo que realmente queremos probar?
 
 11:02.670 --> 11:04.830
-And then we want to isolate it.
+Y luego queremos aislarlo.
 
 11:04.830 --> 11:09.060
-So we're not actually testing a Unity Web Services class.
+Así que en realidad no estamos probando una clase de Unity Web Services.
 
 11:09.090 --> 11:11.580
-We're not testing a GitHub back end.
+No estamos probando un backend de GitHub.
 
 11:11.610 --> 11:15.390
-Testing several systems together is called an integration test.
+Probar varios sistemas juntos se llama prueba de integración.
 
 11:15.390 --> 11:17.460
-That is an appropriate type of test.
+Es un tipo de prueba apropiado.
 
 11:17.460 --> 11:21.570
-But it's outside of what we're talking about here, which is unit testing.
+Pero está fuera de lo que estamos hablando aquí, que son las pruebas unitarias.
 
 11:21.570 --> 11:26.340
-Again, getting down to as few dependencies as possible, few lines of code.
+De nuevo, reduciendo al máximo las dependencias y las líneas de código.
 
 11:26.340 --> 11:27.360
-You could think about it.
+Podrías pensar en ello.
 
 11:27.360 --> 11:35.790
-So that's it there we've looked at how to use the substitute library and how also we can do a mock for
+Así que eso es todo hemos visto cómo utilizar la biblioteca de sustitución y cómo también podemos hacer un simulacro de
 
 11:35.790 --> 11:37.620
-a call to the back end server.
+una llamada al servidor back-end.
 
 11:37.620 --> 11:38.460
-So thanks.
+Así que gracias.

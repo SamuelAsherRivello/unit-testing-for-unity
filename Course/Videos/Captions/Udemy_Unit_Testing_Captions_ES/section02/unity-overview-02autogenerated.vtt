@@ -1,205 +1,205 @@
 WEBVTT
 
 00:00.530 --> 00:02.180
-The unity structure.
+La estructura de la unidad.
 
 00:02.210 --> 00:05.090
-This course is broken into different learning tracks.
+Este curso está dividido en diferentes vías de aprendizaje.
 
 00:05.120 --> 00:10.670
-In theory, we'll take a step back and look at some of the fundamentals of software and game design.
+En teoría, daremos un paso atrás y veremos algunos de los fundamentos del software y del diseño de juegos.
 
 00:10.670 --> 00:16.970
-When talking about the editor, we'll look at unity, the editor tool itself, which is what we as developers
+Al hablar del editor, vamos a ver la unidad, la herramienta de edición en sí, que es lo que nosotros como desarrolladores
 
 00:16.970 --> 00:19.070
-open and use as our software.
+abrimos y usamos como nuestro software.
 
 00:19.070 --> 00:24.350
-And in code sections, we'll look at the C sharp programming language and how it applies to unity game
+Y en las secciones de código, veremos el lenguaje de programación C sharp y cómo se aplica a unity game
 
 00:24.350 --> 00:25.100
-development.
+desarrollo.
 
 00:25.160 --> 00:26.840
-Let's start with theory.
+Empecemos con la teoría.
 
 00:26.870 --> 00:34.100
-The software development life cycle includes many stages, taking us from an idea to a finished product.
+El ciclo de vida del desarrollo de software incluye muchas etapas, que nos llevan desde una idea hasta un producto acabado.
 
 00:34.100 --> 00:40.400
-This includes requirements analysis, planning the project, designing the concept, and carries on
+Esto incluye el análisis de requisitos, la planificación del proyecto, el diseño del concepto, etc.
 
 00:40.400 --> 00:43.640
-to development, testing, and deployment.
+el desarrollo, las pruebas y la implantación.
 
 00:43.640 --> 00:51.080
-While unity is a powerful tool across many of these stages, we focus on using unity in the development,
+Aunque Unity es una potente herramienta en muchas de estas etapas, nos centraremos en el uso de Unity en el desarrollo,
 
 00:51.110 --> 00:55.280
-testing, and deployment phases inside the world of unity.
+pruebas y despliegue dentro del mundo de Unity.
 
 00:55.280 --> 00:57.590
-The concepts are structured as follows.
+Los conceptos están estructurados de la siguiente manera.
 
 00:57.590 --> 01:01.040
-Within a project, you have one or more scenes.
+Dentro de un proyecto, tienes una o más escenas.
 
 01:01.490 --> 01:06.500
-Inside each scene, you have game objects with components attached.
+Dentro de cada escena, tienes objetos de juego con componentes adjuntos.
 
 01:06.500 --> 01:14.030
-Those components may handle things like the mesh renderer, the Collider audio rigid body for physics,
+Esos componentes pueden manejar cosas como el renderizador de malla, el audio Collider cuerpo rígido para la física,
 
 01:14.030 --> 01:17.450
-particle systems, and of course custom scripting.
+sistemas de partículas, y por supuesto scripts personalizados.
 
 01:17.450 --> 01:21.920
-Game object is a fundamental piece of the puzzle within unity.
+El objeto de juego es una pieza fundamental del rompecabezas dentro de Unity.
 
 01:21.920 --> 01:28.880
-That is everything that is visual and non-visual, onto which we hang our custom components and Unity's
+Eso es todo lo que es visual y no visual, en el que colgamos nuestros componentes personalizados y de Unity
 
 01:28.880 --> 01:30.380
-built in components as well.
+de Unity.
 
 01:30.410 --> 01:33.650
-Take a look at this gameplay screenshot as an example.
+Echa un vistazo a esta captura de pantalla del juego como ejemplo.
 
 01:34.230 --> 01:39.780
-Here we have a game scene that is broken up into several different prefabs.
+Aquí tenemos una escena de juego que se divide en varios prefabricados diferentes.
 
 01:39.780 --> 01:45.990
-You can think of a prefab as a game object with one or more components that stored for reuse.
+Puedes pensar en un prefabricado como un objeto de juego con uno o más componentes que se almacenan para su reutilización.
 
 01:45.990 --> 01:51.450
-For example, we see multiple coins here, each with a unique position and rotation.
+Por ejemplo, aquí vemos múltiples monedas, cada una con una posición y rotación únicas.
 
 01:51.450 --> 01:58.230
-However, the coin has some common features as well, perhaps functionality, collision detection,
+Sin embargo, la moneda también tiene algunas características comunes, tal vez la funcionalidad, la detección de colisiones,
 
 01:58.500 --> 02:05.520
-how it's rendered, and those common features are held in the prefab when organizing your project and
+cómo se renderiza, y esas características comunes se mantienen en el prefab al organizar tu proyecto y
 
 02:05.520 --> 02:07.260
-deciding on the structure.
+decidir la estructura.
 
 02:07.890 --> 02:14.010
-Teams often choose between scenes and prefabs for high level organization.
+Los equipos a menudo eligen entre escenas y prefabricados para la organización de alto nivel.
 
 02:14.040 --> 02:20.010
-GameObject is the fundamental concept within any scene, and while there can be many different components
+GameObject es el concepto fundamental dentro de cualquier escena, y aunque puede haber muchos componentes diferentes
 
 02:20.040 --> 02:23.940
-on a game object, the transform component is ever present.
+en un objeto de juego, el componente de transformación está siempre presente.
 
 02:23.970 --> 02:30.180
-The transform component stores and manipulates aspects of how that object sits in the world.
+El componente de transformación almacena y manipula aspectos de cómo ese objeto se sitúa en el mundo.
 
 02:30.180 --> 02:34.650
-Whether the object has graphics or not, it has a transform object.
+Tanto si el objeto tiene gráficos como si no, tiene un objeto de transformación.
 
 02:34.680 --> 02:38.580
-The code we use is the language of instructions for the software.
+El código que utilizamos es el lenguaje de instrucciones del software.
 
 02:38.580 --> 02:43.350
-Unity's historical roots relate to the mono project.
+Las raíces históricas de Unity están relacionadas con el proyecto mono.
 
 02:43.380 --> 02:45.600
-This was an open source version of the.
+Esta era una versión de código abierto del.
 
 02:45.900 --> 02:47.130
 Net framework.
 
 02:47.160 --> 02:53.760
-You'll still see the term mono used a bit through the unity API, including the mono behavior.
+Todavía verás el término mono usado un poco a través de la API de unity, incluyendo el comportamiento mono.
 
 02:53.760 --> 02:59.610
-While in the past unity offered several different programming languages, C sharp is the only programming
+Mientras que en el pasado unity ofrecía varios lenguajes de programación diferentes, C sharp es la única programación
 
 02:59.610 --> 03:03.810
-choice now, and while unity supports C-sharp, it doesn't depend on the.
+elección ahora, y aunque unity soporta C-sharp, no depende del.
 
 03:04.020 --> 03:11.250
-Net framework, Unity's version of C sharp is quite robust and features a lot of different data, concepts
+Net framework, la versión de Unity de C sharp es bastante robusta y cuenta con una gran cantidad de datos diferentes, conceptos
 
 03:11.250 --> 03:12.270
-and structures.
+y estructuras.
 
 03:12.270 --> 03:20.130
-The main namespaces we use inside unity is the unity engine for runtime code, the unity editor for
+Los principales espacios de nombres que utilizamos dentro de la unidad es el motor de la unidad de código en tiempo de ejecución, el editor de la unidad de
 
 03:20.130 --> 03:27.630
-edit time code, and the system namespace, which includes a lot of different functionality not specifically
+código en tiempo de edición, y el espacio de nombres del sistema, que incluye una gran cantidad de diferentes funcionalidades no específicamente
 
 03:27.630 --> 03:32.140
-related to unity, but quite helpful, including math, libraries, etcetera.
+relacionada con unity, pero bastante útil, incluyendo matemáticas, bibliotecas, etcétera.
 
 03:32.160 --> 03:36.540
-Here's an example of a custom script in C sharp for use in unity.
+Aquí hay un ejemplo de un script personalizado en C sharp para su uso en unity.
 
 03:36.570 --> 03:39.150
-Starting from the top we see using statements.
+Empezando por arriba vemos las sentencias using.
 
 03:39.150 --> 03:43.920
-These bring in namespaces that we need to use in this particular class file.
+Estos traen los namespaces que necesitamos usar en este archivo de clase en particular.
 
 03:44.400 --> 03:50.850
-Then we see a namespace that helps us declare and organize where this code sits in our project.
+Entonces vemos un espacio de nombres que nos ayuda a declarar y organizar donde se encuentra este código en nuestro proyecto.
 
 03:50.880 --> 03:55.710
-Next, we declare the public class or interface that defines this type.
+A continuación, declaramos la clase pública o interfaz que define este tipo.
 
 03:55.710 --> 03:59.070
-Notice here we're extending or inheriting Monobehaviour.
+Fíjate que aquí estamos extendiendo o heredando Monobehaviour.
 
 03:59.100 --> 04:04.550
-Now from within this scope, we can access all the functionality of Monobehaviour as well.
+Ahora, desde este ámbito, podemos acceder a toda la funcionalidad de Monobehaviour también.
 
 04:04.560 --> 04:07.230
-Some specific unity features of note here.
+Algunas características específicas de unity a destacar aquí.
 
 04:07.260 --> 04:11.400
-The ability to serialize field using the serialized field attribute.
+La habilidad de serializar campos usando el atributo serialized field.
 
 04:11.400 --> 04:18.240
-This can take a public value or private value and render it out to the Unity Inspector so that while
+Esto puede tomar un valor público o privado y renderizarlo en el Inspector de Unity para que mientras
 
 04:18.240 --> 04:21.470
-the live game is playing, we can tweak that setting.
+el juego en vivo se está reproduciendo, podemos ajustar esa configuración.
 
 04:21.480 --> 04:24.630
-This helps in prototyping and gameplay design.
+Esto ayuda en el diseño de prototipos y jugabilidad.
 
 04:24.630 --> 04:28.350
-The monitor behavior comes with many key events you can tap into.
+El comportamiento del monitor viene con muchos eventos clave que puedes aprovechar.
 
 04:28.380 --> 04:35.790
-By naming one of your methods awake, you capture the event of when that object is first awoken in the
+Llamando a uno de tus métodos awake, capturas el evento de cuando ese objeto se despierta por primera vez en el modo
 
 04:35.790 --> 04:36.360
-world.
+mundo.
 
 04:36.360 --> 04:37.950
-This happens just once.
+Esto ocurre sólo una vez.
 
 04:38.340 --> 04:40.830
-Afterwards, the start method is called here.
+Después, el método start es llamado aquí.
 
 04:40.830 --> 04:46.140
-It's good to set up any dependencies with any other objects, and then the update method is called every
+Es bueno establecer cualquier dependencia con cualquier otro objeto, y luego el método update es llamado cada
 
 04:46.140 --> 04:47.400
-frame thereafter.
+fotograma a partir de entonces.
 
 04:47.400 --> 04:52.170
-This is a great place to do input logic and updating graphics.
+Este es un buen lugar para hacer lógica de entrada y actualizar gráficos.
 
 04:52.680 --> 04:58.590
-These are just a few of the events or method overrides you can take advantage of, but certainly these
+Estos son sólo algunos de los eventos o métodos que puedes aprovechar, pero ciertamente estos
 
 04:58.590 --> 05:00.000
-are some of the most important.
+son algunos de los más importantes.
 
 05:00.030 --> 05:00.870
-Thanks.
+Gracias.

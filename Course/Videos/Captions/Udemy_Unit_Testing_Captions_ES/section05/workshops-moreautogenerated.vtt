@@ -1,88 +1,88 @@
 WEBVTT
 
 00:00.080 --> 00:00.300
-Hi.
+Hola
 
 00:00.320 --> 00:06.050
-That covers a lot of the different topics that I wanted to have in the workshop so far, but there's
+Eso cubre muchos de los diferentes temas que quería tener en el taller hasta ahora, pero hay
 
 00:06.050 --> 00:08.570
-plenty of room for more topics in the future.
+mucho espacio para más temas en el futuro.
 
 00:08.570 --> 00:10.940
-We've seen in the workshops covered so far.
+que hemos visto en los talleres cubiertos hasta ahora.
 
 00:10.940 --> 00:17.930
-This simplest example learning the test runner, seeing how we can make playmode tests, edit mode tests,
+Este ejemplo más simple aprendiendo el ejecutor de pruebas, viendo cómo podemos hacer pruebas en modo reproducción, pruebas en modo edición,
 
 00:17.960 --> 00:23.420
-learning a little bit about the differences of play mode and edit mode, and why you would want to test
+aprendiendo un poco sobre las diferencias entre el modo reproducción y el modo edición, y por qué querrías hacer pruebas
 
 00:23.420 --> 00:25.930
-in one or the other, or both.
+en uno u otro, o en ambos.
 
 00:25.940 --> 00:32.060
-Then we also saw some of the options we have when we have asynchronous functionality, or when we're
+Luego también vimos algunas de las opciones que tenemos cuando tenemos funcionalidad asíncrona, o cuando estamos
 
 00:32.060 --> 00:34.040
-dependent on other systems.
+dependientes de otros sistemas.
 
 00:34.040 --> 00:38.540
-What could we do to reduce that dependency for the sake of the test?
+¿Qué podríamos hacer para reducir esa dependencia por el bien de la prueba?
 
 00:38.570 --> 00:43.760
-Along the way there, we're learning some different things about dependency injection and separating
+A lo largo del camino, estamos aprendiendo algunas cosas diferentes acerca de la inyección de dependencia y la separación de
 
 00:43.760 --> 00:45.230
-the concerns of our code.
+las preocupaciones de nuestro código.
 
 00:45.260 --> 00:51.290
-Those principles are useful in production code anyway, and we're beginning to see some of the ways
+Estos principios son útiles en el código de producción de todos modos, y estamos empezando a ver algunas de las maneras
 
 00:51.290 --> 00:58.400
-that when you prepare your code to be more testable, we're also creating code that is designed well
+que cuando se prepara el código para ser más comprobable, también estamos creando código que está bien diseñado
 
 00:58.400 --> 00:59.660
-for production.
+para la producción.
 
 00:59.660 --> 01:06.290
-So having dependency injection allows flexibility that you can use at runtime, reducing the complexity
+Así que tener la inyección de dependencia permite la flexibilidad que puede utilizar en tiempo de ejecución, la reducción de la complejidad
 
 01:06.290 --> 01:12.920
-of your systems by passing in flexible varieties of different dependencies when you need to.
+de tus sistemas pasando variedades flexibles de diferentes dependencias cuando lo necesites.
 
 01:12.950 --> 01:20.540
-We've also seen by separating a monolithic large monobehaviour into just what we need from the monobehaviour
+También hemos visto al separar un gran monocomportamiento monolítico en sólo lo que necesitamos del monocomportamiento
 
 01:20.540 --> 01:27.200
-and moving the other code into a lighter weight non monobehaviour class, we again get some flexibility
+y moviendo el resto del código a una clase más ligera que no sea monocomportamiento, obtenemos de nuevo cierta flexibilidad
 
 01:27.200 --> 01:32.150
-that is useful in production and also helps us here in the testing world.
+que es útil en la producción y también nos ayuda aquí en el mundo de las pruebas.
 
 01:32.150 --> 01:38.780
-I think overall some of the challenges that we're seeing are what happens when you have multiple dependencies
+Creo que en general algunos de los retos que estamos viendo son lo que sucede cuando se tienen múltiples dependencias
 
 01:38.780 --> 01:43.250
-or lots of systems called from one particular method.
+o muchos sistemas llamados desde un método en particular.
 
 01:43.610 --> 01:49.250
-That might be a sign that that method is bloated and doing too much, or it might be a sign that it's
+Eso podría ser una señal de que ese método está hinchado y haciendo demasiado, o podría ser una señal de que es
 
 01:49.250 --> 01:51.680
-a lean and appropriate designed one.
+un diseño delgado y apropiado.
 
 01:51.680 --> 01:57.350
-But we need to have some additional thoughts and considerations when we go to testing that functionality.
+Pero necesitamos tener algunas ideas y consideraciones adicionales cuando vayamos a probar esa funcionalidad.
 
 01:57.350 --> 01:59.600
-So I hope this has been helpful for you.
+Espero que esto te haya sido útil.
 
 01:59.600 --> 02:06.680
-I look forward to covering even more topics in this series as well, and they'll be added again in over
+Espero cubrir aún más temas en esta serie también, y se añadirán de nuevo en más de
 
 02:06.680 --> 02:07.190
-time.
+tiempo.
 
 02:07.190 --> 02:08.300
-So thanks again.
+Gracias de nuevo.
