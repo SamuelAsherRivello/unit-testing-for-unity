@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace RMC.UnitTesting.Samples.CharacterAdvanced
+namespace RMC.UnitTesting.Examples.CharacterAdvanced
 {
     /// <summary>
     /// This class will handle Unity specific logic

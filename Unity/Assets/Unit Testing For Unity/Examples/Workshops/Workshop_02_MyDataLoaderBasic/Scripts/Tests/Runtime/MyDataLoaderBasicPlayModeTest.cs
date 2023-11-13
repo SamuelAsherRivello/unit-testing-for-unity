@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.TestTools;
 
 #pragma warning disable CS4014 // Ignore await warning
-namespace RMC.UnitTesting.Samples.MyDataLoaderBasic
+namespace RMC.UnitTesting.Examples.MyDataLoaderBasic
 {
     /// <summary>
     /// This Unit Test validates that code executes as expected.

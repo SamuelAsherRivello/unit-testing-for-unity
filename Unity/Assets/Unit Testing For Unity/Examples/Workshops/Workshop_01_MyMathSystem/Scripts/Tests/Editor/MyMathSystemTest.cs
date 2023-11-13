@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace RMC.UnitTesting.Samples.MyMathSystem
+namespace RMC.UnitTesting.Examples.MyMathSystem
 {
     /// <summary>
     /// This Unit Test validates that code executes as expected.

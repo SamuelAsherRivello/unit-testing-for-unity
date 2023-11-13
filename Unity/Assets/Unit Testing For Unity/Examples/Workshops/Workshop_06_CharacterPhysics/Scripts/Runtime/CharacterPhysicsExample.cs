@@ -1,7 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 
-namespace RMC.UnitTesting.Samples.CharacterPhysics
+namespace RMC.UnitTesting.Examples.CharacterPhysics
 {
     /// <summary>
     /// This example is the main entry point for the

@@ -1,7 +1,7 @@
 
 using UnityEngine;
 
-namespace RMC.UnitTesting.Samples.CharacterBasic
+namespace RMC.UnitTesting.Examples.CharacterBasic
 {
     /// <summary>
     /// This character allows simple movement

@@ -1,7 +1,7 @@
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
-namespace RMC.UnitTesting.Samples.CharacterPhysics
+namespace RMC.UnitTesting.Examples.CharacterPhysics
 {
     /// <summary>
     /// This class will handle Unity specific logic

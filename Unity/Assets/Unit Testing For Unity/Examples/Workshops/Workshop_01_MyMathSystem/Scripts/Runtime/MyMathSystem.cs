@@ -1,5 +1,5 @@
 
-namespace RMC.UnitTesting.Samples.MyMathSystem
+namespace RMC.UnitTesting.Examples.MyMathSystem
 {
     /// <summary>
     /// This performs common math operations on

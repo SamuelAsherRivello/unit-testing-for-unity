@@ -1,0 +1,18 @@
+{
+    "name": "RMC.UnitTesting.Examples.PureFunctions.Editor.Tests",
+    "rootNamespace": "",
+    "references": [
+        "GUID:c9ea2fbf46983f74d9c39584d4aef361"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

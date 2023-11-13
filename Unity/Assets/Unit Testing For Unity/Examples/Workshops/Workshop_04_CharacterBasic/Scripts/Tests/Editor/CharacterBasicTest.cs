@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace RMC.UnitTesting.Samples.CharacterBasic
+namespace RMC.UnitTesting.Examples.CharacterBasic
 {
     /// <summary>
     /// This Unit Test validates that code executes as expected.

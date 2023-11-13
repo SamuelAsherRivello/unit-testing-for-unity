@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using RMC.UnitTesting.Shared.Networking;
 using UnityEngine;
 
-namespace RMC.UnitTesting.Samples.MyDataLoaderAdvanced
+namespace RMC.UnitTesting.Examples.MyDataLoaderAdvanced
 {
     public class StringUnityEvent : UnityEvent<string>{}
     

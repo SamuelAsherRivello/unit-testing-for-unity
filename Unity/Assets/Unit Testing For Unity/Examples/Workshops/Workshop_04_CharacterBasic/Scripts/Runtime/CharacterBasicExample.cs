@@ -1,7 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 
-namespace RMC.UnitTesting.Samples.CharacterBasic
+namespace RMC.UnitTesting.Examples.CharacterBasic
 {
     /// <summary>
     /// This example is the main entry point for the

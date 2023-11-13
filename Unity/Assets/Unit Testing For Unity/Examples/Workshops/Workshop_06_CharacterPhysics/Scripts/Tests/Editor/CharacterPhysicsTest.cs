@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace RMC.UnitTesting.Samples.CharacterPhysics
+namespace RMC.UnitTesting.Examples.CharacterPhysics
 {
     /// <summary>
     /// This Unit Test validates that code executes as expected.

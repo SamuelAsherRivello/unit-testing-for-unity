@@ -2,7 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 
 #pragma warning disable CS4014 // Ignore await warning
-namespace RMC.UnitTesting.Samples.MyDataLoaderBasic
+namespace RMC.UnitTesting.Examples.MyDataLoaderBasic
 {
     /// <summary>
     /// The Example is the main entry point to the demo
