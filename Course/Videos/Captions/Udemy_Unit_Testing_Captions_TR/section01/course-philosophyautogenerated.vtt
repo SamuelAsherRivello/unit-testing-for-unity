@@ -1,73 +1,73 @@
 WEBVTT
 
 00:00.200 --> 00:00.980
-The course.
+Parkur.
 
 00:00.980 --> 00:02.060
-Philosophy.
+Felsefe.
 
 00:03.280 --> 00:10.210
-This course was born out of the idea that we all start our software projects with the best of intentions,
+Bu kurs, hepimizin yazılım projelerimize en iyi niyetlerle başladığımız düşüncesinden doğmuştur,
 
 00:10.210 --> 00:15.550
-but somehow we end up with software that is difficult to scale and to maintain.
+Ancak bir şekilde ölçeklendirilmesi ve bakımı zor bir yazılımla karşı karşıya kalıyoruz.
 
 00:15.910 --> 00:23.230
-It said that we don't rise to the level of our expectations, but instead we fall to the level of our
+Beklentilerimizin seviyesine yükselmediğimizi, bunun yerine beklentilerimizin seviyesine düştüğümüzü söyledi.
 
 00:23.230 --> 00:23.760
-training.
+Eğitim.
 
 00:23.770 --> 00:31.390
-This course is designed to give us the training to build software with confidence, performance and
+Bu kurs bize güven, performans ve verimlilikle yazılım geliştirme eğitimi vermek üzere tasarlanmıştır.
 
 00:31.390 --> 00:32.380
-scalability.
+Ölçeklenebilirlik.
 
 00:32.410 --> 00:38.680
-Completing this training and integrating it into your workflow will greatly impact the projects you
+Bu eğitimi tamamlamak ve iş akışınıza entegre etmek, projelerinizi büyük ölçüde etkileyecektir.
 
 00:38.710 --> 00:41.910
-create and the quality of life for you and your team.
+siz ve ekibiniz için yaşam kalitesi yaratır.
 
 00:41.920 --> 00:43.540
-Your team will thank you.
+Ekibiniz size teşekkür edecek.
 
 00:44.530 --> 00:47.620
-Some advice to get the most out of this course.
+Bu parkurdan en iyi şekilde yararlanmak için bazı tavsiyeler.
 
 00:47.650 --> 00:48.950
-Be active.
+Aktif ol.
 
 00:48.970 --> 00:55.870
-Watch the videos as well as doing the quizzes and the assignments in the moments the course calls for
+Videoları izleyin, sınavları ve ödevleri kursun gerektirdiği zamanlarda yapın
 
 00:55.870 --> 00:56.070
-it.
+o.
 
 00:56.080 --> 01:01.840
-Download the source code, follow along and play with the code experiment.
+Kaynak kodu indirin, takip edin ve kod deneyi ile oynayın.
 
 01:01.840 --> 01:06.940
-Add new features and bring the theory from the course into practice within the code.
+Yeni özellikler ekleyin ve kurstaki teoriyi kod içinde uygulamaya geçirin.
 
 01:06.940 --> 01:09.160
-This course covers a lot of topics.
+Bu kurs pek çok konuyu kapsamaktadır.
 
 01:09.160 --> 01:13.660
-Feel free to take breaks whenever you need so that you get the most out of the material.
+Materyalden en iyi şekilde yararlanabilmeniz için ihtiyaç duyduğunuzda ara vermekten çekinmeyin.
 
 01:13.690 --> 01:16.570
-Do your best to pull this information toward you.
+Bu bilgiyi kendinize çekmek için elinizden geleni yapın.
 
 01:16.570 --> 01:23.320
-If there's concepts, topics, APIs that are mentioned that you're not familiar with, feel free to
+Eğer aşina olmadığınız kavramlar, konular, API'lardan bahsediliyorsa, çekinmeyin
 
 01:23.320 --> 01:28.510
-pause the video and investigate a bit on your own, and then move forward with the course.
+videoyu duraklatın ve kendi başınıza biraz araştırın ve ardından kursa devam edin.
 
 01:28.510 --> 01:31.210
-I'm really excited to share this information with you.
+Bu bilgiyi sizinle paylaşacağım için gerçekten heyecanlıyım.
 
 01:31.210 --> 01:32.410
-Let's get started.
+Hadi başlayalım.

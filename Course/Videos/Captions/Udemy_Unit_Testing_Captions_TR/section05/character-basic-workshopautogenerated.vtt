@@ -1,370 +1,370 @@
 WEBVTT
 
 00:00.080 --> 00:03.050
-Hello and welcome to Unit testing for unity.
+Merhaba ve unity için birim testlerine hoş geldiniz.
 
 00:03.080 --> 00:04.310
-We're in the workshop here.
+Burada atölyedeyiz.
 
 00:04.310 --> 00:08.450
-And in this one we're going to take a look at the character in a basic form.
+Ve bu yazıda karaktere temel bir biçimde göz atacağız.
 
 00:08.450 --> 00:10.700
-We're going to have a few different ones we're going to look at.
+Birkaç farklı tanesine bakacağız.
 
 00:10.730 --> 00:13.400
-We'll start with the basics and move on to something more advanced.
+Temel bilgilerle başlayıp daha ileri bir seviyeye geçeceğiz.
 
 00:13.400 --> 00:15.080
-Let's take a look at this demo in action.
+Şimdi bu demonun nasıl çalıştığına bir göz atalım.
 
 00:15.080 --> 00:16.520
-Inside the unity editor.
+Unity editörünün içinde.
 
 00:16.520 --> 00:19.430
-We're going to open up unity, open up our sample project.
+Unity'yi açacağız, örnek projemizi açacağız.
 
 00:19.430 --> 00:23.360
-And then we're going to play one or more scenes related to the topic here.
+Daha sonra konuyla ilgili bir ya da daha fazla sahne oynayacağız.
 
 00:23.360 --> 00:29.270
-The scene is going to be the character basic, and I'm going to be talking about Monobehaviour as something
+Sahne temel karakter olacak ve ben Monobehaviour hakkında bir şey olarak konuşacağım
 
 00:29.270 --> 00:34.760
-that can or can't be tested, as well as play mode versus edit mode, something that I've mentioned
+test edilip edilemeyeceği ve oynatma moduna karşı düzenleme modu, daha önce de bahsettiğim bir şey
 
 00:34.760 --> 00:36.020
-earlier in the course.
+kursun başlarında.
 
 00:36.050 --> 00:37.640
-We'll bring it back here and talk about it.
+Onu buraya geri getirip hakkında konuşacağız.
 
 00:37.640 --> 00:39.980
-Here we are in the project looking at the character basic.
+İşte projede temel karaktere bakıyoruz.
 
 00:39.980 --> 00:41.390
-Let's go ahead and run the scene.
+Devam edelim ve sahneyi çalıştıralım.
 
 00:46.760 --> 00:53.600
-So while most of our workshops we've done already had a pretty boring scene where absolutely nothing
+Yaptığımız atölye çalışmalarının çoğunda, kesinlikle hiçbir şeyin olmadığı oldukça sıkıcı bir sahne vardı.
 
 00:53.630 --> 00:56.420
-of interest is happening here, we have a little bit more.
+Burada ilgi çekici bir şey oluyor, biraz daha var.
 
 00:56.450 --> 01:02.080
-When we hit play there, we see a cube white cube that gets made created in the center of the screen.
+Burada oynat tuşuna bastığımızda, ekranın ortasında beyaz bir küpün oluştuğunu görüyoruz.
 
 01:02.090 --> 01:04.640
-I can use my arrow keys and move around.
+Ok tuşlarımı kullanabilir ve hareket edebilirim.
 
 01:04.640 --> 01:11.540
-So while admittedly a very simple example here, this is meant to talk about some of the more complex
+Kuşkusuz burada çok basit bir örnek verilmiş olsa da, bu daha karmaşık bazı durumlardan bahsetmek içindir
 
 01:11.540 --> 01:14.200
-aspects of testing inside unity.
+unity içinde test etmenin yönleri.
 
 01:14.210 --> 01:19.340
-In the previous scenes, we weren't worried about rendering graphics or taking input.
+Önceki sahnelerde, grafik oluşturma veya girdi alma konusunda endişelenmiyorduk.
 
 01:19.580 --> 01:26.450
-We did talk in the last workshop about the difference between testing several different dependencies
+Son çalıştayda birkaç farklı bağımlılığı test etmek arasındaki farktan bahsetmiştik
 
 01:26.450 --> 01:27.200
-together.
+Birlikte.
 
 01:27.200 --> 01:32.390
-For example, a method that inside calls a second method that inside calls the third.
+Örneğin, içinde ikinci bir yöntemi çağıran bir yöntem, içinde üçüncü bir yöntemi çağırır.
 
 01:32.420 --> 01:34.100
-Those are dependencies.
+Bunlar bağımlılıklar.
 
 01:34.130 --> 01:40.400
-Here we're talking about a similar aspect, except every time I want to move my character, I first
+Burada benzer bir konudan bahsediyoruz, ancak karakterimi her hareket ettirmek istediğimde önce
 
 01:40.400 --> 01:47.360
-ask to listen to Unity's input system, then use Unity's Monobehaviour transform movement.
+Unity'nin giriş sistemini dinlemesini isteyin, ardından Unity'nin Monobehaviour dönüşüm hareketini kullanın.
 
 01:47.360 --> 01:47.770
-Right.
+Doğru.
 
 01:47.780 --> 01:52.460
-So we're we're using several different dependencies there or different classes.
+Yani burada birkaç farklı bağımlılık ya da farklı sınıflar kullanıyoruz.
 
 01:54.970 --> 01:58.240
-So here I'm able to use the arrow keys to move around.
+Burada hareket etmek için ok tuşlarını kullanabiliyorum.
 
 01:59.360 --> 02:00.800
-And that's pretty much it.
+Ve hepsi bu kadar.
 
 02:02.750 --> 02:05.690
-But the idea is we're doing a bit more than before.
+Ama fikir şu ki, eskisinden biraz daha fazlasını yapıyoruz.
 
 02:05.780 --> 02:08.250
-Let's talk about the implications of testing that.
+Bunu test etmenin sonuçları hakkında konuşalım.
 
 02:08.270 --> 02:14.780
-So up here in the test runner, I have the category set to our character basic, which is great.
+Test çalıştırıcısında kategoriyi temel karakterimiz olarak ayarladım, ki bu harika.
 
 02:14.810 --> 02:20.420
-Then I can toggle on to see the play mode tests as well as the edit mode tests.
+Daha sonra oynatma modu testlerinin yanı sıra düzenleme modu testlerini de görmek için geçiş yapabilirim.
 
 02:20.450 --> 02:26.720
-We can see that we've got some of both, but because there's a monobehaviour involved, I'm going to
+Her ikisinden de bazılarına sahip olduğumuzu görebiliriz, ancak tek bir davranış söz konusu olduğu için
 
 02:26.720 --> 02:28.190
-focus more on the play mode.
+oyun moduna daha fazla odaklanın.
 
 02:28.220 --> 02:34.820
-Now, in each of the workshops, I've included at least one edit mode test and at least one play mode
+Şimdi, atölye çalışmalarının her birine en az bir düzenleme modu testi ve en az bir oyun modu testi ekledim
 
 02:34.850 --> 02:37.020
-test for the scene at hand.
+elimizdeki sahne için test.
 
 02:37.040 --> 02:42.620
-I've done that again here, but depending on what you're actually testing, you want to think, is this
+Bunu burada tekrar yaptım, ancak gerçekte neyi test ettiğinize bağlı olarak, şunu düşünmek istersiniz
 
 02:42.620 --> 02:47.060
-more appropriate for edit mode or is it more appropriate for play mode?
+düzenleme modu için mi daha uygun yoksa oynatma modu için mi daha uygun?
 
 02:47.090 --> 02:52.130
-There's an art and a science to how you'd approach that, and how you would design your code to be more
+Buna nasıl yaklaşacağınız ve kodunuzu nasıl daha iyi tasarlayacağınız konusunda bir sanat ve bilim var.
 
 02:52.130 --> 02:52.760
-testable.
+Test edilebilir.
 
 02:52.790 --> 02:59.600
-But a general way to look at it that's relevant for here is that if you're using Monobehaviour functionality,
+Ancak bu konuyla ilgili genel bir bakış açısı, Monobehaviour işlevselliğini kullanıyorsanız,
 
 02:59.600 --> 03:02.270
-that sounds more like a play mode test.
+Bu daha çok oyun modu testine benziyor.
 
 03:02.300 --> 03:08.540
-The more unity libraries, particularly at runtime, you're using in your production, you want to think
+Üretiminizde özellikle çalışma zamanında ne kadar çok unity kütüphanesi kullanıyorsanız, şunları düşünmek istersiniz
 
 03:08.540 --> 03:10.460
-about those being play mode tests.
+Bunların oyun modu testleri olduğu hakkında.
 
 03:10.490 --> 03:13.970
-It's not a hard rule, but that's a good way to start thinking about it.
+Bu kesin bir kural değildir, ancak düşünmeye başlamak için iyi bir yoldur.
 
 03:14.240 --> 03:16.110
-So let's run our tests here.
+Testlerimizi burada çalıştıralım.
 
 03:16.130 --> 03:18.890
-I have the play mode and I will run all.
+Oyun modum var ve hepsini çalıştıracağım.
 
 03:22.470 --> 03:22.800
-Okay.
+Tamam.
 
 03:22.830 --> 03:25.650
-It took a couple seconds to run there, but we've got them all.
+Çalışması birkaç saniye sürdü ama hepsini bulduk.
 
 03:25.680 --> 03:31.650
-What actually happens when you're running a play mode test is it creates a brand new empty scene and
+Bir oyun modu testi çalıştırdığınızda aslında olan şey, yepyeni boş bir sahne oluşturmak ve
 
 03:31.650 --> 03:35.430
-runs just one test inside of it, and it destroys that.
+içinde sadece bir test çalıştırır ve onu yok eder.
 
 03:35.430 --> 03:42.630
-And it creates a brand new scene guaranteeing that we have the world space provided by a scene.
+Ve bir sahne tarafından sağlanan dünya alanına sahip olduğumuzu garanti eden yepyeni bir sahne yaratır.
 
 03:42.630 --> 03:49.590
-But the freshness of a new scene that doesn't have any dependencies or stale info that might influence
+Ancak yeni bir sahnenin tazeliği, etkileyebilecek herhangi bir bağımlılık veya eski bilgiye sahip değildir.
 
 03:49.590 --> 03:50.220
-the test.
+Test.
 
 03:50.220 --> 03:51.820
-So we like how that's set up.
+Bu şekilde ayarlanmasını seviyoruz.
 
 03:51.840 --> 03:58.620
-Now, the things that I'm doing are moving, moving by key code and moving to a particular place.
+Şimdi, yaptığım şeyler hareket etmek, anahtar koduyla hareket etmek ve belirli bir yere hareket etmek.
 
 03:58.620 --> 04:01.260
-So let's take a look at this move to test.
+Şimdi test etmek için bu hamleye bir göz atalım.
 
 04:03.240 --> 04:05.580
-Actually, let's take a look at the production code first.
+Aslında, önce üretim koduna bir göz atalım.
 
 04:05.580 --> 04:08.550
-So if I go here and I look at the basic example.
+Eğer buraya gidersem ve temel örneğe bakarsam.
 
 04:10.370 --> 04:12.140
-This is the production code.
+Bu üretim kodu.
 
 04:12.140 --> 04:14.330
-Let's look at that before I go into the tests.
+Testlere geçmeden önce buna bir göz atalım.
 
 04:14.330 --> 04:17.570
-So here all I do is I create a primitive.
+Burada tek yaptığım bir ilkel oluşturmak.
 
 04:17.600 --> 04:22.610
-You could imagine also loading a prefab here if you wanted to do that.
+Eğer bunu yapmak isterseniz buraya bir prefabrik yüklemeyi de hayal edebilirsiniz.
 
 04:22.610 --> 04:27.620
-But I wanted to slowly get us into all the complexities of runtime and unity.
+Ancak bizi yavaş yavaş çalışma zamanı ve unity'nin tüm karmaşıklıklarına sokmak istedim.
 
 04:27.620 --> 04:29.750
-So I'm not using a prefab here.
+Yani burada bir prefabrik kullanmıyorum.
 
 04:29.750 --> 04:33.740
-I just create a brand new cube from scratch with a line of code.
+Sadece bir satır kod ile sıfırdan yepyeni bir küp oluşturuyorum.
 
 04:33.740 --> 04:40.430
-I give it a name there just for organization sake, and then I add the component of the monobehaviour
+Sadece organizasyon açısından ona bir isim veriyorum ve ardından monobehaviour bileşenini ekliyorum
 
 04:40.430 --> 04:42.230
-that I want to actually test.
+gerçekten test etmek istediğim.
 
 04:42.230 --> 04:48.350
-Then one of the things that I'm doing is just moving it to the point of 000, and then showing that
+Sonra yaptığım şeylerden biri onu 000 noktasına taşımak ve sonra bunu göstermek
 
 04:48.350 --> 04:49.910
-value out on the screen.
+ekrandaki değer.
 
 04:49.910 --> 04:52.490
-So let's take a look at the source code here.
+Şimdi kaynak koduna bir göz atalım.
 
 04:55.160 --> 04:56.540
-Here's character basic.
+İşte temel karakter.
 
 04:56.570 --> 04:58.370
-This extends Monobehaviour.
+Bu, Monobehaviour'u genişletir.
 
 04:58.400 --> 05:06.330
-Now, if you're familiar with unity, you probably use Monobehaviours all the time as a good best practice.
+Unity'ye aşina iseniz, muhtemelen en iyi uygulama olarak Monobehaviours'u her zaman kullanıyorsunuzdur.
 
 05:06.350 --> 05:09.200
-You want to start thinking conscientiously.
+Bilinçli düşünmeye başlamak istiyorsunuz.
 
 05:09.200 --> 05:14.260
-When is it appropriate to use a monobehaviour and when can I use something different?
+Ne zaman tek bir davranış kullanmak uygun olur ve ne zaman farklı bir şey kullanabilirim?
 
 05:14.270 --> 05:20.180
-As beginning developers, we create everything as a child of monobehaviour, but with time and experience
+Yeni başlayan geliştiriciler olarak, her şeyi tek davranışlı bir çocuk olarak yaratırız, ancak zaman ve deneyimle
 
 05:20.180 --> 05:23.510
-you realize there's pros and cons of using monobehaviours.
+monobehaviours kullanmanın artıları ve eksileri olduğunun farkındasınızdır.
 
 05:23.510 --> 05:28.220
-One of the cons is historically, it was more difficult to test along the way.
+Eksilerinden biri, tarihsel olarak, yol boyunca test etmenin daha zor olmasıydı.
 
 05:28.220 --> 05:30.170
-Unity provided these playmode tests.
+Unity bu oyun modu testlerini sağladı.
 
 05:30.170 --> 05:34.550
-So now we can certainly test Playmode and we can test Monobehaviours.
+Artık Playmode'u kesinlikle test edebiliriz ve Monobehaviours'u test edebiliriz.
 
 05:34.550 --> 05:37.230
-So that's great, but there's still some drawbacks.
+Bu harika ama yine de bazı dezavantajları var.
 
 05:37.250 --> 05:41.930
-Again, Monobehaviour is going to rely on more systems of unity under the hood.
+Yine, Monobehaviour kaputun altında daha fazla birlik sistemine dayanacaktır.
 
 05:41.930 --> 05:47.300
-And when we're trying to test our custom code, we might not be sure where a problem might lie.
+Ve özel kodumuzu test etmeye çalışırken, sorunun nerede olabileceğinden emin olamayabiliriz.
 
 05:47.330 --> 05:49.320
-Is it our code or is it Unity's code?
+Bu bizim kodumuz mu yoksa Unity'nin kodu mu?
 
 05:49.340 --> 05:51.710
-So again, there's a few dependencies there.
+Yani yine, burada birkaç bağımlılık var.
 
 05:51.740 --> 05:55.880
-This is all okay, but it's something you want to think about as you're designing your classes and as
+Bunların hepsi tamam, ancak sınıflarınızı tasarlarken ve
 
 05:55.880 --> 05:57.290
-you're designing your tests.
+testlerinizi tasarlıyorsunuz.
 
 05:57.710 --> 06:00.680
-So we've got a movement speed.
+Yani bir hareket hızımız var.
 
 06:00.710 --> 06:02.060
-We've got a movement type.
+Bir hareket tipimiz var.
 
 06:02.060 --> 06:04.970
-This is just the direction of the arrow key that I'm pressing.
+Bu sadece bastığım ok tuşunun yönü.
 
 06:04.970 --> 06:07.280
-Then we use the Unity's update.
+Sonra Unity'nin güncellemesini kullanırız.
 
 06:07.310 --> 06:10.160
-Now really let me double check here.
+Şimdi gerçekten iki kez kontrol edeyim.
 
 06:12.330 --> 06:12.810
-Really.
+Gerçekten.
 
 06:12.810 --> 06:18.540
-The update loop here is the only major monobehaviour functionality that I'm using.
+Buradaki güncelleme döngüsü, kullandığım tek büyük monobehaviour işlevidir.
 
 06:18.570 --> 06:22.740
-The rest of this code doesn't necessarily have to be in a monobehaviour.
+Bu kodun geri kalanının mutlaka bir monobehaviour içinde olması gerekmez.
 
 06:22.770 --> 06:27.170
-I am also using Unity's input system, so that's a second dependency.
+Ayrıca Unity'nin giriş sistemini kullanıyorum, bu da ikinci bir bağımlılık.
 
 06:27.180 --> 06:30.370
-So let's see what I do every frame of update.
+Şimdi güncellemenin her karesinde ne yaptığımı görelim.
 
 06:30.390 --> 06:32.940
-I call this method here move by input.
+Bu yöntemi burada girdiye göre hareket olarak adlandırıyorum.
 
 06:32.970 --> 06:37.920
-I check to see is the user hitting a particular key or keys on the keyboard.
+Kullanıcının klavyede belirli bir tuşa veya tuşlara basıp basmadığını kontrol ediyorum.
 
 06:37.920 --> 06:41.970
-And then I call move by key code down here.
+Ve sonra burada anahtar koduna göre hareket et diyorum.
 
 06:43.280 --> 06:49.820
-All we do is say, if we're currently moving left, then let's move in a vector for the left direction.
+Tek yapmamız gereken, eğer şu anda sola doğru hareket ediyorsak, o zaman sol yön için bir vektörde hareket edelim demek.
 
 06:49.820 --> 06:53.420
-If we're currently moving right and etcetera for up and down.
+Şu anda sağa doğru hareket ediyorsak ve yukarı ve aşağı için vb.
 
 06:53.420 --> 06:58.460
-So this would allow you to move in all four of the directions using the four arrow keys.
+Böylece dört ok tuşunu kullanarak dört yönde de hareket edebilirsiniz.
 
 06:58.460 --> 07:00.020
-So pretty straightforward code.
+Yani oldukça basit bir kod.
 
 07:00.020 --> 07:04.040
-And if you've created your own custom character before you'd be familiar with setting something like
+Ve daha önce kendi özel karakterinizi yarattıysanız, aşağıdaki gibi bir şey ayarlamaya aşina olursunuz
 
 07:04.040 --> 07:04.610
-this up.
+Bu kadar.
 
 07:07.590 --> 07:09.480
-Down here, we've got two methods.
+Burada iki yöntemimiz var.
 
 07:09.480 --> 07:14.850
-One that lets us move to a particular point and one that lets us move by a unit.
+Biri belirli bir noktaya gitmemizi diğeri ise bir birim hareket etmemizi sağlar.
 
 07:14.850 --> 07:17.700
-So let's say I wanted to move to the right one unit.
+Diyelim ki sağdaki birime geçmek istedim.
 
 07:17.700 --> 07:22.110
-I could pass in by one unit by one unit by one unit.
+Bir birim, bir birim, bir birim geçebilirim.
 
 07:22.110 --> 07:27.350
-If I want to move directly to a particular point in space, that would be the move to.
+Eğer doğrudan uzayda belirli bir noktaya gitmek istiyorsam, bu "move to" olacaktır.
 
 07:27.360 --> 07:33.390
-So these are not necessarily the only methods you would need in a custom character class, but there's
+Dolayısıyla, özel bir karakter sınıfında ihtiyaç duyacağınız tek yöntemler bunlar olmayabilir, ancak
 
 07:33.390 --> 07:34.710
-some pretty common ones.
+Bazıları oldukça yaygın.
 
 07:34.710 --> 07:41.460
-So we'll end this lesson here with just this as a basic, appropriate working way to test some functionality.
+Bu yüzden bu dersi, bazı işlevleri test etmek için temel, uygun bir çalışma yolu olarak bununla bitireceğiz.
 
 07:41.460 --> 07:46.920
-If you want to take a look at the edit mode or the other tests that are here in the play mode, go ahead
+Düzenleme moduna veya oynatma modundaki diğer testlere göz atmak isterseniz, devam edin
 
 07:46.920 --> 07:47.820
-and do that.
+ve bunu yap.
 
 07:47.850 --> 07:49.440
-I'll move on to the next video.
+Bir sonraki videoya geçiyorum.
 
 07:49.440 --> 07:50.190
-Thanks.
+Teşekkürler.

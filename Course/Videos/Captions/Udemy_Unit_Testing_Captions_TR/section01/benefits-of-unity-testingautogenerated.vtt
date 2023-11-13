@@ -1,136 +1,136 @@
 WEBVTT
 
 00:03.320 --> 00:08.780
-Let's recap some of the benefits we've seen so far just in this theory portion about unit testing.
+Birim testi ile ilgili bu teori bölümünde şimdiye kadar gördüğümüz bazı faydaları özetleyelim.
 
 00:08.780 --> 00:11.940
-So the benefits include adding confidence to your code.
+Yani faydaları arasında kodunuza güven katmak da vardır.
 
 00:11.960 --> 00:12.830
-What does that mean?
+Bu ne anlama geliyor?
 
 00:12.830 --> 00:19.070
-It means as your team thinks about that code base, they have more of a happy feeling that that 101st
+Ekibiniz bu kod tabanı hakkında düşündükçe, 101. kodun bu kadar önemli olduğunu daha çok hissediyor demektir.
 
 00:19.070 --> 00:21.080
-feature will not break things.
+özelliği bir şeyleri bozmayacaktır.
 
 00:21.110 --> 00:26.060
-When there's a lack of confidence, you're a bit shy to add features, particularly in certain areas
+Güven eksikliği olduğunda, özellikle belirli alanlarda özellik eklemekten biraz çekinirsiniz
 
 00:26.060 --> 00:32.300
-of the code base where you know things are held together quite loosely and a new line of code could
+kod tabanının oldukça gevşek bir şekilde bir arada tutulduğunu ve yeni bir kod satırının
 
 00:32.330 --> 00:33.320
-break something.
+Bir şeyleri kır.
 
 00:33.320 --> 00:36.080
-It also allows for bolder refactors.
+Ayrıca daha cesur yeniden düzenlemelere de olanak tanır.
 
 00:36.080 --> 00:41.270
-Now, for example, if you're going to be refactoring a particular system in your game and you have
+Şimdi, örneğin, oyununuzdaki belirli bir sistemi yeniden düzenleyecekseniz ve
 
 00:41.270 --> 00:46.040
-no testing, the process would be play the game and have your team play it.
+test yok, süreç oyunu oynamak ve takımınızın oynamasını sağlamak olacaktır.
 
 00:46.070 --> 00:49.880
-Do all the work of the refactor, then play your game again.
+Refactor'un tüm işlerini yapın, sonra oyununuzu tekrar oynayın.
 
 00:49.910 --> 00:53.690
-The problem with that manual testing is it's more time consuming.
+Bu manuel testin sorunu daha fazla zaman almasıdır.
 
 00:53.690 --> 00:59.960
-It's more challenging to be sure that the test before and after the refactor are the same, and testing
+Refactor öncesi ve sonrası testlerin aynı olduğundan emin olmak daha zordur ve test
 
 00:59.960 --> 01:02.450
-the same areas as well.
+aynı bölgelerde de.
 
 01:02.990 --> 01:10.340
-So by having some unit tests covering those systems before the refactor, you're able to run the tests,
+Dolayısıyla, yeniden düzenlemeden önce bu sistemleri kapsayan bazı birim testlerine sahip olarak testleri çalıştırabilirsiniz,
 
 01:10.370 --> 01:14.960
-see that everything passes, that the automation that you've had there works well.
+her şeyin geçtiğini, orada sahip olduğunuz otomasyonun iyi çalıştığını görün.
 
 01:14.960 --> 01:18.350
-Then run those exact same tests after the refactor.
+Daha sonra aynı testleri yeniden düzenledikten sonra çalıştırın.
 
 01:18.380 --> 01:21.650
-You might find along the way that some of the tests fail.
+Yol boyunca bazı testlerin başarısız olduğunu görebilirsiniz.
 
 01:21.650 --> 01:23.390
-You're able to make some changes.
+Bazı değişiklikler yapabiliyorsunuz.
 
 01:23.390 --> 01:24.380
-The test pass.
+Test geçildi.
 
 01:24.380 --> 01:30.860
-You may even add new tests because the refactor needs them, and then your code now sits in an even
+Hatta yeni testler bile ekleyebilirsiniz çünkü refactor bunlara ihtiyaç duyar ve kodunuz artık daha da
 
 01:30.860 --> 01:34.130
-better place with more code confidence after that refactor.
+Bu refactor'dan sonra daha fazla kod güveniyle daha iyi bir yer.
 
 01:34.310 --> 01:36.170
-This also saves time.
+Bu aynı zamanda zaman kazandırır.
 
 01:36.170 --> 01:41.480
-It will feel when you're starting with unit testing that this is an extra, maybe even.
+Birim testine başlarken bunun fazladan bir şey olduğunu hissedeceksiniz, hatta belki de.
 
 01:41.480 --> 01:45.950
-It feels a little unnecessary in certain systems, but we're going to stretch on that.
+Bazı sistemlerde biraz gereksiz gibi geliyor, ancak bu konuda esneyeceğiz.
 
 01:45.950 --> 01:51.650
-We're going to work on that area and see how and when you want to add your unit tests.
+Bu alan üzerinde çalışacağız ve birim testlerinizi nasıl ve ne zaman eklemek istediğinizi göreceğiz.
 
 01:51.680 --> 01:56.810
-Each developer will find their own style, and as a team, you want to come together and establish some
+Her geliştirici kendi tarzını bulacaktır ve bir ekip olarak bir araya gelip bazı
 
 01:56.810 --> 01:59.000
-good best practices that you can all follow.
+Hepinizin takip edebileceği en iyi uygulamalar.
 
 01:59.980 --> 02:04.720
-The results here, you'll have more confidence and robustness in your code base, as I've mentioned,
+Buradaki sonuçlar, daha önce de belirttiğim gibi kod tabanınızda daha fazla güven ve sağlamlığa sahip olmanızı sağlayacaktır,
 
 02:04.720 --> 02:10.450
-and the effect on your code base isn't just that it's the same old code with tests.
+ve kod tabanınız üzerindeki etkisi sadece testlerle aynı eski kod değildir.
 
 02:10.480 --> 02:15.040
-It's that the very nature of testing will influence how you design your code.
+Testin doğası, kodunuzu nasıl tasarladığınızı etkileyecektir.
 
 02:15.070 --> 02:22.360
-To make testable code, things need to work in smaller units or smaller classes with less code in them,
+Test edilebilir kod oluşturmak için, işlerin daha küçük birimlerde veya içinde daha az kod bulunan daha küçük sınıflarda çalışması gerekir,
 
 02:22.360 --> 02:27.550
-and that encourages us to have a single purpose to each class and method, which is a good design practice.
+Bu da bizi her sınıf ve yöntem için tek bir amaca sahip olmaya teşvik eder ki bu da iyi bir tasarım uygulamasıdır.
 
 02:27.550 --> 02:30.010
-We'll see that in software design section.
+Bunu yazılım tasarımı bölümünde göreceğiz.
 
 02:30.010 --> 02:34.630
-It also encourages more simple solutions, especially when we talk about test driven development.
+Ayrıca, özellikle test güdümlü geliştirme hakkında konuştuğumuzda, daha basit çözümleri teşvik eder.
 
 02:34.660 --> 02:41.290
-Now having this automated testing, which means unit tests as part of your code base that are automatically
+Şimdi bu otomatik teste sahip olmak, yani kod tabanınızın bir parçası olarak otomatik olarak yapılan birim testleri
 
 02:41.290 --> 02:47.760
-called and retried periodically, that is what's going to really give you the best benefit here.
+periyodik olarak çağrılır ve yeniden denenir, burada size gerçekten en iyi faydayı sağlayacak olan şey budur.
 
 02:47.770 --> 02:54.100
-Now, some teams will use the unit testing inside unity, which is going to be the focus of our talk
+Şimdi, bazı ekipler konuşmamızın odak noktası olacak olan unity içindeki birim testini kullanacak
 
 02:54.100 --> 02:54.550
-here.
+Buraya.
 
 02:54.550 --> 03:02.230
-You can also take that skill and have your git repo or other version control system automatically run
+Ayrıca bu beceriyi kullanarak git deponuzun veya diğer sürüm kontrol sisteminizin otomatik olarak
 
 03:02.230 --> 03:09.280
-those tests at key moments, perhaps daily or nightly, or each time your team commits to a certain
+Bu testler önemli anlarda, belki günlük veya gecelik olarak ya da ekibiniz belirli bir işe her giriştiğinde
 
 03:09.280 --> 03:11.260
-branch, it will run the test again.
+dalı, testi tekrar çalıştıracaktır.
 
 03:11.260 --> 03:17.110
-So there's elegant ways that you can increase the frequency at which this is called, and then only
+Yani bunun çağrılma sıklığını artırmanın zarif yolları var ve o zaman sadece
 
 03:17.110 --> 03:20.020
-merge your code together if all the tests pass.
+Tüm testler geçerse kodunuzu birleştirin.

@@ -1,3175 +1,3175 @@
 WEBVTT
 
 00:00.590 --> 00:02.660
-Hello and welcome to Unit Testing for unity.
+Merhaba ve Unity için Birim Testine hoş geldiniz.
 
 00:02.690 --> 00:03.860
-The workshops.
+Atölyeler.
 
 00:03.860 --> 00:09.590
-In this workshop section, we're going to cover lots of different small examples that each show us some
+Bu atölye bölümünde, her biri bize bazı şeyleri gösteren çok sayıda farklı küçük örneği ele alacağız
 
 00:09.590 --> 00:11.030
-features of unit testing.
+birim testinin özellikleri.
 
 00:11.030 --> 00:12.800
-Let's take a look at the contents here.
+Buradaki içeriğe bir göz atalım.
 
 00:12.800 --> 00:16.730
-First I'll give this overview that I'm going through now in this section introduction.
+İlk olarak, bu bölümün girişinde şimdi geçmekte olduğum bu genel bakışı vereceğim.
 
 00:16.730 --> 00:19.070
-And then we'll step through each workshop.
+Ve sonra her bir atölyeyi adım adım inceleyeceğiz.
 
 00:19.070 --> 00:24.320
-Typically each workshop refers to one scene in our one sample project.
+Tipik olarak her atölye, bir örnek projemizdeki bir sahneyi ifade eder.
 
 00:24.320 --> 00:28.370
-So if you download that sample project you can follow along with each of the scenes.
+Bu örnek projeyi indirirseniz her bir sahneyi takip edebilirsiniz.
 
 00:28.370 --> 00:35.270
-We'll cover my math system, which is a very basic example, just to reacquaint us with what unit testing
+Çok basit bir örnek olan matematik sistemimi ele alacağız, sadece birim testinin ne olduğunu bize yeniden tanıtmak için
 
 00:35.270 --> 00:36.500
-is inside unity.
+Unity'nin içinde.
 
 00:36.500 --> 00:42.230
-Then we'll move on to a my data loader example, and that one I'll be showing a basic version and then
+Daha sonra veri yükleyici örneğime geçeceğiz ve bunun temel bir versiyonunu göstereceğim ve ardından
 
 00:42.230 --> 00:48.740
-a more advanced version using some additional features that are optional but awesomely powerful inside
+isteğe bağlı ancak içinde müthiş güçlü bazı ek özellikler kullanan daha gelişmiş bir sürüm
 
 00:48.740 --> 00:50.390
-unity for unit testing.
+birim testi için unity.
 
 00:50.420 --> 00:54.920
-Then we'll go through an example that I wanted to do something with rendered graphics.
+Daha sonra işlenmiş grafiklerle bir şeyler yapmak istediğim bir örnek üzerinden gideceğiz.
 
 00:54.920 --> 01:00.530
-So I have a cube that we can operate with the arrow keys or with a gamepad, and we'll call that our
+Bu yüzden ok tuşlarıyla veya gamepad ile çalıştırabileceğimiz bir küpüm var ve buna
 
 01:00.530 --> 01:01.340
-character.
+Karakter.
 
 01:01.400 --> 01:06.950
-We're going to step through a few examples, looking at more and more complex use cases for testing,
+Test için giderek daha karmaşık kullanım durumlarına bakarak birkaç örnek üzerinden ilerleyeceğiz,
 
 01:06.950 --> 01:13.520
-eventually doing a physics based movement, taking input and moving our character with rigid body,
+Sonunda fizik tabanlı bir hareket yapıyor, girdi alıyor ve karakterimizi sert gövde ile hareket ettiriyoruz,
 
 01:13.520 --> 01:17.990
-and looking at how and why we would want to do unit testing around that.
+ve bunun etrafında nasıl ve neden birim testi yapmak isteyeceğimize bakıyoruz.
 
 01:18.020 --> 01:25.340
-Generally speaking, the more unity features you use and the more runtime animation you do, it makes
+Genel olarak konuşursak, ne kadar çok unity özelliği kullanırsanız ve ne kadar çok çalışma zamanı animasyonu yaparsanız
 
 01:25.340 --> 01:27.440
-more challenges to the testing process.
+test sürecinde daha fazla zorluk.
 
 01:27.440 --> 01:28.880
-So we'll talk a little bit about that.
+Bu konu hakkında biraz konuşacağız.
 
 01:28.880 --> 01:31.670
-There's always an opportunity for me to add more content here.
+Buraya daha fazla içerik eklemem için her zaman bir fırsat var.
 
 01:31.670 --> 01:34.160
-So we're going to be doing some advanced topics as well.
+Bu yüzden bazı ileri düzey konuları da ele alacağız.
 
 01:34.160 --> 01:38.990
-And this workshop is going to allow us to dive deeper into some particular subtopics.
+Ve bu atölye çalışması, bazı özel alt konulara daha derinlemesine dalmamızı sağlayacak.
 
 01:38.990 --> 01:43.580
-All the source code is available in the downloaded source code for the project itself.
+Tüm kaynak kodu, projenin kendisi için indirilen kaynak kodunda mevcuttur.
 
 01:43.580 --> 01:44.720
-So you can grab that.
+Böylece bunu yakalayabilirsiniz.
 
 01:44.720 --> 01:48.950
-And the format here is going to be an improvised screen share.
+Ve buradaki format doğaçlama bir ekran paylaşımı olacak.
 
 01:48.980 --> 01:53.750
-I'm going to do longer takes than normal, and just think out loud when there's some different things
+Normalden daha uzun çekimler yapacağım ve bazı farklı şeyler olduğunda yüksek sesle düşüneceğim
 
 01:53.750 --> 01:58.520
-that I want to talk about and share with you about the powers and the challenges of unit testing.
+Birim testinin güçleri ve zorlukları hakkında konuşmak ve bunları sizinle paylaşmak istiyorum.
 
 01:58.820 --> 02:03.320
-I'm going to be reviewing some existing code and here and there be creating new code along the way.
+Mevcut bazı kodları gözden geçireceğim ve bu arada yeni kodlar oluşturacağım.
 
 02:03.320 --> 02:09.590
-A great way to look at this and use this information is to download the sample project and follow along
+Buna bakmanın ve bu bilgileri kullanmanın harika bir yolu, örnek projeyi indirmek ve birlikte takip etmektir
 
 02:09.590 --> 02:10.400
-here and there.
+Burada ve orada.
 
 02:10.400 --> 02:16.190
-I'll encourage you to add a new production method to be tested, or new test methods to cover what you've
+Test edilmek üzere yeni bir üretim yöntemi veya test ettiklerinizi kapsayacak yeni test yöntemleri eklemeniz için sizi teşvik edeceğim.
 
 02:16.190 --> 02:17.540
-got in production code.
+üretim kodunda var.
 
 02:17.540 --> 02:21.200
-You can build on to the existing samples that I've got here.
+Burada bulunan mevcut örnekler üzerine inşa edebilirsiniz.
 
 02:21.200 --> 02:23.720
-Or you could certainly create your own sample scenes.
+Ya da kesinlikle kendi örnek sahnelerinizi oluşturabilirsiniz.
 
 02:23.720 --> 02:27.230
-And as a recap, let's read here the benefits of unit testing.
+Ve özet olarak, birim testinin faydalarını burada okuyalım.
 
 02:27.230 --> 02:33.560
-Some of them include adding code confidence, as well as allowing for bolder refactors to your code
+Bunlardan bazıları, kodunuza güven katmanın yanı sıra kodunuzda daha cesur refactor'lara izin vermeyi içerir
 
 02:33.560 --> 02:39.560
-base with more awareness before and after the refactor of the status of your project.
+Projenizin durumu hakkında refactor öncesi ve sonrasında daha fazla farkındalık ile temel.
 
 02:39.560 --> 02:44.990
-And overall, this is going to save time because we've seen that while it may feel like we're always
+Ve genel olarak, bu zamandan tasarruf sağlayacak çünkü gördük ki her zaman
 
 02:45.020 --> 02:50.210
-adding new features in the bulk of our work effort, we learn from research that software development
+Çalışmalarımızın büyük bir kısmında yeni özellikler eklerken, araştırmalardan öğrendiğimize göre yazılım geliştirme
 
 02:50.210 --> 02:55.220
-is mostly about maintaining an existing existing code, and that's really where unit testing is going
+çoğunlukla mevcut bir kodu korumakla ilgilidir ve birim testinin asıl gittiği yer de burasıdır
 
 02:55.220 --> 02:55.640
-to shine.
+parlamak için.
 
 02:55.640 --> 02:58.700
-So it's going to save us time over the life of the project.
+Böylece projenin ömrü boyunca bize zaman kazandıracak.
 
 02:58.730 --> 03:04.130
-The results that we expect from this course and from using unit testing is to have more confidence and
+Bu kurstan ve birim testini kullanmaktan beklediğimiz sonuçlar, daha fazla güvene sahip olmak ve
 
 03:04.130 --> 03:05.990
-robustness in our code base.
+kod tabanımızda sağlamlık.
 
 03:06.020 --> 03:12.680
-We're going to have more single purpose classes and methods, which is a great design principle to focus
+Daha fazla tek amaçlı sınıf ve metoda sahip olacağız, bu da odaklanmak için harika bir tasarım ilkesidir.
 
 03:12.680 --> 03:14.930
-on and certainly helps us in our testability.
+ve kesinlikle test edilebilirliğimize yardımcı olur.
 
 03:14.930 --> 03:17.450
-And we're going to be encouraging more simple solutions.
+Ve daha basit çözümleri teşvik edeceğiz.
 
 03:17.450 --> 03:19.550
-And we'll talk about that in some of these examples.
+Ve bu örneklerin bazılarında bundan bahsedeceğiz.
 
 03:19.550 --> 03:21.650
-To recap the simplest example here.
+En basit örneği burada özetlemek gerekirse.
 
 03:21.650 --> 03:24.380
-This is also the first of the workshops we're going to dive into.
+Bu aynı zamanda ele alacağımız atölye çalışmalarının ilki.
 
 03:24.410 --> 03:30.290
-If we have a mind math system class, and it has two methods on it to add and subtract.
+Eğer bir mind math system sınıfımız varsa ve bu sınıfın toplama ve çıkarma için iki metodu varsa.
 
 03:30.320 --> 03:35.090
-Now you could imagine once you see this code base working, you could add your own method for multiply
+Şimdi, bu kod tabanının çalıştığını gördüğünüzde, çarpma için kendi yönteminizi ekleyebileceğinizi hayal edebilirsiniz
 
 03:35.090 --> 03:38.300
-or divide, and then add some unit tests on top of that.
+veya bölmek ve ardından bunun üzerine bazı birim testleri eklemek.
 
 03:38.310 --> 03:39.800
-Great way to practice here.
+Burada pratik yapmak için harika bir yol.
 
 03:39.800 --> 03:43.220
-And this is purposely the simplest of the scenes we'll go through.
+Ve bu bilerek üzerinden geçeceğimiz sahnelerin en basiti.
 
 03:43.220 --> 03:48.560
-So if you're still getting used to the fundamentals and you want to make sure that it really sinks in,
+Dolayısıyla, hala temel bilgilere alışmaya çalışıyorsanız ve bunun gerçekten yerleştiğinden emin olmak istiyorsanız,
 
 03:48.560 --> 03:53.300
-I suggest spend a little bit more time on this part of the video and this part of the code base until
+Videonun bu bölümüne ve kod tabanının bu bölümüne biraz daha zaman ayırmanızı öneririm
 
 03:53.300 --> 03:55.340
-you're feeling good, and then move on after that.
+iyi hissediyorsanız, ondan sonra devam edin.
 
 03:55.340 --> 03:59.450
-And again, here is a sample of the type of unit tests we'll be creating.
+Ve yine, burada oluşturacağımız birim testlerinin türüne bir örnek var.
 
 03:59.450 --> 04:04.100
-This is a simple, complete, appropriate test to cover that my math system.
+Bu, benim matematik sistemimi kapsayan basit, eksiksiz ve uygun bir testtir.
 
 04:04.100 --> 04:08.690
-So here what we do is we follow the paradigm of arrange, act and assert.
+Burada yaptığımız şey, düzenle, harekete geç ve iddia et paradigmasını takip etmektir.
 
 04:08.720 --> 04:14.540
-This is an optional way to approach your unit testing, just to organize your own thoughts as you go.
+Bu, birim testinize yaklaşmak için isteğe bağlı bir yoldur, sadece ilerledikçe kendi düşüncelerinizi organize etmek için.
 
 04:14.720 --> 04:18.740
-Sometimes along the way you may be doing asynchronous code development.
+Bazen yol boyunca asenkron kod geliştirme yapıyor olabilirsiniz.
 
 04:18.740 --> 04:23.990
-So in that methodology I would do arrange, act, await and assert.
+Yani bu metodolojide arrange, act, await ve assert yapardım.
 
 04:23.990 --> 04:29.840
-And if you're not exactly sure what a wait is, we'll look at the await and async methodology for doing
+Beklemenin ne olduğundan tam olarak emin değilseniz, await ve async metodolojisine bakacağız.
 
 04:29.870 --> 04:32.120
-asynchronous coding as part of the workshop.
+atölye çalışmasının bir parçası olarak asenkron kodlama.
 
 04:32.120 --> 04:37.760
-Now while working on the source code here for contributing to the project and for this course, what
+Şimdi burada projeye ve bu kursa katkıda bulunmak için kaynak kodu üzerinde çalışırken, ne
 
 04:37.760 --> 04:40.330
-I did was look at each of the dependencies.
+Bağımlılıkların her birine baktım.
 
 04:40.340 --> 04:47.990
-Unity has certain libraries in the unity package manager available for us to do the official unity solution
+Unity, resmi unity çözümünü yapabilmemiz için unity paket yöneticisinde belirli kütüphanelere sahiptir
 
 04:47.990 --> 04:49.550
-for unit testing.
+birim testi için.
 
 04:49.550 --> 04:55.820
-Now, what I did here is instead of using the one x which is in release, I use an experimental version.
+Şimdi, burada yaptığım şey, sürümdeki bir x'i kullanmak yerine, deneysel bir sürüm kullanmak.
 
 04:55.820 --> 04:59.900
-So you may notice that the test runner as I'm going through in the video looks.
+Bu yüzden videoda geçtiğim test koşucusunun göründüğünü fark edebilirsiniz.
 
 05:00.050 --> 05:04.940
-A little bit different than maybe some screenshots you've seen on the web, or if you have experience
+İnternette gördüğünüz bazı ekran görüntülerinden biraz daha farklı ya da deneyiminiz varsa
 
 05:04.940 --> 05:06.400
-with the test runner yourself.
+test çalıştırıcısı ile kendiniz.
 
 05:06.410 --> 05:08.630
-What I'm showing today might look a little different.
+Bugün göstereceğim şey biraz farklı görünebilir.
 
 05:08.660 --> 05:13.370
-The sample project you're going to download is going to match the look of this video, because I've
+İndireceğiniz örnek proje bu videonun görünümüyle eşleşecek, çünkü ben
 
 05:13.400 --> 05:15.020
-included that dependency in there.
+bu bağımlılığı oraya dahil ettim.
 
 05:15.050 --> 05:16.340
-There's reasons why I did it.
+Bunu yapmamın sebepleri var.
 
 05:16.340 --> 05:21.020
-It's not just that the test runner looks different and is more stable, which I think is the case.
+Bu sadece test koşucusunun farklı görünmesi ve daha kararlı olması değil, ki bence durum böyle.
 
 05:21.050 --> 05:26.870
-It also the library behind it allows us to do a few additional things, particularly around some asynchronous
+Aynı zamanda arkasındaki kütüphane, özellikle bazı asenkron
 
 05:26.870 --> 05:28.370
-development and testing.
+geliştirme ve test.
 
 05:29.730 --> 05:33.060
-You can take a look at this version text file that's included in the project.
+Projeye dahil olan bu sürüm metin dosyasına göz atabilirsiniz.
 
 05:33.060 --> 05:37.790
-If you want to see how and where and why included each of these dependencies.
+Bu bağımlılıkların her birinin nasıl, nerede ve neden dahil edildiğini görmek istiyorsanız.
 
 05:37.800 --> 05:43.020
-The sample project that we're going to go into includes a Readme asset, which we can click on and see
+Gireceğimiz örnek proje, üzerine tıklayıp görebileceğimiz bir Benioku varlığı içerir
 
 05:43.020 --> 05:44.390
-this nice menu on the right.
+sağdaki bu güzel menü.
 
 05:44.400 --> 05:49.950
-It's an easy way to get oriented to remember some popular links, and to click right into each of the
+Bazı popüler bağlantıları hatırlamak ve her birine doğrudan tıklamak için yönlendirilmenin kolay bir yoludur.
 
 05:49.950 --> 05:51.690
-samples that you want to get into.
+içine girmek istediğiniz örnekler.
 
 05:51.960 --> 05:57.270
-I have a particular layout that you'll see me use here, which is to keep the test runner in the center
+Burada kullandığımı göreceğiniz özel bir düzenim var, bu da test koşucusunu merkezde tutmak
 
 05:57.270 --> 05:59.930
-there just so it's nice and big for the purposes of the video.
+sadece videonun amaçları doğrultusunda güzel ve büyük olması için.
 
 05:59.940 --> 06:04.710
-Often in development, my test runner would maybe sit on the right side there, but I like to have it
+Genellikle geliştirme aşamasında, test koşucum sağ tarafta oturuyor olabilir, ancak ben
 
 06:04.710 --> 06:08.280
-front and center, especially for the purpose of discussing the tests.
+özellikle testlerin tartışılması amacıyla ön ve merkezde.
 
 06:08.370 --> 06:13.290
-You can resize these windows and layouts of course, any way you want, but some of the key ones to
+Bu pencereleri ve düzenleri elbette istediğiniz şekilde yeniden boyutlandırabilirsiniz, ancak bazı önemli olanlar
 
 06:13.290 --> 06:18.150
-take a look at here would be the project window, the test runner, and then the inspector, which we'll
+Burada proje penceresine, test çalıştırıcısına ve ardından denetçiye bir göz atacağız.
 
 06:18.150 --> 06:19.020
-be taking a look at.
+bir göz atalım.
 
 06:19.020 --> 06:23.310
-So we're about to dive in here and take a look at the first of the workshops.
+Şimdi buraya dalmak ve atölye çalışmalarının ilkine göz atmak üzereyiz.
 
 06:23.370 --> 06:27.870
-I've divided it up into several sections, again focusing on some different sub topics.
+Yine bazı farklı alt konulara odaklanarak birkaç bölüme ayırdım.
 
 06:27.870 --> 06:35.130
-I also thought along the way to more or less organize them from one up into the highest number, starting
+Ayrıca yol boyunca bunları birden başlayarak en yüksek sayıya doğru aşağı yukarı düzenlemeyi düşündüm
 
 06:35.130 --> 06:39.840
-with the easiest and least complex, and then building on those concepts there.
+En kolay ve en az karmaşık olanla başlayıp bu kavramlar üzerine inşa etmek.
 
 06:40.140 --> 06:42.810
-Each of the demo scenes runs by itself.
+Demo sahnelerinin her biri kendi başına çalışır.
 
 06:42.810 --> 06:44.880
-You just hit play in the console window.
+Konsol penceresinde oynat tuşuna basmanız yeterli.
 
 06:44.910 --> 06:47.070
-You'll see some readouts and stuff like that.
+Bazı göstergeler ve bunun gibi şeyler göreceksiniz.
 
 06:47.070 --> 06:52.050
-You can follow along, and some of the scenes, there's actually something to do when you hit play.
+Takip edebilirsiniz ve bazı sahnelerde oynat tuşuna bastığınızda aslında yapacak bir şeyler var.
 
 06:52.080 --> 06:56.610
-Sometimes there's no UI, it's just kind of simple and you just look at some debug log statements.
+Bazen kullanıcı arayüzü yoktur, sadece basittir ve sadece bazı hata ayıklama günlük ifadelerine bakarsınız.
 
 06:56.610 --> 07:00.110
-So I'm really excited to share these workshops as a great way to dive in.
+Bu nedenle, bu atölye çalışmalarını bu konuya giriş yapmanın harika bir yolu olarak paylaşmaktan gerçekten heyecan duyuyorum.
 
 07:00.120 --> 07:01.140
-So let's get started.
+Hadi başlayalım.
 
 07:01.140 --> 07:02.970
-We're going to open up the unity editor.
+Unity editörünü açacağız.
 
 07:02.970 --> 07:07.680
-I've already downloaded the source code following the course resources from earlier in the lesson.
+Dersin başındaki ders kaynaklarını takip ederek kaynak kodunu zaten indirdim.
 
 07:07.680 --> 07:12.540
-We'll open up that course sample project, and then we're going to open and play one or more scenes
+Bu kurs örnek projesini açacağız ve ardından bir veya daha fazla sahneyi açıp oynatacağız
 
 07:12.540 --> 07:13.680
-in each of the workshop.
+her bir atölyede.
 
 07:13.680 --> 07:18.360
-First we're going to look at the Readme asset that gives us some orientation in the project.
+İlk olarak, bize projede biraz yönlendirme sağlayan Readme varlığına bakacağız.
 
 07:18.390 --> 07:23.700
-We'll also look at the package manager, explore the project structure and then take a look at the test
+Ayrıca paket yöneticisine bakacağız, proje yapısını keşfedeceğiz ve ardından teste bir göz atacağız
 
 07:23.700 --> 07:24.630
-runner window.
+Koşucu penceresi.
 
 07:24.630 --> 07:29.610
-So here we're just giving an overview to kind of what the sample project is and how the workshops are
+Burada sadece örnek projenin ne olduğuna ve atölye çalışmalarının nasıl yapıldığına dair genel bir bakış sunuyoruz.
 
 07:29.610 --> 07:30.270
-formatted.
+Biçimlendirilmiş.
 
 07:30.270 --> 07:33.090
-And then we'll move in and go through each of the workshops.
+Daha sonra her bir atölye çalışmasına geçeceğiz.
 
 07:33.090 --> 07:35.190
-So here we are inside unity.
+İşte birlik içindeyiz.
 
 07:35.190 --> 07:39.960
-I'll do my best to keep my webcam head out of the way of the action here.
+Web kameramı aksiyondan uzak tutmak için elimden geleni yapacağım.
 
 07:39.960 --> 07:45.360
-And what we're going to be looking at is that the Readme, which is available in a couple spots, we
+Ve bakacağımız şey, birkaç noktada mevcut olan Readme, biz
 
 07:45.360 --> 07:48.810
-can go up here and explore this menu option to open the Readme.
+buraya gidebilir ve Benioku'yu açmak için bu menü seçeneğini keşfedebilirsiniz.
 
 07:49.440 --> 07:54.060
-We can also browse through the project window and go down here and just click on the readme.
+Ayrıca proje penceresine göz atabilir ve buraya gidip sadece benioku'ya tıklayabiliriz.
 
 07:54.180 --> 07:56.900
-Either way, it's going to open up the readme in the Inspector.
+Her iki durumda da, Denetçi'de benioku dosyasını açacaktır.
 
 07:56.910 --> 07:58.650
-Let's take a look at what we've got here.
+Elimizdekilere bir göz atalım.
 
 08:00.900 --> 08:05.490
-We've got some links to the course and to the sample project just for orientation where this information
+Bu bilgilerin yer aldığı kursa ve örnek projeye sadece oryantasyon için bazı bağlantılarımız var
 
 08:05.490 --> 08:06.060
-is available.
+mevcut.
 
 08:06.060 --> 08:08.670
-If you want to click over and check out those links.
+Eğer tıklamak ve bu bağlantılara göz atmak isterseniz.
 
 08:11.450 --> 08:13.220
-And then the Getting Started section.
+Ve sonra Başlarken bölümü.
 
 08:13.220 --> 08:18.650
-There's a quick way to get to some of the popular examples, so you can certainly browse through the
+Popüler örneklerden bazılarına ulaşmak için hızlı bir yol var, bu yüzden kesinlikle
 
 08:18.650 --> 08:20.060
-project window and find them.
+proje penceresi ve onları bulun.
 
 08:20.060 --> 08:22.140
-But this is a nice way to get oriented.
+Ama bu oryantasyon için güzel bir yol.
 
 08:22.160 --> 08:25.190
-Something else I wanted to take a look at is the package manager here.
+Bakmak istediğim başka bir şey de buradaki paket yöneticisi.
 
 08:25.220 --> 08:29.360
-Just if you're downloading this project, you'll see the same packages here.
+Eğer bu projeyi indiriyorsanız, aynı paketleri burada da göreceksiniz.
 
 08:29.360 --> 08:35.510
-But if you decide for the purpose of your learning here or further into the future to bring these lessons
+Ancak burada veya gelecekte öğrenmeniz amacıyla bu dersleri getirmeye karar verirseniz
 
 08:35.510 --> 08:40.640
-into a different project, you're going to want to make your package manager look similar if you want
+farklı bir projeye dönüştürmek istiyorsanız, paket yöneticinizin benzer görünmesini isteyeceksiniz.
 
 08:40.640 --> 08:42.230
-to have the same experience here.
+burada da aynı deneyimi yaşamak için.
 
 08:42.230 --> 08:46.160
-So notice that I've got the end substitute package.
+Son yedek paketi aldığıma dikkat edin.
 
 08:46.400 --> 08:52.130
-I've also got the code coverage package, the test framework.
+Ayrıca kod kapsama paketi ve test çerçevesi de var.
 
 08:52.130 --> 08:56.990
-And for the purpose of this course, notice that I have a pre-release version that gives us some additional
+Ve bu kursun amacı doğrultusunda, bize bazı ek bilgiler veren bir ön sürümüm olduğuna dikkat edin
 
 08:56.990 --> 08:57.940
-functionality.
+işlevsellik.
 
 08:57.950 --> 09:00.050
-This is optional for unit testing.
+Bu, birim testi için isteğe bağlıdır.
 
 09:00.050 --> 09:04.730
-You certainly don't need it for the bulk of the features of unit testing, but I think it's got some
+Birim testinin özelliklerinin büyük bir kısmı için kesinlikle buna ihtiyacınız yok, ancak bence bazı
 
 09:04.730 --> 09:06.020
-cool cutting edge stuff.
+havalı, son teknoloji şeyler.
 
 09:06.020 --> 09:10.040
-So that's what we're going to focus on, and I recommend you give it a try.
+Bu yüzden buna odaklanacağız ve denemenizi tavsiye ederim.
 
 09:10.070 --> 09:11.420
-Something else of note here.
+Burada dikkat edilmesi gereken bir şey daha var.
 
 09:11.420 --> 09:14.750
-This version file that I have selected will dig into that.
+Seçtiğim bu sürüm dosyası bunu inceleyecektir.
 
 09:14.750 --> 09:19.430
-That's just some notes that I took along the way to talk a little bit about the dependencies that I
+Bu sadece bağımlılıklar hakkında biraz konuşmak için yol boyunca aldığım bazı notlar.
 
 09:19.430 --> 09:20.390
-chose and why.
+ve neden seçtiğini.
 
 09:22.530 --> 09:24.420
-So we won't go into it here.
+O yüzden bu konuya burada girmeyeceğiz.
 
 09:24.450 --> 09:26.080
-This may change over time as well.
+Bu da zaman içinde değişebilir.
 
 09:26.100 --> 09:30.210
-But just check out this file if you're curious how and why I've used each of the dependencies, and
+Ancak her bir bağımlılığı nasıl ve neden kullandığımı merak ediyorsanız bu dosyaya göz atın ve
 
 09:30.210 --> 09:33.450
-why I use that pre-release version I mentioned explicitly there.
+Bu yüzden orada açıkça bahsettiğim yayın öncesi sürümü kullanıyorum.
 
 09:33.480 --> 09:37.110
-And lastly, front and center here, let's look at the test runner window.
+Ve son olarak, burada ön ve ortada, test çalıştırıcı penceresine bakalım.
 
 09:37.140 --> 09:42.480
-Now that window is available from Window General and Test Runner.
+Artık bu pencereye Window General ve Test Runner'dan erişilebilir.
 
 09:42.480 --> 09:47.160
-And it's included in every default unity installation as I mentioned.
+Ve bahsettiğim gibi her varsayılan unity kurulumuna dahildir.
 
 09:47.190 --> 09:51.600
-I've added the pre-release of one given package, so the layout of mine might look a little different
+Belirli bir paketin ön sürümünü ekledim, bu nedenle benimkinin düzeni biraz farklı görünebilir
 
 09:51.600 --> 09:54.150
-than the standard here in this layout.
+bu düzendeki standarttan daha fazla.
 
 09:54.180 --> 10:01.260
-What we've got here is the ability to toggle on and off edit mode tests, and on and off play mode tests.
+Burada sahip olduğumuz şey, düzenleme modu testlerini açma ve kapatma ve oynatma modu testlerini açma ve kapatma yeteneğidir.
 
 10:01.260 --> 10:03.570
-They're shown here in the same tab view.
+Burada aynı sekme görünümünde gösterilmektedirler.
 
 10:03.720 --> 10:04.840
-This is really great.
+Bu gerçekten harika.
 
 10:04.860 --> 10:07.800
-Then what I can do is browse the different categories.
+Sonra farklı kategorilere göz atabilirim.
 
 10:07.800 --> 10:13.140
-Now I've created all the tests we're looking at and I've flagged them each as a specific category.
+Şimdi incelediğimiz tüm testleri oluşturdum ve her birini belirli bir kategori olarak işaretledim.
 
 10:13.140 --> 10:18.360
-So if I want to look at just one particular one like my math system, then it just filters the view
+Yani matematik sistemim gibi sadece belirli bir tanesine bakmak istersem, o zaman sadece görünümü filtreler
 
 10:18.390 --> 10:23.970
-here and it'll show you only the edit or only the play and of a given category.
+burada ve size yalnızca belirli bir kategorideki düzenlemeleri veya yalnızca oynatılanları gösterecektir.
 
 10:24.000 --> 10:25.230
-That really helps you.
+Bu sana gerçekten yardımcı olur.
 
 10:25.260 --> 10:31.170
-Then what I can do here with just the edit selected, for example, is be able to see all the tests
+O zaman burada sadece düzenleme seçiliyken yapabileceğim şey, örneğin, tüm testleri görebilmektir
 
 10:31.170 --> 10:31.770
-that are there.
+Orada olanları.
 
 10:31.770 --> 10:36.600
-And down here at the bottom I can run selected or run all I'll run selected, for example.
+Ve burada altta seçili olarak çalıştırabilirim ya da tümünü çalıştırabilirim, örneğin seçili olarak çalıştıracağım.
 
 10:36.600 --> 10:40.950
-And what it does is it goes through and runs all the test code.
+Ve yaptığı şey, tüm test kodlarını gözden geçirmek ve çalıştırmaktır.
 
 10:41.040 --> 10:48.270
-This is kind of the core of the methodology we're approaching here is that periodically in your development
+Burada yaklaştığımız metodolojinin özü, gelişiminizde periyodik olarak
 
 10:48.270 --> 10:50.270
-you want to test your own code base.
+kendi kod tabanınızı test etmek istiyorsunuz.
 
 10:50.280 --> 10:55.190
-You come to this window and you manually hit that run selected or that run all button.
+Bu pencereye gelirsiniz ve manuel olarak seçili çalıştır veya tümünü çalıştır düğmesine basarsınız.
 
 10:55.200 --> 10:59.340
-We see all green here indicating success up here at the top.
+En üstte başarıyı gösteren yeşili görüyoruz.
 
 10:59.340 --> 11:02.970
-It gives us a little recap that we've got 100 tests that succeeded.
+Bu bize başarılı olan 100 testimiz olduğuna dair küçük bir özet verir.
 
 11:02.970 --> 11:07.550
-We've got zero that failed, and we've got zero that were skipped or ignored.
+Başarısız olan sıfır, atlanan ya da göz ardı edilen ise sıfır.
 
 11:07.560 --> 11:13.530
-So a great practice as you're doing unit testing is to ensure that all of your tests pass.
+Bu nedenle, birim testi yaparken tüm testlerinizin geçtiğinden emin olmak harika bir uygulamadır.
 
 11:13.560 --> 11:18.570
-Don't allow a failing test in your project for a long time.
+Başarısız bir testin projenizde uzun süre kalmasına izin vermeyin.
 
 11:18.570 --> 11:19.680
-You want to address that.
+Bu konuya değinmek istiyorsunuz.
 
 11:19.680 --> 11:20.520
-Move it out of the way.
+Yoldan çekil.
 
 11:20.520 --> 11:23.280
-Even if you know there's a migration coming in the future.
+Gelecekte bir göç olacağını bilseniz bile.
 
 11:23.280 --> 11:29.280
-So the best practice here is to keep your tests updated with your code changes and always have them
+Bu nedenle buradaki en iyi uygulama, testlerinizi kod değişikliklerinizle güncel tutmak ve her zaman
 
 11:29.280 --> 11:30.030
-passing.
+geçiyor.
 
 11:30.030 --> 11:32.700
-So here we show the best practice in effect.
+Burada en iyi uygulamanın yürürlükte olduğunu gösteriyoruz.
 
 11:33.690 --> 11:36.690
-In the next workshop we'll take a closer look at the source code involved.
+Bir sonraki atölye çalışmasında ilgili kaynak koduna daha yakından bakacağız.
 
 11:36.690 --> 11:41.850
-But that's it for this section of looking at the workshops and the sample project.
+Ancak atölye çalışmalarına ve örnek projeye baktığımız bu bölüm bu kadar.
 
 11:46.910 --> 11:47.900
-Hello and welcome.
+Merhaba ve hoş geldiniz.
 
 11:47.900 --> 11:53.990
-In this workshop, we're going to be taking a look at the My Math system, stepping into what is a pretty
+Bu atölye çalışmasında, My Math sistemine bir göz atacağız ve oldukça ilginç bir sisteme adım atacağız.
 
 11:54.020 --> 11:58.250
-simple example, just getting us reacquainted with the basics of unit testing.
+Basit bir örnek, sadece birim testinin temelleri ile yeniden tanışmamızı sağlıyor.
 
 11:58.250 --> 12:01.640
-So in this demo you can use the Core Sample project to follow along.
+Yani bu demoda takip etmek için Core Sample projesini kullanabilirsiniz.
 
 12:01.640 --> 12:06.440
-We're going to be opening up the unity editor, opening up that core sample project, and then we'll
+Unity editörünü açacağız, bu çekirdek örnek projeyi açacağız ve sonra
 
 12:06.440 --> 12:08.060
-open and play some scenes here.
+açın ve burada bazı sahneleri oynatın.
 
 12:08.060 --> 12:13.310
-We're going to be looking at the My Math system as well as the test behind it, and we'll do a recap
+My Math sistemine ve arkasındaki teste bakacağız ve bir özet yapacağız
 
 12:13.340 --> 12:18.920
-of unit testing, just kind of talking about whatever basic concepts I see in there and think to mention.
+birim testinin temel kavramlarından bahsediyorum, sadece orada gördüğüm ve bahsetmeyi düşündüğüm temel kavramlardan bahsediyorum.
 
 12:18.920 --> 12:25.370
-And we'll also talk about parameterized values, which is an intermediate way that you can approach
+Ayrıca, parametrelendirilmiş değerler hakkında da konuşacağız, bu da yaklaşabileceğiniz bir ara yoldur
 
 12:25.370 --> 12:25.880
-testing.
+Test.
 
 12:25.880 --> 12:29.540
-And it's a good additional skill to have as you approach unit testing.
+Ve birim testine yaklaşırken sahip olunması gereken iyi bir ek beceridir.
 
 12:29.570 --> 12:30.560
-Let's dive in.
+Hadi dalalım.
 
 12:30.770 --> 12:35.330
-So here I'm inside the unity editor I've opened the my math system example.
+Burada unity editörünün içindeyim ve matematik sistemi örneğimi açtım.
 
 12:35.330 --> 12:37.970
-Let's just give the scene itself a play.
+Sahnenin kendisini bir oynayalım.
 
 12:38.000 --> 12:41.630
-Sometimes in these workshops the scene is more exciting.
+Bazen bu atölyelerde sahne daha heyecan vericidir.
 
 12:41.630 --> 12:43.220
-This one not so exciting.
+Bu o kadar heyecan verici değil.
 
 12:43.220 --> 12:48.680
-We'll go ahead and hit play down here in the bottom window, we see some simple text that's helping
+Devam edelim ve alt pencerede oynat düğmesine basalım, yardımcı olan bazı basit metinler görüyoruz
 
 12:48.680 --> 12:53.960
-us understand we're in the unit testing demo, and we're going to just play the scene and view the console.
+birim testi demosunda olduğumuzu ve sadece sahneyi oynatıp konsolu görüntüleyeceğimizi anlıyoruz.
 
 12:53.960 --> 12:55.430
-So let's look at the console.
+Şimdi konsola bakalım.
 
 12:55.520 --> 12:58.520
-The console says this scene has no UI.
+Konsol bu sahnede kullanıcı arayüzü olmadığını söylüyor.
 
 12:58.550 --> 13:01.430
-See the unity console here we are in the console.
+Unity konsoluna bakın burada konsolun içindeyiz.
 
 13:01.430 --> 13:02.090
-Really.
+Gerçekten.
 
 13:02.090 --> 13:06.830
-It's just going to show us a value that's been spit out after a successful operation.
+Bize sadece başarılı bir operasyondan sonra tükürülen bir değeri gösterecek.
 
 13:06.830 --> 13:12.290
-So this would, in real production code, be a much more interesting scene.
+Dolayısıyla bu, gerçek üretim kodunda çok daha ilginç bir sahne olacaktır.
 
 13:12.290 --> 13:17.540
-Perhaps there's actually the game menu or the game play happening here.
+Belki de burada aslında oyun menüsü veya oyun oynanışı vardır.
 
 13:17.780 --> 13:22.730
-This is quite a lean scene here where there's not much to see, but you can imagine that that could
+Burada görülecek pek bir şeyin olmadığı oldukça yalın bir sahne var, ancak bunun
 
 13:22.730 --> 13:23.150
-be.
+ol.
 
 13:23.720 --> 13:28.880
-It's not particularly important that there be a runtime scene for the testing sake.
+Test için bir çalışma zamanı sahnesi olması özellikle önemli değildir.
 
 13:28.880 --> 13:34.520
-I just want to often talk about the balance between here's your production code doing its production
+Sık sık üretim kodunuzla üretim kodunuz arasındaki dengeden bahsetmek istiyorum.
 
 13:34.520 --> 13:35.150
-thing.
+Şey.
 
 13:35.150 --> 13:38.480
-And then over here is the test code doing its test thing.
+Ve sonra burada test kodu test işini yapıyor.
 
 13:38.480 --> 13:44.330
-So production code, we always experience that by hitting play on a unity scene just like this.
+Yani üretim kodu, bunu her zaman bunun gibi bir unity sahnesinde play tuşuna basarak deneyimliyoruz.
 
 13:44.330 --> 13:47.750
-And to do our unit testing we do something different.
+Ve birim testimizi yapmak için farklı bir şey yapıyoruz.
 
 13:47.780 --> 13:50.990
-What we do here is we look at the test runner window.
+Burada yaptığımız şey test çalıştırıcı penceresine bakmaktır.
 
 13:51.530 --> 13:55.340
-We explore the category appropriate to what we want to look at here.
+Burada bakmak istediğimiz şeye uygun kategoriyi keşfediyoruz.
 
 13:55.340 --> 13:57.470
-We're just looking at the my math system.
+Sadece benim matematik sistemime bakıyoruz.
 
 13:58.560 --> 14:01.020
-And then we hit let's see.
+Ve sonra bakalım.
 
 14:01.020 --> 14:02.280
-Let's just do the edit mode test.
+Sadece düzenleme modu testini yapalım.
 
 14:02.430 --> 14:06.780
-We'll do run all here and all the tests run just like that.
+Tümünü burada çalıştıracağız ve tüm testler bu şekilde çalışacak.
 
 14:06.810 --> 14:09.050
-Now it didn't actually run the scene.
+Şimdi aslında sahneyi çalıştırmadı.
 
 14:09.060 --> 14:15.420
-It's just running kind of off on the side in its own little universe, running those tests inside an
+Sadece kendi küçük evreninde bir tür kenarda çalışıyor, bu testleri bir
 
 14:15.420 --> 14:16.290
-edit mode.
+Düzenleme modu.
 
 14:16.290 --> 14:19.790
-So edit mode tests talking a little bit about the difference there.
+Bu yüzden düzenleme modu testleri buradaki farktan biraz bahsediyor.
 
 14:19.800 --> 14:25.050
-Edit mode tests run in edit mode, which in unity there's two primary modes.
+Düzenleme modu testleri, unity'de iki ana mod olan düzenleme modunda çalışır.
 
 14:25.050 --> 14:30.630
-Basically, from the moment you hit the play button to the moment you hit the play button, that is
+Temel olarak, oynat düğmesine bastığınız andan oynat düğmesine bastığınız ana kadar, yani
 
 14:30.630 --> 14:31.290
-play mode.
+oyun modu.
 
 14:31.320 --> 14:35.440
-That's generally where the user experiences the unity gameplay.
+Bu genellikle kullanıcının unity oyununu deneyimlediği yerdir.
 
 14:35.610 --> 14:38.430
-Any time we're not in that mode, we're in edit mode.
+Bu modda olmadığımız her an düzenleme modundayız.
 
 14:38.430 --> 14:40.170
-Sitting right here, we're in edit mode.
+Tam burada oturuyoruz, düzenleme modundayız.
 
 14:40.200 --> 14:46.260
-These tests are run in edit mode because they don't necessarily need all the complexity of a runtime
+Bu testler düzenleme modunda çalıştırılır çünkü bir çalışma zamanının tüm karmaşıklığına ihtiyaç duymazlar
 
 14:46.260 --> 14:46.800
-scene.
+Sahne.
 
 14:46.800 --> 14:52.110
-This helps us have a more simple little isolated area where these codes run.
+Bu, bu kodların çalıştığı daha basit ve küçük bir izole alana sahip olmamıza yardımcı olur.
 
 14:52.110 --> 14:57.780
-Now sometimes you need the conveniences of monobehaviours and runtime functionality.
+Şimdi bazen tekli davranışların ve çalışma zamanı işlevselliğinin kolaylıklarına ihtiyaç duyarsınız.
 
 14:57.780 --> 15:01.680
-That's where the play mode comes into into uses.
+İşte bu noktada oyun modu devreye giriyor.
 
 15:01.680 --> 15:04.260
-And here we've got some play mode tests as well.
+Ve burada da bazı oyun modu testlerimiz var.
 
 15:04.260 --> 15:09.480
-So each time I click one of these checkboxes, you can see it's showing us some slightly different lists
+Bu onay kutularından birine her tıkladığımda, bize biraz farklı listeler gösterdiğini görebilirsiniz
 
 15:09.510 --> 15:10.740
-of what we've got available.
+elimizdekilerin.
 
 15:10.740 --> 15:13.140
-So here in play mode I'm going to hit run all.
+Bu yüzden burada oyun modunda hepsini çalıştıra basacağım.
 
 15:13.950 --> 15:18.090
-And here it's actually creating a brand new scene.
+Ve burada aslında yepyeni bir sahne oluşturuyor.
 
 15:18.090 --> 15:24.420
-Running a runtime scene that's just for demo sake with whatever test code I've got, and then returns
+Elimdeki test koduyla sadece demo amaçlı bir çalışma zamanı sahnesi çalıştırıyorum ve sonra
 
 15:24.420 --> 15:26.880
-us back to the original scene we were in.
+İçinde bulunduğumuz orijinal sahneye geri dönüyoruz.
 
 15:26.880 --> 15:31.110
-If we didn't have the scene saved, it would prompt us and say, hey, you're about to run a play mode
+Eğer sahneyi kaydetmemiş olsaydık, bizi uyaracak ve diyecekti ki, hey, bir oyun modu çalıştırmak üzeresin
 
 15:31.140 --> 15:31.620
-test.
+Test.
 
 15:31.650 --> 15:33.360
-We're going to temporarily leave your scene.
+Geçici olarak olay yerinden ayrılacağız.
 
 15:33.390 --> 15:35.040
-Do you want to save your scene first?
+Önce sahnenizi kaydetmek ister misiniz?
 
 15:35.040 --> 15:37.500
-Generally, that's a good idea, so look out for that.
+Genelde bu iyi bir fikirdir, bu yüzden buna dikkat edin.
 
 15:37.530 --> 15:39.300
-Now let's look at the source code.
+Şimdi kaynak koduna bakalım.
 
 15:39.330 --> 15:43.020
-Let's first look at the runtime production code.
+İlk olarak çalışma zamanı üretim koduna bakalım.
 
 15:43.020 --> 15:45.810
-So we'll open up the My Math system example.
+Bu yüzden My Math sistem örneğini açacağız.
 
 15:45.810 --> 15:52.740
-Each of these workshops has, generally speaking one game object with one example script that kicks
+Bu atölyelerin her birinde, genellikle bir oyun nesnesi ile bir örnek komut dosyası bulunur.
 
 15:52.740 --> 15:53.580
-it all off.
+Her şey bitti.
 
 15:53.580 --> 15:59.490
-So when we look at that, here we are in the code editor and we can see the complete my math system
+Buna baktığımızda, burada kod editöründeyiz ve matematik sistemimin tamamını görebiliyoruz
 
 15:59.490 --> 16:00.180
-example.
+Örnek.
 
 16:00.180 --> 16:05.670
-Now this is a monobehaviour because I want to have the conveniences of code sitting on a game object.
+Şimdi bu bir monobehaviour çünkü bir oyun nesnesi üzerinde oturan kodun kolaylıklarına sahip olmak istiyorum.
 
 16:05.670 --> 16:10.380
-And then inside the await here I'm going to simulate some production code.
+Ve sonra buradaki bekleyişin içinde bazı üretim kodlarını simüle edeceğim.
 
 16:10.380 --> 16:16.140
-Now it's very lean, there's not much to it, and it kind of looks the same as the test we're about
+Şimdi çok yalın, fazla bir şey yok ve birazdan yapacağımız testle aynı gibi görünüyor.
 
 16:16.140 --> 16:21.780
-to look at, because I create the class from scratch and then I call a method on it, and then I show
+çünkü sınıfı sıfırdan yaratıyorum ve sonra üzerinde bir yöntem çağırıyorum ve sonra gösteriyorum
 
 16:21.780 --> 16:22.530
-the results.
+Sonuçlar.
 
 16:22.530 --> 16:28.320
-But it's important to know that in a production example, in a real game project, this equivalent would
+Ancak bir üretim örneğinde, gerçek bir oyun projesinde, bu eşdeğerin şu şekilde olacağını bilmek önemlidir
 
 16:28.320 --> 16:33.600
-be many classes and all the scenes and all the prefabs and all the complexity you would generally have
+çok sayıda sınıf ve tüm sahneler ve tüm prefabrikler ve genellikle sahip olacağınız tüm karmaşıklık
 
 16:33.600 --> 16:34.530
-in your project.
+projenizde.
 
 16:34.530 --> 16:37.230
-But here I'm keeping it purposely very lean.
+Ama burada bilerek çok zayıf tutuyorum.
 
 16:37.230 --> 16:38.910
-So notice what we do here.
+Burada ne yaptığımıza dikkat edin.
 
 16:38.910 --> 16:40.920
-We create the my math system.
+Matematik sistemimi oluşturuyoruz.
 
 16:40.920 --> 16:45.750
-We grab a couple of ints and populate them with the values five and ten.
+Birkaç ints alırız ve bunları beş ve on değerleriyle doldururuz.
 
 16:45.750 --> 16:47.940
-And then we call the my Math system.
+Ve sonra Matematik sistemim diyoruz.
 
 16:47.940 --> 16:50.550
-And we pass in the five and ten together.
+Ve beş ve onda birlikte geçiyoruz.
 
 16:50.550 --> 16:52.500
-And then here we show the result.
+Ve sonra burada sonucu gösteriyoruz.
 
 16:52.500 --> 16:54.030
-So let's go ahead and do that.
+Öyleyse devam edelim ve bunu yapalım.
 
 16:54.030 --> 16:55.470
-So here I hit play.
+İşte oynat tuşuna bastım.
 
 16:59.430 --> 17:03.560
-And down here in the console window we see the result is 15.
+Ve burada konsol penceresinde sonucun 15 olduğunu görüyoruz.
 
 17:03.570 --> 17:09.240
-Now, I like the simplicity of this coding example, because it starts us thinking about in a world
+Şimdi, bu kodlama örneğinin basitliğini seviyorum, çünkü bizi bir dünyada düşünmeye başlatıyor
 
 17:09.240 --> 17:14.540
-where unit tests never existed, how would I go about being sure that this code is functional?
+Birim testlerinin hiç var olmadığı bir yerde, bu kodun işlevsel olduğundan nasıl emin olabilirim?
 
 17:14.550 --> 17:21.570
-Well, perhaps this code of my math system is used in many, many places of your game, and you simply,
+Belki de benim matematik sistemimin bu kodu oyununuzun pek çok yerinde kullanılıyor ve siz de basitçe,
 
 17:21.570 --> 17:26.970
-any time you want to see and validate that this system is working well, you just play the game and
+Bu sistemin iyi çalıştığını görmek ve doğrulamak istediğinizde, sadece oyunu oynarsınız ve
 
 17:26.970 --> 17:31.110
-your game might be several minutes long, or it could be several hours long.
+oyununuz birkaç dakika ya da birkaç saat uzunluğunda olabilir.
 
 17:31.110 --> 17:37.140
-And this particular system that's under test could be used throughout so many different places, depending
+Ve test edilmekte olan bu özel sistem, aşağıdakilere bağlı olarak pek çok farklı yerde kullanılabilir
 
 17:37.140 --> 17:40.320
-on different user behavior and input and situations.
+farklı kullanıcı davranışları, girdiler ve durumlar üzerinde.
 
 17:40.320 --> 17:42.660
-Perhaps the time of day would be matter.
+Belki de günün saati önemli olabilir.
 
 17:42.660 --> 17:47.970
-And so it's difficult for you to know am I really testing it in raw isolation?
+Bu nedenle, bunu gerçekten ham izolasyonda test edip etmediğimi bilmek sizin için zor.
 
 17:47.970 --> 17:56.490
-So one first move I could do if I wanted to do some validation is I could copy this here, paste it
+Doğrulama yapmak istersem yapabileceğim ilk şey bunu buraya kopyalayıp yapıştırmaktır
 
 17:56.490 --> 17:57.360
-here.
+Buraya.
 
 17:59.710 --> 18:02.220
-And call this here and test.
+Ve bunu buraya çağırın ve test edin.
 
 18:02.230 --> 18:03.790
-Well, what if it was six?
+Peki ya altı olsaydı?
 
 18:03.790 --> 18:05.680
-And what if it was 11?
+Peki ya 11 olsaydı?
 
 18:07.710 --> 18:09.360
-A to, B to.
+A'dan B'ye.
 
 18:14.010 --> 18:20.000
-So now I'm testing not a unit test, but I'm just validating two different examples here.
+Şimdi bir birim testi değil, sadece iki farklı örneği test ediyorum.
 
 18:20.010 --> 18:22.770
-So I'm doing this one first and I'm doing that in second.
+Bu yüzden ilk önce bunu yapıyorum ve ikinci olarak bunu yapıyorum.
 
 18:22.800 --> 18:29.760
-Now this is called user testing or play mode testing or integration testing where I'm actually running
+Şimdi buna kullanıcı testi veya oyun modu testi veya entegrasyon testi deniyor.
 
 18:29.760 --> 18:30.900
-production code.
+üretim kodu.
 
 18:30.900 --> 18:37.710
-And I'm just trying it out as a user, hoping that I accidentally ask it to do a bunch of different
+Ve ben sadece bir kullanıcı olarak deniyorum, yanlışlıkla bir sürü farklı şey yapmasını isteyebileceğimi umuyorum.
 
 18:37.740 --> 18:40.620
-operations, see that none of them fail.
+işlemlerinden hiçbirinin başarısız olmadığını görün.
 
 18:40.650 --> 18:44.790
-But you could imagine that what I'm doing here is adding stuff that I don't really want for the end
+Ancak burada yaptığım şeyin, son için gerçekten istemediğim şeyleri eklemek olduğunu hayal edebilirsiniz
 
 18:44.790 --> 18:46.140
-user experience.
+kullanıcı deneyimi.
 
 18:46.140 --> 18:52.650
-I'm just trying to give myself a little bit more confidence in my own code by calling some functionality
+Sadece bazı işlevleri çağırarak kendi koduma biraz daha fazla güvenmeye çalışıyorum
 
 18:52.650 --> 18:53.910
-extra times.
+ekstra zamanlar.
 
 18:53.940 --> 19:00.510
-You might also set a boolean somewhere in your project that says like is debug mode is true, and then
+Ayrıca projenizde bir yerde hata ayıklama modunun doğru olduğunu söyleyen bir boolean ayarlayabilir ve ardından
 
 19:00.510 --> 19:02.280
-you throughout your production code.
+üretim kodunuz boyunca.
 
 19:02.280 --> 19:05.730
-If that's the situation, you'll do a little extra testing.
+Eğer durum buysa, biraz daha fazla test yapmalısınız.
 
 19:05.730 --> 19:07.140
-Now that's not bad.
+Bu hiç fena değil.
 
 19:07.140 --> 19:12.150
-In certain situations, it can definitely help you, but let's look at how much better the situation
+Bazı durumlarda size kesinlikle yardımcı olabilir, ancak durumun ne kadar daha iyi olduğuna bakalım
 
 19:12.150 --> 19:12.720
-can be.
+olabilir.
 
 19:12.720 --> 19:15.960
-If instead of doing this, I run unit tests.
+Eğer bunu yapmak yerine birim testlerini çalıştırırsam.
 
 19:15.960 --> 19:18.780
-So here's where this project the code sits.
+İşte bu projenin kodu burada yer alıyor.
 
 19:18.780 --> 19:23.010
-In this project we've got the My Math system, My Math system example, which we've looked at.
+Bu projede, incelediğimiz My Math sistemi, My Math sistemi örneğimiz var.
 
 19:23.700 --> 19:29.580
-The structure of that and the way that they work together is talked about earlier in the course.
+Bunun yapısı ve birlikte çalışma şekli kursun başlarında konuşulmuştur.
 
 19:29.580 --> 19:34.350
-But we have one editor test and one runtime test that we'll talk about.
+Ancak bir editör testimiz ve bir de çalışma zamanı testimiz var, bunlardan bahsedeceğiz.
 
 19:34.350 --> 19:40.980
-Again, any editor test is going to run an edit mode, and it's generally ideal for things that do not
+Yine, herhangi bir editör testi bir düzenleme modu çalıştıracaktır ve bu genellikle
 
 19:40.980 --> 19:44.310
-use unity specific classes like Monobehaviour.
+Monobehaviour gibi birliğe özgü sınıfları kullanın.
 
 19:44.310 --> 19:49.440
-Monobehaviour is designed only to run in its fullest way in play mode.
+Monobehaviour yalnızca oyun modunda en iyi şekilde çalışmak üzere tasarlanmıştır.
 
 19:49.440 --> 19:51.390
-So here it's not too appropriate.
+Yani burada çok uygun değil.
 
 19:51.390 --> 19:51.870
-So.
+Yani.
 
 19:51.870 --> 19:54.810
-But for simple tests like the one that we've got here, it's great.
+Ancak burada yaptığımız gibi basit testler için harika.
 
 19:54.840 --> 19:59.580
-The runtime area here where we have the play mode test would be a great place.
+Oyun modu testinin yapıldığı çalışma zamanı alanı harika bir yer olacaktır.
 
 19:59.580 --> 20:05.130
-And each of these workshops I do one of each just so you can see the differences.
+Farklılıkları görebilmeniz için bu atölyelerin her birinden birer tane yapıyorum.
 
 20:05.130 --> 20:09.960
-But it's important to think that in certain situations, depending on what you're testing, probably
+Ancak bazı durumlarda, neyi test ettiğinize bağlı olarak, muhtemelen
 
 20:09.960 --> 20:14.010
-a unit test in edit mode is more appropriate in this situation.
+Bu durumda düzenleme modunda bir birim testi daha uygundur.
 
 20:14.010 --> 20:18.630
-That's definitely the case later when we're talking about moving with input and doing something with
+Bu kesinlikle daha sonra girdi ile hareket etmek ve bir şeyler yapmaktan bahsettiğimizde geçerlidir.
 
 20:18.630 --> 20:24.750
-physics, maybe the play mode test is required there, because input and physics are really designed
+fizik, belki de orada oyun modu testi gereklidir, çünkü giriş ve fizik gerçekten tasarlanmıştır
 
 20:24.750 --> 20:26.220
-as play mode experiences.
+oyun modu deneyimleri olarak.
 
 20:26.220 --> 20:28.650
-So it's important to know that distinction.
+Dolayısıyla bu ayrımı bilmek önemlidir.
 
 20:28.650 --> 20:30.030
-And I'll bring it up here and there.
+Ve bunu burada ve orada gündeme getireceğim.
 
 20:30.270 --> 20:32.760
-So let's look at the mind math system test.
+Şimdi zihin matematik sistemi testine bakalım.
 
 20:36.190 --> 20:39.130
-And see how that is organized.
+Ve bunun nasıl organize edildiğini görün.
 
 20:40.710 --> 20:45.990
-So here, notice that the My Math system test has a few different.
+Burada, Matematik sistemim testinde birkaç farklılık olduğuna dikkat edin.
 
 20:51.350 --> 20:53.180
-Has a few different methods under it.
+Altında birkaç farklı yöntem var.
 
 20:53.330 --> 20:57.500
-Each of the names that we see here are the names of the test methods.
+Burada gördüğümüz isimlerin her biri test metotlarının isimleridir.
 
 20:57.500 --> 20:59.000
-So let's start with the first one.
+İlkiyle başlayalım.
 
 20:59.600 --> 21:04.970
-The convention that I like to use is followed here, and we'll go into it in the code I generally put
+Kullanmayı sevdiğim kural burada takip ediliyor ve genellikle koyduğum kodda buna gireceğiz
 
 21:04.970 --> 21:10.460
-first, what method are we testing, what are we expecting and then what's the situation.
+İlk olarak, hangi yöntemi test ediyoruz, ne bekliyoruz ve sonra durum nedir.
 
 21:10.460 --> 21:13.400
-So here it says the add method is what we're testing.
+Yani burada test ettiğimiz şeyin add yöntemi olduğu yazıyor.
 
 21:13.400 --> 21:18.080
-We expect the result will be 15 when we pass in five and ten.
+Beş ve onda geçtiğimizde sonucun 15 olmasını bekliyoruz.
 
 21:18.320 --> 21:23.750
-So a nice shortcut here is that as you're running any tests you can just double click it to run it again.
+Burada güzel bir kısayol, herhangi bir testi çalıştırırken tekrar çalıştırmak için çift tıklayabilmenizdir.
 
 21:24.800 --> 21:26.540
-And then I can right click it.
+Ve sonra sağ tıklayabilirim.
 
 21:28.490 --> 21:29.360
-Sorry, I was in play mode.
+Üzgünüm, oyun modundaydım.
 
 21:29.810 --> 21:31.850
-Double click it and it runs again.
+Çift tıklayın ve tekrar çalışsın.
 
 21:31.880 --> 21:32.330
-Great.
+Harika.
 
 21:32.330 --> 21:33.230
-Still green.
+Hala yeşil.
 
 21:33.230 --> 21:36.560
-And I can right click it and choose open source code.
+Ve sağ tıklayıp kaynak kodu aç'ı seçebilirim.
 
 21:37.720 --> 21:41.800
-That's an easy way to get right to the right class and right to the right method.
+Bu, doğru sınıfa ve doğru yönteme ulaşmanın kolay bir yoludur.
 
 21:41.830 --> 21:44.320
-Here again is that method name that we saw.
+İşte yine gördüğümüz yöntem adı.
 
 21:44.350 --> 21:47.860
-Again add result is 15 when five and ten.
+Yine beş ve on eklendiğinde sonuç 15 olur.
 
 21:47.890 --> 21:54.070
-The reason that that's important is that if you have lots of test classes with lots of test methods,
+Bunun önemli olmasının nedeni, çok sayıda test yöntemine sahip çok sayıda test sınıfınız olmasıdır,
 
 21:54.070 --> 22:01.600
-and I hope that you do in your project in order to reason which in a test runner is which in the code
+ve umarım projenizde, bir test çalıştırıcısında hangisinin kodda olduğunu anlamak için yaparsınız
 
 22:01.600 --> 22:04.610
-base here, it's nice to have that consistent naming.
+Burada tutarlı bir isimlendirme olması güzel.
 
 22:04.630 --> 22:09.910
-So here what we do, we do the arrange, act and assert methodology.
+Yani burada yaptığımız şey, düzenle, harekete geç ve iddia et metodolojisini uygulamaktır.
 
 22:09.910 --> 22:10.720
-In the arrange.
+Düzenlemede.
 
 22:10.720 --> 22:15.310
-What we're going to do first is just create a fresh instance of what we want to test.
+İlk yapacağımız şey test etmek istediğimiz şeyin yeni bir örneğini oluşturmak.
 
 22:15.310 --> 22:19.420
-That way we know it hasn't been sitting around, doesn't have any old data inside of it.
+Bu şekilde boş durmadığını ve içinde eski veri bulunmadığını biliriz.
 
 22:19.430 --> 22:20.770
-It's always a good practice.
+Bu her zaman iyi bir uygulamadır.
 
 22:20.770 --> 22:22.480
-Then we're going to act upon that.
+O zaman buna göre hareket edeceğiz.
 
 22:22.480 --> 22:26.140
-This is like, what is the one method if you can get away with it?
+Bu, eğer bundan kurtulabilirseniz tek yöntem nedir gibi bir şey?
 
 22:26.140 --> 22:28.690
-Maybe two methods that really do the testing.
+Belki de testi gerçekten yapan iki yöntem.
 
 22:28.690 --> 22:30.160
-But one method is ideal.
+Ancak tek bir yöntem idealdir.
 
 22:30.190 --> 22:32.680
-Here we're adding together five and ten.
+Burada 5 ve 10'u topluyoruz.
 
 22:32.680 --> 22:36.670
-And then in the assert we're going to use this assert language.
+Ve sonra assert içinde bu assert dilini kullanacağız.
 
 22:36.670 --> 22:43.630
-The assert class has a certain structure to it where you say I assert that something is something.
+assert sınıfı, bir şeyin bir şey olduğunu iddia ettiğimi söylediğiniz belirli bir yapıya sahiptir.
 
 22:43.630 --> 22:48.670
-And you can look at the documentation on that to see some variety of ways that you can format that.
+Ve bunu biçimlendirebileceğiniz çeşitli yolları görmek için bununla ilgili belgelere bakabilirsiniz.
 
 22:48.670 --> 22:54.790
-But often I use is equal to or is true or is false.
+Ancak genellikle is equal to veya is true veya is false kullanıyorum.
 
 22:54.790 --> 22:57.670
-So those are ones that you'll see quite commonly here.
+Yani bunlar burada oldukça sık göreceğiniz şeyler.
 
 22:57.970 --> 23:02.920
-So when I run that because the code runs correctly it adds five and ten to be 15.
+Kod doğru çalıştığı için bunu çalıştırdığımda beş ve on ekleyerek 15 yapıyor.
 
 23:02.950 --> 23:03.700
-That's it.
+Bu kadar.
 
 23:03.730 --> 23:05.010
-We're able to do that.
+Bunu yapabiliyoruz.
 
 23:05.020 --> 23:08.620
-Now remember the example I was giving in the production code.
+Şimdi üretim kodunda verdiğim örneği hatırlayın.
 
 23:08.620 --> 23:17.650
-What if you wanted to test five and ten and then test six and 11 and then test seven and 12 or whatever
+Ya beş ve onu test etmek ve sonra altı ve 11'i test etmek ve sonra yedi ve 12'yi test etmek ya da her neyse
 
 23:17.650 --> 23:18.700
-combinations?
+kombinasyonlar?
 
 23:18.700 --> 23:25.510
-The better you get at testing, you'll realize how many tests you really need to provide adequate coverage.
+Test konusunda ne kadar iyi olursanız, yeterli kapsama alanı sağlamak için gerçekten kaç teste ihtiyacınız olduğunu fark edeceksiniz.
 
 23:25.510 --> 23:31.180
-There's a lot of an art and a science around what's the minimum number of tests you can provide that
+Sağlayabileceğiniz minimum test sayısının ne olduğu konusunda çok fazla sanat ve bilim var.
 
 23:31.180 --> 23:34.720
-maximize your impact, and the code coverage that you have?
+Etkinizi ve sahip olduğunuz kod kapsamını en üst düzeye çıkarabilir misiniz?
 
 23:34.750 --> 23:40.030
-So one of the things that I wanted to talk about as part of this particular workshop is what are called
+Bu özel atölye çalışmasının bir parçası olarak bahsetmek istediğim şeylerden biri de
 
 23:40.030 --> 23:41.830
-parameterized tests.
+parametrelendirilmiş testler.
 
 23:41.830 --> 23:48.460
-So instead of just copying this one, pasting it below, and tweaking the values to add together six
+Yani bunu kopyalayıp aşağıya yapıştırmak ve değerleri değiştirerek altı tanesini toplamak yerine
 
 23:48.460 --> 23:55.780
-and 11 or 0 and negative ten, we can ask unity to run the same exact test, but passing in some different
+ve 11 veya 0 ve negatif on, unity'den aynı testi çalıştırmasını isteyebiliriz, ancak bazı farklı
 
 23:55.780 --> 23:56.530
-values.
+değerler.
 
 23:56.530 --> 23:58.750
-There's a lot of different options you have here.
+Burada pek çok farklı seçeneğiniz var.
 
 23:58.750 --> 24:00.340
-I'm just showing one of them.
+Sadece bir tanesini gösteriyorum.
 
 24:00.340 --> 24:02.800
-But let's take a look down here.
+Ama şuraya bir göz atalım.
 
 24:03.730 --> 24:10.090
-We say, and together that we assume the result is correct when these values.
+Diyoruz ve birlikte bu değerler olduğunda sonucun doğru olduğunu varsayıyoruz.
 
 24:10.090 --> 24:15.640
-So the method names a little bit more vague because it's parameterized, I don't necessarily know.
+Bu yüzden yöntem adları biraz daha belirsiz çünkü parametrelendirilmiş, mutlaka bilmiyorum.
 
 24:15.640 --> 24:18.430
-Is this going to test five and ten is 15.
+Bu 5 ve 10'un 15 olduğunu test edecek mi?
 
 24:18.460 --> 24:24.250
-Notice here instead of the what I did before which was declaring five and ten.
+Daha önce yaptığım beş ve on yerine buraya dikkat edin.
 
 24:24.280 --> 24:29.890
-In the body of the method I use this particular language, I use something called value source.
+Bu özel dili kullandığım yöntemin gövdesinde, değer kaynağı adı verilen bir şey kullanıyorum.
 
 24:29.890 --> 24:31.210
-And then I pass it in.
+Ve sonra içeri aktarıyorum.
 
 24:31.210 --> 24:37.090
-What unity does is it populates this first passes values in here.
+Unity'nin yaptığı şey, bu ilk geçiş değerlerini buraya doldurmaktır.
 
 24:37.090 --> 24:38.740
-So let's say it's five.
+Diyelim ki beş.
 
 24:38.770 --> 24:41.290
-Then it grabs another value source here.
+Sonra buradan başka bir değer kaynağı alır.
 
 24:41.320 --> 24:48.010
-Let's say that one is ten and it assumes that they are five plus ten added together.
+Diyelim ki biri on ve bunların toplamının beş artı on olduğunu varsayıyor.
 
 24:48.010 --> 24:52.960
-So each time it runs, it's going to do the equivalent of the last test that we saw.
+Yani her çalıştığında, gördüğümüz son testin eşdeğerini yapacak.
 
 24:52.960 --> 24:59.050
-But instead of being hard coded to just one set of values, it's going to mix it up and show a variety
+Ancak tek bir değer kümesine sabit kodlanmış olmak yerine, bunları karıştıracak ve çeşitli değerler gösterecektir
 
 24:59.050 --> 24:59.560
-of them.
+onlardan.
 
 24:59.560 --> 25:02.460
-Now again, there's lots of different ways you can format this.
+Şimdi tekrar, bunu biçimlendirebileceğiniz birçok farklı yol var.
 
 25:02.460 --> 25:06.670
-So you want to look at the documentation for parameterized tests in unity.
+Bu yüzden unity'de parametrelendirilmiş testler için belgelere bakmak istersiniz.
 
 25:06.670 --> 25:08.920
-But let's look at my specific case here.
+Ama burada benim özel durumuma bakalım.
 
 25:08.950 --> 25:11.350
-Those value sources values A and b.
+Bu değer kaynakları A ve b değerleridir.
 
 25:11.350 --> 25:14.770
-They just refer to a couple arrays that I've got up here.
+Sadece burada bulunan birkaç diziye atıfta bulunuyorlar.
 
 25:14.770 --> 25:20.980
-And what it's going to do is just step through and it's going to test one and one, negative two and
+Ve yapacağı şey sadece adım adım ilerlemek ve bir ve bir, negatif iki ve
 
 25:20.980 --> 25:23.530
-negative two, negative three and negative three and pass them in.
+negatif iki, negatif üç ve negatif üç ve bunları geçirin.
 
 25:23.560 --> 25:30.070
-You could organize them any way you want and test different scenarios where you maybe do seven, 11
+Bunları istediğiniz şekilde düzenleyebilir ve belki yedi, 11 tane yapabileceğiniz farklı senaryoları test edebilirsiniz.
 
 25:30.070 --> 25:30.670
-and 12.
+ve 12.
 
 25:30.700 --> 25:32.230
-You test anything you want.
+İstediğiniz her şeyi test edebilirsiniz.
 
 25:32.260 --> 25:35.020
-Now you don't have to test infinite amounts there.
+Artık orada sonsuz miktarda test yapmak zorunda değilsiniz.
 
 25:35.020 --> 25:37.450
-This is where that art and science comes along.
+İşte burada sanat ve bilim bir araya geliyor.
 
 25:37.450 --> 25:43.960
-You might want to test a couple of negative values zero in some scenarios and a couple of positive values.
+Bazı senaryolarda birkaç negatif değeri sıfır ve birkaç pozitif değeri test etmek isteyebilirsiniz.
 
 25:43.990 --> 25:48.820
-Maybe what you're doing is not math based and you want to think about it another way, but what you're
+Belki yaptığınız şey matematik temelli değildir ve bunu başka bir şekilde düşünmek istiyorsunuzdur, ancak yaptığınız şey
 
 25:48.820 --> 25:51.370
-looking for what are called corner cases.
+köşe vakaları denilen şeyleri aramak.
 
 25:51.370 --> 25:57.250
-So for example, if you were doing a division method and you wanted to test it mathematically, there's
+Örneğin, bir bölme yöntemi uyguluyorsanız ve bunu matematiksel olarak test etmek istiyorsanız
 
 25:57.250 --> 25:59.740
-a challenge about dividing by zero.
+sıfıra bölme hakkında bir meydan okuma.
 
 25:59.740 --> 26:03.970
-So you would want to see that you pass in zero and handle that elegantly.
+Dolayısıyla, sıfır değerini geçtiğinizi görmek ve bunu zarif bir şekilde ele almak istersiniz.
 
 26:03.970 --> 26:09.040
-You really need to know the specific domain that your production code lies in, in order to know how
+Üretim kodunuzun içinde bulunduğu özel etki alanını gerçekten bilmeniz gerekir.
 
 26:09.040 --> 26:09.730
-to test it.
+Test etmek için.
 
 26:09.730 --> 26:14.020
-But here a couple of each positive and negative and stuff like that.
+Ama burada her birinden birkaç pozitif ve negatif ve bunun gibi şeyler.
 
 26:15.200 --> 26:17.950
-So let's look at how that looks in the unity editor.
+Şimdi bunun unity editöründe nasıl göründüğüne bakalım.
 
 26:17.960 --> 26:19.670
-So notice what it does here.
+Burada ne yaptığına dikkat edin.
 
 26:19.670 --> 26:24.980
-It actually runs 49 tests based on all the combinations that we've got there.
+Aslında elimizdeki tüm kombinasyonlara göre 49 test çalıştırıyor.
 
 26:24.980 --> 26:28.850
-So it shows you when values are and then it passes in.
+Böylece size değerlerin ne zaman olduğunu gösterir ve sonra içeri geçer.
 
 26:28.850 --> 26:30.430
-So that's really nice.
+Bu gerçekten güzel.
 
 26:30.440 --> 26:37.430
-Now as you're looking at this output you might realize oh it's going to be important to me to test 100
+Şimdi bu çıktıya bakarken fark edebilirsiniz ki %100 test etmek benim için önemli olacak.
 
 26:37.430 --> 26:38.800
-and -100.
+ve -100.
 
 26:38.810 --> 26:39.320
-Great.
+Harika.
 
 26:39.320 --> 26:45.890
-Then just go back and add those sample values in if you want to do other things instead of just a hard
+Sonra geri dönüp bu örnek değerleri ekleyin, eğer sadece sabit bir değer yerine başka şeyler yapmak istiyorsanız
 
 26:45.890 --> 26:46.610
-coded list.
+kodlanmış liste.
 
 26:46.610 --> 26:50.510
-If you want to select a random values, there's lots of other options you have there.
+Rastgele bir değer seçmek istiyorsanız, orada sahip olduğunuz birçok başka seçenek vardır.
 
 26:50.510 --> 26:53.180
-Again, do some research on parameterized tests.
+Yine, parametrelendirilmiş testler hakkında biraz araştırma yapın.
 
 26:53.360 --> 26:57.860
-You can dig into the play mode test as well if you want, but since that's going to be more interesting
+İsterseniz oyun modu testini de inceleyebilirsiniz, ancak bu daha ilginç olacağından
 
 26:57.860 --> 27:02.000
-in other examples, we'll move on and conclude this one of the workshops.
+diğer örneklerle devam edip bu çalıştayı sonlandıracağız.
 
 27:02.000 --> 27:02.840
-Thanks.
+Teşekkürler.
 
 27:09.660 --> 27:13.260
-Hello and welcome to this Unity Unit testing workshop.
+Merhaba ve bu Unity Birim testi atölyesine hoş geldiniz.
 
 27:13.260 --> 27:16.830
-We're going to look at my data loader Basic as an example.
+Örnek olarak benim veri yükleyicim Basic'e bakacağız.
 
 27:16.830 --> 27:17.420
-Let's dig in.
+Hadi başlayalım.
 
 27:17.430 --> 27:20.280
-So here in this demo I'm going to open up unity.
+İşte bu demoda unity'yi açacağım.
 
 27:20.280 --> 27:25.650
-Open up our core sample project and take a look at the scene of my data loader basic.
+Çekirdek örnek projemizi açın ve temel veri yükleyicimin sahnesine bir göz atın.
 
 27:25.650 --> 27:31.500
-Now the reason that I've chosen to do some sort of data loading is just to talk about, well, what
+Şimdi, bir çeşit veri yüklemesi yapmayı seçmemin nedeni, sadece ne hakkında konuşmaktır
 
 27:31.500 --> 27:39.900
-if our unit tests, which we hope are very dependable and isolated and run quickly for the sake of our
+çok güvenilir ve yalıtılmış olmasını umduğumuz birim testlerimiz hızlı bir şekilde çalışırsa
 
 27:39.900 --> 27:42.000
-own testing methodologies?
+kendi test metodolojileri?
 
 27:42.000 --> 27:47.760
-What if they depend on other systems, like how do we know that we're able to test just one part?
+Ya diğer sistemlere bağlıysa, örneğin sadece bir parçayı test edebileceğimizi nasıl bilebiliriz?
 
 27:47.790 --> 27:55.740
-In general, unit testing is testing a single unit, which you could think of as one method of one class.
+Genel olarak birim testi, bir sınıfın bir yöntemi olarak düşünebileceğiniz tek bir birimin test edilmesidir.
 
 27:55.740 --> 28:01.740
-But often our code is multiple classes depending together, and that can be a challenge for deciding
+Ancak çoğu zaman kodumuz birbirine bağlı birden fazla sınıftan oluşur ve bu da karar vermeyi zorlaştırabilir
 
 28:01.740 --> 28:05.100
-how to separate them and test them in isolation.
+onları nasıl ayıracağımızı ve izole olarak nasıl test edeceğimizi.
 
 28:05.100 --> 28:11.280
-Also, you could have a system that depends on something asynchronous like rendering graphics, rendering
+Ayrıca, grafik oluşturma, işleme gibi eşzamansız bir şeye bağlı olan bir sisteminiz olabilir.
 
 28:11.280 --> 28:14.760
-audio, or in this case, calling a back end server.
+ses veya bu durumda bir arka uç sunucusunu çağırmak.
 
 28:14.760 --> 28:22.380
-So I created a very simple example here that loads data you pass in a URL, it just calls some web page
+Bu yüzden burada bir URL'ye aktardığınız verileri yükleyen çok basit bir örnek oluşturdum, sadece bir web sayfasını çağırıyor
 
 28:22.380 --> 28:24.630
-and gets back the text of that web page.
+ve bu web sayfasının metnini geri alır.
 
 28:24.660 --> 28:31.410
-So this is the simplest example, but you could imagine that this is any server logic calling to send
+Bu en basit örnektir, ancak bunun herhangi bir sunucu mantığı olduğunu düşünebilirsiniz.
 
 28:31.410 --> 28:36.540
-a high score from your game, calling to load player data, something related to multiplayer.
+oyununuzdan yüksek bir skor, oyuncu verilerini yüklemek için çağrı, çok oyunculu ile ilgili bir şey.
 
 28:36.540 --> 28:41.250
-Perhaps all of those could depend on some asynchronous network traffic.
+Belki de bunların hepsi bazı eşzamansız ağ trafiğine bağlı olabilir.
 
 28:41.340 --> 28:42.330
-Let's take a look.
+Bir göz atalım.
 
 28:42.420 --> 28:44.250
-So here we are in the sample.
+İşte örneklemdeyiz.
 
 28:44.250 --> 28:46.290
-We've got my data loader basic.
+Temel veri yükleyicim var.
 
 28:46.290 --> 28:46.890
-Load it up.
+Yükle.
 
 28:46.890 --> 28:47.940
-Let's hit play.
+Oynat tuşuna basalım.
 
 28:50.730 --> 28:51.990
-In this particular demo.
+Bu özel demoda.
 
 28:52.020 --> 28:56.550
-There's not too real interesting things in this particular demo.
+Bu özel demoda çok ilginç şeyler yok.
 
 28:56.580 --> 28:58.950
-There's not anything too interesting happening at gameplay.
+Oynanışta çok ilginç bir şey olmuyor.
 
 28:59.220 --> 29:02.940
-We'll go to the console here and see this scene has no UI.
+Burada konsola gideceğiz ve bu sahnenin kullanıcı arayüzü olmadığını göreceğiz.
 
 29:02.970 --> 29:09.300
-See the unity console, and then it's just showing the length of what is returned from the server.
+Unity konsoluna bakın ve sonra sadece sunucudan döndürülenlerin uzunluğunu gösteriyor.
 
 29:09.300 --> 29:13.200
-Anything not zero signifies hey, it loaded a page.
+Sıfır olmayan herhangi bir şey hey, bir sayfa yüklendi anlamına gelir.
 
 29:13.200 --> 29:14.670
-So very light.
+Çok hafif.
 
 29:14.670 --> 29:15.690
-Simple test.
+Basit bir test.
 
 29:15.690 --> 29:19.190
-I don't have error checking or these kinds of things built in.
+Hata denetimi ya da bu tür şeylere yerleşik olarak sahip değilim.
 
 29:19.200 --> 29:23.640
-It just assumes success for the sake of the simplicity of this demo.
+Sadece bu demonun basitliği adına başarılı olduğunu varsayar.
 
 29:23.670 --> 29:27.780
-If you're doing production code and you're calling servers, you'd want to add a lot more functionality
+Üretim kodu yapıyorsanız ve sunucuları çağırıyorsanız, çok daha fazla işlevsellik eklemek istersiniz
 
 29:27.780 --> 29:28.410
-to it.
+ona.
 
 29:28.410 --> 29:32.770
-So that's the runtime experience, which is pretty simple and not that interesting.
+Bu, oldukça basit ve o kadar da ilginç olmayan çalışma zamanı deneyimidir.
 
 29:32.790 --> 29:38.550
-Now if we look at the test runner here, we can set our category to be my data loader basic.
+Şimdi buradaki test çalıştırıcısına bakarsak, kategorimizi veri yükleyicim temel olacak şekilde ayarlayabiliriz.
 
 29:38.550 --> 29:42.360
-So it just shows us the tests related to this particular code.
+Yani bize sadece bu belirli kodla ilgili testleri gösterir.
 
 29:42.360 --> 29:44.160
-And then we hit our edit mode.
+Ve sonra düzenleme moduna geçiyoruz.
 
 29:44.160 --> 29:48.210
-Here again we have play mode but you can explore that on your own.
+Burada yine oyun modumuz var ama bunu kendi başınıza keşfedebilirsiniz.
 
 29:48.210 --> 29:52.230
-I find for this particular demo that edit mode is more interesting.
+Bu özel demo için düzenleme modunun daha ilginç olduğunu düşünüyorum.
 
 29:52.230 --> 29:54.660
-So I'm going to hit run all.
+Bu yüzden hepsini çalıştıracağım.
 
 29:56.330 --> 29:58.350
-And we can see we've got success.
+Ve başarılı olduğumuzu görebiliyoruz.
 
 29:58.370 --> 30:04.520
-This says load async result contains doctype when is loaded.
+Bu, load async sonucunun yüklendiğinde doctype içerdiğini söylüyor.
 
 30:04.520 --> 30:06.500
-So let's take a look at a little bit of that.
+Şimdi buna biraz göz atalım.
 
 30:06.630 --> 30:08.780
-We'll go here and do open our source.
+Buraya gideceğiz ve kaynağımızı açacağız.
 
 30:10.200 --> 30:11.820
-And here's the test.
+Ve işte test.
 
 30:11.940 --> 30:17.640
-It is showing that first we create an instance of our My Data Loader basic.
+İlk olarak My Data Loader temelimizin bir örneğini oluşturduğumuzu gösteriyor.
 
 30:17.940 --> 30:21.660
-Then we listen for when it gets loaded.
+Sonra yüklendiğinde dinleriz.
 
 30:22.610 --> 30:25.880
-We'll check on the data loaded back from the server.
+Sunucudan geri yüklenen verileri kontrol edeceğiz.
 
 30:25.890 --> 30:30.800
-Again, this is just calling a web page, and whatever the web page source code is returning it as a
+Yine, bu sadece bir web sayfasını çağırıyor ve web sayfasının kaynak kodu ne olursa olsun, onu bir
 
 30:30.800 --> 30:32.030
-big blob of text.
+Büyük bir metin bloğu.
 
 30:32.030 --> 30:34.370
-So it's going to look like some HTML stuff.
+Bu yüzden bazı HTML şeylerine benzeyecek.
 
 30:34.370 --> 30:39.920
-And as I looked at it while I was creating this, I noticed that it said doctype as part of it.
+Ve bunu oluştururken baktığımda, bir parçası olarak doctype yazdığını fark ettim.
 
 30:39.920 --> 30:45.530
-So Doctype is not something super significant, certainly not in the unity world, but I just thought
+Yani Doctype çok önemli bir şey değil, kesinlikle unity dünyasında değil, ama sadece düşündüm
 
 30:45.530 --> 30:49.640
-it was some little test that tells me did I get something back from a web page?
+Bir web sayfasından bir şey geri alıp almadığımı söyleyen küçük bir testti.
 
 30:49.640 --> 30:53.030
-You can imagine testing for any other substring that makes sense for you.
+Sizin için anlamlı olan başka herhangi bir alt dizeyi test etmeyi düşünebilirsiniz.
 
 30:53.120 --> 31:00.020
-Then finally, I do the action here that we're testing upon, and I load the asynchronous call there
+Son olarak, burada test ettiğimiz eylemi yapıyorum ve eşzamansız çağrıyı buraya yüklüyorum
 
 31:00.020 --> 31:01.340
-and pass in the URL.
+ve URL'yi iletin.
 
 31:01.370 --> 31:05.690
-Now notice the URL is the URL of the GitHub page.
+Şimdi URL'nin GitHub sayfasının URL'si olduğuna dikkat edin.
 
 31:05.690 --> 31:07.280
-But that's not so important.
+Ama bu o kadar da önemli değil.
 
 31:07.430 --> 31:08.600
-There's nothing unique there.
+Orada benzersiz bir şey yok.
 
 31:08.600 --> 31:15.620
-If you wanted to test like the google.com it will just go and call google.com and get the the source
+Eğer google.com gibi bir test yapmak isterseniz, sadece gidip google.com'u arayacak ve kaynağı alacaktır
 
 31:15.620 --> 31:16.820
-code back from that.
+kodu geri alıyoruz.
 
 31:16.820 --> 31:22.220
-I don't really want to focus on what I'm doing here in the production code, because it's an admittedly
+Burada üretim kodunda ne yaptığıma gerçekten odaklanmak istemiyorum, çünkü kuşkusuz bu bir
 
 31:22.220 --> 31:23.330
-simple example.
+Basit bir örnek.
 
 31:23.330 --> 31:28.640
-I just wanted it to be a way to get something asynchronous happening inside unity.
+Ben sadece unity içinde asenkron bir şeyler yapmanın bir yolu olmasını istedim.
 
 31:29.800 --> 31:32.500
-So let's look at the source code just so we understand.
+Anlayabilmemiz için kaynak koduna bakalım.
 
 31:33.520 --> 31:33.970
-Here.
+İşte.
 
 31:33.970 --> 31:34.540
-What we're doing.
+Ne yapıyoruz?
 
 31:34.540 --> 31:38.740
-When I call load, I just say, hey, make sure that the URL is not empty.
+Yükle dediğimde, URL'nin boş olmadığından emin olun diyorum.
 
 31:39.130 --> 31:44.320
-Then I go ahead and I use Unity's web request, which is built in functionality.
+Sonra devam ediyorum ve Unity'nin yerleşik işlevi olan web isteğini kullanıyorum.
 
 31:44.320 --> 31:51.520
-I call send request on that, and then I set the result to be the download handler's text.
+Bunun üzerine istek gönder çağrısı yapıyorum ve ardından sonucu indirme işleyicisinin metni olarak ayarlıyorum.
 
 31:51.550 --> 31:53.830
-This is just a super cheap, easy way.
+Bu sadece süper ucuz ve kolay bir yol.
 
 31:53.830 --> 31:57.010
-Recommended by unity to call simple data online.
+Basit verileri çevrimiçi aramak için unity tarafından önerilir.
 
 31:57.040 --> 31:58.570
-Very simple and straightforward.
+Çok basit ve anlaşılır.
 
 31:58.600 --> 32:02.860
-Now this brings up a question what actually are we testing here?
+Şimdi bu, burada gerçekte neyi test ettiğimiz sorusunu gündeme getiriyor?
 
 32:03.280 --> 32:09.580
-I have a custom class called my data loader, but inside I'm heavily depending on some existing unity
+Veri yükleyicim adında özel bir sınıfım var, ancak içinde büyük ölçüde mevcut bazı unity
 
 32:09.610 --> 32:12.160
-functionality of unity web request.
+unity web isteğinin işlevselliği.
 
 32:12.190 --> 32:16.060
-Then I'm calling some web page in this case GitHub.
+Sonra bir web sayfasını, bu durumda GitHub'ı çağırıyorum.
 
 32:16.060 --> 32:17.650
-And that's involved.
+Ve bu da işin içinde.
 
 32:17.650 --> 32:22.810
-If GitHub was somehow down for the day, this test would fail.
+GitHub bir şekilde gün boyunca kapalı olsaydı, bu test başarısız olurdu.
 
 32:22.840 --> 32:24.100
-Is that appropriate?
+Bu uygun mu?
 
 32:24.100 --> 32:31.000
-If my unit test is really about testing my own methodology, my own functionality, I shouldn't consider
+Birim testim gerçekten kendi metodolojimi, kendi işlevselliğimi test etmekle ilgiliyse, aşağıdakileri dikkate almamalıyım
 
 32:31.000 --> 32:32.050
-it a failed test.
+başarısız bir test.
 
 32:32.050 --> 32:34.840
-If some unrelated dependency fails.
+İlgisiz bir bağımlılık başarısız olursa.
 
 32:34.840 --> 32:36.610
-But here that's the case.
+Ama burada durum böyle.
 
 32:36.610 --> 32:38.640
-I would fail if GitHub was down.
+GitHub kapalı olsaydı başarısız olurdum.
 
 32:38.650 --> 32:44.440
-Also, inside here I'm using Unity web request that's built in functionality by unity.
+Ayrıca, burada unity tarafından yerleşik işlevsellik olan Unity web isteğini kullanıyorum.
 
 32:44.470 --> 32:50.920
-We hope that it works 100% of the time in all situations, but it's possible that my code works and
+Her durumda %100 çalışmasını umuyoruz, ancak kodumun çalışması ve
 
 32:50.920 --> 32:52.210
-its code doesn't work.
+kodu çalışmıyor.
 
 32:52.210 --> 32:54.520
-So there's a gray area here.
+Yani burada gri bir alan var.
 
 32:54.520 --> 32:59.680
-When you think about designing your classes and then designing the tests on those classes, how do you
+Sınıflarınızı tasarlamayı ve ardından bu sınıflar üzerindeki testleri tasarlamayı düşündüğünüzde, nasıl
 
 32:59.680 --> 33:01.990
-know what you should actually focus on?
+Aslında neye odaklanmanız gerektiğini biliyor musunuz?
 
 33:01.990 --> 33:04.390
-Testing, generally speaking.
+Test, genel olarak konuşursak.
 
 33:04.390 --> 33:09.550
-And there's books and books written on this subject of how to approach the art of unit testing.
+Ve birim testi sanatına nasıl yaklaşılacağı konusunda yazılmış kitaplar ve kitaplar var.
 
 33:09.550 --> 33:15.370
-But generally speaking, you want to reduce your dependencies down, and you want to simplify the number
+Ancak genel olarak konuşmak gerekirse, bağımlılıklarınızı azaltmak ve sayıyı basitleştirmek istersiniz
 
 33:15.370 --> 33:17.530
-of code lines that you're testing.
+test ettiğiniz kod satırlarının sayısı.
 
 33:17.530 --> 33:24.490
-So less code is better because it's more simple and focused and you know exactly in isolation which
+Yani daha az kod daha iyidir çünkü daha basit ve odaklıdır ve tam olarak hangi kodun izole olduğunu bilirsiniz.
 
 33:24.490 --> 33:26.020
-code you're testing on.
+test ettiğiniz kod.
 
 33:26.020 --> 33:28.000
-So this is a perfect example.
+Yani bu mükemmel bir örnek.
 
 33:28.000 --> 33:32.950
-But for us it's a great way to get started and just talk about asynchronous code running.
+Ancak bizim için bu, başlamak ve eşzamansız kod çalıştırma hakkında konuşmak için harika bir yol.
 
 33:32.950 --> 33:35.020
-So for now we'll end this example.
+Bu yüzden şimdilik bu örneği sonlandırıyoruz.
 
 33:42.300 --> 33:44.460
-Hello and welcome to Unit Testing for unity.
+Merhaba ve Unity için Birim Testine hoş geldiniz.
 
 33:44.490 --> 33:48.120
-We're going to be looking at my data loader in advanced version here.
+Burada gelişmiş sürümdeki veri yükleyicime bakacağız.
 
 33:48.120 --> 33:54.270
-To see this demo in action we're going to open up unity Download and use the Source sample project for
+Bu demoyu çalışırken görmek için unity Download'u açacağız ve Source örnek projesini kullanacağız.
 
 33:54.270 --> 33:55.020
-this course.
+Bu parkur.
 
 33:55.020 --> 33:57.120
-And we'll take a look at a key scene here.
+Ve burada önemli bir sahneye göz atacağız.
 
 33:57.120 --> 33:59.310
-That is the My Data loader advanced.
+Bu, My Data yükleyicisinin gelişmiş halidir.
 
 33:59.310 --> 34:05.310
-Some of the concepts I'm going to talk about here include dependency injection as we see and end substitute.
+Burada bahsedeceğim kavramlardan bazıları, gördüğümüz gibi bağımlılık enjeksiyonunu ve son ikameyi içerir.
 
 34:05.310 --> 34:11.250
-Here we are inside unity I've got the scene for the My Data loader advanced ready and ready to go here.
+İşte unity'nin içindeyiz Verilerim yükleyicisi için sahneyi hazırladım ve burada gitmeye hazırım.
 
 34:11.250 --> 34:16.170
-So we'll go ahead and run that scene for quite a lot of these scenes in the workshop.
+Bu yüzden devam edeceğiz ve atölyedeki bu sahnelerin çoğu için bu sahneyi çalıştıracağız.
 
 34:16.170 --> 34:20.940
-Running the production scene is not the interesting thing, but I always encourage you to do it just
+Üretim sahnesini yönetmek ilginç bir şey değil, ancak sizi her zaman bunu yapmaya teşvik ediyorum
 
 34:20.940 --> 34:21.990
-as a starting point.
+bir başlangıç noktası olarak.
 
 34:21.990 --> 34:28.410
-So here we see simple console log that says length of the data loaded is this.
+Burada, yüklenen verinin uzunluğunun şu olduğunu söyleyen basit konsol günlüğünü görüyoruz.
 
 34:28.440 --> 34:32.220
-That value is not too important, but you can dig into that example class if you want to take a look
+Bu değer çok önemli değildir, ancak bir göz atmak isterseniz bu örnek sınıfı inceleyebilirsiniz
 
 34:32.220 --> 34:32.550
-at it.
+İşte.
 
 34:32.550 --> 34:34.290
-Let's run the test for it.
+Bunun için testi çalıştıralım.
 
 34:36.660 --> 34:40.200
-So up here I've got my category set to my data loader advanced.
+Burada kategorimi gelişmiş veri yükleyicime ayarladım.
 
 34:40.200 --> 34:44.430
-So we're only seeing the tests related to that and only in edit mode.
+Yani sadece bununla ilgili testleri ve sadece düzenleme modunda görüyoruz.
 
 34:44.460 --> 34:47.430
-There's also a play mode test you can take a look at on your own time.
+Ayrıca kendi zamanınızda göz atabileceğiniz bir oyun modu testi de var.
 
 34:47.430 --> 34:49.710
-But I think that the edit mode is more interesting here.
+Ancak burada düzenleme modunun daha ilginç olduğunu düşünüyorum.
 
 34:49.710 --> 34:51.600
-So I will do run all.
+Bu yüzden hepsini koşacağım.
 
 34:57.250 --> 35:01.540
-And here we see we've got two tests and they both pass with a green check, which is great.
+Ve burada iki testimiz olduğunu görüyoruz ve ikisi de yeşil onay ile geçiyor, bu harika.
 
 35:01.570 --> 35:06.590
-Let's look at both the load async and the mock load async and take a look at how they work.
+Hem load async hem de mock load async'e bakalım ve nasıl çalıştıklarına bir göz atalım.
 
 35:06.610 --> 35:08.350
-So here we are in the sample code.
+İşte örnek kodun içindeyiz.
 
 35:08.350 --> 35:11.260
-If you followed along from the last video and I hope you do.
+Eğer son videodan itibaren takip ettiyseniz ki umarım etmişsinizdir.
 
 35:11.290 --> 35:18.760
-We went over the method that we're looking at here, which uses an actual call to a web server, loads
+Burada incelediğimiz, bir web sunucusuna gerçek bir çağrı kullanan yöntemin üzerinden geçtik, yükler
 
 35:18.760 --> 35:21.000
-the data back and checks the value of it.
+veriyi geri alır ve değerini kontrol eder.
 
 35:21.010 --> 35:24.460
-This closely resembles what the production use case would it be?
+Bu, üretim kullanım durumunun ne olacağına yakından benziyor mu?
 
 35:24.460 --> 35:26.950
-But we've talked about some of the problems there.
+Ancak buradaki bazı sorunlardan bahsetmiştik.
 
 35:26.980 --> 35:31.150
-Am I testing my code or am I testing Unity Web Service underneath it?
+Kodumu mu test ediyorum yoksa altındaki Unity Web Hizmetini mi test ediyorum?
 
 35:31.180 --> 35:35.260
-Am I testing that or am I testing the back end of github.com?
+Bunu mu test ediyorum yoksa github.com'un arka ucunu mu test ediyorum?
 
 35:35.260 --> 35:42.130
-And if it's a stable server, you want to focus your tests on your own custom code and have as least
+Ve eğer kararlı bir sunucuysa, testlerinizi kendi özel kodunuza odaklamak ve en az
 
 35:42.130 --> 35:43.900
-and fewest dependencies as possible.
+ve mümkün olduğunca az bağımlılık.
 
 35:43.900 --> 35:46.060
-So there's some problems with this.
+Yani bununla ilgili bazı sorunlar var.
 
 35:46.090 --> 35:51.990
-The first thing that I did when I went about this is to think about dependency injection.
+Bu konuda yaptığım ilk şey bağımlılık enjeksiyonu hakkında düşünmek oldu.
 
 35:52.000 --> 35:58.630
-Let's say that in production I want to have one way that I call this and that it is implemented, that
+Diyelim ki üretimde şunu çağırdığım ve bunun uygulandığı bir yol olmasını istiyorum
 
 35:58.630 --> 36:00.480
-is using Unity web service.
+Unity web hizmetini kullanıyor.
 
 36:00.490 --> 36:04.780
-Then for testing, maybe I want to have a second way that I want to approach it.
+Sonra test için, belki de buna yaklaşmak istediğim ikinci bir yol olmasını istiyorum.
 
 36:04.810 --> 36:11.890
-Now, you could have a flag in your code base that says something like is debug equals true or is production
+Şimdi, kod tabanınızda hata ayıklama eşittir doğru mu yoksa üretim mi gibi bir şey söyleyen bir bayrağınız olabilir
 
 36:11.890 --> 36:12.790
-equals false?
+eşittir yanlış mı?
 
 36:12.790 --> 36:17.360
-And in your production code, do certain things in test mode and certain things not.
+Ve üretim kodunuzda bazı şeyleri test modunda yapın, bazı şeyleri yapmayın.
 
 36:17.380 --> 36:21.930
-I see a lot of that happen in code bases, but that's generally not a good practice.
+Kod tabanlarında bunun çok olduğunu görüyorum, ancak bu genellikle iyi bir uygulama değildir.
 
 36:21.940 --> 36:27.880
-You are polluting your production code with really stuff that's only for tests, so it's not as appropriate.
+Üretim kodunuzu gerçekten sadece testler için olan şeylerle kirletiyorsunuz, bu yüzden uygun değil.
 
 36:27.910 --> 36:29.320
-This is a better solution here.
+Bu daha iyi bir çözüm.
 
 36:29.320 --> 36:30.700
-Let's take a look at what we do.
+Ne yaptığımıza bir göz atalım.
 
 36:31.270 --> 36:37.450
-Well, in the previous basic example, I did not have a concept of a network service, nor did I pass
+Önceki temel örnekte, bir ağ hizmeti kavramına sahip değildim ve
 
 36:37.450 --> 36:38.220
-it in here.
+Burada.
 
 36:38.230 --> 36:41.560
-We just created it and it always worked one way.
+Biz sadece yarattık ve her zaman tek yönlü çalıştı.
 
 36:41.560 --> 36:45.760
-But the dependency injection here is that I decide.
+Ama buradaki bağımlılık enjeksiyonuna ben karar veriyorum.
 
 36:45.760 --> 36:49.170
-Here's some custom way that this could work.
+İşte bunun işe yarayabileceği bazı özel yollar.
 
 36:49.180 --> 36:53.380
-Here's some of the logic that I could swap out in a few different ways.
+İşte birkaç farklı şekilde değiştirebileceğim bazı mantık.
 
 36:53.380 --> 36:56.020
-I declare it here in one line, and then I pass it in.
+Burada bir satırda bildiriyorum ve sonra içeri aktarıyorum.
 
 36:56.020 --> 36:59.560
-So you could imagine having several different network services.
+Böylece birkaç farklı ağ hizmetine sahip olduğunuzu hayal edebilirsiniz.
 
 36:59.560 --> 37:04.120
-I could have one that's just for testing, one that's just for production, one that just writes to
+Bir tanesi sadece test için, bir tanesi sadece üretim için, bir tanesi de sadece
 
 37:04.120 --> 37:08.680
-a local disk, one that is appropriate for a particular backend server.
+belirli bir arka uç sunucusu için uygun olan bir yerel disk.
 
 37:08.680 --> 37:09.460
-ET cetera.
+Vesaire.
 
 37:09.490 --> 37:12.160
-This has production use cases as well.
+Bunun üretimde de kullanım alanları vardır.
 
 37:12.160 --> 37:14.060
-This idea of dependency injection.
+Bu bağımlılık enjeksiyonu fikri.
 
 37:14.080 --> 37:16.360
-Now why do we call it dependency injection.
+Şimdi buna neden bağımlılık enjeksiyonu diyoruz.
 
 37:16.360 --> 37:26.080
-It's because instead of my data loader advanced always doing one thing, I pass in some info that decides
+Bunun nedeni, gelişmiş veri yükleyicimin her zaman tek bir şey yapması yerine, aşağıdakilere karar veren bazı bilgileri iletmemdir
 
 37:26.080 --> 37:27.610
-how it's going to operate.
+nasıl çalışacağını.
 
 37:27.610 --> 37:34.090
-So rather than the class itself knowing everything here, I'm passing in a dependency in this case to
+Yani burada her şeyi bilen sınıfın kendisi yerine, bu durumda bir bağımlılığı
 
 37:34.090 --> 37:36.250
-the Unity Web Request Network service.
+Unity Web İstek Ağı hizmeti.
 
 37:36.250 --> 37:42.610
-So let's take a look at how that structured, and then we'll see why it is helpful for us as we do our
+Şimdi bu yapının nasıl oluşturulduğuna bir göz atalım ve daha sonra bunun bizim için neden yararlı olduğunu görelim.
 
 37:42.610 --> 37:43.300
-testing.
+Test.
 
 37:43.390 --> 37:47.140
-So here's the complete source code for the My Data loader advanced.
+İşte My Data loader advanced için tam kaynak kodu.
 
 37:47.170 --> 37:49.420
-Now two things I want to focus on here.
+Şimdi burada odaklanmak istediğim iki şey var.
 
 37:49.420 --> 37:53.530
-One is that in its constructor I pass in that dependency.
+Birincisi, yapıcıda bu bağımlılığı aktarıyorum.
 
 37:53.560 --> 38:01.060
-Now dependency injection and how to create flexible classes from this concept of dependency injection
+Şimdi bağımlılık enjeksiyonu ve bu bağımlılık enjeksiyonu kavramından esnek sınıfların nasıl oluşturulacağı
 
 38:01.060 --> 38:03.700
-are really outside of the scope of this class.
+gerçekten bu sınıfın kapsamı dışındadır.
 
 38:03.730 --> 38:06.220
-It's a really good thing for you to go and look at.
+Gidip bakmanız için gerçekten iyi bir şey.
 
 38:06.220 --> 38:12.730
-You could google something like D I for unity or dependency injection for unity, or even dependency
+Google'da unity için D I veya unity için bağımlılık enjeksiyonu gibi bir şey veya hatta bağımlılık
 
 38:12.730 --> 38:17.410
-injection in object oriented programming, and see some more of those general concepts.
+Nesne yönelimli programlamada enjeksiyon ve bu genel kavramlardan biraz daha fazlasını görün.
 
 38:17.410 --> 38:23.160
-But assuming you have somewhat of a familiarity, especially given my my explanation, I just gave there,
+Ancak, biraz aşina olduğunuzu varsayarak, özellikle de az önce yaptığım açıklama göz önüne alındığında, orada verdim,
 
 38:23.170 --> 38:24.460
-let's move forward with it.
+Devam edelim.
 
 38:24.490 --> 38:31.810
-Now that I'm passing in that as a dependency here and storing it, then any time I call our core functionality
+Şimdi bunu bir bağımlılık olarak buraya aktarıyorum ve depoluyorum, o zaman çekirdek işlevselliğimizi her çağırdığımda
 
 38:31.840 --> 38:38.560
-of load async, what I do is I say, okay, when I'm ready to load async, just tell my network service
+Asenkron yüklemeye hazır olduğumda, ağ hizmetime şunu söylerim
 
 38:38.560 --> 38:39.730
-to load async.
+async yüklemek için.
 
 38:39.730 --> 38:47.020
-Now you can imagine if I've passed in a network service that does a load async for a back end server
+Şimdi, bir arka uç sunucusu için asenkron yükleme yapan bir ağ hizmeti geçtiğimi hayal edebilirsiniz
 
 38:47.020 --> 38:48.820
-of a particular technology.
+belirli bir teknolojinin.
 
 38:48.850 --> 38:50.410
-This line here would do that.
+Bu satır bunu yapacaktır.
 
 38:50.650 --> 38:56.920
-That if I passed in something else that did a writing to disk or reading from disk as a different type
+Eğer diske yazma veya diskten okuma işlemini farklı bir tür olarak yapan başka bir şey girersem
 
 38:56.920 --> 38:59.980
-of network service, this is the line here that would really change.
+ağ hizmetinde, burada gerçekten değişecek olan satır budur.
 
 38:59.980 --> 39:06.130
-So I don't have to have 2 or 3 different versions of the my data loader advanced here.
+Böylece veri yükleyicimin 2 ya da 3 farklı sürümünün burada gelişmiş olması gerekmiyor.
 
 39:06.130 --> 39:11.130
-Instead, I pass in a custom implementation that handles that particular detail in a unique way.
+Bunun yerine, söz konusu ayrıntıyı benzersiz bir şekilde ele alan özel bir uygulama aktarıyorum.
 
 39:11.140 --> 39:15.130
-It's a very powerful way for you to have your code be more flexible.
+Kodunuzun daha esnek olmasını sağlamak için çok güçlü bir yoldur.
 
 39:15.130 --> 39:23.410
-Now, now that we've talked about passing in a dependency and how it is able to wrap the functionality
+Şimdi, bir bağımlılığı aktarmaktan ve işlevselliği nasıl sarabildiğinden bahsettiğimize göre
 
 39:23.410 --> 39:26.650
-here, let's look at what the source for this particular one is.
+Burada, bu özel durum için kaynağın ne olduğuna bakalım.
 
 39:26.650 --> 39:31.240
-So up here in the same class file I've got a couple things to talk about.
+Burada aynı sınıf dosyasında konuşmam gereken birkaç şey var.
 
 39:31.240 --> 39:33.580
-One, I created an interface.
+Birincisi, bir arayüz oluşturdum.
 
 39:33.700 --> 39:41.230
-This interface here of I network service declares okay, anybody who wants to be considered as a viable
+I ağ hizmetinin buradaki arayüzü tamam diyor, uygulanabilir olarak kabul edilmek isteyen herkes
 
 39:41.230 --> 39:47.020
-dependency to be passed in here has to have some method or methods available.
+Burada aktarılacak bağımlılığın bazı yöntem ya da yöntemlere sahip olması gerekir.
 
 39:47.020 --> 39:51.970
-And in this case, it just needs to have the load async and take a string URL.
+Ve bu durumda, sadece yüklemenin asenkron olması ve bir dize URL'si alması gerekir.
 
 39:51.970 --> 39:52.720
-That's it.
+İşte bu kadar.
 
 39:52.750 --> 39:56.620
-Now if you're not too familiar with with interfaces.
+Eğer arayüzlere çok aşina değilseniz.
 
 39:56.940 --> 39:58.560
-Please go check out interfaces.
+Lütfen arayüzleri kontrol edin.
 
 39:58.560 --> 40:04.290
-You could look at something like interfaces versus classes in C-sharp or in unity, and you'll see lots
+C-sharp'ta veya unity'de sınıflara karşı arayüzler gibi bir şeye bakabilirsiniz ve çok şey göreceksiniz
 
 40:04.290 --> 40:05.130
-of examples.
+örneklerin.
 
 40:05.130 --> 40:11.970
-But an important distinction here is that the interface defines what the public API is, but it doesn't
+Ancak buradaki önemli bir ayrım, arayüzün genel API'nin ne olduğunu tanımlaması, ancak
 
 40:11.970 --> 40:13.980
-worry about doing the implementation.
+uygulama hakkında endişelenmek.
 
 40:14.100 --> 40:17.530
-The implementation is declared down here in a public class.
+Uygulama burada genel bir sınıfta beyan edilir.
 
 40:17.560 --> 40:19.710
-Now classes you're probably more familiar with.
+Şimdi muhtemelen daha aşina olduğunuz sınıflar.
 
 40:20.010 --> 40:24.570
-And what we do here is we implement a particular flavor of that.
+Ve burada yaptığımız şey, bunun belirli bir çeşidini uygulamaktır.
 
 40:24.600 --> 40:30.360
-I network service in this particular flavor should look very familiar to you from the previous video.
+Bu özel tattaki ağ hizmeti size önceki videodan çok tanıdık gelecektir.
 
 40:30.390 --> 40:32.760
-This is the exact same implementation.
+Bu tam olarak aynı uygulamadır.
 
 40:33.030 --> 40:40.130
-We're just using unity web request and then doing its send web request methodology.
+Sadece unity web isteğini kullanıyoruz ve ardından web isteği gönderme metodolojisini uyguluyoruz.
 
 40:40.140 --> 40:45.510
-So now that we've looked at the source code coming back here, we can see, okay, we're just creating
+Şimdi buraya geri gelen kaynak koduna baktığımıza göre, tamam, sadece
 
 40:45.510 --> 40:48.270
-a custom class that handles a little bit of the functionality.
+işlevselliğin bir kısmını yerine getiren özel bir sınıf.
 
 40:48.270 --> 40:50.520
-And we pass that custom class in there.
+Ve bu özel sınıfı oraya aktarıyoruz.
 
 40:50.520 --> 40:55.010
-But we now have a data loader advanced class that is much more flexible.
+Ancak artık çok daha esnek olan gelişmiş bir veri yükleyici sınıfımız var.
 
 40:55.020 --> 40:59.720
-Now, why specifically in the world of testing, is dependency injection relevant?
+Şimdi, özellikle test dünyasında bağımlılık enjeksiyonu neden önemlidir?
 
 40:59.730 --> 41:05.370
-Well, we have a wonderful utility that we can use inside unity for our unit testing.
+Birim testlerimiz için unity içinde kullanabileceğimiz harika bir yardımcı programımız var.
 
 41:05.370 --> 41:10.800
-This is a library called N substitute and it's been included here in the sample project.
+Bu N substitute adında bir kütüphanedir ve örnek projeye dahil edilmiştir.
 
 41:10.800 --> 41:13.980
-Let's take a look at another test method just below the other one.
+Diğerinin hemen altındaki başka bir test yöntemine göz atalım.
 
 41:13.980 --> 41:17.880
-And this is going to use what is called a mock of a class.
+Ve bu, bir sınıfın mock'u olarak adlandırılan şeyi kullanacak.
 
 41:17.880 --> 41:23.280
-So here we have a very similar creation of the My Data loader advanced.
+Burada gelişmiş My Data yükleyicisinin çok benzer bir yaratımına sahibiz.
 
 41:23.280 --> 41:29.070
-And instead of passing in the unity web request version, we're going to do something that looks quite
+Ve unity web istek sürümünü iletmek yerine, oldukça görünen bir şey yapacağız
 
 41:29.100 --> 41:29.880
-odd here.
+Burada bir gariplik var.
 
 41:29.880 --> 41:32.940
-We're going to use substitute library.
+Yedek kütüphane kullanacağız.
 
 41:32.940 --> 41:40.260
-And what we're going to do here is we're going to say hey on the fly in these two lines, go create
+Ve burada yapacağımız şey, bu iki satırda anında hey diyeceğiz, git oluştur
 
 41:40.260 --> 41:45.000
-me a class that can handle just the functionality I need.
+İhtiyacım olan işlevselliği yerine getirebilecek bir sınıf.
 
 41:45.000 --> 41:51.990
-But because it's a mock class, it doesn't necessarily have to actually go call the server.
+Ancak bu bir sahte sınıf olduğu için, sunucuyu aramak zorunda değildir.
 
 41:51.990 --> 41:57.450
-What it's going to do instead is, at key moments, return a predictable value to us.
+Bunun yerine yapacağı şey, önemli anlarda bize öngörülebilir bir değer döndürmektir.
 
 41:57.450 --> 42:06.660
-Now remember, our flow here is that the test tells the data loader to go load a URL inside the data
+Şimdi hatırlayın, buradaki akışımız testin veri yükleyiciye verilerin içindeki bir URL'yi yüklemesini söylemesidir
 
 42:06.660 --> 42:10.740
-loader tells the network service to go load a URL.
+loader, ağ hizmetine gidip bir URL yüklemesini söyler.
 
 42:10.770 --> 42:17.430
-That last step, the end result is it takes a half a second, goes and loads from the server and returns
+Bu son adım, sonuç olarak yarım saniye sürer, gider ve sunucudan yükler ve geri döner
 
 42:17.460 --> 42:18.870
-a string back.
+bir dizi geri.
 
 42:18.870 --> 42:23.760
-So all I really need in a mock situation is okay, don't even call a server.
+Yani sahte bir durumda ihtiyacım olan tek şey tamam, bir sunucu bile çağırma.
 
 42:23.760 --> 42:27.330
-Just when I call this you give me a string back.
+Tam bunu aradığımda bana bir ip geri veriyorsun.
 
 42:27.330 --> 42:36.750
-So I'm saying here with this language that I want any time I call load async and I pass in any string
+Yani burada bu dille şunu söylüyorum: load async'i her çağırdığımda ve herhangi bir dizeyi ilettiğimde
 
 42:36.750 --> 42:41.460
-for the URL, then return the word mocked data.
+URL için, ardından taklit edilen veri kelimesini döndürün.
 
 42:41.760 --> 42:48.060
-Then down here, I could make sure that I'm getting the expected result that I want, instead of checking
+Sonra burada, kontrol etmek yerine istediğim beklenen sonucu aldığımdan emin olabilirim
 
 42:48.060 --> 42:52.020
-that it has doctype in the return as I did previously.
+daha önce yaptığım gibi dönüşte doctype'a sahip olduğunu.
 
 42:52.020 --> 42:55.740
-I can check for the mock data here.
+Sahte verileri buradan kontrol edebilirim.
 
 42:55.740 --> 43:04.380
-So what we're seeing here is a very simple example, and it might not seem useful, but imagine in a
+Burada gördüğümüz şey çok basit bir örnek ve kullanışlı görünmeyebilir, ancak bir
 
 43:04.380 --> 43:11.580
-more complex example where we weren't just loading data, we were loading it, reading, writing, transforming
+sadece veri yüklemediğimiz, yüklediğimiz, okuduğumuz, yazdığımız, dönüştürdüğümüz daha karmaşık bir örnek
 
 43:11.580 --> 43:14.850
-the data, doing quite a bit, maybe a 5 or 6 different methods.
+Verileri, biraz, belki 5 veya 6 farklı yöntem kullanarak.
 
 43:14.850 --> 43:21.150
-All of them could be pointing to wildly different systems, but when we really want to test just the
+Bunların hepsi çok farklı sistemlere işaret ediyor olabilir, ancak gerçekten test etmek istediğimizde sadece
 
 43:21.150 --> 43:30.330
-data loader, then we want to pass in mocked abilities for those other systems to be just kind of temporarily
+veri yükleyicisi, daha sonra bu diğer sistemler için taklit edilmiş yetenekleri geçici olarak iletmek istiyoruz
 
 43:30.330 --> 43:34.230
-ignored so we can focus on just what we have at hand here.
+Böylece elimizdekilere odaklanabiliriz.
 
 43:34.260 --> 43:36.450
-Now let's take a look at what would happen.
+Şimdi ne olacağına bir göz atalım.
 
 43:36.450 --> 43:38.940
-So I call the load async.
+Bu yüzden yüklemeyi async olarak çağırıyorum.
 
 43:38.940 --> 43:46.050
-What's going to happen is this system inside is going to return the predicted value.
+Olacak olan şey, içerideki bu sistemin öngörülen değeri döndürmesidir.
 
 43:46.050 --> 43:50.220
-And the data loader is then going to call loaded.
+Ve veri yükleyici daha sonra yüklendi diyecektir.
 
 43:50.220 --> 43:56.160
-And it's going to have its result value be the value that we expect it to be.
+Ve sonuç değerinin olmasını beklediğimiz değer olmasını sağlayacaktır.
 
 43:56.160 --> 44:00.330
-So let's run this inside the unity editor.
+Şimdi bunu unity editörünün içinde çalıştıralım.
 
 44:00.330 --> 44:01.800
-So we'll hit run all here.
+Bu yüzden hepsini çalıştıracağız.
 
 44:04.100 --> 44:05.480
-And it works quite quickly.
+Ve oldukça hızlı çalışıyor.
 
 44:05.480 --> 44:11.270
-Let's even compare if I just run load async which is actually calling a server.
+Aslında bir sunucuyu çağıran load async'i çalıştırırsam bile karşılaştıralım.
 
 44:15.200 --> 44:16.220
-It was quick.
+Hızlıydı.
 
 44:16.250 --> 44:20.690
-Then if I call mock load async which is not calling any server.
+Sonra herhangi bir sunucuyu çağırmayan mock load async'i çağırırsam.
 
 44:24.630 --> 44:29.840
-May not be evident from the video, but it's much faster to call the MOC.
+Videodan anlaşılmayabilir, ancak MOC'yi aramak çok daha hızlıdır.
 
 44:29.850 --> 44:35.150
-And that makes sense because we're not actually calling a server and waiting for a result.
+Bu da mantıklı çünkü aslında bir sunucuyu arayıp sonuç beklemiyoruz.
 
 44:35.160 --> 44:38.640
-So this isn't just to save us a few seconds.
+Yani bu sadece bize birkaç saniye kazandırmak için değil.
 
 44:38.670 --> 44:42.270
-It's again for us to focus as we're designing our tests.
+Testlerimizi tasarlarken odaklanmamız gereken yine bu.
 
 44:42.300 --> 44:44.790
-What actually do we want to test?
+Aslında neyi test etmek istiyoruz?
 
 44:44.790 --> 44:46.920
-And then we want to isolate it.
+Ve sonra onu izole etmek istiyoruz.
 
 44:46.920 --> 44:51.160
-So we're not actually testing a Unity Web Services class.
+Yani aslında bir Unity Web Hizmetleri sınıfını test etmiyoruz.
 
 44:51.180 --> 44:53.610
-We're not testing a GitHub back end.
+GitHub arka ucunu test etmiyoruz.
 
 44:53.700 --> 44:57.470
-Testing several systems together is called an integration test.
+Birkaç sistemin birlikte test edilmesine entegrasyon testi denir.
 
 44:57.480 --> 44:59.550
-That is an appropriate type of test.
+Bu uygun bir test türüdür.
 
 44:59.550 --> 45:03.660
-But it's outside of what we're talking about here, which is unit testing.
+Ancak bu, burada bahsettiğimiz birim testinin dışında kalıyor.
 
 45:03.660 --> 45:08.430
-Again, getting down to as few dependencies as possible, few lines of code.
+Yine, mümkün olduğunca az bağımlılığa, az kod satırına inmek.
 
 45:08.430 --> 45:09.450
-You could think about it.
+Bunu düşünebilirsin.
 
 45:09.450 --> 45:17.880
-So that's it there we've looked at how to use the substitute library and how also we can do a mock for
+İşte bu kadar, yedek kütüphaneyi nasıl kullanacağımızı ve ayrıca bir mock'u nasıl yapabileceğimizi inceledik.
 
 45:17.880 --> 45:19.710
-a call to the back end server.
+arka uç sunucusuna bir çağrı.
 
 45:19.710 --> 45:20.550
-So thanks.
+Teşekkürler.
 
 45:26.450 --> 45:29.420
-Hello and welcome to Unit testing for unity.
+Merhaba ve unity için birim testlerine hoş geldiniz.
 
 45:29.450 --> 45:30.710
-We're in the workshop here.
+Burada atölyedeyiz.
 
 45:30.710 --> 45:34.850
-And in this one we're going to take a look at the character in a basic form.
+Ve bu sefer karaktere temel bir biçimde göz atacağız.
 
 45:34.850 --> 45:37.070
-We're going to have a few different ones we're going to look at.
+Bakacağımız birkaç farklı şey olacak.
 
 45:37.100 --> 45:39.800
-We'll start with the basics and move on to something more advanced.
+Temel bilgilerle başlayıp daha ileri bir seviyeye geçeceğiz.
 
 45:39.800 --> 45:41.480
-Let's take a look at this demo in action.
+Şimdi bu demonun nasıl çalıştığına bir göz atalım.
 
 45:41.480 --> 45:42.920
-Inside the unity editor.
+Unity editörünün içinde.
 
 45:42.920 --> 45:45.830
-We're going to open up unity, open up our sample project.
+Unity'yi açacağız, örnek projemizi açacağız.
 
 45:45.830 --> 45:49.760
-And then we're going to play one or more scenes related to the topic here.
+Sonra da konuyla ilgili bir ya da daha fazla sahne oynayacağız.
 
 45:49.760 --> 45:55.670
-The scene is going to be the character basic, and I'm going to be talking about Monobehaviour as something
+Sahne temel karakter olacak ve ben Monobehaviour hakkında bir şey olarak konuşacağım
 
 45:55.670 --> 46:01.160
-that can or can't be tested, as well as play mode versus edit mode, something that I've mentioned
+test edilip edilemeyeceği ve oynatma moduna karşı düzenleme modu, daha önce de bahsettiğim bir şey
 
 46:01.160 --> 46:02.450
-earlier in the course.
+Parkurun başlarında.
 
 46:02.450 --> 46:04.010
-We'll bring it back here and talk about it.
+Buraya geri getireceğiz ve bunun hakkında konuşacağız.
 
 46:04.010 --> 46:06.380
-Here we are in the project looking at the character basic.
+İşte projede temel karaktere bakıyoruz.
 
 46:06.380 --> 46:07.760
-Let's go ahead and run the scene.
+Devam edelim ve sahneyi çalıştıralım.
 
 46:13.120 --> 46:20.020
-So while most of our workshops we've done already had a pretty boring scene where absolutely nothing
+Yaptığımız atölye çalışmalarının çoğunda, kesinlikle hiçbir şeyin olmadığı oldukça sıkıcı bir sahne vardı.
 
 46:20.050 --> 46:22.830
-of interest was happening here, we have a little bit more.
+biraz daha fazlası var.
 
 46:22.840 --> 46:28.470
-When we hit play there, we see a cube white cube that gets made created in the center of the screen.
+Burada oynat tuşuna bastığımızda, ekranın ortasında beyaz bir küpün oluştuğunu görüyoruz.
 
 46:28.480 --> 46:31.030
-I can use my arrow keys and move around.
+Ok tuşlarımı kullanabilir ve hareket edebilirim.
 
 46:31.030 --> 46:37.930
-So while admittedly a very simple example here, this is meant to talk about some of the more complex
+Kuşkusuz burada çok basit bir örnek verilmiş olsa da, bu daha karmaşık bazı durumlardan bahsetmek içindir
 
 46:37.930 --> 46:40.600
-aspects of testing inside unity.
+unity içinde test etmenin yönleri.
 
 46:40.630 --> 46:45.730
-In the previous scenes, we weren't worried about rendering graphics or taking input.
+Önceki sahnelerde, grafik oluşturma veya girdi alma konusunda endişelenmiyorduk.
 
 46:45.970 --> 46:52.840
-We did talk in the last workshop about the difference between testing several different dependencies
+Son çalıştayda birkaç farklı bağımlılığı test etmek arasındaki farktan bahsetmiştik
 
 46:52.840 --> 46:53.590
-together.
+Birlikte.
 
 46:53.590 --> 46:58.780
-For example, a method that inside calls a second method that inside calls a third.
+Örneğin, içinde ikinci bir yöntemi çağıran bir yöntem, içinde üçüncü bir yöntemi çağırır.
 
 46:58.810 --> 47:00.490
-Those are dependencies.
+Bunlar bağımlılıklar.
 
 47:00.520 --> 47:06.790
-Here we're talking about a similar aspect, except every time I want to move my character, I first
+Burada benzer bir konudan bahsediyoruz, ancak karakterimi her hareket ettirmek istediğimde önce
 
 47:06.790 --> 47:13.750
-ask to listen to Unity's input system, then use Unity's Monobehaviour transform movement.
+Unity'nin giriş sistemini dinlemesini isteyin, ardından Unity'nin Monobehaviour dönüşüm hareketini kullanın.
 
 47:13.750 --> 47:14.190
-Right.
+Doğru.
 
 47:14.200 --> 47:18.820
-So we're we're using several different dependencies there or different classes.
+Yani burada birkaç farklı bağımlılık ya da farklı sınıflar kullanıyoruz.
 
 47:21.360 --> 47:24.630
-So here I'm able to use the arrow keys to move around.
+Burada hareket etmek için ok tuşlarını kullanabiliyorum.
 
 47:25.750 --> 47:27.190
-And that's pretty much it.
+Ve hepsi bu kadar.
 
 47:29.010 --> 47:32.100
-But the idea is we're doing a bit more than before.
+Ama fikir şu ki, eskisinden biraz daha fazlasını yapıyoruz.
 
 47:32.190 --> 47:34.650
-Let's talk about the implications of testing that.
+Bunu test etmenin sonuçları hakkında konuşalım.
 
 47:34.650 --> 47:41.190
-So up here in the test runner, I have the category set to our character basic, which is great.
+Test çalıştırıcısında kategoriyi temel karakterimize ayarladım, ki bu harika.
 
 47:41.220 --> 47:46.800
-Then I can toggle on to see the play mode tests as well as the edit mode tests.
+Ardından oynatma modu testlerinin yanı sıra düzenleme modu testlerini de görmek için geçiş yapabiliyorum.
 
 47:46.830 --> 47:53.100
-We can see that we've got some of both, but because there's a monobehaviour involved, I'm going to
+Her ikisinden de bazılarına sahip olduğumuzu görebiliriz, ancak tek bir davranış söz konusu olduğu için
 
 47:53.100 --> 47:54.600
-focus more on the play mode.
+oyun moduna daha fazla odaklanın.
 
 47:54.630 --> 48:01.230
-Now, in each of the workshops, I've included at least one edit mode test and at least one play mode
+Şimdi, atölye çalışmalarının her birine en az bir düzenleme modu testi ve en az bir oyun modu testi ekledim
 
 48:01.260 --> 48:03.420
-test for the scene at hand.
+elimizdeki sahne için test.
 
 48:03.450 --> 48:09.030
-I've done that again here, but depending on what you're actually testing, you want to think, is this
+Bunu burada tekrar yaptım, ancak gerçekte neyi test ettiğinize bağlı olarak, şunu düşünmek istersiniz
 
 48:09.030 --> 48:13.470
-more appropriate for edit mode or is it more appropriate for play mode?
+düzenleme modu için mi daha uygun yoksa oyun modu için mi daha uygun?
 
 48:13.500 --> 48:18.510
-There's an art and a science to how you'd approach that, and how you would design your code to be more
+Buna nasıl yaklaşacağınız ve kodunuzu nasıl daha iyi tasarlayacağınız konusunda bir sanat ve bilim var.
 
 48:18.510 --> 48:19.170
-testable.
+Test edilebilir.
 
 48:19.200 --> 48:26.010
-But a general way to look at it that's relevant for here is that if you're using Monobehaviour functionality,
+Ancak bu konuyla ilgili genel bir bakış açısı, Monobehaviour işlevselliğini kullanıyorsanız,
 
 48:26.010 --> 48:32.460
-that sounds more like a play mode test, the more unity libraries, particularly at runtime, you're
+Bu daha çok bir oyun modu testine benziyor, daha fazla unity kütüphanesi, özellikle çalışma zamanında
 
 48:32.460 --> 48:36.840
-using in your production, you want to think about those being play mode tests.
+üretiminizde kullanıyorsanız, bunların oyun modu testleri olduğunu düşünmek istersiniz.
 
 48:36.870 --> 48:40.410
-It's not a hard rule, but that's a good way to start thinking about it.
+Bu kesin bir kural değildir, ancak düşünmeye başlamak için iyi bir yoldur.
 
 48:40.650 --> 48:42.490
-So let's run our tests here.
+Testlerimizi burada çalıştıralım.
 
 48:42.510 --> 48:45.300
-I have the play mode and I will run all.
+Oyun modum var ve hepsini çalıştıracağım.
 
 48:48.880 --> 48:49.210
-Okay.
+Tamam.
 
 48:49.240 --> 48:52.060
-It took a couple seconds to run there, but we've got them all.
+Orayı çalıştırmak birkaç saniye sürdü ama hepsini aldık.
 
 48:52.090 --> 48:58.060
-What actually happens when you're running a play mode test is it creates a brand new empty scene and
+Bir oyun modu testi çalıştırdığınızda aslında olan şey, yepyeni boş bir sahne oluşturmak ve
 
 48:58.060 --> 49:01.840
-runs just one test inside of it, and it destroys that.
+içinde sadece bir test çalıştırır ve onu yok eder.
 
 49:01.840 --> 49:09.040
-And it creates a brand new scene guaranteeing that we have the world space provided by a scene.
+Ve bir sahne tarafından sağlanan dünya alanına sahip olduğumuzu garanti eden yepyeni bir sahne yaratır.
 
 49:09.040 --> 49:16.000
-But the freshness of a new scene that doesn't have any dependencies or stale info that might influence
+Ancak yeni bir sahnenin tazeliği, etkileyebilecek herhangi bir bağımlılık veya eski bilgiye sahip değildir.
 
 49:16.000 --> 49:16.630
-the test.
+Test.
 
 49:16.630 --> 49:18.230
-So we like how that's set up.
+Bu şekilde kurulmasını seviyoruz.
 
 49:18.250 --> 49:25.030
-Now, the things that I'm doing are moving, moving by key code and moving to a particular place.
+Şimdi, yaptığım şeyler hareket etmek, anahtar kodla hareket etmek ve belirli bir yere hareket etmek.
 
 49:25.030 --> 49:27.640
-So let's take a look at this move to test.
+Şimdi test etmek için bu hamleye bir göz atalım.
 
 49:29.650 --> 49:31.990
-Actually, let's take a look at the production code first.
+Aslında, önce üretim koduna bir göz atalım.
 
 49:31.990 --> 49:34.960
-So if I go here and I look at the basic example.
+Eğer buraya gidersem ve temel örneğe bakarsam.
 
 49:36.760 --> 49:38.560
-This is the production code.
+Bu üretim kodu.
 
 49:38.560 --> 49:40.720
-Let's look at that before I go into the tests.
+Testlere geçmeden önce buna bir göz atalım.
 
 49:40.720 --> 49:43.960
-So here all I do is I create a primitive.
+Burada tek yaptığım bir ilkel oluşturmak.
 
 49:43.990 --> 49:49.030
-You could imagine also loading a prefab here if you wanted to do that.
+Eğer bunu yapmak isterseniz buraya bir prefabrik yüklemeyi de düşünebilirsiniz.
 
 49:49.030 --> 49:54.010
-But I wanted to slowly get us into all the complexities of runtime and unity.
+Ancak bizi yavaş yavaş çalışma zamanı ve unity'nin tüm karmaşıklıklarına sokmak istedim.
 
 49:54.010 --> 49:56.140
-So I'm not using a prefab here.
+Yani burada bir prefabrik kullanmıyorum.
 
 49:56.140 --> 50:00.130
-I just create a brand new cube from scratch with a line of code.
+Sadece bir satır kod ile sıfırdan yepyeni bir küp oluşturuyorum.
 
 50:00.130 --> 50:06.820
-I give it a name there just for organization sake, and then I add the component of the monobehaviour
+Sadece organizasyon açısından ona bir isim veriyorum ve ardından monobehaviour bileşenini ekliyorum
 
 50:06.820 --> 50:08.620
-that I want to actually test.
+gerçekten test etmek istediğim.
 
 50:08.650 --> 50:14.770
-Then one of the things that I'm doing is just moving it to the point of 000, and then showing that
+Sonra yaptığım şeylerden biri onu 000 noktasına taşımak ve sonra bunu göstermek
 
 50:14.770 --> 50:16.300
-value out on the screen.
+ekrandaki değer.
 
 50:16.300 --> 50:18.850
-So let's take a look at the source code here.
+Şimdi kaynak koduna bir göz atalım.
 
 50:21.530 --> 50:22.960
-Here's character basic.
+İşte temel karakter.
 
 50:22.970 --> 50:24.770
-This extends Monobehaviour.
+Bu, Monobehaviour'u genişletir.
 
 50:24.800 --> 50:32.730
-Now, if you're familiar with unity, you probably use Monobehaviours all the time as a good best practice.
+Şimdi, eğer unity'ye aşina iseniz, muhtemelen en iyi uygulama olarak Monobehaviours'u her zaman kullanıyorsunuzdur.
 
 50:32.750 --> 50:35.600
-You want to start thinking conscientiously.
+Bilinçli düşünmeye başlamak istiyorsunuz.
 
 50:35.600 --> 50:40.660
-When is it appropriate to use a monobehaviour and when can I use something different?
+Ne zaman tek bir davranış kullanmak uygun olur ve ne zaman farklı bir şey kullanabilirim?
 
 50:40.670 --> 50:46.580
-As beginning developers, we create everything as a child of monobehaviour, but with time and experience
+Başlangıçtaki geliştiriciler olarak, her şeyi tek davranışlı bir çocuk olarak yaratırız, ancak zamanla ve deneyimle
 
 50:46.580 --> 50:49.900
-you realize there's pros and cons of using monobehaviours.
+monobehaviours kullanmanın artıları ve eksileri olduğunun farkındasınızdır.
 
 50:49.910 --> 50:54.620
-One of the cons is historically, it was more difficult to test along the way.
+Eksilerinden biri, tarihsel olarak, yol boyunca test etmenin daha zor olmasıdır.
 
 50:54.620 --> 50:56.570
-Unity provided these playmode tests.
+Unity bu oyun modu testlerini sağladı.
 
 50:56.570 --> 51:00.950
-So now we can certainly test Playmode and we can test Monobehaviours.
+Artık Playmode'u kesinlikle test edebiliriz ve Monobehaviours'u test edebiliriz.
 
 51:00.950 --> 51:03.630
-So that's great, but there's still some drawbacks.
+Bu harika ama yine de bazı dezavantajları var.
 
 51:03.650 --> 51:08.330
-Again, Monobehaviour is going to rely on more systems of unity under the hood.
+Yine, Monobehaviour kaputun altında daha fazla birlik sistemine dayanacaktır.
 
 51:08.330 --> 51:13.700
-And when we're trying to test our custom code, we might not be sure where a problem might lie.
+Ve özel kodumuzu test etmeye çalışırken, sorunun nerede olabileceğinden emin olamayabiliriz.
 
 51:13.730 --> 51:15.720
-Is it our code or is it Unity's code?
+Bu bizim kodumuz mu yoksa Unity'nin kodu mu?
 
 51:15.740 --> 51:18.110
-So again, there's a few dependencies there.
+Yani yine, burada birkaç bağımlılık var.
 
 51:18.140 --> 51:22.280
-This is all okay, but it's something you want to think about as you're designing your classes and as
+Bunların hepsi tamam, ancak sınıflarınızı tasarlarken ve
 
 51:22.280 --> 51:23.690
-you're designing your tests.
+testlerinizi tasarlıyorsunuz.
 
 51:24.110 --> 51:27.080
-So we've got a movement speed.
+Yani bir hareket hızımız var.
 
 51:27.110 --> 51:28.460
-We've got a movement type.
+Bir hareket tipimiz var.
 
 51:28.460 --> 51:31.390
-This is just the direction of the arrow key that I'm pressing.
+Bu sadece bastığım ok tuşunun yönü.
 
 51:31.400 --> 51:33.680
-Then we use the Unity's update.
+Sonra Unity'nin güncellemesini kullanırız.
 
 51:33.710 --> 51:36.530
-Now really let me double check here.
+Şimdi gerçekten iki kez kontrol edeyim.
 
 51:38.720 --> 51:39.230
-Really.
+Gerçekten.
 
 51:39.230 --> 51:44.960
-The update loop here is the only major monobehaviour functionality that I'm using.
+Buradaki güncelleme döngüsü, kullandığım tek büyük monobehaviour işlevidir.
 
 51:44.990 --> 51:49.130
-The rest of this code doesn't necessarily have to be in a monobehaviour.
+Bu kodun geri kalanının mutlaka bir monobehaviour içinde olması gerekmez.
 
 51:49.220 --> 51:53.560
-I am also using Unity's input system, so that's a second dependency.
+Ayrıca Unity'nin giriş sistemini kullanıyorum, bu yüzden bu ikinci bir bağımlılık.
 
 51:53.570 --> 51:56.760
-So let's see what I do every frame of update.
+Şimdi güncellemenin her karesinde ne yaptığımı görelim.
 
 51:56.780 --> 51:59.360
-I call this method here move by input.
+Bu yöntemi burada girdiye göre hareket olarak adlandırıyorum.
 
 51:59.390 --> 52:04.340
-I check to see is the user hitting a particular key or keys on the keyboard.
+Kullanıcının klavyede belirli bir tuşa veya tuşlara basıp basmadığını kontrol ediyorum.
 
 52:04.340 --> 52:08.360
-And then I call move by key code down here.
+Ve sonra burada anahtar koduna göre hareket et diyorum.
 
 52:09.710 --> 52:16.220
-All we do is say, if we're currently moving left, then let's move in a vector for the left direction.
+Tek yapmamız gereken, eğer şu anda sola doğru hareket ediyorsak, o zaman sol yön için bir vektörde hareket edelim demek.
 
 52:16.220 --> 52:19.820
-If we're currently moving right and etcetera for up and down.
+Şu anda sağa doğru hareket ediyorsak ve yukarı ve aşağı için vb.
 
 52:19.820 --> 52:24.860
-So this would allow you to move in all four of the directions using the four arrow keys.
+Böylece dört ok tuşunu kullanarak dört yönde de hareket edebilirsiniz.
 
 52:24.860 --> 52:26.420
-So pretty straightforward code.
+Yani oldukça basit bir kod.
 
 52:26.420 --> 52:30.440
-And if you've created your own custom character before you'd be familiar with setting something like
+Ve daha önce kendi özel karakterinizi yarattıysanız, aşağıdaki gibi bir şey ayarlamaya aşina olursunuz
 
 52:30.440 --> 52:30.980
-this up.
+Bu kadar.
 
 52:34.010 --> 52:35.870
-Down here, we've got two methods.
+Burada iki yöntemimiz var.
 
 52:35.870 --> 52:41.240
-One that lets us move to a particular point and one that lets us move by a unit.
+Biri belirli bir noktaya hareket etmemizi diğeri ise bir birim hareket etmemizi sağlar.
 
 52:41.240 --> 52:44.090
-So let's say I wanted to move the right one unit.
+Diyelim ki bir birim sağa kaydırmak istedim.
 
 52:44.090 --> 52:48.490
-I could pass in by one unit by one unit by one unit.
+Bir birim, bir birim, bir birim geçebilirim.
 
 52:48.500 --> 52:53.740
-If I want to move directly to a particular point in space, that would be the move to.
+Eğer doğrudan uzayda belirli bir noktaya gitmek istersem, bu "move to" olacaktır.
 
 52:53.750 --> 52:59.810
-So these are not necessarily the only methods you would need in a custom character class, but there's
+Dolayısıyla, özel bir karakter sınıfında ihtiyaç duyacağınız tek yöntemler bunlar olmayabilir, ancak
 
 52:59.810 --> 53:01.100
-some pretty common ones.
+Bazıları oldukça yaygın.
 
 53:01.100 --> 53:07.850
-So we'll end this lesson here with just this as a basic, appropriate working way to test some functionality.
+Bu yüzden bu dersi, bazı işlevleri test etmek için temel, uygun bir çalışma yolu olarak bununla bitireceğiz.
 
 53:07.850 --> 53:13.340
-If you want to take a look at the edit mode or the other tests that are here in the play mode, go ahead
+Düzenleme moduna veya oynatma modundaki diğer testlere göz atmak isterseniz, devam edin
 
 53:13.340 --> 53:14.230
-and do that.
+ve bunu yap.
 
 53:14.240 --> 53:15.830
-I'll move on to the next video.
+Bir sonraki videoya geçiyorum.
 
 53:15.830 --> 53:16.580
-Thanks.
+Teşekkürler.
 
 53:22.920 --> 53:26.060
-Hello and welcome to Unit Testing for unity.
+Merhaba ve Unity için Birim Testine hoş geldiniz.
 
 53:26.070 --> 53:30.060
-In this workshop we're looking at the character class in an advanced version.
+Bu atölye çalışmasında karakter sınıfını gelişmiş bir versiyonda inceliyoruz.
 
 53:30.060 --> 53:31.980
-Let's take a look at this demo in action.
+Şimdi bu demonun nasıl çalıştığına bir göz atalım.
 
 53:31.980 --> 53:32.310
-Here.
+İşte.
 
 53:32.310 --> 53:33.990
-We're going to open up our unity.
+Birliğimizi açacağız.
 
 53:34.020 --> 53:36.000
-We're going to open up our sample project.
+Örnek projemizi açacağız.
 
 53:36.000 --> 53:41.190
-And we're going to take a look at a scene inside for the character advanced situation here.
+Ve burada karakterin gelişmiş durumu için içerideki bir sahneye göz atacağız.
 
 53:41.190 --> 53:44.310
-I want to talk a little bit about code separation.
+Kod ayrımı hakkında biraz konuşmak istiyorum.
 
 53:44.340 --> 53:49.110
-Earlier in one of the workshops, I talked about the different dependencies that you'd have.
+Daha önce atölye çalışmalarından birinde, sahip olabileceğiniz farklı bağımlılıklardan bahsetmiştim.
 
 53:49.110 --> 53:51.360
-For example, if you're calling a back end server.
+Örneğin, bir arka uç sunucusunu çağırıyorsanız.
 
 53:51.360 --> 53:58.530
-And in that situation, we used a substitute library to mock out and not need to call the back end.
+Ve bu durumda, arka ucu çağırmak zorunda kalmamak için bir yedek kütüphane kullandık.
 
 53:58.560 --> 54:04.890
-It's a similar discussion here where we're looking at what are the dependency involved with a particular
+Burada da benzer bir tartışma söz konusu, belirli bir bağımlılıkla ilgili bağımlılığın ne olduğuna bakıyoruz.
 
 54:04.890 --> 54:11.640
-test scenario, and how do we be aware of those different dependencies, and what do we want to do about
+test senaryosu ve bu farklı bağımlılıkların nasıl farkında olacağız ve bu konuda ne yapmak istiyoruz?
 
 54:11.640 --> 54:12.240
-it here?
+Burada mı?
 
 54:12.240 --> 54:14.400
-We're not going to use the substitute library.
+Yedek kütüphaneyi kullanmayacağız.
 
 54:14.430 --> 54:18.960
-We're going to think about separating our monobehaviour from other code and taking a look.
+Monobehaviour'umuzu diğer kodlardan ayırmayı düşüneceğiz ve bir göz atacağız.
 
 54:19.170 --> 54:20.940
-So here we are inside unity.
+İşte birlik içindeyiz.
 
 54:21.270 --> 54:22.440
-We've got a production class.
+Bir üretim sınıfımız var.
 
 54:22.440 --> 54:23.250
-Let's take a look at it.
+Bir göz atalım.
 
 54:23.250 --> 54:23.850
-Running.
+Koşuyorum.
 
 54:27.540 --> 54:30.510
-Down here, we see that we can move around with our arrow keys.
+Burada, ok tuşlarımızla hareket edebileceğimizi görüyoruz.
 
 54:30.510 --> 54:34.050
-Just like in the basic example, the end user experience is the same.
+Tıpkı temel örnekte olduğu gibi, son kullanıcı deneyimi aynıdır.
 
 54:34.050 --> 54:39.330
-And that's something of an interesting example here, that some of the changes that we do for the code
+Ve burada ilginç bir örnek var, kod için yaptığımız bazı değişiklikler
 
 54:39.330 --> 54:44.250
-quality and testability of our systems doesn't necessarily impact the end user.
+Sistemlerimizin kalitesi ve test edilebilirliği son kullanıcıyı etkilemek zorunda değildir.
 
 54:44.280 --> 54:45.350
-That's a positive.
+Bu olumlu.
 
 54:45.360 --> 54:48.270
-So let's take a look at the production code here.
+Şimdi üretim koduna bir göz atalım.
 
 54:48.270 --> 54:50.340
-We'll open up the character advanced example.
+Gelişmiş karakter örneğini açacağız.
 
 54:50.340 --> 54:51.890
-Here's a complete example.
+İşte tam bir örnek.
 
 54:51.900 --> 54:57.830
-What we're doing inside the wake of this example class is we're creating a primitive for the cube.
+Bu örnek sınıfın içinde yaptığımız şey, küp için bir ilkel oluşturmaktır.
 
 54:57.840 --> 55:00.270
-We give it a name for organization sake.
+Organizasyonun hatırına ona bir isim veriyoruz.
 
 55:00.390 --> 55:08.010
-Then instead of one line here where we just add a component that has all of our functionality, we do
+Ardından, burada tüm işlevselliğimize sahip bir bileşen eklediğimiz tek bir satır yerine
 
 55:08.010 --> 55:09.180
-two steps.
+İki adım.
 
 55:09.450 --> 55:14.700
-This is reminding me a little bit of the dependency injection we saw in the My Data loader example.
+Bu bana biraz My Data loader örneğinde gördüğümüz bağımlılık enjeksiyonunu hatırlatıyor.
 
 55:14.700 --> 55:17.970
-But this is a different use case with different dependencies.
+Ancak bu, farklı bağımlılıkları olan farklı bir kullanım durumudur.
 
 55:17.970 --> 55:22.920
-So instead of just one add component line we do the add component.
+Yani sadece bir bileşen ekle satırı yerine bileşen ekliyoruz.
 
 55:22.920 --> 55:28.260
-And then we create our own non monobehaviour character advanced class.
+Ve sonra kendi monobehaviour olmayan karakter gelişmiş sınıfımızı oluşturuyoruz.
 
 55:28.260 --> 55:30.540
-And we pass in the Monobehaviour.
+Ve Monobehaviour'a geçiyoruz.
 
 55:30.540 --> 55:35.370
-So we're passing in the dependency that the character advanced is going to use.
+Bu yüzden, gelişmiş karakterin kullanacağı bağımlılığı aktarıyoruz.
 
 55:35.400 --> 55:41.910
-Now character advanced is not a monobehaviour, and thereby we have more flexibility with how we want
+Artık gelişmiş karakter tek bir davranış değildir ve bu nedenle nasıl istediğimiz konusunda daha fazla esnekliğe sahibiz
 
 55:41.910 --> 55:42.480
-to test it.
+test etmek için.
 
 55:42.510 --> 55:45.780
-We could test it at edit mode for example, more easily.
+Örneğin düzenleme modunda daha kolay test edebiliriz.
 
 55:45.930 --> 55:51.000
-Again, whenever you're using Monobehaviours that's more appropriate for play mode tests.
+Yine, Monobehaviours kullandığınızda bu, oyun modu testleri için daha uygundur.
 
 55:51.030 --> 55:53.940
-It's not a hard rule, but that's one way to think about it.
+Bu kesin bir kural değil, ama bu da düşünmenin bir yolu.
 
 55:53.940 --> 56:00.660
-So here, by separating our monobehaviour from our non monobehaviour, we've got a few more options.
+Yani burada, monobehaviour'umuzu monobehaviour olmayanlardan ayırarak birkaç seçeneğimiz daha var.
 
 56:00.690 --> 56:06.060
-Now we're still here in a play play mode environment because this is the production code.
+Şimdi hala burada bir oyun modu ortamındayız çünkü bu üretim kodu.
 
 56:06.060 --> 56:08.970
-Let's step in and see how our source code is changed.
+Şimdi kaynak kodumuzun nasıl değiştiğini görelim.
 
 56:08.970 --> 56:11.010
-So here we are in the character advanced.
+İşte burada gelişmiş karakterdeyiz.
 
 56:11.040 --> 56:13.220
-You'll see that it looks pretty familiar.
+Oldukça tanıdık geldiğini göreceksiniz.
 
 56:13.230 --> 56:17.790
-Most of the code in here is going to be just like the previous basic example.
+Buradaki kodun çoğu önceki temel örnek gibi olacaktır.
 
 56:17.800 --> 56:19.080
-The few exceptions.
+Birkaç istisna var.
 
 56:19.090 --> 56:25.710
-One is that the character advanced is going to take in a reference in its constructor to the Monobehaviour.
+Birincisi, gelişmiş karakterin kurucusunda Monobehaviour'a bir referans alacak olmasıdır.
 
 56:25.710 --> 56:30.900
-This is because it needs to know some things about the Monobehaviour, particularly around its transform
+Bunun nedeni, Monobehaviour hakkında, özellikle de dönüşümüyle ilgili bazı şeyleri bilmeye ihtiyaç duymasıdır
 
 56:30.900 --> 56:31.710
-position.
+Pozisyon.
 
 56:31.830 --> 56:38.400
-There's also a situation where we need to use the second line and tell the Monobehaviour a reference
+İkinci satırı kullanmamız ve Monobehaviour'a bir referans söylememiz gereken bir durum da vardır
 
 56:38.400 --> 56:40.830
-back to us as the character advanced.
+karakter ilerledikçe bize geri dönecek.
 
 56:40.860 --> 56:47.460
-This is just so that the Monobehaviour, whenever it calls update can tell us to do the proper move.
+Bu sadece Monobehaviour'un güncelleme çağrısı yaptığında bize doğru hareketi yapmamızı söyleyebilmesi içindir.
 
 56:47.490 --> 56:52.950
-There's other ways you could organize this, but for simplicity's sake, we're passing in the monobehaviour
+Bunu düzenleyebileceğiniz başka yollar da var, ancak basitlik açısından monobehaviour
 
 56:52.950 --> 56:54.360
-and handling it this way.
+ve bu şekilde ele alıyorum.
 
 56:54.660 --> 56:57.150
-Let's see what other changes we see in the code base.
+Bakalım kod tabanında başka ne gibi değişiklikler göreceğiz.
 
 56:58.510 --> 57:00.820
-The move type is the same as the basic.
+Hareket türü temel ile aynıdır.
 
 57:00.850 --> 57:03.040
-The move by input is the same.
+Girişe göre hareket aynıdır.
 
 57:03.940 --> 57:08.260
-Down here the move by key code is very similar, if not identical.
+Burada anahtar koduna göre hareket aynı olmasa da çok benzerdir.
 
 57:09.300 --> 57:15.630
-And then down here in the move to and move by, you can notice that we are getting and setting the position
+Ve sonra burada aşağıya doğru hareket et ve hareket et ile, pozisyonu aldığımızı ve ayarladığımızı fark edebilirsiniz
 
 57:15.630 --> 57:18.300
-on the transform of the Monobehaviour.
+Monobehaviour'un dönüşümü üzerine.
 
 57:18.300 --> 57:25.260
-So again we have mostly a non monobehaviour class here doing what it can do without any dependency on
+Yani burada da çoğunlukla monobehaviour olmayan bir sınıfımız var ve herhangi bir bağımlılık olmadan yapabileceği şeyi yapıyor.
 
 57:25.260 --> 57:30.810
-monobehaviour and only in the most necessary spots does it address the Monobehaviour.
+ve sadece en gerekli noktalarda Monobehaviour'a hitap eder.
 
 57:30.840 --> 57:36.840
-That separation begins to help us think about how could we test just the monobehaviour if we could,
+Bu ayrım, eğer yapabilseydik sadece tek bir davranışı nasıl test edebileceğimizi düşünmemize yardımcı olmaya başlar,
 
 57:36.840 --> 57:39.910
-how could we test just the non monobehaviour if we could?
+Eğer yapabilseydik, sadece monobehaviour olmayanları nasıl test edebilirdik?
 
 57:39.930 --> 57:45.240
-Now, this isn't a perfect example because it's kind of the mid step as we're going along learning about
+Şimdi, bu mükemmel bir örnek değil, çünkü bu bir tür orta adımdır.
 
 57:45.240 --> 57:47.040
-how we can properly separate these.
+bunları nasıl düzgün bir şekilde ayırabiliriz.
 
 57:47.040 --> 57:48.600
-But I think it's a good learning.
+Ama bunun iyi bir öğrenme olduğunu düşünüyorum.
 
 57:48.600 --> 57:52.500
-So look at the source code here for character advanced.
+Gelişmiş karakter için buradaki kaynak koduna bakın.
 
 57:52.500 --> 57:56.550
-Compare it to character basic on your own time and see the differences there.
+Bunu kendi zamanınızdaki temel karakterle karşılaştırın ve aradaki farkları görün.
 
 57:56.730 --> 57:59.580
-Then let's take a look at the example that we do.
+O zaman yaptığımız örneğe bir göz atalım.
 
 57:59.580 --> 57:59.970
-Again.
+Tekrar.
 
 57:59.970 --> 58:01.500
-Here's the example that we saw.
+İşte gördüğümüz örnek.
 
 58:01.500 --> 58:02.670
-So it's these two lines.
+Yani bu iki çizgi.
 
 58:02.670 --> 58:03.900
-That's really the key.
+Bu gerçekten anahtar.
 
 58:03.930 --> 58:09.960
-We're going to add a component of the character advanced Monobehaviour onto our game object.
+Oyun nesnemize gelişmiş Monobehaviour karakterinin bir bileşenini ekleyeceğiz.
 
 58:09.960 --> 58:12.270
-And then we're going to create a new character advanced.
+Ve sonra yeni bir gelişmiş karakter oluşturacağız.
 
 58:12.270 --> 58:13.440
-That's a separate step.
+Bu ayrı bir adım.
 
 58:13.440 --> 58:17.010
-So you could imagine we would be able to test those two things in isolation.
+Böylece bu iki şeyi ayrı ayrı test edebileceğimizi hayal edebilirsiniz.
 
 58:17.010 --> 58:19.320
-Now they are quite dependent on each other.
+Şimdi birbirlerine oldukça bağımlılar.
 
 58:19.350 --> 58:24.000
-There's ways that we could massage that so that one does not directly depend on the other.
+Birinin diğerine doğrudan bağlı olmaması için bunu düzenleyebileceğimiz yollar var.
 
 58:24.000 --> 58:30.330
-Or we could do something like we did in the data loader example and use a substitute library so that
+Ya da veri yükleyici örneğinde yaptığımız gibi bir şey yapabilir ve bir yedek kütüphane kullanabiliriz, böylece
 
 58:30.330 --> 58:32.730
-we're mocking in the dependency instead.
+bunun yerine bağımlılıkta mocking yapıyoruz.
 
 58:32.730 --> 58:38.400
-But again, for simplicity of just learning how to separate a monobehaviour apart, I think we've done
+Ancak yine de, sadece bir monobehaviour'u nasıl ayıracağımızı öğrenmenin basitliği için, sanırım
 
 58:38.400 --> 58:39.210
-the case here.
+buradaki durum.
 
 58:39.210 --> 58:44.100
-You can run those tests with the edit mode and the play mode on your own time and take a look at this.
+Bu testleri düzenleme modu ve oynatma modu ile kendi zamanınızda çalıştırabilir ve buna bir göz atabilirsiniz.
 
 58:44.370 --> 58:50.460
-But for me, I think we're done talking about the differences in separating monobehaviour and non monobehaviour.
+Ama bana kalırsa, monobehaviour ve monobehaviour olmayanları ayırmadaki farklılıklar hakkında konuşmayı bitirdik.
 
 58:50.490 --> 58:51.120
-Thanks.
+Teşekkürler.
 
 58:57.320 --> 58:59.600
-Hello and welcome to Unit Testing for unity.
+Merhaba ve Unity için Birim Testine hoş geldiniz.
 
 58:59.630 --> 59:02.630
-This is our workshop talking about character physics.
+Bu atölye çalışmamızda karakter fiziği hakkında konuşuyoruz.
 
 59:02.660 --> 59:09.110
-Now in previous workshops we've slowly moved from a very simple character example, moving with arrow
+Şimdi önceki atölye çalışmalarında çok basit bir karakter örneğinden yavaşça okla hareket eden
 
 59:09.110 --> 59:14.960
-keys to the advanced example separating Monobehaviour and non monobehaviour concerns.
+Monobehaviour ve monobehaviour olmayan endişeleri ayıran gelişmiş örneğin anahtarları.
 
 59:14.960 --> 59:20.900
-And here in this one we're going to talk about what if we depend on yet another unity system like physics.
+Ve burada, fizik gibi başka bir birlik sistemine bağlı olursak ne olacağı hakkında konuşacağız.
 
 59:20.900 --> 59:26.720
-And also when we're using physics in this particular example our movement becomes fuzzier.
+Ve ayrıca bu özel örnekte fizik kullandığımızda hareketimiz daha bulanık hale gelir.
 
 59:26.720 --> 59:30.890
-Meaning I don't click left and it immediately clicks to a position.
+Yani sola tıklamıyorum ve hemen bir konuma tıklıyor.
 
 59:30.890 --> 59:32.930
-It slowly moves over time.
+Zaman içinde yavaşça hareket eder.
 
 59:32.930 --> 59:37.100
-How would we be able to test the value that is slowly changing over time?
+Zaman içinde yavaşça değişen değeri nasıl test edebiliriz?
 
 59:37.100 --> 59:40.220
-So we'll talk about a few of those things here in the source code.
+Bu yüzden kaynak kodda bu şeylerden birkaçı hakkında konuşacağız.
 
 59:40.220 --> 59:45.290
-So to take a look at this demo, we are opening up our unity editor and the sample project.
+Bu demoya bir göz atmak için unity editörümüzü ve örnek projemizi açıyoruz.
 
 59:45.290 --> 59:48.020
-The scene here is going to be the character physics scene.
+Buradaki sahne karakter fiziği sahnesi olacak.
 
 59:48.020 --> 59:51.720
-And one of the things we're going to be looking at is how to test those fuzzy values.
+Ve bakacağımız şeylerden biri de bu bulanık değerlerin nasıl test edileceğidir.
 
 59:51.740 --> 59:58.640
-I called it again, fuzzy values to me is values that aren't necessarily instantaneous, changing from
+Tekrar söylüyorum, bulanık değerler benim için anlık olması gerekmeyen değerlerdir.
 
 59:58.640 --> 1:00:05.960
-A to B, they slowly animate over time, such as the position of an object or a score that gradually
+A'dan B'ye, zaman içinde yavaşça hareketlenirler, örneğin bir nesnenin konumu veya yavaş yavaş
 
 1:00:05.960 --> 1:00:06.890
-counts up.
+sayıyor.
 
 1:00:06.920 --> 1:00:12.110
-These are all areas where you'd want to be able to test something over time, and we have one easy approach
+Bunların hepsi bir şeyi zaman içinde test edebilmek isteyeceğiniz alanlardır ve bizim kolay bir yaklaşımımız var
 
 1:00:12.110 --> 1:00:13.250
-here to do that.
+Bunu yapmak için buradayım.
 
 1:00:13.250 --> 1:00:17.750
-It's not the only way to solve it, but it's one that I think helps us learning along the way.
+Bunu çözmenin tek yolu bu değil, ancak yol boyunca öğrenmemize yardımcı olduğunu düşünüyorum.
 
 1:00:17.750 --> 1:00:18.770
-So let's take a look.
+Bir göz atalım.
 
 1:00:18.770 --> 1:00:20.420
-So here we are in the unity project.
+İşte unity projesindeyiz.
 
 1:00:20.420 --> 1:00:22.940
-We've got the character physics example open.
+Karakter fiziği örneğimiz açık.
 
 1:00:22.940 --> 1:00:24.500
-Let's go ahead and run the scene.
+Devam edelim ve sahneyi çalıştıralım.
 
 1:00:30.610 --> 1:00:33.520
-Now here I'm able to move using the arrow keys.
+Şimdi burada ok tuşlarını kullanarak hareket edebiliyorum.
 
 1:00:37.390 --> 1:00:42.970
-And in previous examples here in the workshop, we've seen it click over every click I did on the left
+Ve atölyedeki önceki örneklerde, solda yaptığım her tıklamanın üzerine tıkladığını gördük
 
 1:00:42.970 --> 1:00:48.430
-arrow, the position would click instantaneously changing, but here there's a smoother movement.
+okuna tıklandığında konum anlık olarak değişirdi, ancak burada daha yumuşak bir hareket var.
 
 1:00:49.060 --> 1:00:54.250
-I can still use all the arrow keys to direct different traffic of which way it should go, but the idea
+Farklı trafiği hangi yöne gitmesi gerektiği konusunda yönlendirmek için hala tüm ok tuşlarını kullanabilirim, ancak fikir
 
 1:00:54.250 --> 1:00:58.030
-of it moving slowly over time is really the novel situation now.
+Zaman içinde yavaş hareket etmesi şu anda gerçekten yeni bir durum.
 
 1:00:58.030 --> 1:01:03.790
-There's lots of ways you could do that in unity, but I chose to use the physics system just to talk
+Unity'de bunu yapmanın pek çok yolu var, ancak ben sadece konuşmak için fizik sistemini kullanmayı seçtim
 
 1:01:03.790 --> 1:01:08.920
-a little bit about what happens if we've got a few more unity systems involved.
+Birkaç tane daha birlik sistemi işin içine girerse ne olacağı hakkında biraz.
 
 1:01:08.920 --> 1:01:10.960
-Remember what we've been stretching with?
+Neyle gerildiğimizi hatırlıyor musun?
 
 1:01:10.960 --> 1:01:18.130
-And as an idea here is that in an ideal world, you get your unit testing to test the fewest lines of
+Ve buradaki fikir, ideal bir dünyada, birim testinizin en az sayıda satırı test etmesini sağlamaktır.
 
 1:01:18.130 --> 1:01:21.760
-dependency, fewest lines of code at once.
+bağımlılık, aynı anda en az kod satırı.
 
 1:01:21.760 --> 1:01:25.600
-But a lot of times our production code isn't so simplistic.
+Ancak çoğu zaman üretim kodumuz bu kadar basit değildir.
 
 1:01:25.600 --> 1:01:27.520
-We are depending on different things.
+Farklı şeylere bağlıyız.
 
 1:01:27.520 --> 1:01:33.370
-So with my data loader and with previous character examples here, we've seen some of the ways to handle
+Veri yükleyicim ve buradaki önceki karakter örnekleriyle, bazı işleme yollarını gördük
 
 1:01:33.370 --> 1:01:35.080
-those different dependencies.
+bu farklı bağımlılıklar.
 
 1:01:35.200 --> 1:01:38.260
-This is one more example a little bit more complex than the rest.
+Bu diğerlerinden biraz daha karmaşık bir örnek.
 
 1:01:38.290 --> 1:01:40.240
-Let's take a look at the production code here.
+Şimdi üretim koduna bir göz atalım.
 
 1:01:40.240 --> 1:01:43.120
-So here we'll look at the character physics example.
+Bu yüzden burada karakter fiziği örneğine bakacağız.
 
 1:01:44.530 --> 1:01:45.790
-We open that up?
+Bunu açıyor muyuz?
 
 1:01:47.210 --> 1:01:50.570
-And here we've got creating a character primitive.
+Ve burada bir ilkel karakter oluşturuyoruz.
 
 1:01:51.320 --> 1:01:59.840
-Here we create the game object first with the cube in appearance for the primitive, and then we add
+Burada oyun nesnesini önce ilkel için küp görünümünde oluşturuyoruz ve ardından
 
 1:01:59.840 --> 1:02:03.500
-the component of the character physics monobehaviour.
+karakter fiziği tek davranışının bileşeni.
 
 1:02:03.500 --> 1:02:07.070
-And then we have a separate character physics class that we take that in there.
+Ve sonra orada aldığımız ayrı bir karakter fiziği dersimiz var.
 
 1:02:07.070 --> 1:02:12.740
-So we're already separating from one monolithic class of monobehaviour into two.
+Yani zaten tek bir monobehaviour sınıfından ikiye ayrılıyoruz.
 
 1:02:12.740 --> 1:02:18.350
-So that's a good way to get our code more simplistic and doing a single purpose each in there.
+Bu, kodumuzu daha basit hale getirmenin ve orada her birini tek bir amaç için kullanmanın iyi bir yoludur.
 
 1:02:18.350 --> 1:02:25.640
-We saw in the previous example that most of the Monobehaviour functionality we needed was just the update.
+Önceki örnekte ihtiyacımız olan Monobehaviour işlevselliğinin çoğunun sadece güncelleme olduğunu gördük.
 
 1:02:25.640 --> 1:02:27.680
-That's the only thing we really needed to take care of.
+Gerçekten halletmemiz gereken tek şey buydu.
 
 1:02:27.710 --> 1:02:33.110
-So by moving all the non update stuff into the second class, we now have something that's easier to
+Bu nedenle, güncelleme dışındaki tüm şeyleri ikinci sınıfa taşıyarak, artık daha kolay
 
 1:02:33.110 --> 1:02:33.740
-test.
+Test.
 
 1:02:36.450 --> 1:02:39.570
-Then in this simple example, we moved to a particular position.
+Sonra bu basit örnekte, belirli bir konuma geçtik.
 
 1:02:39.600 --> 1:02:43.710
-Now let's run the tests and then let's take a look at the production code.
+Şimdi testleri çalıştıralım ve ardından üretim koduna bir göz atalım.
 
 1:02:43.740 --> 1:02:46.500
-So here let's take a look at running the selected.
+Şimdi seçilenleri çalıştırmaya bir göz atalım.
 
 1:02:48.580 --> 1:02:49.830
-It's all running there.
+Hepsi orada çalışıyor.
 
 1:02:49.850 --> 1:02:50.850
-Everything passes.
+Her şey geçiyor.
 
 1:02:50.870 --> 1:02:52.640
-Now that's just the play mode test.
+Bu sadece oyun modu testi.
 
 1:02:52.640 --> 1:02:57.110
-But we have also got edit mode tests if you want to dig in and take a look at it again, because we're
+Ancak, eğer tekrar bakmak isterseniz düzenleme modu testlerimiz de var, çünkü biz
 
 1:02:57.110 --> 1:02:58.950
-dealing with monobehaviour stuff.
+tek davranışlı şeylerle uğraşmak.
 
 1:02:58.970 --> 1:03:01.340
-It feels more appropriate to use a play mode.
+Bir oyun modu kullanmak daha uygun geliyor.
 
 1:03:01.340 --> 1:03:02.990
-So that's the approach I've done here.
+Yani burada yaptığım yaklaşım bu.
 
 1:03:02.990 --> 1:03:06.470
-But it's up to you and your project to decide which systems you want to test.
+Ancak hangi sistemleri test etmek istediğinize karar vermek size ve projenize bağlıdır.
 
 1:03:06.500 --> 1:03:08.230
-Edit mode and which ones you want to test.
+Düzenleme modu ve hangilerini test etmek istediğinizi.
 
 1:03:08.240 --> 1:03:08.840
-Play mode.
+Oyun modu.
 
 1:03:15.570 --> 1:03:21.000
-So now that we've seen those tests, let's take a quick look here at the source code for the class.
+Şimdi bu testleri gördüğümüze göre, sınıfın kaynak koduna hızlıca bir göz atalım.
 
 1:03:21.000 --> 1:03:22.660
-And then we'll look at some of the tests on top.
+Sonra da üstteki bazı testlere bakacağız.
 
 1:03:22.710 --> 1:03:22.860
-All right.
+Tamamdır.
 
 1:03:22.860 --> 1:03:24.780
-So here we are in the character physics.
+İşte karakter fiziğindeyiz.
 
 1:03:24.810 --> 1:03:28.870
-We're going to see it's pretty similar to the character advanced we saw last.
+Son gördüğümüz gelişmiş karaktere oldukça benzediğini göreceğiz.
 
 1:03:28.890 --> 1:03:32.850
-Again we've separated the Monobehaviour and the non monobehaviour class.
+Yine Monobehaviour ve monobehaviour olmayan sınıfı ayırdık.
 
 1:03:32.850 --> 1:03:36.630
-So here is the non monobehaviour class that's doing most of the work.
+İşte işin çoğunu yapan monobehaviour olmayan sınıf.
 
 1:03:36.660 --> 1:03:42.840
-Notice here inside its constructor it takes a reference to the Monobehaviour and stores it and then
+Burada kurucunun içinde Monobehaviour'a bir referans aldığına ve onu sakladığına dikkat edin ve sonra
 
 1:03:42.840 --> 1:03:47.670
-also passes into the Monobehaviour a reference to this class here.
+ayrıca Monobehaviour'a burada bu sınıfa bir referans aktarır.
 
 1:03:47.670 --> 1:03:51.900
-That's so that it can call the move by every time it does an update.
+Böylece her güncelleme yaptığında hareketi çağırabilir.
 
 1:03:51.930 --> 1:03:53.970
-Now there's different ways you could organize that.
+Şimdi bunu organize etmenin farklı yolları var.
 
 1:03:53.970 --> 1:03:57.810
-You could even remove the hardcoded dependency we have on each other here.
+Burada birbirimize olan sabit kodlanmış bağımlılığı bile kaldırabilirsiniz.
 
 1:03:57.810 --> 1:04:01.350
-But for the sake of simplicity in this example, this is very appropriate.
+Ancak bu örnekte basitlik adına bu çok uygundur.
 
 1:04:01.740 --> 1:04:02.790
-Going down the code.
+Koddan aşağı iniyorum.
 
 1:04:02.790 --> 1:04:05.820
-Again, it's just like the advanced in most parts.
+Yine, çoğu bölümde gelişmiş gibi.
 
 1:04:05.850 --> 1:04:08.670
-I'll do want to call out where there's physics being used.
+Fiziğin kullanıldığı yerleri belirtmek istiyorum.
 
 1:04:08.670 --> 1:04:16.920
-So here in movement, instead of just moving by the position hardcoded over one instance Taneous update,
+Yani burada harekette, sadece bir örnek üzerinde kodlanmış pozisyona göre hareket etmek yerine Taneous güncellemesi,
 
 1:04:16.950 --> 1:04:20.340
-we're going to be using the move position here.
+burada hareket pozisyonunu kullanacağız.
 
 1:04:20.340 --> 1:04:25.890
-And then under Add force, which is a new method that I did that is going to be moving based on physics
+Ve sonra Add force altında, ki bu benim yaptığım yeni bir yöntem, fiziğe dayalı olarak hareket edecek
 
 1:04:25.890 --> 1:04:26.580
-forces.
+Kuvvetler.
 
 1:04:26.580 --> 1:04:30.630
-So imagine this is a block and we're giving a push on one side.
+Bunun bir blok olduğunu ve bir taraftan ittiğimizi düşünün.
 
 1:04:30.630 --> 1:04:36.390
-And then based on friction and mass and gravity, you know there's some sort of consequence that tends
+Ve sonra sürtünme, kütle ve yerçekimine dayanarak, biliyorsunuz ki
 
 1:04:36.390 --> 1:04:39.240
-to be a fuzzier reaction here using the add force.
+burada kuvvet ekleyerek daha bulanık bir tepki verebiliriz.
 
 1:04:39.240 --> 1:04:45.570
-And we're moving by add force up here at the top of the same class file we see the physics monobehaviour
+Ve burada, aynı sınıf dosyasının en üstünde fizik tekli davranışını gördüğümüz kuvvet ekleyerek hareket ediyoruz
 
 1:04:45.600 --> 1:04:46.590
-is declared.
+ilan edildi.
 
 1:04:46.590 --> 1:04:52.560
-It's pretty familiar in that the same character advanced we saw in the last workshop looks pretty similar,
+Son atölyede gördüğümüz gelişmiş karakterin oldukça benzer görünmesi oldukça tanıdık,
 
 1:04:52.560 --> 1:04:55.350
-but we do have a rigid body here that we're storing.
+ama burada depoladığımız sert bir cisim var.
 
 1:04:55.350 --> 1:05:02.010
-And then when this class wakes up, we do some attaching of the rigid body and then set some physics
+Ve sonra bu sınıf uyandığında, katı gövdeyi bağlarız ve sonra bazı fizik ayarlarını yaparız
 
 1:05:02.010 --> 1:05:02.670
-values.
+değerler.
 
 1:05:02.670 --> 1:05:09.450
-So if we think about just kind of recapping instead of having one monobehaviour that does all the physics
+Yani tüm fiziği yapan tek bir davranışa sahip olmak yerine bir tür özetleme yapmayı düşünürsek
 
 1:05:09.450 --> 1:05:14.220
-and movement together, we've separated the monobehaviour from the non monobehaviour.
+ve hareketi bir araya getirerek, monobehaviour'u monobehaviour olmayanlardan ayırdık.
 
 1:05:14.250 --> 1:05:20.520
-Then inside the Monobehaviour we do the update loop and we also take care of some physics stuff.
+Daha sonra Monobehaviour içinde güncelleme döngüsünü yaparız ve bazı fizik şeyleriyle de ilgileniriz.
 
 1:05:20.610 --> 1:05:26.550
-Then from the other one, the non monobehaviour, we're able to move as we want and take character input,
+Sonra diğerinden, monobehaviour olmayan, istediğimiz gibi hareket edebiliyoruz ve karakter girişi alabiliyoruz,
 
 1:05:26.580 --> 1:05:28.470
-so take keyboard input and stuff like that.
+bu yüzden klavye girişi ve bunun gibi şeyleri alın.
 
 1:05:28.470 --> 1:05:32.940
-So it's a pretty good separation here and gets us going with what we need.
+Yani burada oldukça iyi bir ayrım var ve ihtiyacımız olan şeyle devam etmemizi sağlıyor.
 
 1:05:34.100 --> 1:05:37.820
-Let me think out loud if there's anything else I wanted to mention about this.
+Bu konuda belirtmek istediğim başka bir şey varsa yüksek sesle düşünmeme izin verin.
 
 1:05:38.330 --> 1:05:40.430
-Um, yeah.
+Evet.
 
 1:05:40.430 --> 1:05:42.620
-So I teased about the idea here.
+Bu yüzden buradaki fikirle dalga geçtim.
 
 1:05:42.620 --> 1:05:50.720
-If you wanted to reduce the hardcoded dependency that we have each class depending on each other and
+Her sınıfın birbirine bağlı olduğu kodlanmış bağımlılığı azaltmak istiyorsanız ve
 
 1:05:50.720 --> 1:05:56.270
-get more of the flexibility that we saw in the My Data loader example, you could certainly declare
+My Data loader örneğinde gördüğümüz esneklikten daha fazlasını elde etmek için, kesinlikle
 
 1:05:56.270 --> 1:05:58.670
-interfaces and address it that way.
+arayüzler ve bu şekilde ele alın.
 
 1:05:58.970 --> 1:06:00.680
-But we don't need to do that here.
+Ama burada bunu yapmamıza gerek yok.
 
 1:06:00.680 --> 1:06:03.370
-We'll just go back and run the example one more time.
+Geri dönüp örneği bir kez daha çalıştıracağız.
 
 1:06:03.380 --> 1:06:07.700
-So back here in unity we're running and we've got the arrow keys moving around.
+Unity'de koşuyoruz ve ok tuşlarıyla hareket ediyoruz.
 
 1:06:07.730 --> 1:06:13.130
-In the last few videos we've seen examples of reducing complexity.
+Son birkaç videoda karmaşıklığı azaltmanın örneklerini gördük.
 
 1:06:13.130 --> 1:06:17.870
-So reducing different dependencies some flexibility to separate our code out.
+Böylece farklı bağımlılıkları azaltarak kodumuzu ayırmak için biraz esneklik sağlar.
 
 1:06:17.870 --> 1:06:23.480
-So for the sake of this example here using input and physics and monobehaviours or stuff like that I
+Yani bu örnekte girdi, fizik, tekli davranışlar ya da bunun gibi şeyler kullanarak
 
 1:06:23.480 --> 1:06:24.620
-think we're all done here.
+Sanırım burada işimiz bitti.
 
 1:06:24.650 --> 1:06:25.340
-Thanks.
+Teşekkürler.
 
 1:06:31.470 --> 1:06:31.730
-Hi.
+Merhaba.
 
 1:06:31.740 --> 1:06:37.470
-That covers a lot of the different topics that I wanted to have in the workshop so far, but there's
+Bu, şimdiye kadar atölyede olmasını istediğim farklı konuların çoğunu kapsıyor, ancak
 
 1:06:37.470 --> 1:06:39.990
-plenty of room for more topics in the future.
+Gelecekte daha fazla konu için bolca yer var.
 
 1:06:39.990 --> 1:06:42.390
-We've seen in the workshops covered so far.
+Şimdiye kadar yapılan atölye çalışmalarında gördük.
 
 1:06:42.390 --> 1:06:49.350
-This simplest example learning the test runner, seeing how we can make playmode tests, edit mode tests,
+Bu en basit örnek test çalıştırıcısını öğrenmek, playmode testlerini, edit mode testlerini nasıl yapabileceğimizi görmek,
 
 1:06:49.380 --> 1:06:54.870
-learning a little bit about the differences of play mode and edit mode, and why you would want to test
+oynatma modu ve düzenleme modu arasındaki farklar ve neden test etmek isteyeceğiniz hakkında biraz bilgi edinmek
 
 1:06:54.870 --> 1:06:57.350
-in one or the other, or both.
+birinde ya da diğerinde ya da her ikisinde.
 
 1:06:57.360 --> 1:07:03.510
-Then we also saw some of the options we have when we have asynchronous functionality, or when we're
+Daha sonra, eşzamansız işlevselliğe sahip olduğumuzda sahip olduğumuz bazı seçenekleri de gördük veya
 
 1:07:03.510 --> 1:07:05.460
-dependent on other systems.
+diğer sistemlere bağımlı.
 
 1:07:05.460 --> 1:07:09.990
-What could we do to reduce that dependency for the sake of the test?
+Testin iyiliği için bu bağımlılığı azaltmak için ne yapabiliriz?
 
 1:07:10.020 --> 1:07:15.180
-Along the way there, we're learning some different things about dependency injection and separating
+Yol boyunca, bağımlılık enjeksiyonu ve bağımlılıkları ayırma hakkında bazı farklı şeyler öğreniyoruz.
 
 1:07:15.180 --> 1:07:16.650
-the concerns of our code.
+kodumuzun endişeleri.
 
 1:07:16.680 --> 1:07:22.710
-Those principles are useful in production code anyway, and we're beginning to see some of the ways
+Bu ilkeler zaten üretim kodunda kullanışlıdır ve bazı yolları görmeye başlıyoruz
 
 1:07:22.710 --> 1:07:29.850
-that when you prepare your code to be more testable, we're also creating code that is designed well
+Kodunuzu daha test edilebilir olacak şekilde hazırladığınızda, aynı zamanda iyi tasarlanmış bir kod da oluşturmuş oluruz
 
 1:07:29.850 --> 1:07:31.080
-for production.
+üretim için.
 
 1:07:31.080 --> 1:07:37.710
-So having dependency injection allows flexibility that you can use at runtime, reducing the complexity
+Dolayısıyla, bağımlılık enjeksiyonuna sahip olmak, çalışma zamanında kullanabileceğiniz esnekliği sağlayarak karmaşıklığı azaltır
 
 1:07:37.710 --> 1:07:44.370
-of your systems by passing in flexible varieties of different dependencies when you need to.
+İhtiyaç duyduğunuzda farklı bağımlılıkların esnek çeşitlerini aktararak sistemlerinizin.
 
 1:07:44.400 --> 1:07:51.960
-We've also seen by separating a monolithic large monobehaviour into just what we need from the monobehaviour
+Ayrıca monolitik büyük bir monobehaviour'u sadece monobehaviour'dan ihtiyacımız olana ayırarak gördük
 
 1:07:51.960 --> 1:07:58.620
-and moving the other code into a lighter weight non monobehaviour class, we again get some flexibility
+ve diğer kodu daha hafif, tek davranışlı olmayan bir sınıfa taşıyarak yine biraz esneklik elde ediyoruz
 
 1:07:58.620 --> 1:08:03.570
-that is useful in production and also helps us here in the testing world.
+üretimde yararlı olan ve aynı zamanda burada test dünyasında bize yardımcı olan.
 
 1:08:03.570 --> 1:08:10.170
-I think overall some of the challenges that we're seeing are what happens when you have multiple dependencies
+Bence genel olarak gördüğümüz zorluklardan bazıları, birden fazla bağımlılığınız olduğunda ne olduğudur
 
 1:08:10.200 --> 1:08:14.670
-or lots of systems called from one particular method.
+veya belirli bir yöntemden çağrılan çok sayıda sistem.
 
 1:08:15.060 --> 1:08:20.700
-That might be a sign that that method is bloated and doing too much, or it might be a sign that it's
+Bu, o yöntemin şişirilmiş ve çok fazla şey yaptığının bir işareti olabilir veya
 
 1:08:20.700 --> 1:08:23.130
-a lean and appropriate designed one.
+yalın ve uygun bir şekilde tasarlanmış.
 
 1:08:23.130 --> 1:08:28.800
-But we need to have some additional thoughts and considerations when we go to testing that functionality.
+Ancak bu işlevselliği test ederken bazı ek düşünce ve değerlendirmelere ihtiyacımız var.
 
 1:08:28.800 --> 1:08:31.050
-So I hope this has been helpful for you.
+Umarım bu sizin için faydalı olmuştur.
 
 1:08:31.050 --> 1:08:38.130
-I look forward to covering even more topics in this series as well, and they'll be added again in over
+Bu seride de daha fazla konuyu ele almayı dört gözle bekliyorum ve bunlar ilerleyen zamanlarda tekrar eklenecek.
 
 1:08:38.130 --> 1:08:38.610
-time.
+Zaman.
 
 1:08:38.610 --> 1:08:39.750
-So thanks again.
+Tekrar teşekkürler.

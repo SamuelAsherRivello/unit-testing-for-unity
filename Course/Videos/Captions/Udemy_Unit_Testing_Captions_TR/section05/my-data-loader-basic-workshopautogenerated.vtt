@@ -1,310 +1,310 @@
 WEBVTT
 
 00:00.050 --> 00:03.650
-Hello and welcome to this Unity Unit testing workshop.
+Merhaba ve bu Unity Birim testi atölyesine hoş geldiniz.
 
 00:03.650 --> 00:07.190
-We're going to look at my data loader Basic as an example.
+Örnek olarak benim veri yükleyicim Basic'e bakacağız.
 
 00:07.190 --> 00:07.820
-Let's dig in.
+Hadi başlayalım.
 
 00:07.820 --> 00:10.670
-So here in this demo I'm going to open up unity.
+İşte bu demoda unity'yi açacağım.
 
 00:10.670 --> 00:16.040
-Open up our core sample project and take a look at the scene of my data loader basic.
+Çekirdek örnek projemizi açın ve temel veri yükleyicimin sahnesine bir göz atın.
 
 00:16.040 --> 00:21.890
-Now the reason that I've chosen to do some sort of data loading is just to talk about, well, what
+Şimdi, bir çeşit veri yüklemesi yapmayı seçmemin nedeni, sadece ne hakkında konuşmaktır
 
 00:21.890 --> 00:30.290
-if our unit tests, which we hope are very dependable and isolated and run quickly for the sake of our
+çok güvenilir ve yalıtılmış olmasını umduğumuz birim testlerimiz hızlı bir şekilde çalışırsa
 
 00:30.290 --> 00:32.390
-own testing methodologies?
+kendi test metodolojileri?
 
 00:32.390 --> 00:38.150
-What if they depend on other systems, like how do we know that we're able to test just one part?
+Ya diğer sistemlere bağlıysa, örneğin sadece bir parçayı test edebileceğimizi nasıl bilebiliriz?
 
 00:38.180 --> 00:46.130
-In general, unit testing is testing a single unit, which you could think of as one method of one class.
+Genel olarak birim testi, bir sınıfın bir yöntemi olarak düşünebileceğiniz tek bir birimin test edilmesidir.
 
 00:46.130 --> 00:52.130
-But often our code is multiple classes depending together, and that can be a challenge for deciding
+Ancak çoğu zaman kodumuz birbirine bağlı birden fazla sınıftan oluşur ve bu da karar vermeyi zorlaştırabilir
 
 00:52.130 --> 00:55.460
-how to separate them and test them in isolation.
+onları nasıl ayıracağımızı ve izole olarak nasıl test edeceğimizi.
 
 00:55.460 --> 01:01.640
-Also, you could have a system that depends on something asynchronous, like rendering graphics, rendering
+Ayrıca, grafik oluşturma, render etme gibi asenkron bir şeye bağlı olan bir sisteminiz olabilir.
 
 01:01.640 --> 01:05.150
-audio, or in this case, calling a back end server.
+ses veya bu durumda bir arka uç sunucusunu çağırmak.
 
 01:05.150 --> 01:12.770
-So I created a very simple example here that loads data you pass in a URL, it just calls some web page
+Bu yüzden burada bir URL'ye aktardığınız verileri yükleyen çok basit bir örnek oluşturdum, sadece bir web sayfasını çağırıyor
 
 01:12.770 --> 01:15.020
-and gets back the text of that web page.
+ve bu web sayfasının metnini geri alır.
 
 01:15.050 --> 01:21.800
-So this is the simplest example, but you could imagine that this is any server logic calling to send
+Bu en basit örnektir, ancak bunun herhangi bir sunucu mantığı olduğunu düşünebilirsiniz.
 
 01:21.800 --> 01:26.930
-a high score from your game, calling to load player data, something related to multiplayer.
+oyununuzdan yüksek bir puan, oyuncu verilerini yüklemek için çağrı, çok oyunculu ile ilgili bir şey.
 
 01:26.930 --> 01:31.690
-Perhaps all of those could depend on some asynchronous network traffic.
+Belki de bunların hepsi bazı eşzamansız ağ trafiğine bağlı olabilir.
 
 01:31.700 --> 01:32.720
-Let's take a look.
+Bir göz atalım.
 
 01:32.810 --> 01:34.640
-So here we are in the sample.
+İşte örneklemdeyiz.
 
 01:34.640 --> 01:36.650
-We've got my data loader basic.
+Temel veri yükleyicim var.
 
 01:36.650 --> 01:37.310
-Load it up.
+Yükle.
 
 01:37.310 --> 01:38.330
-Let's hit play.
+Oynat tuşuna basalım.
 
 01:41.030 --> 01:42.380
-In this particular demo.
+Bu özel demoda.
 
 01:42.410 --> 01:46.940
-There's not too real interesting things in this particular demo.
+Bu özel demoda çok ilginç şeyler yok.
 
 01:46.970 --> 01:49.340
-There's not anything too interesting happening at gameplay.
+Oynanışta çok ilginç bir şey olmuyor.
 
 01:49.610 --> 01:53.330
-We'll go to the console here and see this scene has no UI.
+Burada konsola gideceğiz ve bu sahnenin kullanıcı arayüzü olmadığını göreceğiz.
 
 01:53.360 --> 01:59.660
-See the unity console, and then it's just showing the length of what is returned from the server.
+Unity konsoluna bakın ve sonra sadece sunucudan döndürülenlerin uzunluğunu gösteriyor.
 
 01:59.660 --> 02:03.590
-Anything not zero signifies hey, it loaded a page.
+Sıfır olmayan herhangi bir şey hey, bir sayfa yüklendi anlamına gelir.
 
 02:03.590 --> 02:05.030
-So very light.
+Çok hafif.
 
 02:05.030 --> 02:06.080
-Simple test.
+Basit bir test.
 
 02:06.080 --> 02:09.550
-I don't have error checking or these kinds of things built in.
+Hata denetimi ya da bu tür şeylere yerleşik olarak sahip değilim.
 
 02:09.560 --> 02:14.030
-It just assumes success for the sake of the simplicity of this demo.
+Bu demonun basitliği adına sadece başarı varsayılmaktadır.
 
 02:14.060 --> 02:18.170
-If you're doing production code and you're calling servers, you'd want to add a lot more functionality
+Üretim kodu yapıyorsanız ve sunucuları çağırıyorsanız, çok daha fazla işlevsellik eklemek istersiniz
 
 02:18.170 --> 02:18.800
-to it.
+ona.
 
 02:18.800 --> 02:23.160
-So that's the runtime experience, which is pretty simple and not that interesting.
+İşte bu oldukça basit ve o kadar da ilginç olmayan çalışma zamanı deneyimidir.
 
 02:23.180 --> 02:28.940
-Now if we look at the test runner here, we can set our category to be my data loader basic.
+Şimdi buradaki test çalıştırıcısına bakarsak, kategorimizi veri yükleyicim temel olacak şekilde ayarlayabiliriz.
 
 02:28.940 --> 02:32.720
-So it just shows us the tests related to this particular code.
+Yani bize sadece bu belirli kodla ilgili testleri gösterir.
 
 02:32.720 --> 02:34.520
-And then we hit our edit mode.
+Ve sonra düzenleme moduna geçiyoruz.
 
 02:34.520 --> 02:38.600
-Here again we have play mode but you can explore that on your own.
+Burada yine oyun modumuz var ama bunu kendi başınıza keşfedebilirsiniz.
 
 02:38.600 --> 02:42.620
-I find for this particular demo that edit mode is more interesting.
+Bu özel demo için düzenleme modunun daha ilginç olduğunu düşünüyorum.
 
 02:42.620 --> 02:45.050
-So I'm going to hit run all.
+Bu yüzden hepsini çalıştır'a basacağım.
 
 02:46.660 --> 02:48.740
-And we can see we've got success.
+Ve başarıya ulaştığımızı görebiliyoruz.
 
 02:48.760 --> 02:54.910
-This says load async result contains doctype when is loaded.
+Bu, load async sonucunun yüklendiğinde doctype içerdiğini söylüyor.
 
 02:54.910 --> 02:56.890
-So let's take a look at a little bit of that.
+Şimdi buna biraz göz atalım.
 
 02:57.010 --> 02:59.200
-We'll go here and do open our source.
+Buraya gideceğiz ve kaynağımızı açacağız.
 
 03:00.590 --> 03:02.210
-And here's the test.
+Ve işte test.
 
 03:02.300 --> 03:08.000
-It is showing that first we create an instance of our data loader basic.
+İlk olarak veri yükleyicimiz basic'in bir örneğini oluşturduğumuzu gösteriyor.
 
 03:08.300 --> 03:12.050
-Then we listen for when it gets loaded.
+Sonra yüklendiğinde dinleriz.
 
 03:13.000 --> 03:16.260
-We'll check on the data loaded back from the server.
+Sunucudan geri yüklenen verileri kontrol edeceğiz.
 
 03:16.270 --> 03:21.190
-Again, this is just calling a web page, and whatever the web page source code is returning it as a
+Yine, bu sadece bir web sayfasını çağırıyor ve web sayfasının kaynak kodu ne olursa olsun, onu bir
 
 03:21.190 --> 03:22.420
-big blob of text.
+büyük bir metin bloğu.
 
 03:22.420 --> 03:24.760
-So it's going to look like some HTML stuff.
+Bu yüzden bazı HTML öğeleri gibi görünecek.
 
 03:24.760 --> 03:30.310
-And as I looked at it while I was creating this, I noticed that it said doctype as part of it.
+Ve bunu oluştururken baktığımda, bir parçası olarak doctype yazdığını fark ettim.
 
 03:30.310 --> 03:35.920
-So Doctype is not something super significant, certainly not in the unity world, but I just thought
+Yani Doctype çok önemli bir şey değil, kesinlikle unity dünyasında değil, ama sadece düşündüm
 
 03:35.920 --> 03:40.030
-it was some little test that tells me did I get something back from a web page?
+Bir web sayfasından bir şey alıp almadığımı söyleyen küçük bir testti.
 
 03:40.030 --> 03:43.460
-You can imagine testing for any other substring that makes sense for you.
+Sizin için anlamlı olan başka herhangi bir alt dizeyi test etmeyi hayal edebilirsiniz.
 
 03:43.480 --> 03:50.410
-Then finally, I do the action here that we're testing upon, and I load the asynchronous call there
+Son olarak, burada test ettiğimiz eylemi yapıyorum ve eşzamansız çağrıyı buraya yüklüyorum
 
 03:50.410 --> 03:51.700
-and pass in the URL.
+ve URL'yi iletin.
 
 03:51.730 --> 03:58.600
-Now notice the URL is the URL of the GitHub page, but that's not so important if there's nothing unique
+URL'nin GitHub sayfasının URL'si olduğuna dikkat edin, ancak benzersiz bir şey yoksa bu o kadar önemli değildir
 
 03:58.600 --> 03:58.960
-there.
+Orada.
 
 03:58.960 --> 04:06.010
-If you wanted to test like the google.com it will just go and call google.com and get the the source
+Eğer google.com gibi bir test yapmak isterseniz, sadece gidip google.com'u arayacak ve kaynağı alacaktır
 
 04:06.010 --> 04:07.210
-code back from that.
+kodu geri alacağız.
 
 04:07.210 --> 04:12.610
-I don't really want to focus on what I'm doing here in the production code, because it's an admittedly
+Burada üretim kodunda ne yaptığıma gerçekten odaklanmak istemiyorum, çünkü kuşkusuz bu bir
 
 04:12.610 --> 04:13.720
-simple example.
+basit bir örnek.
 
 04:13.720 --> 04:19.030
-I just wanted it to be a way to get something asynchronous happening inside unity.
+Ben sadece unity içinde asenkron bir şeyler yapmanın bir yolu olmasını istedim.
 
 04:20.210 --> 04:22.880
-So let's look at the source code just so we understand.
+Şimdi anlayabilmemiz için kaynak koduna bakalım.
 
 04:23.880 --> 04:24.330
-Here.
+İşte.
 
 04:24.330 --> 04:24.930
-What we're doing.
+Yaptığımız şey.
 
 04:24.930 --> 04:29.130
-When I call load, I just say, hey, make sure that the URL is not empty.
+Yükle dediğimde, URL'nin boş olmadığından emin ol diyorum.
 
 04:29.520 --> 04:34.710
-Then I go ahead and I use Unity's web request, which is built in functionality.
+Sonra devam ediyorum ve Unity'nin yerleşik işlevi olan web isteğini kullanıyorum.
 
 04:34.710 --> 04:41.880
-I call send request on that, and then I set the result to be the download handler's text.
+Bunun üzerine istek gönder çağrısı yapıyorum ve ardından sonucu indirme işleyicisinin metni olarak ayarlıyorum.
 
 04:41.910 --> 04:44.220
-This is just a super cheap, easy way.
+Bu sadece süper ucuz ve kolay bir yol.
 
 04:44.220 --> 04:47.400
-Recommended by unity to call simple data online.
+Basit verileri çevrimiçi aramak için unity tarafından önerilir.
 
 04:47.430 --> 04:48.930
-Very simple and straightforward.
+Çok basit ve anlaşılır.
 
 04:48.960 --> 04:53.250
-Now this brings up a question what actually are we testing here?
+Şimdi bu, burada aslında neyi test ettiğimiz sorusunu gündeme getiriyor?
 
 04:53.640 --> 04:59.940
-I have a custom class called my data loader, but inside I'm heavily depending on some existing unity
+Veri yükleyicim adında özel bir sınıfım var, ancak içinde büyük ölçüde mevcut bazı unity
 
 04:59.970 --> 05:02.550
-functionality of unity web request.
+unity web isteğinin işlevselliği.
 
 05:02.580 --> 05:06.420
-Then I'm calling some web page in this case GitHub.
+Sonra bir web sayfasını, bu durumda GitHub'ı çağırıyorum.
 
 05:06.420 --> 05:08.040
-And that's involved.
+Ve bu da işin içinde.
 
 05:08.040 --> 05:13.170
-If GitHub was somehow down for the day, this test would fail.
+GitHub bir şekilde gün boyunca kapalı olsaydı, bu test başarısız olurdu.
 
 05:13.200 --> 05:14.490
-Is that appropriate?
+Bu uygun mu?
 
 05:14.490 --> 05:21.390
-If my unit test is really about testing my own methodology, my own functionality, I shouldn't consider
+Birim testim gerçekten kendi metodolojimi, kendi işlevselliğimi test etmekle ilgiliyse, aşağıdakileri dikkate almamalıyım
 
 05:21.390 --> 05:22.440
-it a failed test.
+başarısız bir test.
 
 05:22.440 --> 05:25.230
-If some unrelated dependency fails.
+İlgisiz bir bağımlılık başarısız olursa.
 
 05:25.230 --> 05:27.000
-But here that's the case.
+Ama burada durum böyle.
 
 05:27.000 --> 05:29.030
-I would fail if GitHub was down.
+GitHub kapalı olsaydı başarısız olurdum.
 
 05:29.040 --> 05:34.830
-Also, inside here I'm using Unity web request that's built in functionality by unity.
+Ayrıca, burada unity'nin yerleşik işlevi olan Unity web isteğini kullanıyorum.
 
 05:34.860 --> 05:41.280
-We hope that it works 100% of the time in all situations, but it's possible that my code works and
+Her durumda %100 çalışmasını umuyoruz, ancak kodumun çalışması ve
 
 05:41.280 --> 05:42.600
-its code doesn't work.
+kodu çalışmıyor.
 
 05:42.600 --> 05:44.910
-So there's a gray area here.
+Yani burada gri bir alan var.
 
 05:44.910 --> 05:50.070
-When you think about designing your classes and then designing the tests on those classes, how do you
+Sınıflarınızı tasarlamayı ve ardından bu sınıflar üzerindeki testleri tasarlamayı düşündüğünüzde, nasıl
 
 05:50.070 --> 05:52.350
-know what you should actually focus on?
+aslında neye odaklanmanız gerektiğini biliyor musunuz?
 
 05:52.350 --> 05:54.780
-Testing, generally speaking.
+Test, genel olarak konuşursak.
 
 05:54.780 --> 05:59.940
-And there's books and books written on this subject of how to approach the art of unit testing.
+Ve birim testi sanatına nasıl yaklaşılacağı konusunda yazılmış kitaplar ve kitaplar var.
 
 05:59.940 --> 06:05.730
-But generally speaking, you want to reduce your dependencies down, and you want to simplify the number
+Ancak genel olarak konuşmak gerekirse, bağımlılıklarınızı azaltmak ve sayıyı basitleştirmek istersiniz
 
 06:05.730 --> 06:07.920
-of code lines that you're testing.
+test ettiğiniz kod satırlarının sayısı.
 
 06:07.920 --> 06:14.880
-So less code is better because it's more simple and focused and you know exactly in isolation which
+Yani daha az kod daha iyidir çünkü daha basit ve odaklıdır ve tam olarak hangi kodun izole olduğunu bilirsiniz.
 
 06:14.880 --> 06:16.410
-code you're testing on.
+test ettiğiniz kod.
 
 06:16.410 --> 06:22.710
-So this isn't a perfect example, but for us, it's a great way to get started and just talk about asynchronous
+Yani bu mükemmel bir örnek değil, ancak bizim için başlamak ve asenkron hakkında konuşmak için harika bir yol
 
 06:22.710 --> 06:23.340
-code running.
+Kod çalışıyor.
 
 06:23.340 --> 06:25.440
-So for now we'll end this example.
+Bu yüzden şimdilik bu örneği sonlandırıyoruz.

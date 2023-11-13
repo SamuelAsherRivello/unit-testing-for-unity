@@ -1,196 +1,196 @@
 WEBVTT
 
 00:00.020 --> 00:03.440
-Creating unit tests, test class and test methods.
+Birim testleri, test sınıfı ve test metotları oluşturma.
 
 00:03.440 --> 00:07.100
-Here's the code for a test class containing one test method.
+İşte bir test yöntemi içeren bir test sınıfının kodu.
 
 00:07.100 --> 00:12.370
-Inside we follow the optional paradigm of arrange, act, and assert.
+İçeride isteğe bağlı düzenle, harekete geç ve iddia et paradigmasını takip ediyoruz.
 
 00:12.380 --> 00:14.870
-That's the convention I use for all of my testing.
+Tüm testlerim için kullandığım kural budur.
 
 00:14.870 --> 00:18.980
-So we've seen what a test looks like and how to run an existing test.
+Böylece bir testin neye benzediğini ve mevcut bir testin nasıl çalıştırılacağını gördük.
 
 00:19.010 --> 00:20.620
-Now let's create our own test.
+Şimdi kendi testimizi oluşturalım.
 
 00:20.630 --> 00:22.550
-We'll open up an empty project.
+Boş bir proje açacağız.
 
 00:22.580 --> 00:29.690
-Open the test Runner window, create a test folder, a test class, and a method inside that test.
+Test Runner penceresini açın, bir test klasörü, bir test sınıfı ve bu testin içinde bir yöntem oluşturun.
 
 00:29.720 --> 00:31.610
-Then we'll run the test and see the result.
+Sonra testi çalıştıracağız ve sonucu göreceğiz.
 
 00:31.610 --> 00:33.920
-Here we are in a fairly empty project.
+Burada oldukça boş bir projedeyiz.
 
 00:33.920 --> 00:37.310
-I do have the unity test framework added already.
+Unity test çerçevesini zaten ekledim.
 
 00:37.310 --> 00:39.470
-Let's open up the test runner window.
+Test çalıştırıcı penceresini açalım.
 
 00:39.470 --> 00:46.370
-Since the project has no edit mode tests and no play mode tests, each of those tabs offers some options
+Projede düzenleme modu testleri ve oynatma modu testleri olmadığından, bu sekmelerin her biri bazı seçenekler sunar
 
 00:46.370 --> 00:47.540
-here to get us started.
+Burada başlamamız için.
 
 00:47.540 --> 00:53.480
-First, we'll create an edit Mode test assembly folder by clicking the button that creates a new folder
+İlk olarak, yeni bir klasör oluşturan düğmeye tıklayarak bir düzenleme Modu test montaj klasörü oluşturacağız
 
 00:53.480 --> 00:59.930
-in our project window, including an assembly setup for testing unity assemblies and the assembly definition
+proje penceremizde, birlik montajlarını test etmek için bir montaj kurulumu ve montaj tanımı da dahil olmak üzere
 
 00:59.930 --> 01:07.220
-file is outside the scope of this course, but in brief, this signals unity that things within this
+dosyası bu dersin kapsamı dışındadır, ancak kısaca, bu, bu dosyadaki şeylerin birliğini işaret eder.
 
 01:07.220 --> 01:11.630
-given folder should be compiled, should be compiled in a unique way.
+verilen klasör derlenmeli, benzersiz bir şekilde derlenmelidir.
 
 01:11.630 --> 01:16.310
-So now that we have that test assembly folder set up, we can create our first test class.
+Şimdi bu test montaj klasörünü kurduğumuza göre, ilk test sınıfımızı oluşturabiliriz.
 
 01:16.310 --> 01:21.290
-Each of these steps can be done manually without using the window, but I'll continue by clicking the
+Bu adımların her biri pencereyi kullanmadan manuel olarak yapılabilir, ancak ben
 
 01:21.290 --> 01:26.390
-next button here to create a test script in the current folder in the project window, that creates
+Proje penceresindeki geçerli klasörde bir test komut dosyası oluşturmak için buradaki ileri düğmesi
 
 01:26.420 --> 01:29.460
-a new test class, and it gives us two test methods.
+yeni bir test sınıfı ve bize iki test yöntemi verir.
 
 01:29.480 --> 01:32.350
-Notice in the test runner window everything shows up.
+Test çalıştırıcısı penceresinde her şeyin göründüğüne dikkat edin.
 
 01:32.360 --> 01:33.770
-I'll run all those tests.
+Tüm testleri yapacağım.
 
 01:33.770 --> 01:35.040
-All the tests pass.
+Tüm testler geçer.
 
 01:35.060 --> 01:37.160
-Let's take a look at the code that's generated.
+Şimdi oluşturulan koda bir göz atalım.
 
 01:37.160 --> 01:41.990
-At this point, you're free to rename the class and these methods however you see fit.
+Bu noktada, sınıfı ve bu yöntemleri uygun gördüğünüz şekilde yeniden adlandırmakta özgürsünüz.
 
 01:41.990 --> 01:45.530
-And then of course copy and paste to add more methods within.
+Ve tabii ki daha fazla yöntem eklemek için kopyalayıp yapıştırın.
 
 01:45.530 --> 01:50.840
-There's no limit to the number of test methods you can have in a test class, but generally you use
+Bir test sınıfında sahip olabileceğiniz test yöntemlerinin sayısında bir sınır yoktur, ancak genellikle
 
 01:50.840 --> 01:57.890
-the class to organize certain topics, perhaps one test class for each production class, and then one
+Belirli konuları organize etmek için sınıf, belki her üretim sınıfı için bir test sınıfı ve ardından bir
 
 01:57.890 --> 02:00.440
-test method within for each method.
+her yöntem için kendi içinde test yöntemi.
 
 02:00.440 --> 02:03.290
-In production, you want to test something like that.
+Üretimde böyle bir şeyi test etmek istersiniz.
 
 02:03.290 --> 02:07.010
-These comments are automatically generated by unity and are quite helpful.
+Bu yorumlar unity tarafından otomatik olarak oluşturulur ve oldukça faydalıdır.
 
 02:07.520 --> 02:10.310
-I'll go over the highlights here using the test.
+Burada testi kullanarak önemli noktaların üzerinden geçeceğim.
 
 02:10.640 --> 02:15.740
-Using the test attribute sets us up for a normal edit mode test.
+Test özelliğini kullanmak bizi normal bir düzenleme modu testi için hazırlar.
 
 02:15.740 --> 02:22.100
-Using the unity test attribute allows us to execute a test over multiple frames.
+Unity test özelliğini kullanmak, bir testi birden fazla kare üzerinden yürütmemizi sağlar.
 
 02:22.100 --> 02:26.630
-Now, I mentioned before that using unity test is best fit for play mode.
+Şimdi, daha önce unity test kullanmanın oyun modu için en uygun yöntem olduğundan bahsetmiştim.
 
 02:26.660 --> 02:31.160
-You have much more options at what type of asynchronous functionality you can do there.
+Burada ne tür eşzamansız işlevler yapabileceğiniz konusunda çok daha fazla seçeneğiniz vardır.
 
 02:31.160 --> 02:38.060
-It is indeed possible here, and as the comment suggests, you can use yield return null to skip a frame.
+Burada gerçekten mümkündür ve yorumda da belirtildiği gibi, bir kareyi atlamak için yield return null kullanabilirsiniz.
 
 02:38.060 --> 02:42.920
-For example, doing the setup, then waiting a frame and doing the test.
+Örneğin, kurulumu yapmak, ardından bir kare beklemek ve testi yapmak.
 
 02:42.920 --> 02:43.910
-Something like that.
+Onun gibi bir şey.
 
 02:43.910 --> 02:46.220
-For example doing the setup code.
+Örneğin kurulum kodunu yapmak.
 
 02:46.220 --> 02:47.660
-Waiting a frame.
+Bir kare bekleniyor.
 
 02:48.220 --> 02:52.240
-And then doing the assertion, something like that here, back into unity.
+Ve sonra burada olduğu gibi bir iddiada bulunarak birliğe geri dönün.
 
 02:52.240 --> 02:54.580
-I will tab over to the.
+Şuraya geçeceğim.
 
 02:55.200 --> 02:57.720
-Play mode and follow the same steps.
+Oynatma moduna geçin ve aynı adımları izleyin.
 
 02:57.720 --> 03:03.870
-First, we'll create a play mode test assembly folder, and then I'll create a test script.
+İlk olarak, bir oyun modu test montaj klasörü oluşturacağız ve ardından bir test komut dosyası oluşturacağım.
 
 03:03.870 --> 03:04.710
-In this folder.
+Bu klasörde.
 
 03:04.710 --> 03:09.840
-We can see in the test runner that we've got one test class that contains two test methods.
+Test koşucusunda iki test yöntemi içeren bir test sınıfımız olduğunu görebiliriz.
 
 03:10.350 --> 03:13.250
-I'll run all and we see that everything passes.
+Hepsini çalıştıracağım ve her şeyin geçtiğini göreceğiz.
 
 03:13.260 --> 03:15.230
-Let's take a look at the generated code.
+Oluşturulan koda bir göz atalım.
 
 03:15.240 --> 03:21.870
-The code generated here is actually identical in both play mode and edit mode.
+Burada oluşturulan kod aslında hem oynatma modunda hem de düzenleme modunda aynıdır.
 
 03:21.900 --> 03:24.120
-They give you very similar starting points.
+Size çok benzer başlangıç noktaları verirler.
 
 03:24.120 --> 03:25.050
-That's it.
+Bu kadar.
 
 03:26.390 --> 03:31.910
-We're beginning to see that with the test runner window and just a little bit of added C-sharp, we
+Test koşucusu penceresi ve birazcık C-keskinliği ekleyerek bunu görmeye başlıyoruz.
 
 03:31.910 --> 03:35.110
-can do more things with our unity projects than we have before.
+birlik projelerimizle daha önce sahip olduğumuzdan daha fazla şey yapabiliriz.
 
 03:35.120 --> 03:40.490
-If you're new to unit testing, you're familiar with using unity to create runtime code.
+Birim testinde yeniyseniz, çalışma zamanı kodu oluşturmak için unity kullanmaya aşinasınızdır.
 
 03:40.490 --> 03:42.740
-But testing code is something different.
+Ancak kodu test etmek farklı bir şeydir.
 
 03:43.300 --> 03:46.660
-It's never directly experienced by your end users.
+Son kullanıcılarınız tarafından asla doğrudan deneyimlenmez.
 
 03:47.110 --> 03:52.200
-This code only runs in test mode and it's not even packaged into your end build.
+Bu kod yalnızca test modunda çalışır ve son derlemenizde paketlenmez bile.
 
 03:52.210 --> 03:58.790
-We start to look at tests now as a small window into moments in time in a larger application.
+Testlere artık daha büyük bir uygulamada zaman içindeki anlara açılan küçük bir pencere olarak bakmaya başlıyoruz.
 
 03:58.810 --> 04:02.930
-Testing with a narrow focus to ensure we get consistent results.
+Tutarlı sonuçlar aldığımızdan emin olmak için dar bir odakla test yapıyoruz.
 
 04:02.950 --> 04:08.200
-Up to now, we've been talking mostly about adding new tests to existing code.
+Şu ana kadar çoğunlukla mevcut koda yeni testler eklemekten bahsettik.
 
 04:08.230 --> 04:13.300
-Next, we'll look at how to add tests while we're developing code with test driven development.
+Daha sonra, test güdümlü geliştirme ile kod geliştirirken testleri nasıl ekleyeceğimize bakacağız.
 
 04:13.330 --> 04:14.110
-Thanks.
+Teşekkürler.

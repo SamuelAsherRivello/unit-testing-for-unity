@@ -1,322 +1,322 @@
 WEBVTT
 
 00:00.020 --> 00:01.220
-Test driven development.
+Test odaklı geliştirme.
 
 00:01.220 --> 00:04.790
-Here's an example of a test class with a test method.
+İşte bir test metoduna sahip bir test sınıfı örneği.
 
 00:04.790 --> 00:08.330
-Already in the course, we've seen how to run an existing test.
+Kursta zaten mevcut bir testin nasıl çalıştırılacağını gördük.
 
 00:08.360 --> 00:11.080
-We've seen how to create new tests from scratch.
+Sıfırdan yeni testlerin nasıl oluşturulacağını gördük.
 
 00:11.090 --> 00:17.450
-Test Driven development, or TDD, is the practice of adding tests before you add your production code.
+Test Güdümlü geliştirme veya TDD, üretim kodunuzu eklemeden önce testler ekleme uygulamasıdır.
 
 00:17.450 --> 00:21.180
-For some, especially those new to testing, this can seem odd.
+Bazıları için, özellikle de test yapmaya yeni başlayanlar için bu durum tuhaf görünebilir.
 
 00:21.200 --> 00:26.300
-We'll learn more about the technique, and note that you can mix test driven development with traditional
+Bu teknik hakkında daha fazla bilgi edineceğiz ve test odaklı geliştirme ile geleneksel
 
 00:26.330 --> 00:29.360
-testing however you like into your own workflows.
+kendi iş akışlarınızda istediğiniz gibi test edebilirsiniz.
 
 00:29.390 --> 00:36.500
-TDD creates tests that specify and validate what code will do once it's created.
+TDD, kod oluşturulduktan sonra ne yapacağını belirleyen ve doğrulayan testler oluşturur.
 
 00:36.950 --> 00:38.120
-Here's the workflow.
+İşte iş akışı.
 
 00:38.150 --> 00:39.560
-You create a new test.
+Yeni bir test oluşturuyorsunuz.
 
 00:39.590 --> 00:44.120
-You add just enough implementation within it so that the code compiles.
+Kodun derlenebilmesi için içine yeterince uygulama eklersiniz.
 
 00:44.120 --> 00:50.180
-Since we've added just enough production code for this code to compile, perhaps even having an empty
+Bu kodun derlenmesi için yeterli üretim kodu eklediğimizden, belki de boş bir
 
 00:50.210 --> 00:51.260
-implementation.
+Uygulama.
 
 00:51.260 --> 00:53.900
-We run the test and the test fails.
+Testi çalıştırıyoruz ve test başarısız oluyor.
 
 00:54.260 --> 01:00.290
-That's expected, and it's actually a very good place to start by first seeing a failing test.
+Bu beklenen bir durumdur ve aslında ilk olarak başarısız bir test görerek başlamak için çok iyi bir yerdir.
 
 01:00.290 --> 01:05.960
-If we have more confidence that the test once it passes actually means something, you then refactor
+Geçtiğinde testin gerçekten bir şey ifade ettiğine dair daha fazla güvenimiz varsa, o zaman yeniden düzenlersiniz
 
 01:05.960 --> 01:09.310
-your production code until the code passes and then move on.
+kod geçene kadar üretim kodunuz ve sonra devam edin.
 
 01:09.330 --> 01:15.860
-TDD is not simply the order of testing first and writing your production code second.
+TDD, basitçe önce test etme ve üretim kodunuzu ikinci olarak yazma sırası değildir.
 
 01:15.860 --> 01:19.060
-It's also a way of thinking about your projects.
+Bu aynı zamanda projeleriniz hakkında düşünmenin bir yoludur.
 
 01:19.070 --> 01:24.080
-Some of this you really need to practice in order to feel the results.
+Bunların bazılarının sonuçlarını hissetmek için gerçekten pratik yapmanız gerekir.
 
 01:24.080 --> 01:30.980
-But what I find with more TDD experience is that you think about your new code differently, you're
+Ancak daha fazla TDD deneyimi ile bulduğum şey, yeni kodunuz hakkında farklı düşündüğünüzdür.
 
 01:30.980 --> 01:37.370
-more focused in your development, you create more atomic code that does just one thing.
+Geliştirmenizde daha odaklı olursanız, tek bir şey yapan daha atomik kodlar oluşturursunuz.
 
 01:37.370 --> 01:42.020
-And when you have your testing code pass, it's a more meaningful pass.
+Ve test kodunuz geçtiğinde, bu daha anlamlı bir geçiştir.
 
 01:42.050 --> 01:46.280
-Another way to look at this flow is that you write a failing test.
+Bu akışa bakmanın bir başka yolu da başarısız bir test yazmaktır.
 
 01:46.280 --> 01:51.530
-You make the test pass, and then you refactor your code to meet any other goals.
+Testi geçmesini sağlarsınız ve ardından kodunuzu diğer hedefleri karşılayacak şekilde yeniden düzenlersiniz.
 
 01:51.530 --> 01:54.710
-You have optimization, coding standards.
+Optimizasyonunuz, kodlama standartlarınız var.
 
 01:54.710 --> 01:55.490
-ET cetera.
+Vesaire.
 
 01:55.940 --> 01:57.060
-And then you repeat.
+Ve sonra tekrarlıyorsun.
 
 01:57.080 --> 01:58.490
-Let's see this in action.
+Bunu iş başında görelim.
 
 01:58.490 --> 02:01.210
-We'll open up a unity project that's got a test already.
+Halihazırda bir testi olan bir unity projesi açacağız.
 
 02:01.220 --> 02:08.690
-We'll use TDD to add a new test, create just enough production code for it to compile, see a failing
+TDD'yi yeni bir test eklemek için kullanacağız, derlemek için yeterli üretim kodu oluşturacağız, başarısız bir
 
 02:08.690 --> 02:12.050
-result, and then refactor until we have a passing result.
+ve sonra geçen bir sonuç elde edene kadar yeniden düzenleyin.
 
 02:12.820 --> 02:16.090
-Here we are in a fairly empty unity project.
+Burada oldukça boş bir unity projesindeyiz.
 
 02:16.090 --> 02:22.450
-I've made sure that the test framework is already added in the package manager as shown earlier, and
+Test çerçevesinin daha önce gösterildiği gibi paket yöneticisine zaten eklenmiş olduğundan emin oldum ve
 
 02:22.450 --> 02:25.390
-I've copied one test in for us to begin with.
+Başlamamız için bir test kopyaladım.
 
 02:25.420 --> 02:28.250
-Let's take a look at that test here in edit mode.
+Düzenleme modunda bu teste bir göz atalım.
 
 02:28.270 --> 02:33.660
-I have one test providing coverage on the add method of a simple math class.
+Basit bir matematik sınıfının add metodunu kapsayan bir testim var.
 
 02:33.670 --> 02:35.720
-Let's run the test it passes.
+Testi çalıştıralım. Geçti.
 
 02:35.740 --> 02:37.120
-Let's take a look at the code.
+Koda bir göz atalım.
 
 02:37.120 --> 02:41.300
-And here we see the one test we're familiar with from earlier in the presentation.
+Ve burada, sunumun önceki bölümlerinden aşina olduğumuz bir testi görüyoruz.
 
 02:41.320 --> 02:45.160
-Now let's perform some test driven development as discussed here.
+Şimdi burada tartışıldığı gibi biraz test güdümlü geliştirme yapalım.
 
 02:45.190 --> 02:51.280
-The idea is that if we were to expand the functionality of the math system, we have a few approaches.
+Buradaki fikir, eğer matematik sisteminin işlevselliğini genişletmek istiyorsak, birkaç yaklaşımımız olduğudur.
 
 02:51.310 --> 02:57.010
-We could either go create that production code without any testing and afterwards.
+Bu üretim kodunu herhangi bir test yapmadan ve sonrasında da oluşturabiliriz.
 
 02:57.930 --> 03:01.260
-And afterwards maybe we add tests, or maybe we don't.
+Sonrasında belki testler ekleriz, belki de eklemeyiz.
 
 03:02.310 --> 03:08.400
-However, with test driven development, we're going to test first before we've added any production
+Bununla birlikte, test odaklı geliştirme ile, herhangi bir üretim eklemeden önce ilk önce test edeceğiz
 
 03:08.400 --> 03:08.970
-code.
+Kod.
 
 03:09.730 --> 03:10.930
-Let's see how that works.
+Nasıl çalıştığını görelim.
 
 03:10.930 --> 03:12.340
-I'll imagine I'm creating.
+Yarattığımı hayal edeceğim.
 
 03:12.910 --> 03:16.600
-Let's imagine the math system needs a subtract method.
+Matematik sisteminin bir çıkarma yöntemine ihtiyacı olduğunu düşünelim.
 
 03:17.830 --> 03:22.150
-Now this subtract method doesn't exist yet, as we'll see when we look at the source code.
+Kaynak koda baktığımızda göreceğimiz gibi, bu çıkarma yöntemi henüz mevcut değil.
 
 03:22.950 --> 03:24.780
-But let's make a test for it anyway.
+Ama yine de bunun için bir test yapalım.
 
 03:25.650 --> 03:28.980
-I'll start by adding the test attribute.
+Test özelliğini ekleyerek başlayacağım.
 
 03:29.190 --> 03:33.030
-I'll name the method with what is under test.
+Yöntemi test edilen şeyle adlandıracağım.
 
 03:33.060 --> 03:39.990
-What's the expected result and in what situation I expect for subtract, the result would be five.
+Beklenen sonuç nedir ve çıkarma işlemi için beklediğim durumda sonuç beş olacaktır.
 
 03:40.020 --> 03:45.000
-If I pass in ten and five, ten minus five is five.
+Eğer 10 ve 5'i geçersem, 10 eksi 5, 5 eder.
 
 03:45.030 --> 03:48.870
-To set up the test, I instantiate a new copy of my math system.
+Testi ayarlamak için matematik sistemimin yeni bir kopyasını oluşturuyorum.
 
 03:49.080 --> 03:52.120
-I get the result by calling the subtract method.
+Çıkartma yöntemini çağırarak sonucu elde ediyorum.
 
 03:52.140 --> 03:56.730
-The red text here indicates my code editor knows there's no subtract method.
+Buradaki kırmızı metin, kod düzenleyicimin çıkarma yöntemi olmadığını bildiğini gösteriyor.
 
 03:56.730 --> 04:01.200
-And finally, we expect our method to return a value of five.
+Ve son olarak, metodumuzun beş değerini döndürmesini bekliyoruz.
 
 04:01.230 --> 04:04.980
-Because I copy and pasted this from the earlier example, it says 15.
+Bunu daha önceki örnekten kopyalayıp yapıştırdığım için 15 yazıyor.
 
 04:05.010 --> 04:06.060
-I'll change that now.
+Bunu şimdi değiştireceğim.
 
 04:06.090 --> 04:08.070
-Now it's checking the proper assumption.
+Şimdi doğru varsayımı kontrol ediyor.
 
 04:08.670 --> 04:13.050
-Now we know this is not going to compile, but let's save and return to unity.
+Şimdi bunun derlenmeyeceğini biliyoruz, ancak kaydedelim ve unity'ye dönelim.
 
 04:13.080 --> 04:19.530
-Let's note two things one, the console window is properly showing that there's a compiler error, and
+İki şeye dikkat edelim: Birincisi, konsol penceresi bir derleyici hatası olduğunu düzgün bir şekilde gösteriyor ve
 
 04:19.530 --> 04:24.150
-two notice in the test runner window we don't yet see our new method.
+test runner penceresinde henüz yeni metodumuzu görmediğimizi fark ettik.
 
 04:24.180 --> 04:26.520
-These are good things to note in TDD.
+Bunlar TDD'de dikkat edilmesi gereken iyi şeylerdir.
 
 04:26.550 --> 04:30.810
-The next step is to make just enough code that it compiles.
+Bir sonraki adım, derlemeye yetecek kadar kod yazmaktır.
 
 04:30.840 --> 04:34.570
-It's very important we don't finish the implementation at this stage.
+Uygulamayı bu aşamada bitirmememiz çok önemli.
 
 04:34.590 --> 04:36.780
-Here's the source code for our math system.
+İşte matematik sistemimizin kaynak kodu.
 
 04:36.780 --> 04:41.920
-Here's the very simplest implementation I can do that gets the code to compile.
+İşte kodu derlemek için yapabileceğim en basit uygulama.
 
 04:41.940 --> 04:45.610
-Notice that I don't finish the proper implementation.
+Doğru uygulamayı bitirmediğime dikkat edin.
 
 04:45.630 --> 04:52.480
-Now in this example, it seems trivial because we know all we need to do is subtract a and b.
+Şimdi bu örnekte, tek yapmamız gerekenin a ve b'yi çıkarmak olduğunu bildiğimiz için önemsiz görünüyor.
 
 04:52.500 --> 04:58.320
-However, normally in test driven development, the implementation of a given method would be more complex
+Bununla birlikte, normalde test güdümlü geliştirmede, belirli bir yöntemin uygulanması daha karmaşık olacaktır
 
 04:58.320 --> 04:59.400
-and take more time.
+ve daha fazla zaman alır.
 
 04:59.430 --> 05:03.390
-Regardless, we always stop here once we have enough to compile.
+Ne olursa olsun, derlemek için yeterli sayıya ulaştığımızda her zaman burada dururuz.
 
 05:04.090 --> 05:05.250
-Let's look at the test.
+Teste bakalım.
 
 05:05.260 --> 05:07.840
-Our code editor properly no longer shows.
+Kod düzenleyicimiz artık düzgün bir şekilde gösterilmiyor.
 
 05:07.840 --> 05:09.010
-Subtract and red.
+Çıkar ve kırmızı.
 
 05:09.460 --> 05:11.260
-Let's save and check unity.
+Kaydedelim ve birliği kontrol edelim.
 
 05:11.290 --> 05:13.600
-Now we don't see any console errors.
+Artık herhangi bir konsol hatası görmüyoruz.
 
 05:13.630 --> 05:14.170
-Great.
+Harika.
 
 05:14.170 --> 05:15.400
-Everything is compiling.
+Her şey derleniyor.
 
 05:15.400 --> 05:19.210
-And now our test runner window properly shows the new test method.
+Ve şimdi test çalıştırıcı penceremiz yeni test yöntemini düzgün bir şekilde gösteriyor.
 
 05:19.210 --> 05:20.290
-Let's run all tests.
+Tüm testleri çalıştıralım.
 
 05:20.290 --> 05:26.320
-You can consider the testing of failure because one or more test methods fail.
+Bir veya daha fazla test yöntemi başarısız olduğu için başarısızlık testini düşünebilirsiniz.
 
 05:26.320 --> 05:32.290
-When we look at when we select the failing method, we see some small input there we see a bit of output
+Başarısız yöntemi seçtiğimizde baktığımızda, orada küçük bir girdi görüyoruz, biraz çıktı görüyoruz
 
 05:32.320 --> 05:34.120
-text that shows why it failed.
+neden başarısız olduğunu gösteren bir metin.
 
 05:34.240 --> 05:38.410
-It's expecting five, but instead it's returning zero.
+Beş bekliyor ama onun yerine sıfır döndürüyor.
 
 05:38.410 --> 05:40.420
-Now why did we go through the motions here?
+Şimdi neden buradaki hareketleri yaptık?
 
 05:40.420 --> 05:46.600
-It may seem trivial, but it's an important distinction that we create a test we believe tests the proper
+Önemsiz görünebilir, ancak doğru testi test ettiğine inandığımız bir test oluşturmamız önemli bir ayrımdır.
 
 05:46.600 --> 05:49.120
-functionality, and we first see it fail.
+işlevselliği ve ilk olarak başarısız olduğunu görüyoruz.
 
 05:49.120 --> 05:55.420
-That gives us a good basis to know when a proper implementation gives a pass with confidence.
+Bu da bize uygun bir uygulamanın ne zaman güvenle geçilebileceğini bilmek için iyi bir temel sağlar.
 
 05:55.420 --> 05:57.040
-Let's add the proper implementation.
+Uygun uygulamayı ekleyelim.
 
 05:57.040 --> 06:02.050
-Here we assume that the first parameter coming in would be larger than the second, and we simply return
+Burada, gelen ilk parametrenin ikinciden daha büyük olacağını varsayıyoruz ve basitçe
 
 06:02.050 --> 06:04.080
-and we simply return a minus b.
+ve basitçe a eksi b döndürüyoruz.
 
 06:04.090 --> 06:05.560
-Let's save and run the test.
+Kaydedelim ve testi çalıştıralım.
 
 06:07.440 --> 06:12.480
-Now the test runs well and we've completed our first example of test driven development.
+Şimdi test iyi çalışıyor ve ilk test güdümlü geliştirme örneğimizi tamamladık.
 
 06:12.480 --> 06:13.410
-That's it.
+Bu kadar.
 
 06:13.800 --> 06:20.580
-Now, I know from my own experience that it took me time and practice with testing to really feel the
+Şimdi, kendi deneyimlerimden biliyorum ki, gerçekten hissetmek için testlerle zaman geçirmem ve pratik yapmam gerekti.
 
 06:20.580 --> 06:21.390
-benefits.
+Faydaları.
 
 06:21.420 --> 06:29.820
-While we've had a brief overview with unit testing, creating unit tests and test driven development,
+Birim testleri, birim testleri oluşturma ve test güdümlü geliştirme konularına kısa bir genel bakış yaptık,
 
 06:30.420 --> 06:35.070
-I hope you're beginning to see some of the benefits that could work well for you.
+Umarım sizin için iyi olabilecek bazı faydaları görmeye başlıyorsunuzdur.
 
 06:35.100 --> 06:39.360
-Combining what you've learned here about testing with MVC architecture.
+Burada test hakkında öğrendiklerinizi MVC mimarisi ile birleştirmek.
 
 06:39.390 --> 06:47.340
-You have the tools to create projects that are more modular, scalable, optimized, robust, and dependable.
+Daha modüler, ölçeklenebilir, optimize edilmiş, sağlam ve güvenilir projeler oluşturmak için gerekli araçlara sahipsiniz.
 
 06:47.370 --> 06:52.440
-The combination of testing and good architecture is really powerful.
+Test ve iyi mimarinin birleşimi gerçekten güçlüdür.
 
 06:52.470 --> 06:53.430
-Thanks.
+Teşekkürler.

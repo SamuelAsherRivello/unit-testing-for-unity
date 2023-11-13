@@ -1,361 +1,361 @@
 WEBVTT
 
 00:00.110 --> 00:01.340
-The unit testing.
+Birim testi.
 
 00:01.340 --> 00:02.190
-Overview.
+Genel bakış.
 
 00:02.210 --> 00:04.100
-First, a bit of context.
+İlk olarak, biraz bağlam.
 
 00:04.130 --> 00:11.690
-As your projects grow with more scripts, more methods, more complexity, it can be difficult to ensure
+Projeleriniz daha fazla komut dosyası, daha fazla yöntem ve daha fazla karmaşıklıkla büyüdükçe, aşağıdakileri sağlamak zor olabilir
 
 00:11.690 --> 00:14.510
-that new code doesn't break any old code.
+yeni kod eski kodu bozmaz.
 
 00:14.540 --> 00:19.920
-Automated testing can help ensure that your code is functioning as you expect.
+Otomatik testler, kodunuzun beklediğiniz gibi çalıştığından emin olmanıza yardımcı olabilir.
 
 00:19.940 --> 00:25.940
-Automated testing helps us by finding out how and where bugs occur earlier in the process.
+Otomatik testler, hataların nasıl ve nerede oluştuğunu sürecin erken aşamalarında tespit ederek bize yardımcı olur.
 
 00:25.940 --> 00:31.010
-Instead of the much more expensive option of waiting for your end users to report these bugs.
+Son kullanıcılarınızın bu hataları bildirmesini beklemek gibi çok daha pahalı bir seçenek yerine.
 
 00:31.010 --> 00:36.210
-So you can use MVC architectures without testing, and you can use testing without.
+Yani MVC mimarilerini test etmeden de kullanabilirsiniz, test etmeden de kullanabilirsiniz.
 
 00:36.230 --> 00:37.550
-MVC architecture.
+MVC mimarisi.
 
 00:37.550 --> 00:40.990
-So why is it important to talk about these topics together?
+Peki bu konular hakkında birlikte konuşmak neden önemli?
 
 00:41.000 --> 00:45.380
-It's because the combination of these two technologies is incredibly powerful.
+Çünkü bu iki teknolojinin birleşimi inanılmaz derecede güçlüdür.
 
 00:45.410 --> 00:51.800
-By using an architecture like MVC, it helps ensure that your code is more decoupled, that each class
+MVC gibi bir mimari kullanarak, kodunuzun daha ayrık olmasını, her sınıfın
 
 00:51.800 --> 00:55.000
-has a single purpose and that solutions are simpler.
+tek bir amacı vardır ve çözümler daha basittir.
 
 00:55.010 --> 00:57.950
-All of these are traits for more testable code as well.
+Tüm bunlar daha test edilebilir kodlar için de birer özelliktir.
 
 00:57.980 --> 01:04.610
-Adding testing to your project will add robustness, more confidence, and it encourages simple solutions,
+Projenize test eklemek sağlamlık ve daha fazla güven katar ve basit çözümleri teşvik eder,
 
 01:04.610 --> 01:08.930
-especially when enabled with test driven development, which we'll discuss.
+özellikle de test güdümlü geliştirme ile etkinleştirildiğinde, ki bunu tartışacağız.
 
 01:08.960 --> 01:12.530
-Adding unit testing to your project and workflow will save time.
+Projenize ve iş akışınıza birim testi eklemek zaman kazandıracaktır.
 
 01:12.530 --> 01:15.440
-It saves planning, development and maintenance.
+Planlama, geliştirme ve bakımdan tasarruf sağlar.
 
 01:15.470 --> 01:21.170
-It adds more confidence to your code, and with that confidence, you can have much more boldness in
+Kodunuza daha fazla güven katar ve bu güvenle, aşağıdaki konularda çok daha cesur olabilirsiniz
 
 01:21.170 --> 01:22.370
-your Refactors.
+Refaktörleriniz.
 
 01:22.370 --> 01:28.910
-Think about running all of your tests before a major refactor, and then after saving you time and giving
+Büyük bir refactor işleminden önce tüm testlerinizi çalıştırmayı düşünün ve sonra size zaman kazandırdıktan ve
 
 01:28.910 --> 01:31.430
-you more confidence that the refactor worked well.
+refaktörün iyi çalıştığına dair daha fazla güven duyarsınız.
 
 01:31.460 --> 01:33.620
-Testing is both an art and a science.
+Test hem bir sanat hem de bir bilimdir.
 
 01:33.620 --> 01:38.360
-With more research and more practice, each developer can develop their own art.
+Daha fazla araştırma ve daha fazla uygulama ile her geliştirici kendi sanatını geliştirebilir.
 
 01:38.360 --> 01:42.980
-Also, low level testing that's testing things at the unit level.
+Ayrıca, birim seviyesindeki şeyleri test eden düşük seviye testler.
 
 01:43.370 --> 01:49.040
-Individual methods, let's say, and the practices and evolution of your software that will come from
+Diyelim ki bireysel yöntemler ve yazılımınızın uygulamalarından ve evriminden kaynaklanacak
 
 01:49.070 --> 01:55.970
-that encourages higher level discussion as well about the architectural choices, dependencies, or
+mimari tercihler, bağımlılıklar veya diğer konular hakkında daha üst düzey tartışmaları da teşvik eder.
 
 01:55.970 --> 02:00.710
-lack thereof throughout your code and how coupled or decoupled these systems are.
+Kodunuz boyunca bunların eksikliği ve bu sistemlerin ne kadar bağlı veya ayrık olduğu.
 
 02:00.740 --> 02:06.850
-This is all part of a larger conversation which invites bringing good organization to your software.
+Tüm bunlar, yazılımınıza iyi bir organizasyon getirmeye davet eden daha büyük bir konuşmanın parçasıdır.
 
 02:06.860 --> 02:13.430
-Our first goal, especially new to testing, is to make sure that a specific method has the desired
+Özellikle test etmeye yeni başlayanlar olarak ilk hedefimiz, belirli bir yöntemin istenen özelliklere sahip olduğundan emin olmaktır.
 
 02:13.430 --> 02:14.170
-results.
+Sonuçlar.
 
 02:14.180 --> 02:20.960
-Once that's done, you can now test it with unexpected conditions and corner cases that may invite discussion
+Bunu yaptıktan sonra, artık beklenmedik koşullarla ve tartışmaya davet edebilecek köşe durumlarıyla test edebilirsiniz
 
 02:20.960 --> 02:24.230
-and analysis over the structure of the class itself.
+ve sınıfın kendi yapısı üzerinde analiz.
 
 02:24.260 --> 02:28.070
-Then you can look at the purpose of the system that that class sits in.
+Daha sonra bu sınıfın içinde bulunduğu sistemin amacına bakabilirsiniz.
 
 02:28.070 --> 02:35.330
-And as I mentioned, this type of analysis gives us an opportunity and a format to look at the large
+Daha önce de belirttiğim gibi, bu tür bir analiz bize büyük ölçekli projelere bakmak için bir fırsat ve format sunuyor.
 
 02:35.330 --> 02:37.160
-scale solution we have before us.
+ölçekli çözüm önümüzde duruyor.
 
 02:37.160 --> 02:42.260
-In software, there's many different types of testing, and whether you know it or not, you're already
+Yazılımda birçok farklı test türü vardır ve farkında olsanız da olmasanız da zaten
 
 02:42.260 --> 02:43.100
-doing testing.
+Test yapıyorum.
 
 02:43.130 --> 02:46.820
-A few of the most common types of tests are a smoke test.
+En yaygın test türlerinden birkaçı duman testidir.
 
 02:46.850 --> 02:49.910
-This is a rather casual test of does it work?
+Bu oldukça sıradan bir test, işe yarıyor mu?
 
 02:49.910 --> 02:50.630
-For me?
+Benim için mi?
 
 02:50.630 --> 02:55.280
-And for many of us, this may be the only type of project testing we're doing.
+Ve birçoğumuz için bu, yaptığımız tek proje testi türü olabilir.
 
 02:55.900 --> 03:02.920
-Every time you do some new code, you run the app like a user, or play the game like a player and you
+Her yeni kod yaptığınızda, uygulamayı bir kullanıcı gibi çalıştırırsınız veya oyunu bir oyuncu gibi oynarsınız ve
 
 03:02.920 --> 03:08.210
-see does that particular path through the app or the game work the way I expect it to?
+Uygulama ya da oyundaki bu belirli yolun beklediğim şekilde çalışıp çalışmadığını görüyor musunuz?
 
 03:08.230 --> 03:14.110
-Then there's user testing, where periodically, perhaps after a weekly build, you invite some users
+Bir de kullanıcı testleri vardır; burada periyodik olarak, belki de haftalık derlemeden sonra, bazı kullanıcıları davet edersiniz
 
 03:14.110 --> 03:16.210
-or players to give the game a try.
+ya da oyunu denemek isteyen oyuncular.
 
 03:16.240 --> 03:21.760
-Here you're looking for not just does it have any bugs, but does it meet the user's expectations?
+Burada aradığınız sadece herhangi bir hataya sahip olup olmadığı değil, kullanıcının beklentilerini karşılayıp karşılamadığıdır.
 
 03:21.760 --> 03:22.970
-Is it fun to play?
+Oynamak eğlenceli mi?
 
 03:22.990 --> 03:23.710
-Things like that.
+Bunun gibi şeyler.
 
 03:23.710 --> 03:30.220
-And with a unit test, you're looking at a very small section of the experience, perhaps just a single
+Birim testinde ise deneyimin çok küçük bir bölümüne bakarsınız, belki de sadece tek bir
 
 03:30.220 --> 03:37.000
-method call or a small series of calls as systems work together and you're asking, does it work as
+yöntem çağrısı veya sistemler birlikte çalıştıkça küçük bir çağrı dizisi ve siz soruyorsunuz
 
 03:37.000 --> 03:37.960
-it's intended to work?
+Çalışması amaçlanıyor mu?
 
 03:37.990 --> 03:43.180
-As I mentioned, we're already doing smoke testing as a fundamental way to approach projects.
+Bahsettiğim gibi, projelere yaklaşmanın temel bir yolu olarak zaten duman testi yapıyoruz.
 
 03:43.180 --> 03:45.280
-So let's imagine a simple example here.
+Şimdi basit bir örnek düşünelim.
 
 03:45.280 --> 03:50.170
-If we had a click the button app which has a button, and when you click it, you win.
+Bir düğmesi olan ve düğmeye tıkladığınızda kazandığınız bir düğmeye tıklama uygulamamız olsaydı.
 
 03:50.200 --> 03:52.630
-We could add some code to that.
+Buna biraz kod ekleyebiliriz.
 
 03:52.630 --> 03:54.910
-Compile and run the experience.
+Deneyimi derleyin ve çalıştırın.
 
 03:54.940 --> 03:59.500
-Click the one button and see if it shows the victory text of you win.
+Bir düğmeye tıklayın ve kazandığınız zafer metnini gösterip göstermediğine bakın.
 
 03:59.530 --> 04:05.110
-That would be a smoke test, and you could pass that on to the user and see if it works for them.
+Bu bir duman testi olacaktır ve bunu kullanıcıya aktarabilir ve onlar için işe yarayıp yaramadığını görebilirsiniz.
 
 04:05.260 --> 04:11.340
-In both cases, this is a rather expensive test to perform, and it's a very narrow usage of the code
+Her iki durumda da bu, gerçekleştirilmesi oldukça pahalı bir testtir ve kodun çok dar bir kullanımıdır
 
 04:11.350 --> 04:11.710
-here.
+Buraya.
 
 04:11.710 --> 04:17.470
-In this simple example, it may seem like we can capture all the use cases, but imagine a larger game
+Bu basit örnekte, tüm kullanım durumlarını yakalayabiliyoruz gibi görünebilir, ancak daha büyük bir oyun hayal edin
 
 04:17.470 --> 04:19.900
-with core loops and meta loops.
+çekirdek döngüler ve meta döngüler ile.
 
 04:20.050 --> 04:24.370
-You can't count on the developer or the user and the user testing.
+Geliştiriciye ya da kullanıcıya ve kullanıcı testlerine güvenemezsiniz.
 
 04:24.400 --> 04:30.070
-Testing all the buttons, all the functionality, all the input, and all the potential outcomes.
+Tüm düğmelerin, tüm işlevlerin, tüm girdilerin ve tüm potansiyel sonuçların test edilmesi.
 
 04:30.070 --> 04:36.430
-When done properly, unit testing can capture more pathways through the code more quickly, and you
+Doğru yapıldığında, birim testi kodda daha fazla yolu daha hızlı yakalayabilir ve siz de
 
 04:36.430 --> 04:39.730
-can run that suite of tests automatically more frequently.
+bu test paketini otomatik olarak daha sık çalıştırabilir.
 
 04:39.730 --> 04:45.790
-Over time, you're building a list of permanent tests that sit ready to be run, so you know that new
+Zaman içinde, çalıştırılmaya hazır bekleyen kalıcı testlerin bir listesini oluşturuyorsunuz, böylece yeni
 
 04:45.790 --> 04:47.930
-code doesn't break any old functionality.
+kod eski işlevselliği bozmaz.
 
 04:47.950 --> 04:54.340
-Some teams operate under agile development principles, which includes a chunk of your calendar called
+Bazı ekipler çevik geliştirme ilkeleri altında çalışır ve bu da takviminizin bir bölümünü
 
 04:54.340 --> 04:55.030
-a sprint.
+Bir sprint.
 
 04:55.030 --> 05:01.540
-For example, every two weeks, the team commits to adding some new features each hour, day, week,
+Örneğin, her iki haftada bir, ekip her saat, gün, hafta bazı yeni özellikler eklemeyi taahhüt eder,
 
 05:01.540 --> 05:02.420
-or sprint.
+ya da sprint.
 
 05:02.440 --> 05:07.510
-The team can run those automated tests again, it's a great opportunity to catch any bugs.
+Ekip bu otomatik testleri tekrar çalıştırabilir, bu herhangi bir hatayı yakalamak için harika bir fırsattır.
 
 05:07.510 --> 05:09.790
-So how are we running these tests exactly?
+Peki bu testleri tam olarak nasıl yapıyoruz?
 
 05:09.790 --> 05:13.600
-Well, unity has testing support within the unity editor.
+Unity'nin unity editörü içinde test desteği var.
 
 05:13.630 --> 05:19.510
-There's a dedicated window you can open up and manually execute those tests any time you like.
+İstediğiniz zaman açabileceğiniz ve bu testleri manuel olarak yürütebileceğiniz özel bir pencere vardır.
 
 05:19.540 --> 05:21.100
-That's a great place to start.
+Başlamak için harika bir yer.
 
 05:21.130 --> 05:25.750
-Of course, automating this is possible too, and recommended for larger projects.
+Elbette bunu otomatikleştirmek de mümkündür ve daha büyük projeler için önerilir.
 
 05:25.750 --> 05:31.690
-There's ways to tie this in with your version control, so that every time you commit or commit to a
+Bunu sürüm kontrolünüzle ilişkilendirmenin yolları vardır, böylece her işlediğinizde veya bir
 
 05:31.690 --> 05:34.360
-certain branch, it can run those tests again.
+belirli bir dalda, bu testleri tekrar çalıştırabilir.
 
 05:34.600 --> 05:39.020
-Unity itself offers some services, including Unity Cloud build.
+Unity'nin kendisi, Unity Cloud build dahil olmak üzere bazı hizmetler sunar.
 
 05:39.040 --> 05:45.040
-This mimics running those tests and building your game, but done on a server automatically doing it
+Bu, bu testleri çalıştırmayı ve oyununuzu oluşturmayı taklit eder, ancak bunu otomatik olarak yapan bir sunucuda yapılır
 
 05:45.040 --> 05:47.800
-once a day or at whatever frequency makes sense.
+Günde bir kez ya da hangi sıklık mantıklı geliyorsa.
 
 05:47.800 --> 05:53.620
-Now in general unity development, we're familiar with two different modes being inside the unity experience.
+Şimdi genel unity gelişiminde, unity deneyimi içinde iki farklı moda aşinayız.
 
 05:53.770 --> 05:56.770
-Before we hit the play button, we're in edit mode.
+Oynat düğmesine basmadan önce düzenleme modundayız.
 
 05:56.770 --> 05:58.210
-Once we hit play.
+Oynat tuşuna bastığımızda.
 
 05:58.210 --> 06:01.420
-Until that scene stops, we're in play mode.
+Bu sahne durana kadar oyun modundayız.
 
 06:01.480 --> 06:05.650
-With unity testing, you're able to test in either of those two modes.
+Unity testi ile bu iki moddan herhangi birinde test yapabilirsiniz.
 
 06:05.650 --> 06:07.870
-Then there's several different ways to approach that.
+O halde buna yaklaşmanın birkaç farklı yolu vardır.
 
 06:08.260 --> 06:13.480
-Some of the testing ideas that you'd have here would be to call a method and see if it gives you the
+Burada sahip olabileceğiniz test fikirlerinden bazıları, bir yöntemi çağırmak ve size
 
 06:13.480 --> 06:14.580
-expected result.
+beklenen sonuç.
 
 06:14.590 --> 06:20.470
-Let's say we have a math system class with an add method, and you just pass in known parameters and
+Diyelim ki ekleme yöntemi olan bir matematik sistemi sınıfımız var ve siz sadece bilinen parametreleri ve
 
 06:20.470 --> 06:22.150
-see if it matches the known result.
+bilinen sonuçla eşleşip eşleşmediğine bakın.
 
 06:22.150 --> 06:27.070
-You can also have tests that ask specific questions about editor functionality.
+Editör işlevselliği hakkında belirli sorular soran testleriniz de olabilir.
 
 06:27.100 --> 06:33.100
-Did the editor window pop up at the proper sizing or our game objects, or the camera in the proper
+Editör penceresi uygun boyutta mı açıldı veya oyun nesnelerimiz veya kamera uygun boyutta mı
 
 06:33.100 --> 06:35.350
-position before the scene begins?
+sahne başlamadan önceki konumu?
 
 06:35.350 --> 06:40.900
-Doing testing in edit mode when you can is a great place to start, so do that by default.
+Mümkün olduğunda düzenleme modunda test yapmak başlamak için harika bir yerdir, bu nedenle varsayılan olarak bunu yapın.
 
 06:40.900 --> 06:46.930
-Play mode testing is incredibly useful, but it comes with the added complexity of runtime code.
+Oyun modu testi inanılmaz derecede kullanışlıdır, ancak çalışma zamanı kodunun ek karmaşıklığı ile birlikte gelir.
 
 06:47.540 --> 06:47.990
-Here.
+İşte.
 
 06:47.990 --> 06:53.330
-You're testing not just as a certain method return a result, but you're testing that within the larger
+Sadece belirli bir yöntemin bir sonuç döndürmesini test etmiyorsunuz, aynı zamanda bunu daha büyük bir
 
 06:53.330 --> 06:57.020
-lifecycle of game objects and other unity concepts.
+oyun nesnelerinin yaşam döngüsü ve diğer unity kavramları.
 
 06:57.070 --> 07:03.200
-And if it here is you can test code that relies on awake, start, update, etcetera, things that only
+Ve eğer buradaysa, uyanma, başlatma, güncelleme vb. şeylere dayanan kodu test edebilirsiniz.
 
 07:03.200 --> 07:04.400
-execute at runtime.
+çalışma zamanında yürütülür.
 
 07:04.400 --> 07:11.210
-Some testing ideas here are to see if a prefab, once instantiated, executes its start method properly
+Buradaki bazı test fikirleri, bir prefabrik oluşturulduktan sonra başlatma yöntemini düzgün bir şekilde çalıştırıp çalıştırmadığını görmektir
 
 07:11.210 --> 07:12.620
-without any exceptions.
+istisnasız.
 
 07:12.620 --> 07:14.780
-You can test code over time.
+Kodu zaman içinde test edebilirsiniz.
 
 07:15.460 --> 07:19.150
-Does this loop execute properly after a few seconds?
+Bu döngü birkaç saniye sonra düzgün bir şekilde çalışıyor mu?
 
 07:19.180 --> 07:21.820
-You can check runtime physics interactions.
+Çalışma zamanı fizik etkileşimlerini kontrol edebilirsiniz.
 
 07:21.820 --> 07:28.720
-How many bounces will a ball have in your 3D game before it stops testing the bounciness factor?
+3D oyununuzda bir top zıplama faktörünü test etmeyi bırakmadan önce kaç zıplama yapar?
 
 07:28.750 --> 07:30.310
-A little bit more context here.
+Burada biraz daha bağlam.
 
 07:30.310 --> 07:36.830
-So historically, unity did not offer testing built into the editor using the test runner window.
+Geçmişte unity, test runner penceresini kullanarak editörde yerleşik testler sunmuyordu.
 
 07:36.850 --> 07:37.330
-We'll see.
+Göreceğiz.
 
 07:37.360 --> 07:43.570
-In the many years since unity first launched, this functionality was slowly added in and expanded as
+Unity'nin ilk lansmanından bu yana geçen uzun yıllar boyunca, bu işlevsellik yavaş yavaş eklendi ve şu şekilde genişletildi
 
 07:43.570 --> 07:45.100
-of the latest version of unity.
+Unity'nin son sürümü.
 
 07:45.130 --> 07:50.500
-We have everything we need to execute the types of tests we want in the ways we want them.
+İstediğimiz test türlerini istediğimiz şekilde uygulamak için ihtiyacımız olan her şeye sahibiz.
 
 07:50.500 --> 07:55.900
-There's never been a better time to add unit testing into your workflow, and together we'll see how
+İş akışınıza birim testi eklemek için hiç bu kadar iyi bir zaman olmamıştı ve birlikte nasıl yapılacağını göreceğiz
 
 07:55.900 --> 07:56.770
-to do that.
+Bunu yapmak için.
 
 07:57.160 --> 07:57.970
-Thanks.
+Teşekkürler.

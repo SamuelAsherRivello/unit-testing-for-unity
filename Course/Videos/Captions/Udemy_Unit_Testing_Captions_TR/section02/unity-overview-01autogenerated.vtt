@@ -1,142 +1,142 @@
 WEBVTT
 
 00:00.230 --> 00:01.180
-The unity.
+Birlik.
 
 00:01.190 --> 00:02.270
-Overview.
+Genel bakış.
 
 00:02.780 --> 00:09.100
-The games industry is big and getting bigger amongst leisure time activities.
+Oyun endüstrisi büyüktür ve boş zaman aktiviteleri arasında giderek büyümektedir.
 
 00:09.110 --> 00:16.910
-Playing interactive experiences like video games has become increasingly popular on a weekly basis.
+Video oyunları gibi interaktif deneyimleri oynamak her geçen gün daha da popüler hale geliyor.
 
 00:16.940 --> 00:20.150
-It makes up the most of these activities.
+Bu faaliyetlerin çoğunu oluşturur.
 
 00:20.300 --> 00:26.070
-The size of the global game development industry is tremendously big.
+Küresel oyun geliştirme sektörünün büyüklüğü muazzam boyutlarda.
 
 00:26.090 --> 00:30.860
-You can see across different continents the size of the global game market.
+Farklı kıtalarda küresel oyun pazarının büyüklüğünü görebilirsiniz.
 
 00:30.890 --> 00:36.620
-There's many ways that game development teams can solve the challenges of developing games.
+Oyun geliştirme ekiplerinin oyun geliştirmenin zorluklarını çözebilmelerinin birçok yolu vardır.
 
 00:36.620 --> 00:42.710
-Choosing a middleware a real time engine like unity brings a lot of features and services to a game
+Bir ara yazılım seçmek unity gibi gerçek zamanlı bir motor bir oyuna birçok özellik ve hizmet getirir
 
 00:42.710 --> 00:46.340
-development team, and allows you to create content more quickly.
+geliştirme ekibi ve daha hızlı içerik oluşturmanızı sağlar.
 
 00:46.370 --> 00:52.610
-Unity is an industry leading choice for over a decade, and you can create content that is 2D, 3D,
+Unity, on yılı aşkın süredir sektör lideri bir seçimdir ve 2D, 3D içerik oluşturabilirsiniz,
 
 00:52.640 --> 00:56.450
-VR, AR across all different sorts of industries.
+VR, AR tüm farklı sektörlerde.
 
 00:56.480 --> 01:01.840
-Gaming, of course, but also architecture, simulation and feature films.
+Elbette oyun, ama aynı zamanda mimari, simülasyon ve sinema filmleri.
 
 01:01.850 --> 01:04.470
-Unity is the name of the company.
+Unity şirketin adıdır.
 
 01:04.490 --> 01:09.680
-Its services, the platform you build on, and the runtime engine itself.
+Hizmetleri, üzerine inşa ettiğiniz platform ve çalışma zamanı motorunun kendisi.
 
 01:09.710 --> 01:14.420
-Unity is just one development platform you can choose from, but it's tremendously popular.
+Unity, aralarından seçim yapabileceğiniz geliştirme platformlarından sadece biri, ancak son derece popüler.
 
 01:14.450 --> 01:20.300
-Of the top 1000 performing mobile games, over 70% are created with unity.
+En iyi performans gösteren 1000 mobil oyunun %70'inden fazlası unity ile oluşturulmuştur.
 
 01:20.450 --> 01:22.940
-Unity is created with everyone in mind.
+Birlik herkes düşünülerek oluşturulmuştur.
 
 01:22.940 --> 01:24.050
-Let's see more.
+Daha fazlasını görelim.
 
 02:16.880 --> 02:19.970
-Here's a screenshot from a popular type of game.
+İşte popüler bir oyun türünden bir ekran görüntüsü.
 
 02:19.970 --> 02:23.990
-We can see here some of the essentials of video game development.
+Burada video oyunu geliştirmenin bazı temel unsurlarını görebiliriz.
 
 02:23.990 --> 02:28.670
-There's UI, these on screen elements text and the minimap.
+Kullanıcı arayüzü, bu ekran öğeleri metin ve mini harita var.
 
 02:28.700 --> 02:31.130
-These things make up the user interface.
+Bu şeyler kullanıcı arayüzünü oluşturur.
 
 02:31.430 --> 02:38.720
-There's the input taking input from finger swipes on a mobile device, gamepad controllers on a console,
+Bir mobil cihazda parmak kaydırmalarından, bir konsolda gamepad kontrol cihazlarından alınan girdi var,
 
 02:38.750 --> 02:39.830
-mouse, and keyboard.
+fare ve klavye.
 
 02:39.830 --> 02:44.930
-On PC, there's rendering the audio and the graphics, of course, to the user.
+Bilgisayarda, ses ve grafiklerin kullanıcıya sunulması söz konusudur.
 
 02:44.960 --> 02:49.160
-These can be 2D or 3D, and these elements can be animated.
+Bunlar 2D veya 3D olabilir ve bu öğeler canlandırılabilir.
 
 02:49.160 --> 02:54.560
-There's many different types of animations in video game development, from the screen fading in and
+Video oyunu geliştirmede, ekranın soluklaşıp açılmasından tutun da, birçok farklı animasyon türü vardır.
 
 02:54.560 --> 02:57.290
-out to the way the character walks around the world.
+karakterin dünyada dolaşma şekline kadar.
 
 02:57.290 --> 03:01.340
-And finally, there's the scripting or coding that you do in unity.
+Ve son olarak, unity'de yaptığınız komut dosyası veya kodlama var.
 
 03:01.340 --> 03:03.230
-That's the C-sharp programming language.
+Bu C-sharp programlama dilidir.
 
 03:03.230 --> 03:06.580
-So when we think of unity, what are the features that are built in?
+Peki unity'yi düşündüğümüzde, içinde yerleşik olan özellikler nelerdir?
 
 03:06.590 --> 03:11.720
-Well, by choosing unity as the middleware solution, you get a lot of features out of the box.
+Ara yazılım çözümü olarak unity'yi seçtiğinizde, kutudan çıktığı haliyle birçok özellik elde edersiniz.
 
 03:11.720 --> 03:14.480
-All the ones I just talked about and much, much more.
+Az önce bahsettiklerimin hepsi ve çok daha fazlası.
 
 03:14.480 --> 03:18.590
-In addition to these features, there's also optional services.
+Bu özelliklere ek olarak, isteğe bağlı hizmetler de mevcuttur.
 
 03:18.890 --> 03:26.180
-Unity provides different services for acquiring and measuring your users, providing back end functionality
+Unity, kullanıcılarınızı edinmek ve ölçmek için farklı hizmetler sunar, arka uç işlevselliği sağlar
 
 03:26.180 --> 03:27.830
-as well as multiplayer.
+hem de çok oyunculu.
 
 03:28.250 --> 03:33.290
-Overall, game teams can choose the tools and platforms that make sense for them.
+Genel olarak, oyun ekipleri kendileri için anlamlı olan araçları ve platformları seçebilirler.
 
 03:33.940 --> 03:39.670
-Creating your own game engine is possible, but requires tremendous resources in a larger team.
+Kendi oyun motorunuzu oluşturmak mümkündür, ancak daha büyük bir ekipte muazzam kaynaklar gerektirir.
 
 03:39.820 --> 03:46.210
-The end result may be more customizable, however, choosing something off the shelf like unity, which
+Sonuç daha özelleştirilebilir olabilir, ancak unity gibi raftan bir şey seçmek
 
 03:46.210 --> 03:53.710
-brings these features and services, allows teams to offer end users much more content more quickly.
+bu özellikleri ve hizmetleri getirerek ekiplerin son kullanıcılara çok daha fazla içeriği daha hızlı bir şekilde sunmasını sağlar.
 
 03:53.710 --> 03:55.400
-And of the choices out there.
+Ve oradaki seçeneklerden.
 
 03:55.420 --> 04:01.630
-Unity is among the most powerful and popular options we've seen that the games industry is big and it's
+Unity, oyun endüstrisinin büyük olduğunu gördüğümüz en güçlü ve popüler seçenekler arasında yer alıyor ve
 
 04:01.630 --> 04:02.350
-growing.
+Büyüyor.
 
 04:02.530 --> 04:08.560
-Unity is a powerful option to choose and includes features and services out of the box.
+Unity, tercih edilebilecek güçlü bir seçenektir ve kutudan çıkan özellikleri ve hizmetleri içerir.
 
 04:08.590 --> 04:14.030
-Next, we'll continue looking at unity, particularly its structure and organization.
+Daha sonra, özellikle yapısı ve organizasyonu olmak üzere birliği incelemeye devam edeceğiz.
 
 04:14.050 --> 04:14.890
-Thanks.
+Teşekkürler.

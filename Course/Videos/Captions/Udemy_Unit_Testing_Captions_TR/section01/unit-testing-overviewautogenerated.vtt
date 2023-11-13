@@ -1,241 +1,241 @@
 WEBVTT
 
 00:00.080 --> 00:02.870
-Hello and welcome to Unit Testing for unity.
+Merhaba ve Unity için Birim Testine hoş geldiniz.
 
 00:02.900 --> 00:04.940
-My name is Samuel Asher Ravello.
+Benim adım Samuel Asher Ravello.
 
 00:04.970 --> 00:10.130
-I'm a unity developer and instructor with over 20 years of game development experience.
+Ben 20 yılı aşkın oyun geliştirme deneyimine sahip bir unity geliştiricisi ve eğitmeniyim.
 
 00:10.130 --> 00:15.720
-My mission is to educate and entertain with interactive technology, including unity.
+Misyonum, birlik de dahil olmak üzere interaktif teknoloji ile eğitmek ve eğlendirmektir.
 
 00:15.740 --> 00:22.610
-I've shipped unity titles for PC, Xbox consoles, and more, and I'm available for remote contract
+PC, Xbox konsolları ve daha fazlası için unity başlıkları gönderdim ve uzaktan sözleşme için hazırım
 
 00:22.640 --> 00:29.390
-hire as a unity game developer, a unity game instructor, as well as a product evangelist.
+bir unity oyun geliştiricisi, bir unity oyun eğitmeni ve bir ürün müjdecisi olarak işe alındı.
 
 00:29.420 --> 00:35.660
-My career experience includes being a game developer, a manager of game developers, and doing education
+Kariyer deneyimim arasında oyun geliştiricisi olmak, oyun geliştiricilerinin yöneticiliğini yapmak ve eğitim vermek yer alıyor
 
 00:35.660 --> 00:37.120
-in the game development space.
+oyun geliştirme alanında.
 
 00:37.130 --> 00:44.450
-My teaching experience includes universities, classroom, online, creating YouTube videos and doing
+Öğretim deneyimim üniversiteleri, sınıfları, çevrimiçi, YouTube videoları oluşturmayı ve
 
 00:44.450 --> 00:49.910
-videos and first time user experience analysis and overviews for clients.
+Müşteriler için videolar ve ilk kez kullanıcı deneyimi analizi ve genel bakışlar.
 
 00:49.940 --> 00:52.790
-Our topic here is Unit Testing for unity.
+Buradaki konumuz unity için Birim Testi.
 
 00:52.820 --> 00:58.580
-Unity is a versatile game engine that can be used for all sorts of industries, including, of course,
+Unity, elbette dahil olmak üzere her türlü sektör için kullanılabilen çok yönlü bir oyun motorudur,
 
 00:58.580 --> 01:06.380
-game development and unit testing is a sub topic that allows you to design and test your classes and
+oyun geliştirme ve birim testi, sınıflarınızı tasarlamanıza ve test etmenize olanak tanıyan bir alt konudur.
 
 01:06.380 --> 01:10.040
-architectures so that they're more robust and maintainable.
+mimarilerin daha sağlam ve sürdürülebilir olması.
 
 01:10.040 --> 01:15.530
-The takeaway here is that after this course, you'll think about creating your classes in a new way,
+Buradaki çıkarım, bu kurstan sonra sınıflarınızı yeni bir şekilde oluşturmayı düşüneceğinizdir,
 
 01:15.530 --> 01:21.050
-and you'll think about the lifetime and the maintenance of your project as well, with more confidence
+ve projenizin kullanım ömrü ve bakımı hakkında da daha güvenle düşüneceksiniz
 
 01:21.050 --> 01:27.800
-enabling you to do refactors and analysis of your projects and scale them up more easily than ever before.
+Projelerinizde yeniden düzenleme ve analiz yapmanıza ve bunları daha önce hiç olmadığı kadar kolay bir şekilde ölçeklendirmenize olanak tanır.
 
 01:27.830 --> 01:33.110
-The course is informally broken into a few different learning tracks at any given time.
+Kurs, herhangi bir zamanda gayri resmi olarak birkaç farklı öğrenme yoluna bölünmüştür.
 
 01:33.110 --> 01:40.040
-We'll be focusing a bit more on the theory and fundamentals behind what is the technique or topic at
+Teknik veya konunun ne olduğunun arkasındaki teori ve temellere biraz daha fazla odaklanacağız.
 
 01:40.070 --> 01:40.610
-hand.
+El.
 
 01:40.640 --> 01:42.860
-We'll also take a look at the editor.
+Ayrıca editöre de bir göz atacağız.
 
 01:42.860 --> 01:47.630
-Unique features that we can do within unity to empower us as game developers.
+Oyun geliştiricileri olarak bizi güçlendirmek için unity içinde yapabileceğimiz benzersiz özellikler.
 
 01:47.630 --> 01:53.600
-Here we'll be talking about unit testing and using the Test Runner window withinside the unity editor.
+Burada birim testi ve unity editörünün içindeki Test Runner penceresinin kullanımı hakkında konuşacağız.
 
 01:53.600 --> 01:56.390
-And then of course, we're going to be diving deep into code.
+Ve tabii ki, kodun derinliklerine dalacağız.
 
 01:56.390 --> 02:02.090
-We're going to assume that the production code that we're writing, while quite simple, is within reach
+Yazdığımız üretim kodunun oldukça basit olmasına rağmen erişilebilir olduğunu varsayacağız
 
 02:02.120 --> 02:03.230
-of the students here.
+buradaki öğrencilerin.
 
 02:03.230 --> 02:08.960
-And we'll be focusing more on new testing code that accompanies our production code.
+Ve üretim kodumuza eşlik eden yeni test koduna daha fazla odaklanacağız.
 
 02:08.960 --> 02:15.680
-This testing code will perform automatic tests on that code to give us more code confidence and security
+Bu test kodu, bize daha fazla kod güveni ve güvenliği sağlamak için bu kod üzerinde otomatik testler gerçekleştirecektir
 
 02:15.680 --> 02:20.930
-on the current state of our project, particularly when we're designing as well as doing refactors and
+Projemizin mevcut durumu hakkında, özellikle de tasarım yaparken ve yeniden düzenleme yaparken ve
 
 02:20.930 --> 02:21.650
-maintenance.
+Bakım.
 
 02:21.650 --> 02:23.510
-Let's take a look at the course prerequisites.
+Kursun ön koşullarına bir göz atalım.
 
 02:23.510 --> 02:25.490
-First, there's going to be some software involved.
+İlk olarak, bazı yazılımlar söz konusu olacak.
 
 02:25.490 --> 02:30.650
-Everything's free from unity to the code editor to opening up a web browser to do some more research
+Unity'den kod düzenleyiciye ve daha fazla araştırma yapmak için bir web tarayıcısı açmaya kadar her şey ücretsiz
 
 02:30.680 --> 02:31.880
-as we're going along.
+biz ilerlerken.
 
 02:31.880 --> 02:33.040
-That's easy.
+Bu çok kolay.
 
 02:33.050 --> 02:36.410
-I include instructions in this course for how to install those things you need.
+İhtiyacınız olan şeyleri nasıl kuracağınıza dair talimatları bu kursa dahil ediyorum.
 
 02:36.410 --> 02:39.470
-And to get started, let's talk about the knowledge prerequisites.
+Ve başlamak için, bilgi önkoşullarından bahsedelim.
 
 02:39.470 --> 02:43.490
-So it's important to note that this course is not for beginners.
+Dolayısıyla, bu kursun yeni başlayanlar için olmadığını belirtmek önemlidir.
 
 02:43.490 --> 02:48.230
-We're going to make some assumptions about object oriented programming class designs.
+Nesne yönelimli programlama sınıf tasarımları hakkında bazı varsayımlarda bulunacağız.
 
 02:48.230 --> 02:54.320
-And we'll even talk a bit about interfaces which some beginner developers are unfamiliar with here and
+Ve hatta burada bazı yeni başlayan geliştiricilerin aşina olmadığı arayüzler hakkında biraz konuşacağız ve
 
 02:54.320 --> 02:55.190
-there through the course.
+Orada kurs boyunca.
 
 02:55.190 --> 02:59.570
-If there's something that you don't understand that is not part of our course curriculum, I recommend
+Kurs müfredatımızın bir parçası olmayan anlamadığınız bir şey varsa, size şunları tavsiye ederim
 
 02:59.570 --> 03:04.760
-to pause the video and go check it out, maybe 5 or 10 minutes of reading and then coming back into
+videoyu duraklatmak ve gidip kontrol etmek, belki 5 veya 10 dakika okumak ve sonra geri gelmek
 
 03:04.760 --> 03:05.180
-the course.
+Parkur.
 
 03:05.180 --> 03:11.720
-With that knowledge, we're really focusing on adding unit testing as a new layer on top of our production
+Bu bilgiyle, üretimimizin üzerine yeni bir katman olarak birim testi eklemeye gerçekten odaklanıyoruz
 
 03:11.720 --> 03:12.230
-code.
+Kod.
 
 03:12.230 --> 03:16.670
-I won't go too deep into talking about production code itself, and in the course we'll be going through
+Üretim kodunun kendisi hakkında konuşurken çok derine inmeyeceğim ve kursta şunları inceleyeceğiz
 
 03:16.670 --> 03:23.270
-some simple examples as well, from something like a calculator to a simple character movement and a
+Hesap makinesi gibi bir şeyden basit bir karakter hareketine kadar bazı basit örnekler ve bir
 
 03:23.270 --> 03:26.480
-little bit of stuff around loading some data from an external server.
+Harici bir sunucudan bazı verileri yüklemekle ilgili küçük şeyler.
 
 03:26.480 --> 03:28.730
-Let's take a look together at the course contents.
+Gelin ders içeriklerine birlikte göz atalım.
 
 03:28.730 --> 03:29.960
-I'm going to read along.
+Ben de okuyacağım.
 
 03:30.130 --> 03:32.690
-We're covering the course introduction here.
+Burada kurs girişini ele alıyoruz.
 
 03:32.720 --> 03:35.960
-There's a whole section giving a review about unity.
+Birlik hakkında inceleme yapan bir bölüm var.
 
 03:35.960 --> 03:41.570
-In that section we'll look at a unity overview about why unity is a popular game engine.
+Bu bölümde unity'nin neden popüler bir oyun motoru olduğuna dair genel bir bakışa bakacağız.
 
 03:41.570 --> 03:45.320
-While the game industry is great and interesting to work within.
+Oyun endüstrisi içinde çalışmak için harika ve ilginç olsa da.
 
 03:45.320 --> 03:51.200
-And then we'll look at some things about the unity structure game objects, projects, scenes, things
+Ve sonra unity yapısı hakkında bazı şeylere bakacağız oyun nesneleri, projeler, sahneler, şeyler
 
 03:51.200 --> 03:51.890
-like that.
+Bunun gibi.
 
 03:51.890 --> 03:56.690
-For many of us, that'll be review, but I do recommend checking it out because some of the things we
+Birçoğumuz için bu bir inceleme olacak, ancak kontrol etmenizi tavsiye ederim çünkü bazı şeyler
 
 03:56.690 --> 04:01.040
-mentioned there will all repeat later in the course, and it's good to have that fresh connection.
+Burada bahsedilenlerin hepsi kursun ilerleyen aşamalarında tekrarlanacaktır ve bu taze bağlantıya sahip olmak iyidir.
 
 04:01.550 --> 04:06.800
-Then we'll do a little bit of software design, talking about some design principles and a little bit
+Sonra biraz yazılım tasarımı yapacağız, bazı tasarım ilkelerinden ve biraz da
 
 04:06.800 --> 04:14.300
-about design patterns, just so we understand the science and the art behind how we design well-performing
+tasarım kalıpları hakkında, sadece iyi performans gösteren tasarımların arkasındaki bilim ve sanatı anlamak için
 
 04:14.300 --> 04:20.150
-code, so that once we begin unit testing on that, we'll be talking a bit about those efficiencies
+Böylece birim testine başladığımızda, bu verimlilikler hakkında biraz konuşacağız.
 
 04:20.150 --> 04:24.740
-and those design principles in the unity testing fundamentals.
+ve birlik testi temellerindeki tasarım ilkeleri.
 
 04:24.740 --> 04:27.320
-We'll go over what is a unit test.
+Birim testinin ne olduğunu gözden geçireceğiz.
 
 04:27.350 --> 04:28.820
-Why do you want to do it.
+Bunu neden yapmak istiyorsun?
 
 04:28.850 --> 04:30.770
-How do you do it inside unity.
+Unity'nin içinde bunu nasıl yapıyorsun?
 
 04:30.770 --> 04:37.070
-And that's going to be a step by step process to really look from a project that has no unity unit tests
+Ve bu, unity birim testleri olmayan bir projeden gerçekten bakmak için adım adım bir süreç olacak
 
 04:37.070 --> 04:39.140
-to adding our first unit tests.
+ilk birim testlerimizi eklemek için.
 
 04:39.140 --> 04:43.640
-That's a great place to really get those basics solved.
+Bu temel sorunları çözmek için harika bir yer.
 
 04:43.670 --> 04:49.160
-Then we'll move on to doing a series of workshops in the workshops, each of them is going to be a bit
+Daha sonra atölye çalışmalarında bir dizi atölye çalışması yapmaya devam edeceğiz, bunların her biri biraz
 
 04:49.160 --> 04:50.420
-more free form.
+daha serbest form.
 
 04:50.540 --> 04:56.720
-I'm just going to share my screen and go through the core core sample project that's included for you.
+Sadece ekranımı paylaşacağım ve sizin için dahil edilen çekirdek çekirdek örnek projesinden geçeceğim.
 
 04:56.720 --> 04:59.560
-And in each of those I will just.
+Ve bunların her birinde sadece.
 
 04:59.750 --> 05:03.890
-Kind of go with a stream of consciousness explaining the motivation behind it.
+Arkasındaki motivasyonu açıklayan bir tür bilinç akışı ile devam edin.
 
 05:03.920 --> 05:06.620
-We'll do a bit of coding as we go in some of them.
+Bazılarında ilerlerken biraz kodlama yapacağız.
 
 05:06.620 --> 05:08.990
-Some of the workshops will be more code heavy.
+Bazı atölye çalışmaları daha kod ağırlıklı olacaktır.
 
 05:09.020 --> 05:14.420
-Other ones I'll be reviewing existing code, but throughout all of them, it's really another chance
+Diğerlerinde mevcut kodu gözden geçireceğim, ancak hepsinde gerçekten başka bir şans
 
 05:14.420 --> 05:19.700
-to just add another layer upon layer of comfort and familiarity with the concepts.
+kavramlara aşinalık ve rahatlık katmanı üzerine bir katman daha eklemek için.
 
 05:20.060 --> 05:24.800
-During the workshops, I recommend to open up the sample project and follow along and here and there
+Atölye çalışmaları sırasında, örnek projeyi açmanızı ve takip etmenizi öneririm ve burada ve orada
 
 05:24.800 --> 05:28.910
-through the course, I'll mention that there'll be an opportunity for some advanced topics to.
+Kurs boyunca, bazı ileri düzey konular için bir fırsat olacağından bahsedeceğim.

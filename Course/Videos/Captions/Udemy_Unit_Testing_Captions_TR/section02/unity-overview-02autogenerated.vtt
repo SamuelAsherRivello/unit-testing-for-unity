@@ -1,205 +1,205 @@
 WEBVTT
 
 00:00.530 --> 00:02.180
-The unity structure.
+Birlik yapısı.
 
 00:02.210 --> 00:05.090
-This course is broken into different learning tracks.
+Bu kurs farklı öğrenme yollarına ayrılmıştır.
 
 00:05.120 --> 00:10.670
-In theory, we'll take a step back and look at some of the fundamentals of software and game design.
+Teorik olarak, bir adım geri atıp yazılım ve oyun tasarımının bazı temellerine bakacağız.
 
 00:10.670 --> 00:16.970
-When talking about the editor, we'll look at unity, the editor tool itself, which is what we as developers
+Editörden bahsederken, geliştiriciler olarak bizlerin editör aracının kendisi olan Unity'ye bakacağız.
 
 00:16.970 --> 00:19.070
-open and use as our software.
+açıp yazılımımız olarak kullanabiliriz.
 
 00:19.070 --> 00:24.350
-And in code sections, we'll look at the C sharp programming language and how it applies to unity game
+Kod bölümlerinde ise C sharp programlama diline ve bunun unity oyununa nasıl uygulandığına bakacağız
 
 00:24.350 --> 00:25.100
-development.
+Gelişme.
 
 00:25.160 --> 00:26.840
-Let's start with theory.
+Teoriyle başlayalım.
 
 00:26.870 --> 00:34.100
-The software development life cycle includes many stages, taking us from an idea to a finished product.
+Yazılım geliştirme yaşam döngüsü, bizi bir fikirden bitmiş bir ürüne götüren birçok aşamayı içerir.
 
 00:34.100 --> 00:40.400
-This includes requirements analysis, planning the project, designing the concept, and carries on
+Bu, gereksinim analizini, projenin planlanmasını, konseptin tasarlanmasını içerir ve devam eder
 
 00:40.400 --> 00:43.640
-to development, testing, and deployment.
+geliştirme, test ve dağıtıma kadar.
 
 00:43.640 --> 00:51.080
-While unity is a powerful tool across many of these stages, we focus on using unity in the development,
+Unity bu aşamaların birçoğunda güçlü bir araç olsa da, biz geliştirme sürecinde unity kullanımına odaklanıyoruz,
 
 00:51.110 --> 00:55.280
-testing, and deployment phases inside the world of unity.
+test ve dağıtım aşamalarını Unity dünyası içinde gerçekleştirir.
 
 00:55.280 --> 00:57.590
-The concepts are structured as follows.
+Kavramlar aşağıdaki gibi yapılandırılmıştır.
 
 00:57.590 --> 01:01.040
-Within a project, you have one or more scenes.
+Bir proje içinde, bir veya daha fazla sahneniz vardır.
 
 01:01.490 --> 01:06.500
-Inside each scene, you have game objects with components attached.
+Her sahnenin içinde, bileşenleri eklenmiş oyun nesneleriniz vardır.
 
 01:06.500 --> 01:14.030
-Those components may handle things like the mesh renderer, the Collider audio rigid body for physics,
+Bu bileşenler, örgü oluşturucu, fizik için Çarpıştırıcı ses katı gövdesi gibi şeyleri işleyebilir,
 
 01:14.030 --> 01:17.450
-particle systems, and of course custom scripting.
+parçacık sistemleri ve tabii ki özel komut dosyası oluşturma.
 
 01:17.450 --> 01:21.920
-Game object is a fundamental piece of the puzzle within unity.
+Oyun nesnesi, unity içindeki bulmacanın temel bir parçasıdır.
 
 01:21.920 --> 01:28.880
-That is everything that is visual and non-visual, onto which we hang our custom components and Unity's
+Bu, görsel olan ve olmayan her şeydir, üzerine özel bileşenlerimizi ve Unity'nin
 
 01:28.880 --> 01:30.380
-built in components as well.
+bileşenlerde de yerleşiktir.
 
 01:30.410 --> 01:33.650
-Take a look at this gameplay screenshot as an example.
+Örnek olarak bu oyun ekran görüntüsüne bir göz atın.
 
 01:34.230 --> 01:39.780
-Here we have a game scene that is broken up into several different prefabs.
+Burada birkaç farklı prefabriğe bölünmüş bir oyun sahnemiz var.
 
 01:39.780 --> 01:45.990
-You can think of a prefab as a game object with one or more components that stored for reuse.
+Bir prefabriği, yeniden kullanım için saklanan bir veya daha fazla bileşene sahip bir oyun nesnesi olarak düşünebilirsiniz.
 
 01:45.990 --> 01:51.450
-For example, we see multiple coins here, each with a unique position and rotation.
+Örneğin, burada her biri benzersiz bir konuma ve dönüşe sahip birden fazla madeni para görüyoruz.
 
 01:51.450 --> 01:58.230
-However, the coin has some common features as well, perhaps functionality, collision detection,
+Bununla birlikte, madeni para, belki de işlevsellik, çarpışma algılama gibi bazı ortak özelliklere de sahiptir,
 
 01:58.500 --> 02:05.520
-how it's rendered, and those common features are held in the prefab when organizing your project and
+ve bu ortak özellikler projenizi düzenlerken prefabrikte tutulur ve
 
 02:05.520 --> 02:07.260
-deciding on the structure.
+yapıya karar vermek.
 
 02:07.890 --> 02:14.010
-Teams often choose between scenes and prefabs for high level organization.
+Ekipler genellikle üst düzey organizasyon için sahneler ve prefabrikler arasında seçim yapar.
 
 02:14.040 --> 02:20.010
-GameObject is the fundamental concept within any scene, and while there can be many different components
+GameObject herhangi bir sahnedeki temel kavramdır ve birçok farklı bileşen olabilir
 
 02:20.040 --> 02:23.940
-on a game object, the transform component is ever present.
+bir oyun nesnesi üzerinde, dönüştürme bileşeni her zaman mevcuttur.
 
 02:23.970 --> 02:30.180
-The transform component stores and manipulates aspects of how that object sits in the world.
+Dönüşüm bileşeni, bu nesnenin dünyada nasıl durduğuna ilişkin yönleri depolar ve değiştirir.
 
 02:30.180 --> 02:34.650
-Whether the object has graphics or not, it has a transform object.
+Nesnenin grafikleri olsun ya da olmasın, bir dönüşüm nesnesi vardır.
 
 02:34.680 --> 02:38.580
-The code we use is the language of instructions for the software.
+Kullandığımız kod, yazılım için talimatların dilidir.
 
 02:38.580 --> 02:43.350
-Unity's historical roots relate to the mono project.
+Unity'nin tarihsel kökleri mono projesine dayanmaktadır.
 
 02:43.380 --> 02:45.600
-This was an open source version of the.
+Bu açık kaynak kodlu bir versiyonuydu.
 
 02:45.900 --> 02:47.130
-Net framework.
+Net çerçevesi.
 
 02:47.160 --> 02:53.760
-You'll still see the term mono used a bit through the unity API, including the mono behavior.
+Mono teriminin, mono davranışı da dahil olmak üzere unity API'si aracılığıyla biraz kullanıldığını göreceksiniz.
 
 02:53.760 --> 02:59.610
-While in the past unity offered several different programming languages, C sharp is the only programming
+Geçmişte unity birkaç farklı programlama dili sunarken, C sharp tek programlama dilidir.
 
 02:59.610 --> 03:03.810
-choice now, and while unity supports C-sharp, it doesn't depend on the.
+ve unity C-sharp'ı desteklese de, C-sharp'a bağlı değildir.
 
 03:04.020 --> 03:11.250
-Net framework, Unity's version of C sharp is quite robust and features a lot of different data, concepts
+Net framework, Unity'nin C sharp sürümü oldukça sağlamdır ve birçok farklı veri, kavram
 
 03:11.250 --> 03:12.270
-and structures.
+ve yapılar.
 
 03:12.270 --> 03:20.130
-The main namespaces we use inside unity is the unity engine for runtime code, the unity editor for
+Unity içinde kullandığımız ana ad alanları, çalışma zamanı kodu için unity motoru, çalışma zamanı kodu için unity editörü
 
 03:20.130 --> 03:27.630
-edit time code, and the system namespace, which includes a lot of different functionality not specifically
+zaman kodunu düzenleme ve sistem ad alanı, özel olarak belirtilmemiş birçok farklı işlevsellik içerir.
 
 03:27.630 --> 03:32.140
-related to unity, but quite helpful, including math, libraries, etcetera.
+unity ile ilgili, ancak matematik, kütüphaneler vb. dahil olmak üzere oldukça yararlı.
 
 03:32.160 --> 03:36.540
-Here's an example of a custom script in C sharp for use in unity.
+İşte unity'de kullanılmak üzere C sharp'ta yazılmış özel bir komut dosyası örneği.
 
 03:36.570 --> 03:39.150
-Starting from the top we see using statements.
+Üstten başlayarak using ifadelerini görüyoruz.
 
 03:39.150 --> 03:43.920
-These bring in namespaces that we need to use in this particular class file.
+Bunlar, bu özel sınıf dosyasında kullanmamız gereken ad alanlarını getirir.
 
 03:44.400 --> 03:50.850
-Then we see a namespace that helps us declare and organize where this code sits in our project.
+Ardından, bu kodun projemizde nerede yer aldığını bildirmemize ve düzenlememize yardımcı olan bir ad alanı görüyoruz.
 
 03:50.880 --> 03:55.710
-Next, we declare the public class or interface that defines this type.
+Ardından, bu türü tanımlayan genel sınıfı veya arayüzü bildiririz.
 
 03:55.710 --> 03:59.070
-Notice here we're extending or inheriting Monobehaviour.
+Burada Monobehaviour'u genişlettiğimize veya miras aldığımıza dikkat edin.
 
 03:59.100 --> 04:04.550
-Now from within this scope, we can access all the functionality of Monobehaviour as well.
+Şimdi bu kapsam içinden Monobehaviour'un tüm işlevlerine de erişebiliriz.
 
 04:04.560 --> 04:07.230
-Some specific unity features of note here.
+Burada dikkat edilmesi gereken bazı özel birlik özellikleri.
 
 04:07.260 --> 04:11.400
-The ability to serialize field using the serialized field attribute.
+Serileştirilmiş alan özniteliğini kullanarak alanı serileştirme yeteneği.
 
 04:11.400 --> 04:18.240
-This can take a public value or private value and render it out to the Unity Inspector so that while
+Bu, genel bir değeri veya özel bir değeri alabilir ve Unity Inspector'a işleyebilir, böylece
 
 04:18.240 --> 04:21.470
-the live game is playing, we can tweak that setting.
+canlı oyun oynarken, bu ayarı değiştirebiliriz.
 
 04:21.480 --> 04:24.630
-This helps in prototyping and gameplay design.
+Bu, prototip oluşturma ve oyun tasarımına yardımcı olur.
 
 04:24.630 --> 04:28.350
-The monitor behavior comes with many key events you can tap into.
+Monitör davranışı, yararlanabileceğiniz birçok önemli olayla birlikte gelir.
 
 04:28.380 --> 04:35.790
-By naming one of your methods awake, you capture the event of when that object is first awoken in the
+Yöntemlerinizden birine awake adını vererek, bu nesnenin ilk kez uyandırıldığı olayı
 
 04:35.790 --> 04:36.360
-world.
+Dünya.
 
 04:36.360 --> 04:37.950
-This happens just once.
+Bu sadece bir kez olur.
 
 04:38.340 --> 04:40.830
-Afterwards, the start method is called here.
+Daha sonra burada start metodu çağrılır.
 
 04:40.830 --> 04:46.140
-It's good to set up any dependencies with any other objects, and then the update method is called every
+Diğer nesnelerle herhangi bir bağımlılık kurmak iyidir ve ardından güncelleme yöntemi her
 
 04:46.140 --> 04:47.400
-frame thereafter.
+Sonraki kare.
 
 04:47.400 --> 04:52.170
-This is a great place to do input logic and updating graphics.
+Burası giriş mantığı ve grafiklerin güncellenmesi için harika bir yerdir.
 
 04:52.680 --> 04:58.590
-These are just a few of the events or method overrides you can take advantage of, but certainly these
+Bunlar, yararlanabileceğiniz olaylardan veya yöntem geçersiz kılmalarından sadece birkaçıdır, ancak kesinlikle bunlar
 
 04:58.590 --> 05:00.000
-are some of the most important.
+en önemlilerinden bazılarıdır.
 
 05:00.030 --> 05:00.870
-Thanks.
+Teşekkürler.

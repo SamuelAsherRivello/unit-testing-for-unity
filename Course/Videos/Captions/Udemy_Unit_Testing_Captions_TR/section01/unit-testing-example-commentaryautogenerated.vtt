@@ -1,145 +1,145 @@
 WEBVTT
 
 00:02.920 --> 00:07.120
-So let's take a step back and just look quickly at a fundamental example here.
+Şimdi bir adım geriye gidelim ve burada temel bir örneğe hızlıca bakalım.
 
 00:07.120 --> 00:09.100
-So this is not a unit test here.
+Yani bu bir birim testi değil.
 
 00:09.100 --> 00:16.270
-And this represents a unity class something that I would consider production code meaning not test code.
+Bu da test kodu değil, üretim kodu olarak değerlendirebileceğim bir birlik sınıfını temsil ediyor.
 
 00:16.270 --> 00:19.990
-And this would be in your perhaps a math game.
+Ve bu sizin belki de bir matematik oyununuz olabilir.
 
 00:19.990 --> 00:23.890
-It's a very simple my math system class that does two things.
+İki şey yapan çok basit bir matematik sistemi sınıfım.
 
 00:23.890 --> 00:26.140
-It can add and it can subtract.
+Toplama ve çıkarma yapabilir.
 
 00:26.140 --> 00:27.820
-So we have the add method.
+Yani ekleme yöntemimiz var.
 
 00:27.820 --> 00:31.300
-Notice I'm passing in an int integer a and b.
+Bir int tamsayı a ve b geçtiğime dikkat edin.
 
 00:31.300 --> 00:33.970
-I add those together and I return that value.
+Bunları topluyorum ve bu değeri döndürüyorum.
 
 00:33.970 --> 00:40.540
-Now if this was used in your game and you wanted to be sure it was working faithfully, you would just
+Şimdi eğer bu sizin oyununuzda kullanılıyorsa ve aslına uygun çalıştığından emin olmak istiyorsanız, sadece
 
 00:40.540 --> 00:48.640
-play your game and you would hope that a successful add operation implementation gives you on screen,
+oyununuzu oynayın ve başarılı bir ekleme işlemi uygulamasının size ekranda vermesini umarsınız,
 
 00:48.640 --> 00:50.500
-easy to judge results.
+sonuçları değerlendirmek kolay.
 
 00:50.500 --> 00:52.210
-But that's not always the case.
+Ama durum her zaman böyle değildir.
 
 00:52.210 --> 00:59.470
-Maybe this is adding A and B and C by accident, and you might not notice that perhaps your score system
+Belki de bu A ve B ve C'yi yanlışlıkla ekliyordur ve belki de puan sisteminizin bunu fark etmeyebilirsiniz
 
 00:59.470 --> 01:05.470
-is increasing from one to 2 to 4 doing bad math, and you just don't happen to catch it.
+kötü matematik yaparak 1'den 2'ye ve 4'e yükseliyor ve siz bunu yakalayamıyorsunuz.
 
 01:05.500 --> 01:11.920
-The nice thing about adding a unit test is you're able to test more situations than you may come across
+Birim testi eklemenin güzel yanı, karşılaşabileceğinizden daha fazla durumu test edebilmenizdir
 
 01:11.920 --> 01:15.370
-as the game player, and do it more systematically.
+ve bunu daha sistematik bir şekilde yapmak.
 
 01:15.370 --> 01:18.400
-Let's take a quick look at our very first unit test.
+İlk birim testimize hızlıca bir göz atalım.
 
 01:18.400 --> 01:21.850
-And it's going to be a unit test on top of this system here.
+Ve buradaki sistemin üstünde bir birim testi olacak.
 
 01:22.870 --> 01:25.540
-So this is a separate class.
+Yani bu ayrı bir sınıf.
 
 01:25.540 --> 01:31.060
-And by putting the the code base here, we're seeing in a certain spot in your project.
+Ve kod tabanını buraya koyarak, projenizde belirli bir noktada görüyoruz.
 
 01:31.060 --> 01:36.600
-And by marking the method as the arrow shows with test, unity will treat it a little bit differently.
+Ve okla gösterildiği gibi yöntemi test ile işaretleyerek, unity ona biraz farklı davranacaktır.
 
 01:36.610 --> 01:42.880
-This doesn't need to be called anywhere from inside your production code, but look how easy it is inside
+Bunun üretim kodunuzun içinden herhangi bir yerde çağrılmasına gerek yoktur, ancak içinde ne kadar kolay olduğuna bakın
 
 01:42.880 --> 01:43.570
-in the body.
+vücutta.
 
 01:43.570 --> 01:49.960
-Here we see we're using the arrange, act and assert methodology, and we'll go deeper into that methodology
+Burada arrange, act ve assert metodolojisini kullandığımızı görüyoruz ve bu metodolojiyi daha derinlemesine inceleyeceğiz
 
 01:49.960 --> 01:50.380
-there.
+Orada.
 
 01:50.380 --> 01:53.950
-It's an optional approach that just helps you organize your thoughts.
+Bu sadece düşüncelerinizi düzenlemenize yardımcı olan isteğe bağlı bir yaklaşımdır.
 
 01:53.950 --> 01:56.380
-So first we create an instance of the class.
+Bu yüzden önce sınıfın bir örneğini oluşturuyoruz.
 
 01:56.380 --> 01:59.020
-Then we call a method on that class.
+Sonra bu sınıfta bir yöntem çağırırız.
 
 01:59.020 --> 02:04.990
-And then we assert or we assume that this is going to be our expected result.
+Ve sonra bunun beklenen sonucumuz olacağını iddia eder ya da varsayarız.
 
 02:05.020 --> 02:12.010
-Now this test will pass if the assertion is correct and it will fail if the assertion is incorrect.
+Şimdi bu test, iddia doğruysa geçecek ve iddia yanlışsa başarısız olacaktır.
 
 02:12.040 --> 02:18.820
-Now, it may seem silly to pass five and ten and check that it turns 15, because again, our implementation
+Şimdi, beş ve onu geçip 15'e döndüğünü kontrol etmek aptalca görünebilir, çünkü yine bizim uygulamamız
 
 02:18.820 --> 02:20.110
-code is so simple.
+kod çok basit.
 
 02:20.110 --> 02:26.080
-But these are the fundamental ideas that when we apply them to even larger classes, it's going to be
+Ancak bunlar temel fikirlerdir ve bunları daha büyük sınıflara uyguladığımızda
 
 02:26.080 --> 02:26.800
-important.
+Önemli.
 
 02:26.920 --> 02:28.900
-So that's our course overview.
+Kursa genel bakışımız bu şekilde.
 
 02:28.900 --> 02:31.240
-Let's just think about what we've learned here.
+Burada ne öğrendiğimizi bir düşünelim.
 
 02:31.240 --> 02:35.980
-We've talked a bit about how and why unit testing is important to a project.
+Birim testinin bir proje için nasıl ve neden önemli olduğu hakkında biraz konuştuk.
 
 02:35.980 --> 02:39.640
-I've hinted a little bit about why it's quite rare in game development.
+Oyun geliştirmede bunun neden oldukça nadir olduğu hakkında biraz ipucu verdim.
 
 02:39.670 --> 02:45.490
-One reason is that we as game developers, we love adding new features, and this feels a little bit
+Bunun bir nedeni, oyun geliştiricileri olarak yeni özellikler eklemeyi sevmemiz ve bunun biraz
 
 02:45.490 --> 02:48.070
-more like slowing us down.
+daha çok bizi yavaşlatmak gibi.
 
 02:48.070 --> 02:53.500
-But when we looked at that 80 over 20 rule, we see, you know, we're quite surprised that actually
+Ancak 80'e 20 kuralına baktığımızda, aslında oldukça şaşırdığımızı görüyoruz
 
 02:53.500 --> 02:59.800
-most of our life as game developers is spent on fixing and maintaining existing features, not in adding
+oyun geli̇şti̇ri̇ci̇leri̇ olarak hayatimizin çoğu mevcut özelli̇kleri̇ düzeltmek ve sürdürmekle geçi̇yor, yeni̇ özelli̇kler eklemekle deği̇l
 
 02:59.800 --> 03:00.490
-new ones.
+yenileri.
 
 03:00.490 --> 03:07.420
-So recognizing that and seeing that unit testing will help us create those new features, as well as
+Dolayısıyla bunu fark etmek ve birim testinin bu yeni özellikleri oluşturmamıza yardımcı olacağını görmek
 
 03:07.420 --> 03:13.630
-give us much more code confidence in the 80% of the maintenance that we're spending in our project.
+Projemizde harcadığımız bakımın %80'inde bize çok daha fazla kod güveni verir.
 
 03:13.630 --> 03:19.210
-It is going to easily pay benefits to you as a game developer, and it's a wonderful skill to learn.
+Bir oyun geliştiricisi olarak size kolayca fayda sağlayacaktır ve öğrenmesi harika bir beceridir.
 
 03:19.210 --> 03:20.500
-So let's get started.
+Öyleyse başlayalım.

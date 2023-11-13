@@ -1,271 +1,271 @@
 WEBVTT
 
 00:00.260 --> 00:03.380
-Hello and welcome to Unit Testing for unity.
+Merhaba ve Unity için Birim Testine hoş geldiniz.
 
 00:03.410 --> 00:07.340
-In this workshop we're looking at the character class in an advanced version.
+Bu atölye çalışmasında karakter sınıfının gelişmiş bir versiyonuna bakıyoruz.
 
 00:07.340 --> 00:09.290
-Let's take a look at this demo in action.
+Şimdi bu demonun nasıl çalıştığına bir göz atalım.
 
 00:09.290 --> 00:11.330
-Here we're going to open up our unity.
+Burada birliğimizi açacağız.
 
 00:11.360 --> 00:13.310
-We're going to open up our sample project.
+Örnek projemizi açacağız.
 
 00:13.310 --> 00:18.830
-And we're going to take a look at a scene inside for the character advanced situation here I want to
+Ve burada karakterin gelişmiş durumu için içerideki bir sahneye göz atacağız.
 
 00:18.830 --> 00:21.620
-talk a little bit about code separation.
+kod ayrımı hakkında biraz konuşalım.
 
 00:21.650 --> 00:26.420
-Earlier in one of the workshops, I talked about the different dependencies that you'd have.
+Daha önceki çalıştaylardan birinde, sahip olabileceğiniz farklı bağımlılıklardan bahsetmiştim.
 
 00:26.420 --> 00:28.670
-For example, if you're calling a back end server.
+Örneğin, bir arka uç sunucusunu çağırıyorsanız.
 
 00:28.670 --> 00:35.840
-And in that situation, we used a substitute library to mock out and not need to call the back end.
+Ve bu durumda, arka ucu çağırmak zorunda kalmamak için bir yedek kütüphane kullandık.
 
 00:35.870 --> 00:42.230
-It's a similar discussion here where we're looking at what are the dependency involved with a particular
+Burada da benzer bir tartışma söz konusu, belirli bir bağımlılıkla ilgili bağımlılığın ne olduğuna bakıyoruz.
 
 00:42.230 --> 00:48.950
-test scenario, and how do we be aware of those different dependencies, and what do we want to do about
+test senaryosu ve bu farklı bağımlılıkların nasıl farkında olacağız ve bu konuda ne yapmak istiyoruz?
 
 00:48.950 --> 00:49.190
-it?
+Öyle mi?
 
 00:49.220 --> 00:51.740
-Here we're not going to use the substitute library.
+Burada yedek kütüphaneyi kullanmayacağız.
 
 00:51.740 --> 00:56.270
-We're going to think about separating our monobehaviour from other code and taking a look.
+Monobehaviour'umuzu diğer kodlardan ayırmayı düşüneceğiz ve bir göz atacağız.
 
 00:56.480 --> 00:58.250
-So here we are inside unity.
+İşte birlik içindeyiz.
 
 00:58.580 --> 00:59.750
-We've got a production class.
+Bir üretim sınıfımız var.
 
 00:59.750 --> 01:00.560
-Let's take a look at it.
+Bir göz atalım.
 
 01:00.560 --> 01:01.160
-Running.
+Koşuyorum.
 
 01:04.840 --> 01:07.810
-Down here, we see that we can move around with our arrow keys.
+Burada, ok tuşlarımızla hareket edebileceğimizi görüyoruz.
 
 01:07.810 --> 01:11.350
-Just like in the basic example, the end user experience is the same.
+Tıpkı temel örnekte olduğu gibi, son kullanıcı deneyimi aynıdır.
 
 01:11.350 --> 01:16.630
-And that's something of an interesting example here, that some of the changes that we do for the code
+Ve burada ilginç bir örnek var, kod için yaptığımız bazı değişiklikler
 
 01:16.630 --> 01:21.550
-quality and testability of our systems doesn't necessarily impact the end user.
+Sistemlerimizin kalitesi ve test edilebilirliği son kullanıcıyı etkilemek zorunda değildir.
 
 01:21.580 --> 01:22.680
-That's a positive.
+Bu olumlu bir şey.
 
 01:22.690 --> 01:25.570
-So let's take a look at the production code here.
+Şimdi üretim koduna bir göz atalım.
 
 01:25.570 --> 01:27.640
-We'll open up the character advanced example.
+Gelişmiş karakter örneğini açacağız.
 
 01:27.640 --> 01:29.200
-Here's a complete example.
+İşte tam bir örnek.
 
 01:29.200 --> 01:35.140
-What we're doing inside the wake of this example class is we're creating a primitive for the cube.
+Bu örnek sınıfın içinde yaptığımız şey, küp için bir ilkel oluşturmaktır.
 
 01:35.140 --> 01:37.600
-We give it a name for organization sake.
+Organizasyonun hatırına ona bir isim veriyoruz.
 
 01:37.690 --> 01:45.310
-Then instead of one line here where we just add a component that has all of our functionality, we do
+Ardından, burada tüm işlevselliğimize sahip bir bileşen eklediğimiz tek bir satır yerine
 
 01:45.340 --> 01:46.480
-two steps.
+İki adım.
 
 01:46.720 --> 01:52.000
-This is reminding me a little bit of the dependency injection we saw in the My Data loader example.
+Bu bana biraz My Data loader örneğinde gördüğümüz bağımlılık enjeksiyonunu hatırlatıyor.
 
 01:52.000 --> 01:55.300
-But this is a different use case with different dependencies.
+Ancak bu, farklı bağımlılıkları olan farklı bir kullanım durumudur.
 
 01:55.300 --> 02:00.250
-So instead of just one add component line we do the add component.
+Yani tek bir bileşen ekleme satırı yerine bileşen ekliyoruz.
 
 02:00.250 --> 02:05.590
-And then we create our own non monobehaviour character advanced class.
+Ve sonra kendi monobehaviour olmayan karakter gelişmiş sınıfımızı oluşturuyoruz.
 
 02:05.590 --> 02:07.840
-And we pass in the Monobehaviour.
+Ve Monobehaviour'a geçiyoruz.
 
 02:07.840 --> 02:12.700
-So we're passing in the dependency that the character advance is going to use.
+Böylece karakter ilerlemesinin kullanacağı bağımlılığı aktarıyoruz.
 
 02:12.730 --> 02:19.240
-Now character advanced is not a monobehaviour, and thereby we have more flexibility with how we want
+Artık gelişmiş karakter tek bir davranış değildir ve bu nedenle nasıl istediğimiz konusunda daha fazla esnekliğe sahibiz
 
 02:19.240 --> 02:19.810
-to test it.
+test etmek için.
 
 02:19.840 --> 02:23.110
-We could test it at edit mode, for example, more easily.
+Örneğin düzenleme modunda daha kolay test edebiliriz.
 
 02:23.260 --> 02:28.330
-Again, whenever you're using Monobehaviours that's more appropriate for play mode tests.
+Yine, Monobehaviours kullandığınızda bu, oyun modu testleri için daha uygundur.
 
 02:28.360 --> 02:31.270
-It's not a hard rule, but that's one way to think about it.
+Bu kesin bir kural değil, ama bu da düşünmenin bir yolu.
 
 02:31.270 --> 02:37.960
-So here, by separating our monobehaviour from our non monobehaviour, we've got a few more options.
+Burada, monobehaviour'umuzu monobehaviour olmayanlardan ayırarak, birkaç seçeneğimiz daha var.
 
 02:37.990 --> 02:43.360
-Now we're still here in a play play mode environment because this is the production code.
+Şimdi hala burada bir oyun modu ortamındayız çünkü bu üretim kodu.
 
 02:43.360 --> 02:46.270
-Let's step in and see how our source code is changed.
+Şimdi kaynak kodumuzun nasıl değiştiğini görelim.
 
 02:46.270 --> 02:48.340
-So here we are in the character advanced.
+İşte burada gelişmiş karakterdeyiz.
 
 02:48.370 --> 02:50.530
-You'll see that it looks pretty familiar.
+Oldukça tanıdık geldiğini göreceksiniz.
 
 02:50.530 --> 02:56.400
-Most of the code in here is going to be just like the previous basic example, a few exceptions.
+Buradaki kodun çoğu önceki temel örnek gibi olacak, birkaç istisna dışında.
 
 02:56.410 --> 03:02.980
-One is that the character advanced is going to take in a reference in its constructor to the Monobehaviour.
+Birincisi, gelişmiş karakterin kurucusunda Monobehaviour'a bir referans alacak olmasıdır.
 
 03:03.010 --> 03:08.200
-This is because it needs to know some things about the Monobehaviour, particularly around its transform
+Bunun nedeni, Monobehaviour hakkında, özellikle de dönüşümüyle ilgili bazı şeyleri bilmeye ihtiyaç duymasıdır
 
 03:08.200 --> 03:09.040
-position.
+Pozisyon.
 
 03:09.130 --> 03:15.700
-There's also a situation where we need to use the second line and tell the Monobehaviour a reference
+İkinci satırı kullanmamız ve Monobehaviour'a bir referans söylememiz gereken bir durum da vardır
 
 03:15.700 --> 03:18.130
-back to us as the character advanced.
+karakter ilerledikçe bize geri dönecek.
 
 03:18.160 --> 03:24.790
-This is just so that the Monobehaviour, whenever it calls update can tell us to do the proper move.
+Bu sadece Monobehaviour'un güncelleme çağrısı yaptığında bize doğru hareketi yapmamızı söyleyebilmesi içindir.
 
 03:24.820 --> 03:30.280
-There's other ways you could organize this, but for simplicity's sake, we're passing in the monobehaviour
+Bunu düzenleyebileceğiniz başka yollar da var, ancak basitlik açısından monobehaviour
 
 03:30.280 --> 03:31.660
-and handling it this way.
+ve bu şekilde ele almak.
 
 03:31.990 --> 03:34.480
-Let's see what other changes we see in the code base.
+Bakalım kod tabanında başka ne gibi değişiklikler göreceğiz.
 
 03:35.800 --> 03:38.140
-The move type is the same as the basic.
+Hareket türü temel ile aynıdır.
 
 03:38.170 --> 03:40.360
-The move by input is the same.
+Girişe göre hareket aynıdır.
 
 03:41.260 --> 03:45.610
-Down here the move by key code is very similar if not identical.
+Burada anahtar koduna göre hareket aynı olmasa da çok benzerdir.
 
 03:46.480 --> 03:52.930
-And then down here in the move to and move by, you can notice that we are getting and setting the position
+Ve sonra burada aşağıya doğru hareket et ve hareket et ile, pozisyonu aldığımızı ve ayarladığımızı fark edebilirsiniz
 
 03:52.930 --> 03:55.630
-on the transform of the Monobehaviour.
+dönüştürülmesinde kullanılır.
 
 03:55.630 --> 04:02.590
-So again we have mostly a non monobehaviour class here doing what it can do without any dependency on
+Yani burada da çoğunlukla monobehaviour olmayan bir sınıfımız var ve herhangi bir bağımlılık olmadan yapabileceği şeyi yapıyor.
 
 04:02.590 --> 04:08.130
-Monobehaviour and only in the most necessary spots does it address the Monobehaviour.
+Monobehaviour ve sadece en gerekli noktalarda Monobehaviour'a hitap eder.
 
 04:08.140 --> 04:14.140
-That separation begins to help us think about how could we test just the monobehaviour if we could,
+Bu ayrım, eğer yapabilseydik sadece tek bir davranışı nasıl test edebileceğimizi düşünmemize yardımcı olmaya başlar,
 
 04:14.170 --> 04:17.140
-how could we test just the non monobehaviour if we could?
+Eğer yapabilseydik, sadece monobehaviour olmayanları nasıl test edebilirdik?
 
 04:17.170 --> 04:22.570
-Now, this isn't a perfect example because it's kind of the mid step as we're going along learning about
+Şimdi, bu mükemmel bir örnek değil, çünkü bu bir tür orta adımdır.
 
 04:22.570 --> 04:24.370
-how we can properly separate these.
+bunları nasıl düzgün bir şekilde ayırabiliriz.
 
 04:24.370 --> 04:25.900
-But I think it's a good learning.
+Ama bunun iyi bir öğrenme olduğunu düşünüyorum.
 
 04:25.900 --> 04:29.800
-So look at the source code here for character advanced.
+Gelişmiş karakter için buradaki kaynak koduna bakın.
 
 04:29.800 --> 04:33.880
-Compare it to character Basic on your own time and see the differences there.
+Bunu kendi zamanınızdaki Basic karakteriyle karşılaştırın ve aradaki farkları görün.
 
 04:34.030 --> 04:36.910
-Then let's take a look at the example that we do.
+O zaman yaptığımız örneğe bir göz atalım.
 
 04:36.910 --> 04:37.240
-Again.
+Tekrar.
 
 04:37.270 --> 04:38.830
-Here's the example that we saw.
+İşte gördüğümüz örnek.
 
 04:38.830 --> 04:40.000
-So it's these two lines.
+Yani bu iki çizgi.
 
 04:40.000 --> 04:41.200
-That's really the key.
+Bu gerçekten anahtar.
 
 04:41.230 --> 04:47.290
-We're going to add a component of the character advanced Monobehaviour onto our game object.
+Oyun nesnemize gelişmiş Monobehaviour karakterinin bir bileşenini ekleyeceğiz.
 
 04:47.290 --> 04:49.580
-And then we're going to create a new character advanced.
+Ve sonra yeni bir gelişmiş karakter oluşturacağız.
 
 04:49.580 --> 04:50.740
-That's a separate step.
+Bu ayrı bir adım.
 
 04:50.740 --> 04:54.310
-So you could imagine we would be able to test those two things in isolation.
+Yani bu iki şeyi ayrı ayrı test edebileceğimizi hayal edebilirsiniz.
 
 04:54.310 --> 04:56.650
-Now they are quite dependent on each other.
+Şimdi birbirlerine oldukça bağımlılar.
 
 04:56.680 --> 04:58.390
-There's ways that we could massage that.
+Buna masaj yapmanın yolları var.
 
 04:58.390 --> 05:01.300
-So that one does not directly depend on the other.
+Yani biri diğerine doğrudan bağlı değildir.
 
 05:01.300 --> 05:07.660
-Or we could do something like we did in the data loader example and use a substitute library so that
+Ya da veri yükleyici örneğinde yaptığımız gibi bir şey yapabilir ve bir yedek kütüphane kullanabiliriz, böylece
 
 05:07.660 --> 05:10.080
-we're mocking in the dependency instead.
+bunun yerine bağımlılıkta mocking yapıyoruz.
 
 05:10.090 --> 05:15.730
-But again, for simplicity of just learning how to separate a monobehaviour apart, I think we've done
+Ancak yine de, sadece bir monobehaviour'u nasıl ayıracağımızı öğrenmenin basitliği için, sanırım
 
 05:15.730 --> 05:16.510
-the case here.
+buradaki durum.
 
 05:16.510 --> 05:21.430
-You can run those tests with the edit mode and the play mode on your own time and take a look at this.
+Bu testleri düzenleme modu ve oynatma modu ile kendi zamanınızda çalıştırabilir ve buna bir göz atabilirsiniz.
 
 05:21.640 --> 05:27.760
-But for me, I think we're done talking about the differences in separating monobehaviour and non monobehaviour.
+Ama bana kalırsa, monobehaviour ve non monobehaviour ayrımındaki farklılıklar hakkında konuşmayı bitirdik.
 
 05:27.790 --> 05:28.450
-Thanks.
+Teşekkürler.

@@ -1,88 +1,88 @@
 WEBVTT
 
 00:00.080 --> 00:00.300
-Hi.
+Merhaba.
 
 00:00.320 --> 00:06.050
-That covers a lot of the different topics that I wanted to have in the workshop so far, but there's
+Bu, şimdiye kadar atölyede olmasını istediğim farklı konuların çoğunu kapsıyor, ancak
 
 00:06.050 --> 00:08.570
-plenty of room for more topics in the future.
+Gelecekte daha fazla konu için bolca yer var.
 
 00:08.570 --> 00:10.940
-We've seen in the workshops covered so far.
+Şimdiye kadar yapılan atölye çalışmalarında gördük.
 
 00:10.940 --> 00:17.930
-This simplest example learning the test runner, seeing how we can make playmode tests, edit mode tests,
+Bu en basit örnek test çalıştırıcısını öğrenmek, playmode testlerini, edit mode testlerini nasıl yapabileceğimizi görmek,
 
 00:17.960 --> 00:23.420
-learning a little bit about the differences of play mode and edit mode, and why you would want to test
+oynatma modu ve düzenleme modu arasındaki farklar ve neden test etmek isteyeceğiniz hakkında biraz bilgi edinmek
 
 00:23.420 --> 00:25.930
-in one or the other, or both.
+birinde ya da diğerinde ya da her ikisinde.
 
 00:25.940 --> 00:32.060
-Then we also saw some of the options we have when we have asynchronous functionality, or when we're
+Daha sonra, eşzamansız işlevselliğe sahip olduğumuzda sahip olduğumuz bazı seçenekleri de gördük veya
 
 00:32.060 --> 00:34.040
-dependent on other systems.
+diğer sistemlere bağımlı.
 
 00:34.040 --> 00:38.540
-What could we do to reduce that dependency for the sake of the test?
+Testin iyiliği için bu bağımlılığı azaltmak için ne yapabiliriz?
 
 00:38.570 --> 00:43.760
-Along the way there, we're learning some different things about dependency injection and separating
+Yol boyunca, bağımlılık enjeksiyonu ve bağımlılıkları ayırma hakkında bazı farklı şeyler öğreniyoruz.
 
 00:43.760 --> 00:45.230
-the concerns of our code.
+kodumuzun endişeleri.
 
 00:45.260 --> 00:51.290
-Those principles are useful in production code anyway, and we're beginning to see some of the ways
+Bu ilkeler zaten üretim kodunda kullanışlıdır ve bazı yolları görmeye başlıyoruz
 
 00:51.290 --> 00:58.400
-that when you prepare your code to be more testable, we're also creating code that is designed well
+Kodunuzu daha test edilebilir olacak şekilde hazırladığınızda, aynı zamanda iyi tasarlanmış bir kod da oluşturmuş oluruz
 
 00:58.400 --> 00:59.660
-for production.
+üretim için.
 
 00:59.660 --> 01:06.290
-So having dependency injection allows flexibility that you can use at runtime, reducing the complexity
+Dolayısıyla, bağımlılık enjeksiyonuna sahip olmak, çalışma zamanında kullanabileceğiniz esnekliği sağlayarak karmaşıklığı azaltır
 
 01:06.290 --> 01:12.920
-of your systems by passing in flexible varieties of different dependencies when you need to.
+İhtiyaç duyduğunuzda farklı bağımlılıkların esnek çeşitlerini aktararak sistemlerinizin
 
 01:12.950 --> 01:20.540
-We've also seen by separating a monolithic large monobehaviour into just what we need from the monobehaviour
+Ayrıca monolitik büyük bir monobehaviour'u sadece monobehaviour'dan ihtiyacımız olana ayırarak gördük
 
 01:20.540 --> 01:27.200
-and moving the other code into a lighter weight non monobehaviour class, we again get some flexibility
+ve diğer kodu daha hafif, tek davranışlı olmayan bir sınıfa taşıyarak yine biraz esneklik elde ediyoruz
 
 01:27.200 --> 01:32.150
-that is useful in production and also helps us here in the testing world.
+Üretimde faydalı olan ve aynı zamanda burada test dünyasında bize yardımcı olan.
 
 01:32.150 --> 01:38.780
-I think overall some of the challenges that we're seeing are what happens when you have multiple dependencies
+Bence genel olarak gördüğümüz zorluklardan bazıları, birden fazla bağımlılığınız olduğunda ne olduğudur
 
 01:38.780 --> 01:43.250
-or lots of systems called from one particular method.
+veya belirli bir yöntemden çağrılan çok sayıda sistem.
 
 01:43.610 --> 01:49.250
-That might be a sign that that method is bloated and doing too much, or it might be a sign that it's
+Bu, o yöntemin şişirilmiş ve çok fazla şey yaptığının bir işareti olabilir veya
 
 01:49.250 --> 01:51.680
-a lean and appropriate designed one.
+yalın ve uygun tasarlanmış bir tane.
 
 01:51.680 --> 01:57.350
-But we need to have some additional thoughts and considerations when we go to testing that functionality.
+Ancak bu işlevselliği test ederken bazı ek düşünce ve değerlendirmelere ihtiyacımız var.
 
 01:57.350 --> 01:59.600
-So I hope this has been helpful for you.
+Umarım bu sizin için faydalı olmuştur.
 
 01:59.600 --> 02:06.680
-I look forward to covering even more topics in this series as well, and they'll be added again in over
+Bu seride de daha fazla konuyu ele almayı dört gözle bekliyorum ve bunlar ilerleyen zamanlarda tekrar eklenecek.
 
 02:06.680 --> 02:07.190
-time.
+Zaman.
 
 02:07.190 --> 02:08.300
-So thanks again.
+Tekrar teşekkürler.
