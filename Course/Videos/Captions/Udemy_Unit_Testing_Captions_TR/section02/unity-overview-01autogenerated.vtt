@@ -1,0 +1,142 @@
+WEBVTT
+
+00:00.230 --> 00:01.180
+The unity.
+
+00:01.190 --> 00:02.270
+Overview.
+
+00:02.780 --> 00:09.100
+The games industry is big and getting bigger amongst leisure time activities.
+
+00:09.110 --> 00:16.910
+Playing interactive experiences like video games has become increasingly popular on a weekly basis.
+
+00:16.940 --> 00:20.150
+It makes up the most of these activities.
+
+00:20.300 --> 00:26.070
+The size of the global game development industry is tremendously big.
+
+00:26.090 --> 00:30.860
+You can see across different continents the size of the global game market.
+
+00:30.890 --> 00:36.620
+There's many ways that game development teams can solve the challenges of developing games.
+
+00:36.620 --> 00:42.710
+Choosing a middleware a real time engine like unity brings a lot of features and services to a game
+
+00:42.710 --> 00:46.340
+development team, and allows you to create content more quickly.
+
+00:46.370 --> 00:52.610
+Unity is an industry leading choice for over a decade, and you can create content that is 2D, 3D,
+
+00:52.640 --> 00:56.450
+VR, AR across all different sorts of industries.
+
+00:56.480 --> 01:01.840
+Gaming, of course, but also architecture, simulation and feature films.
+
+01:01.850 --> 01:04.470
+Unity is the name of the company.
+
+01:04.490 --> 01:09.680
+Its services, the platform you build on, and the runtime engine itself.
+
+01:09.710 --> 01:14.420
+Unity is just one development platform you can choose from, but it's tremendously popular.
+
+01:14.450 --> 01:20.300
+Of the top 1000 performing mobile games, over 70% are created with unity.
+
+01:20.450 --> 01:22.940
+Unity is created with everyone in mind.
+
+01:22.940 --> 01:24.050
+Let's see more.
+
+02:16.880 --> 02:19.970
+Here's a screenshot from a popular type of game.
+
+02:19.970 --> 02:23.990
+We can see here some of the essentials of video game development.
+
+02:23.990 --> 02:28.670
+There's UI, these on screen elements text and the minimap.
+
+02:28.700 --> 02:31.130
+These things make up the user interface.
+
+02:31.430 --> 02:38.720
+There's the input taking input from finger swipes on a mobile device, gamepad controllers on a console,
+
+02:38.750 --> 02:39.830
+mouse, and keyboard.
+
+02:39.830 --> 02:44.930
+On PC, there's rendering the audio and the graphics, of course, to the user.
+
+02:44.960 --> 02:49.160
+These can be 2D or 3D, and these elements can be animated.
+
+02:49.160 --> 02:54.560
+There's many different types of animations in video game development, from the screen fading in and
+
+02:54.560 --> 02:57.290
+out to the way the character walks around the world.
+
+02:57.290 --> 03:01.340
+And finally, there's the scripting or coding that you do in unity.
+
+03:01.340 --> 03:03.230
+That's the C-sharp programming language.
+
+03:03.230 --> 03:06.580
+So when we think of unity, what are the features that are built in?
+
+03:06.590 --> 03:11.720
+Well, by choosing unity as the middleware solution, you get a lot of features out of the box.
+
+03:11.720 --> 03:14.480
+All the ones I just talked about and much, much more.
+
+03:14.480 --> 03:18.590
+In addition to these features, there's also optional services.
+
+03:18.890 --> 03:26.180
+Unity provides different services for acquiring and measuring your users, providing back end functionality
+
+03:26.180 --> 03:27.830
+as well as multiplayer.
+
+03:28.250 --> 03:33.290
+Overall, game teams can choose the tools and platforms that make sense for them.
+
+03:33.940 --> 03:39.670
+Creating your own game engine is possible, but requires tremendous resources in a larger team.
+
+03:39.820 --> 03:46.210
+The end result may be more customizable, however, choosing something off the shelf like unity, which
+
+03:46.210 --> 03:53.710
+brings these features and services, allows teams to offer end users much more content more quickly.
+
+03:53.710 --> 03:55.400
+And of the choices out there.
+
+03:55.420 --> 04:01.630
+Unity is among the most powerful and popular options we've seen that the games industry is big and it's
+
+04:01.630 --> 04:02.350
+growing.
+
+04:02.530 --> 04:08.560
+Unity is a powerful option to choose and includes features and services out of the box.
+
+04:08.590 --> 04:14.030
+Next, we'll continue looking at unity, particularly its structure and organization.
+
+04:14.050 --> 04:14.890
+Thanks.

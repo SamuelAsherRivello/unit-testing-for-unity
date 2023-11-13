@@ -1,0 +1,139 @@
+WEBVTT
+
+00:00.140 --> 00:01.400
+Software design.
+
+00:01.400 --> 00:02.360
+Overview.
+
+00:02.510 --> 00:05.980
+Let's start with theory of Design principles.
+
+00:06.020 --> 00:10.620
+Veteran developers can make it look easy, but clean code is not written by chance.
+
+00:10.640 --> 00:17.330
+Creating good projects comes from using sound principles, good workflows, and productive patterns
+
+00:17.330 --> 00:18.540
+in your process.
+
+00:18.560 --> 00:21.300
+First, let's discuss design principles.
+
+00:21.320 --> 00:24.920
+These are the philosophies that lead to productive software development.
+
+00:24.920 --> 00:32.420
+Benefits include faster planning, clear communication, and focus during your development.
+
+00:32.570 --> 00:37.310
+The history of computer science is full of these design principles.
+
+00:37.340 --> 00:39.750
+I'll go over some of the most popular.
+
+00:39.770 --> 00:46.070
+This is an excellent opportunity for you to do your own research on any that are new to you, and to
+
+00:46.070 --> 00:49.280
+dig in deeper on the ones that you have some familiarity with.
+
+00:49.280 --> 00:56.150
+Let's start with the solid principles, where each letter in solid corresponds to a design principle.
+
+00:56.330 --> 01:04.430
+The single responsibility principle is the general desire for each of your classes and structures to
+
+01:04.430 --> 01:05.990
+do just one thing.
+
+01:05.990 --> 01:13.910
+The open closed principle means that each class should be open for extension, but closed for modification.
+
+01:13.910 --> 01:19.160
+With object oriented programming, you have inheritance and interfaces.
+
+01:19.160 --> 01:27.740
+The Liskov Substitution principle discusses that any subtype should be able to be cast as the parent
+
+01:27.770 --> 01:28.100
+type.
+
+01:28.100 --> 01:35.900
+An interface segregation means that we should not apply more interfaces to a given type than is needed.
+
+01:35.900 --> 01:41.870
+And finally, dependency inversion indicates that when you're dealing with high code and low code in
+
+01:41.870 --> 01:49.190
+a system, the high level code should not depend on concrete implementations of the lower level code.
+
+01:49.190 --> 01:52.760
+It instead should use something like interfaces to abstract that.
+
+01:52.760 --> 01:55.060
+Some other popular concepts include.
+
+01:55.070 --> 01:56.360
+Don't repeat yourself.
+
+01:56.360 --> 02:02.840
+This is a reminder that we use as developers that if you find yourself copying pasting literal code
+
+02:02.840 --> 02:08.780
+or concepts, there may be a systematic approach that helps us reuse that code more efficiently.
+
+02:08.810 --> 02:15.500
+Keep it simple reminds us not to overcomplicate our solutions and you ain't going to need it.
+
+02:15.500 --> 02:19.460
+Reminds us not to build tomorrow's solutions today.
+
+02:20.150 --> 02:21.800
+In iterative development.
+
+02:21.800 --> 02:27.980
+We want to solve the challenges before us now with sound principles and not engineer something that
+
+02:27.980 --> 02:30.080
+is necessarily future proof.
+
+02:30.110 --> 02:36.500
+Often we don't know what the future will hold, and designing for tomorrow is an unnecessary complication.
+
+02:36.500 --> 02:42.800
+Just practicing the principles here and applying them into your project will automatically give you
+
+02:42.800 --> 02:49.080
+more scalability, maintainability, and quality of life as a developer.
+
+02:49.100 --> 02:54.800
+When we think of these software design principles in this particular section, we start from a high
+
+02:54.800 --> 03:00.570
+theoretical level things that can be more universal across different programming platforms.
+
+03:00.590 --> 03:06.470
+Then we'll get down into more of the nuts and bolts of how it applies, particularly within unity.
+
+03:06.470 --> 03:12.920
+But you'll notice this difference where we talk high level and then concretely in low level.
+
+03:12.920 --> 03:18.920
+And throughout that you can develop your own personal style of which of these principles impact your
+
+03:18.920 --> 03:20.930
+daily work life more than others.
+
+03:20.960 --> 03:26.510
+We'll also come to recognize some of these principles throughout the architectures that we use, and
+
+03:26.510 --> 03:29.990
+ultimately the code that we do together in the coding sections.
+
+03:30.020 --> 03:31.160
+That's it for now.
+
+03:31.160 --> 03:31.910
+Thanks.
