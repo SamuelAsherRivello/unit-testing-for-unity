@@ -1,310 +1,310 @@
 WEBVTT
 
 00:00.050 --> 00:03.650
-Hello and welcome to this Unity Unit testing workshop.
+Olá e bem-vindo a este workshop de testes unitários do Unity.
 
 00:03.650 --> 00:07.190
-We're going to look at my data loader Basic as an example.
+Vamos dar uma olhada no meu carregador de dados Basic como exemplo.
 
 00:07.190 --> 00:07.820
-Let's dig in.
+Vamos nos aprofundar.
 
 00:07.820 --> 00:10.670
-So here in this demo I'm going to open up unity.
+Então, nesta demonstração, vou abrir o unity.
 
 00:10.670 --> 00:16.040
-Open up our core sample project and take a look at the scene of my data loader basic.
+Abra o nosso projeto de amostra principal e dê uma olhada na cena do meu carregador de dados básico.
 
 00:16.040 --> 00:21.890
-Now the reason that I've chosen to do some sort of data loading is just to talk about, well, what
+Agora, a razão pela qual eu escolhi fazer algum tipo de carregamento de dados é apenas para falar sobre, bem, o que
 
 00:21.890 --> 00:30.290
-if our unit tests, which we hope are very dependable and isolated and run quickly for the sake of our
+Se os nossos testes unitários, que esperamos que sejam muito confiáveis, isolados e executados rapidamente para o bem da nossa
 
 00:30.290 --> 00:32.390
-own testing methodologies?
+metodologias de teste próprias?
 
 00:32.390 --> 00:38.150
-What if they depend on other systems, like how do we know that we're able to test just one part?
+E se eles dependerem de outros sistemas, como saberemos se somos capazes de testar apenas uma parte?
 
 00:38.180 --> 00:46.130
-In general, unit testing is testing a single unit, which you could think of as one method of one class.
+Em geral, o teste de unidade está testando uma única unidade, que você poderia pensar como um método de uma classe.
 
 00:46.130 --> 00:52.130
-But often our code is multiple classes depending together, and that can be a challenge for deciding
+Mas muitas vezes o nosso código é composto por várias classes que dependem umas das outras e isso pode ser um desafio para decidir
 
 00:52.130 --> 00:55.460
-how to separate them and test them in isolation.
+como separá-las e testá-las isoladamente.
 
 00:55.460 --> 01:01.640
-Also, you could have a system that depends on something asynchronous, like rendering graphics, rendering
+Além disso, você pode ter um sistema que depende de algo assíncrono, como renderização de gráficos, renderização
 
 01:01.640 --> 01:05.150
-audio, or in this case, calling a back end server.
+áudio ou, nesse caso, chamar um servidor de back-end.
 
 01:05.150 --> 01:12.770
-So I created a very simple example here that loads data you pass in a URL, it just calls some web page
+Então, criei um exemplo muito simples aqui que carrega dados que você passa em uma URL, ele apenas chama alguma página da web
 
 01:12.770 --> 01:15.020
-and gets back the text of that web page.
+e recebe de volta o texto dessa página da Web.
 
 01:15.050 --> 01:21.800
-So this is the simplest example, but you could imagine that this is any server logic calling to send
+Portanto, este é o exemplo mais simples, mas você pode imaginar que se trata de qualquer lógica de servidor chamando para enviar
 
 01:21.800 --> 01:26.930
-a high score from your game, calling to load player data, something related to multiplayer.
+uma pontuação alta do seu jogo, chamando para carregar os dados do jogador, algo relacionado ao multijogador.
 
 01:26.930 --> 01:31.690
-Perhaps all of those could depend on some asynchronous network traffic.
+Talvez todos eles possam depender de algum tráfego de rede assíncrono.
 
 01:31.700 --> 01:32.720
-Let's take a look.
+Vamos dar uma olhada.
 
 01:32.810 --> 01:34.640
-So here we are in the sample.
+Então, aqui estamos na amostra.
 
 01:34.640 --> 01:36.650
-We've got my data loader basic.
+Temos meu carregador de dados básico.
 
 01:36.650 --> 01:37.310
-Load it up.
+Carregue-o.
 
 01:37.310 --> 01:38.330
-Let's hit play.
+Vamos apertar o play.
 
 01:41.030 --> 01:42.380
-In this particular demo.
+Nesta demonstração em particular.
 
 01:42.410 --> 01:46.940
-There's not too real interesting things in this particular demo.
+Não há coisas muito interessantes nesta demonstração em particular.
 
 01:46.970 --> 01:49.340
-There's not anything too interesting happening at gameplay.
+Não há nada muito interessante acontecendo na jogabilidade.
 
 01:49.610 --> 01:53.330
-We'll go to the console here and see this scene has no UI.
+Vamos para o console aqui e veremos que esta cena não tem interface de usuário.
 
 01:53.360 --> 01:59.660
-See the unity console, and then it's just showing the length of what is returned from the server.
+Veja o console da unidade, que mostra apenas a duração do que é retornado do servidor.
 
 01:59.660 --> 02:03.590
-Anything not zero signifies hey, it loaded a page.
+Qualquer coisa diferente de zero significa que foi carregada uma página.
 
 02:03.590 --> 02:05.030
-So very light.
+Portanto, muito leve.
 
 02:05.030 --> 02:06.080
-Simple test.
+Teste simples.
 
 02:06.080 --> 02:09.550
-I don't have error checking or these kinds of things built in.
+Eu não tenho verificação de erros ou esse tipo de coisa incorporada.
 
 02:09.560 --> 02:14.030
-It just assumes success for the sake of the simplicity of this demo.
+Ele apenas assume o sucesso por causa da simplicidade desta demonstração.
 
 02:14.060 --> 02:18.170
-If you're doing production code and you're calling servers, you'd want to add a lot more functionality
+Se você estiver fazendo um código de produção e chamando servidores, é melhor adicionar muito mais funcionalidades
 
 02:18.170 --> 02:18.800
-to it.
+a ele.
 
 02:18.800 --> 02:23.160
-So that's the runtime experience, which is pretty simple and not that interesting.
+Portanto, essa é a experiência em tempo de execução, que é bastante simples e não muito interessante.
 
 02:23.180 --> 02:28.940
-Now if we look at the test runner here, we can set our category to be my data loader basic.
+Agora, se olharmos para o executor do teste aqui, podemos definir a nossa categoria para ser o meu carregador de dados básico.
 
 02:28.940 --> 02:32.720
-So it just shows us the tests related to this particular code.
+Assim, ele nos mostra apenas os testes relacionados a esse código específico.
 
 02:32.720 --> 02:34.520
-And then we hit our edit mode.
+Em seguida, acessamos o modo de edição.
 
 02:34.520 --> 02:38.600
-Here again we have play mode but you can explore that on your own.
+Aqui, novamente, temos o modo play, mas você pode explorá-lo por conta própria.
 
 02:38.600 --> 02:42.620
-I find for this particular demo that edit mode is more interesting.
+Para esta demonstração em particular, acho que o modo de edição é mais interessante.
 
 02:42.620 --> 02:45.050
-So I'm going to hit run all.
+Portanto, vou clicar em executar tudo.
 
 02:46.660 --> 02:48.740
-And we can see we've got success.
+E podemos ver que tivemos sucesso.
 
 02:48.760 --> 02:54.910
-This says load async result contains doctype when is loaded.
+Isto diz que o resultado do load async contém doctype quando é carregado.
 
 02:54.910 --> 02:56.890
-So let's take a look at a little bit of that.
+Então vamos dar uma olhada em um pouco disso.
 
 02:57.010 --> 02:59.200
-We'll go here and do open our source.
+Vamos abrir o nosso código-fonte.
 
 03:00.590 --> 03:02.210
-And here's the test.
+E aqui está o teste.
 
 03:02.300 --> 03:08.000
-It is showing that first we create an instance of our data loader basic.
+Ele mostra que primeiro criamos uma instância do nosso carregador de dados básico.
 
 03:08.300 --> 03:12.050
-Then we listen for when it gets loaded.
+Depois ouvimos quando ele é carregado.
 
 03:13.000 --> 03:16.260
-We'll check on the data loaded back from the server.
+Verificaremos os dados carregados de volta do servidor.
 
 03:16.270 --> 03:21.190
-Again, this is just calling a web page, and whatever the web page source code is returning it as a
+Novamente, isso é apenas uma chamada a uma página da Web e qualquer que seja o código-fonte da página da Web, ele retorna como um
 
 03:21.190 --> 03:22.420
-big blob of text.
+grande gota de texto.
 
 03:22.420 --> 03:24.760
-So it's going to look like some HTML stuff.
+Portanto, vai se parecer com alguma coisa HTML.
 
 03:24.760 --> 03:30.310
-And as I looked at it while I was creating this, I noticed that it said doctype as part of it.
+E quando olhei para ele enquanto o estava criando, notei que dizia doctype como parte dele.
 
 03:30.310 --> 03:35.920
-So Doctype is not something super significant, certainly not in the unity world, but I just thought
+Portanto, o Doctype não é algo muito significativo, certamente não no mundo da unidade, mas pensei que
 
 03:35.920 --> 03:40.030
-it was some little test that tells me did I get something back from a web page?
+que era um pequeno teste que me diz se eu recebi algo de volta de uma página da web?
 
 03:40.030 --> 03:43.460
-You can imagine testing for any other substring that makes sense for you.
+Você pode imaginar um teste para qualquer outra substring que faça sentido para você.
 
 03:43.480 --> 03:50.410
-Then finally, I do the action here that we're testing upon, and I load the asynchronous call there
+Finalmente, faço a ação aqui que estamos testando e carrego a chamada assíncrona
 
 03:50.410 --> 03:51.700
-and pass in the URL.
+e passo a URL.
 
 03:51.730 --> 03:58.600
-Now notice the URL is the URL of the GitHub page, but that's not so important if there's nothing unique
+Agora observe que a URL é a URL da página do GitHub, mas isso não é tão importante se não houver nada exclusivo
 
 03:58.600 --> 03:58.960
-there.
+ali.
 
 03:58.960 --> 04:06.010
-If you wanted to test like the google.com it will just go and call google.com and get the the source
+Se você quiser fazer um teste como o do google.com, ele simplesmente chamará o google.com e obterá a fonte
 
 04:06.010 --> 04:07.210
-code back from that.
+código de volta a partir disso.
 
 04:07.210 --> 04:12.610
-I don't really want to focus on what I'm doing here in the production code, because it's an admittedly
+Eu não quero realmente me concentrar no que estou fazendo aqui no código de produção, porque é um código reconhecidamente
 
 04:12.610 --> 04:13.720
-simple example.
+exemplo simples.
 
 04:13.720 --> 04:19.030
-I just wanted it to be a way to get something asynchronous happening inside unity.
+Eu só queria que fosse uma forma de fazer algo assíncrono acontecer dentro da unidade.
 
 04:20.210 --> 04:22.880
-So let's look at the source code just so we understand.
+Então, vamos dar uma olhada no código-fonte para que possamos entender.
 
 04:23.880 --> 04:24.330
-Here.
+Aqui.
 
 04:24.330 --> 04:24.930
-What we're doing.
+O que estamos fazendo.
 
 04:24.930 --> 04:29.130
-When I call load, I just say, hey, make sure that the URL is not empty.
+Quando eu chamo o load, eu apenas digo, ei, certifique-se de que a URL não está vazia.
 
 04:29.520 --> 04:34.710
-Then I go ahead and I use Unity's web request, which is built in functionality.
+Em seguida, uso a solicitação web do Unity, que é uma funcionalidade integrada.
 
 04:34.710 --> 04:41.880
-I call send request on that, and then I set the result to be the download handler's text.
+Chamo a solicitação de envio e defino o resultado como sendo o texto do manipulador de download.
 
 04:41.910 --> 04:44.220
-This is just a super cheap, easy way.
+Esta é uma forma super econômica e fácil.
 
 04:44.220 --> 04:47.400
-Recommended by unity to call simple data online.
+Recomendado pela unity para chamar dados simples on-line.
 
 04:47.430 --> 04:48.930
-Very simple and straightforward.
+Muito simples e direto.
 
 04:48.960 --> 04:53.250
-Now this brings up a question what actually are we testing here?
+Isso levanta uma questão: o que realmente estamos testando aqui?
 
 04:53.640 --> 04:59.940
-I have a custom class called my data loader, but inside I'm heavily depending on some existing unity
+Tenho uma classe personalizada chamada meu carregador de dados, mas dentro dela estou dependendo muito de alguma unidade existente
 
 04:59.970 --> 05:02.550
-functionality of unity web request.
+funcionalidade do unity web request.
 
 05:02.580 --> 05:06.420
-Then I'm calling some web page in this case GitHub.
+Em seguida, estou chamando alguma página da web, neste caso o GitHub.
 
 05:06.420 --> 05:08.040
-And that's involved.
+E isso está envolvido.
 
 05:08.040 --> 05:13.170
-If GitHub was somehow down for the day, this test would fail.
+Se o GitHub estivesse de alguma forma fora do ar durante o dia, este teste falharia.
 
 05:13.200 --> 05:14.490
-Is that appropriate?
+Isso é apropriado?
 
 05:14.490 --> 05:21.390
-If my unit test is really about testing my own methodology, my own functionality, I shouldn't consider
+Se o meu teste unitário for realmente para testar minha própria metodologia, minha própria funcionalidade, não devo considerar
 
 05:21.390 --> 05:22.440
-it a failed test.
+um teste que falhou.
 
 05:22.440 --> 05:25.230
-If some unrelated dependency fails.
+Se alguma dependência não relacionada falhar.
 
 05:25.230 --> 05:27.000
-But here that's the case.
+Mas aqui é esse o caso.
 
 05:27.000 --> 05:29.030
-I would fail if GitHub was down.
+Eu falharia se o GitHub estivesse fora do ar.
 
 05:29.040 --> 05:34.830
-Also, inside here I'm using Unity web request that's built in functionality by unity.
+Além disso, aqui dentro estou usando o Unity web request, que é uma funcionalidade construída pelo unity.
 
 05:34.860 --> 05:41.280
-We hope that it works 100% of the time in all situations, but it's possible that my code works and
+Esperamos que funcione 100% do tempo em todas as situações, mas é possível que o meu código funcione e
 
 05:41.280 --> 05:42.600
-its code doesn't work.
+seu código não funcione.
 
 05:42.600 --> 05:44.910
-So there's a gray area here.
+Portanto, há uma área cinzenta aqui.
 
 05:44.910 --> 05:50.070
-When you think about designing your classes and then designing the tests on those classes, how do you
+Quando você pensa em projetar suas classes e depois projetar os testes nessas classes, como você
 
 05:50.070 --> 05:52.350
-know what you should actually focus on?
+sabe no que você deve se concentrar de fato?
 
 05:52.350 --> 05:54.780
-Testing, generally speaking.
+Testes, de modo geral.
 
 05:54.780 --> 05:59.940
-And there's books and books written on this subject of how to approach the art of unit testing.
+E há livros e livros escritos sobre esse assunto de como abordar a arte dos testes unitários.
 
 05:59.940 --> 06:05.730
-But generally speaking, you want to reduce your dependencies down, and you want to simplify the number
+Mas, de modo geral, você quer reduzir as dependências e simplificar o número
 
 06:05.730 --> 06:07.920
-of code lines that you're testing.
+de linhas de código que você está testando.
 
 06:07.920 --> 06:14.880
-So less code is better because it's more simple and focused and you know exactly in isolation which
+Portanto, menos código é melhor porque é mais simples e focado e você sabe exatamente, isoladamente, qual
 
 06:14.880 --> 06:16.410
-code you're testing on.
+código que está sendo testado.
 
 06:16.410 --> 06:22.710
-So this isn't a perfect example, but for us, it's a great way to get started and just talk about asynchronous
+Portanto, este não é um exemplo perfeito, mas, para nós, é uma ótima maneira de começar e falar sobre assíncrono
 
 06:22.710 --> 06:23.340
-code running.
+código em execução.
 
 06:23.340 --> 06:25.440
-So for now we'll end this example.
+Então, por enquanto, vamos encerrar este exemplo.

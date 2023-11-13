@@ -1,340 +1,340 @@
 WEBVTT
 
 00:00.050 --> 00:02.240
-Hello and welcome to Unit Testing for unity.
+Olá e bem-vindo ao Unit Testing for unity.
 
 00:02.270 --> 00:05.270
-This is our workshop talking about character physics.
+Este é o nosso workshop que fala sobre a física dos personagens.
 
 00:05.300 --> 00:11.750
-Now in previous workshops we've slowly moved from a very simple character example, moving with arrow
+Em workshops anteriores, passamos lentamente de um exemplo de personagem muito simples, movendo-se com a seta
 
 00:11.750 --> 00:17.600
-keys to the advanced example separating Monobehaviour and non monobehaviour concerns.
+para o exemplo avançado que separa as preocupações monocomportamentais e não monocomportamentais.
 
 00:17.600 --> 00:22.580
-And here in this one we're going to talk about well, what if we depend on yet another unity system
+E aqui neste exemplo vamos falar sobre bem, e se dependermos de mais um sistema de unidade
 
 00:22.580 --> 00:23.540
-like physics.
+como a física.
 
 00:23.540 --> 00:29.360
-And also when we're using physics in this particular example our movement becomes fuzzier.
+E também quando estamos usando a física neste exemplo específico, nosso movimento se torna mais confuso.
 
 00:29.360 --> 00:33.500
-Meaning I don't click left and it immediately clicks to a position.
+Isso significa que eu não clico à esquerda e ele imediatamente clica em uma posição.
 
 00:33.500 --> 00:35.570
-It slowly moves over time.
+Ele se move lentamente ao longo do tempo.
 
 00:35.570 --> 00:39.740
-How would we be able to test the value that is slowly changing over time?
+Como poderíamos testar o valor que está mudando lentamente com o tempo?
 
 00:39.740 --> 00:42.860
-So we'll talk about a few of those things here in the source code.
+Portanto, falaremos sobre algumas dessas coisas aqui no código-fonte.
 
 00:42.860 --> 00:47.930
-So to take a look at this demo, we are opening up our unity editor and the sample project.
+Para dar uma olhada nessa demonstração, vamos abrir o nosso unity editor e o projeto de amostra.
 
 00:47.930 --> 00:50.660
-The scene here is going to be the character physics scene.
+A cena aqui será a cena da física do personagem.
 
 00:50.660 --> 00:54.330
-And one of the things we're going to be looking at is how to test those fuzzy values.
+E uma das coisas que vamos analisar é como testar esses valores difusos.
 
 00:54.350 --> 01:01.280
-I called it again, fuzzy values to me is values that aren't necessarily instantaneously changing from
+Para mim, os valores difusos são valores que não estão necessariamente mudando instantaneamente de
 
 01:01.280 --> 01:02.270
-A to B.
+A para B.
 
 01:02.270 --> 01:09.500
-They slowly animate over time, such as the position of an object or a score that gradually counts up.
+Eles são animados lentamente ao longo do tempo, como a posição de um objeto ou uma pontuação que aumenta gradualmente.
 
 01:09.560 --> 01:14.720
-These are all areas where you'd want to be able to test something over time, and we have one easy approach
+Todas essas são áreas em que você gostaria de poder testar algo ao longo do tempo, e temos uma abordagem fácil
 
 01:14.720 --> 01:15.860
-here to do that.
+aqui para fazer isso.
 
 01:15.860 --> 01:20.360
-It's not the only way to solve it, but it's one that I think helps us learning along the way.
+Não é a única maneira de resolver o problema, mas acho que nos ajuda a aprender ao longo do caminho.
 
 01:20.360 --> 01:21.410
-So let's take a look.
+Então vamos dar uma olhada.
 
 01:21.410 --> 01:23.060
-So here we are in the unity project.
+Então, aqui estamos no projeto unity.
 
 01:23.060 --> 01:25.580
-We've got the character physics example open.
+Temos o exemplo de física de personagem aberto.
 
 01:25.580 --> 01:27.140
-Let's go ahead and run the scene.
+Vamos prosseguir e executar a cena.
 
 01:33.260 --> 01:36.170
-Now here I'm able to move using the arrow keys.
+Agora, posso me mover usando as teclas de seta.
 
 01:40.030 --> 01:45.610
-And in previous examples here in the workshop, we've seen it click over every click I did on the left
+E em exemplos anteriores aqui no workshop, vimos que ele clica sobre cada clique que fiz à esquerda
 
 01:45.610 --> 01:51.040
-arrow, the position would click instantaneously changing, but here there's a smoother movement.
+a posição do clique mudava instantaneamente, mas aqui há um movimento mais suave.
 
 01:51.670 --> 01:56.890
-I can still use all the arrow keys to direct different traffic of which way it should go, but the idea
+Ainda posso usar todas as teclas de seta para direcionar o tráfego diferente para onde ele deve ir, mas a ideia
 
 01:56.890 --> 02:00.670
-of it moving slowly over time is really the novel situation now.
+de ele se mover lentamente ao longo do tempo é realmente a nova situação agora.
 
 02:00.670 --> 02:06.430
-There's lots of ways you could do that in unity, but I chose to use the physics system just to talk
+Há muitas maneiras de fazer isso no unity, mas optei por usar o sistema de física apenas para falar
 
 02:06.430 --> 02:11.530
-a little bit about what happens if we've got a few more unity systems involved.
+um pouco sobre o que acontece se tivermos mais alguns sistemas de unidade envolvidos.
 
 02:11.530 --> 02:13.570
-Remember what we've been stretching with?
+Lembra-se do que estamos fazendo?
 
 02:13.600 --> 02:20.770
-And as an idea here is that in an ideal world, you get your unit testing to test the fewest lines of
+E a ideia aqui é que, em um mundo ideal, os testes de unidade testem o menor número de linhas de
 
 02:20.770 --> 02:24.400
-dependency, fewest lines of code at once.
+dependência, o menor número de linhas de código de uma só vez.
 
 02:24.400 --> 02:28.240
-But a lot of times our production code isn't so simplistic.
+Mas muitas vezes o nosso código de produção não é tão simplista.
 
 02:28.240 --> 02:30.160
-We are depending on different things.
+Estamos dependendo de coisas diferentes.
 
 02:30.160 --> 02:35.620
-So with the My Data loader and with previous character examples here, we've seen some of the ways to
+Assim, com o carregador My Data e com os exemplos de caracteres anteriores, vimos algumas das maneiras de
 
 02:35.650 --> 02:37.750
-handle those different dependencies.
+lidar com essas diferentes dependências.
 
 02:37.780 --> 02:40.900
-This is one more example a little bit more complex than the rest.
+Este é mais um exemplo um pouco mais complexo que os demais.
 
 02:40.930 --> 02:42.880
-Let's take a look at the production code here.
+Vamos dar uma olhada no código de produção aqui.
 
 02:42.880 --> 02:45.760
-So here we'll look at the character physics example.
+Vamos dar uma olhada no exemplo da física do personagem.
 
 02:47.240 --> 02:48.440
-We open that up?
+Vamos abrir isso?
 
 02:49.860 --> 02:53.160
-And here we've got creating a character primitive.
+E aqui temos a criação de um personagem primitivo.
 
 02:53.970 --> 03:02.490
-Here we create the game object first with the cube in appearance for the primitive, and then we add
+Aqui criamos o objeto de jogo primeiro com o cubo na aparência da primitiva e depois adicionamos
 
 03:02.490 --> 03:06.120
-the component of the character physics monobehaviour.
+o componente do monocomportamento de física do personagem.
 
 03:06.120 --> 03:09.690
-And then we have a separate character physics class that we take that in there.
+E então temos uma classe de física de personagem separada que levamos para lá.
 
 03:09.690 --> 03:15.360
-So we're already separating from one monolithic class of monobehaviour into two.
+Portanto, já estamos nos separando de uma classe monolítica de monocomportamento em duas.
 
 03:15.360 --> 03:21.000
-So that's a good way to get our code more simplistic and doing a single purpose each in there.
+Portanto, essa é uma boa maneira de simplificar o nosso código e fazer um único propósito em cada um deles.
 
 03:21.000 --> 03:28.260
-We saw in the previous example that most of the Monobehaviour functionality we needed was just the update.
+Vimos no exemplo anterior que a maior parte da funcionalidade do Monobehaviour de que precisávamos era apenas a atualização.
 
 03:28.260 --> 03:30.330
-That's the only thing we really needed to take care of.
+Essa é a única coisa de que realmente precisamos cuidar.
 
 03:30.330 --> 03:35.760
-So by moving all the non update stuff into the second class, we now have something that's easier to
+Portanto, ao transferir todas as coisas que não são de atualização para a segunda classe, agora temos algo que é mais fácil de
 
 03:35.760 --> 03:36.360
-test.
+testar.
 
 03:39.080 --> 03:42.210
-Then in this simple example, we move to a particular position.
+Então, neste exemplo simples, nos movemos para uma determinada posição.
 
 03:42.230 --> 03:46.340
-Now let's run the tests and then let's take a look at the production code.
+Agora vamos executar os testes e depois dar uma olhada no código de produção.
 
 03:46.370 --> 03:49.130
-So here let's take a look at running the selected.
+Então, aqui vamos dar uma olhada na execução do selecionado.
 
 03:51.190 --> 03:52.480
-It's all running there.
+Está tudo funcionando aqui.
 
 03:52.500 --> 03:53.500
-Everything passes.
+Tudo passa.
 
 03:53.520 --> 03:55.290
-Now that's just the play mode test.
+Agora é só o teste do modo de jogo.
 
 03:55.290 --> 03:59.760
-But we have also got edit mode tests if you want to dig in and take a look at it again, because we're
+Mas também temos testes de modo de edição se você quiser se aprofundar e dar uma olhada novamente, porque estamos
 
 03:59.760 --> 04:01.600
-dealing with monobehaviour stuff.
+lidando com coisas de monocomportamento.
 
 04:01.620 --> 04:03.990
-It feels more appropriate to use a play mode.
+Parece mais apropriado usar um modo de reprodução.
 
 04:03.990 --> 04:05.610
-So that's the approach I've done here.
+Então, essa é a abordagem que eu fiz aqui.
 
 04:05.610 --> 04:09.090
-But it's up to you and your project to decide which systems you want to test.
+Mas cabe a você e ao seu projeto decidir quais sistemas deseja testar.
 
 04:09.120 --> 04:10.860
-Edit mode and which ones you want to test.
+Modo de edição e quais você deseja testar.
 
 04:10.890 --> 04:11.430
-Play mode.
+Modo de reprodução.
 
 04:18.220 --> 04:23.620
-So now that we've seen those tests, let's take a quick look here at the source code for the class.
+Agora que já vimos esses testes, vamos dar uma olhada rápida no código-fonte da classe.
 
 04:23.620 --> 04:25.300
-And then we'll look at some of the tests on top.
+E depois vamos dar uma olhada em alguns dos testes no topo.
 
 04:25.330 --> 04:25.510
-All right.
+Muito bem.
 
 04:25.510 --> 04:27.380
-So here we are in the character physics.
+Então, aqui estamos na física dos caracteres.
 
 04:27.400 --> 04:31.520
-We're going to see it's pretty similar to the character advanced we saw last.
+Veremos que ela é bem parecida com a do personagem avançado que vimos anteriormente.
 
 04:31.540 --> 04:35.470
-Again we've separated the Monobehaviour and the non monobehaviour class.
+Novamente, separamos a classe Monobehaviour e a classe não monobehaviour.
 
 04:35.470 --> 04:39.250
-So here's the non monobehaviour class that's doing most of the work.
+Portanto, aqui está a classe não monocomportamental que está fazendo a maior parte do trabalho.
 
 04:39.280 --> 04:45.460
-Notice here inside its constructor it takes a reference to the Monobehaviour and stores it and then
+Observe que aqui, dentro do seu construtor, ele pega uma referência para o Monobehaviour e a armazena e depois
 
 04:45.460 --> 04:50.320
-also passes into the Monobehaviour a reference to this class here.
+também passa para o Monobehaviour uma referência a esta classe aqui.
 
 04:50.320 --> 04:54.550
-That's so that it can call the move by every time it does an update.
+Isso é para que ele possa chamar o move by toda vez que fizer uma atualização.
 
 04:54.580 --> 04:56.620
-Now there's different ways you could organize that.
+Agora, há diferentes maneiras de organizar isso.
 
 04:56.620 --> 05:00.460
-You could even remove the hardcoded dependency we have on each other here.
+Você poderia até mesmo remover a dependência hardcoded que temos entre nós aqui.
 
 05:00.460 --> 05:04.000
-But for the sake of simplicity in this example, this is very appropriate.
+Mas, por uma questão de simplicidade neste exemplo, isso é muito apropriado.
 
 05:04.360 --> 05:05.410
-Going down the code.
+Descendo o código.
 
 05:05.410 --> 05:08.470
-Again, it's just like the advanced in most parts.
+Novamente, é como o avançado na maior parte.
 
 05:08.500 --> 05:11.290
-I'll do want to call out where there's physics being used.
+Vou querer chamar a atenção para onde a física está sendo usada.
 
 05:11.290 --> 05:19.540
-So here in movement, instead of just moving by the position hardcoded over one instance Taneous update,
+Portanto, aqui no movimento, em vez de apenas se mover pela posição codificada em uma instância de atualização Taneous,
 
 05:19.570 --> 05:22.960
-we're going to be using the move position here.
+vamos usar a posição de movimentação aqui.
 
 05:22.960 --> 05:28.510
-And then under Add force, which is a new method that I did that is going to be moving based on physics
+E, em seguida, em Adicionar força, que é um novo método que eu criei e que vai se mover com base na física
 
 05:28.510 --> 05:29.200
-forces.
+forças.
 
 05:29.200 --> 05:33.250
-So imagine this is a block and we're giving a push on one side.
+Imagine que se trata de um bloco e que estamos dando um empurrão de um lado.
 
 05:33.250 --> 05:39.010
-And then based on friction and mass and gravity, you know there's some sort of consequence that tends
+E então, com base no atrito, na massa e na gravidade, você sabe que há algum tipo de consequência que tende a
 
 05:39.010 --> 05:41.890
-to be a fuzzier reaction here using the add force.
+a ser uma reação mais confusa aqui usando a força de adição.
 
 05:41.890 --> 05:48.220
-And we're moving by add force up here at the top of the same class file we see the physics monobehaviour
+E estamos nos movendo por add force aqui em cima, no topo do mesmo arquivo de classe, vemos o monocomportamento de física
 
 05:48.220 --> 05:49.240
-is declared.
+é declarado.
 
 05:49.240 --> 05:55.210
-It's pretty familiar in that the same character advanced we saw in the last workshop looks pretty similar,
+É bastante familiar, pois o mesmo caractere avançado que vimos no último workshop é bastante semelhante,
 
 05:55.210 --> 05:58.000
-but we do have a rigid body here that we're storing.
+mas temos um corpo rígido aqui que estamos armazenando.
 
 05:58.000 --> 06:04.630
-And then when this class wakes up, we do some attaching of the rigid body and then set some physics
+E quando essa classe é ativada, fazemos a conexão do corpo rígido e definimos a física
 
 06:04.630 --> 06:05.320
-values.
+valores.
 
 06:05.320 --> 06:12.070
-So if we think about just kind of recapping instead of having one monobehaviour that does all the physics
+Portanto, se pensarmos em apenas recapitular, em vez de ter um comportamento único que faça toda a física
 
 06:12.070 --> 06:16.840
-and movement together, we've separated the monobehaviour from the non monobehaviour.
+e o movimento juntos, nós separamos o monocomportamento do não monocomportamento.
 
 06:16.870 --> 06:23.130
-Then inside the Monobehaviour we do the update loop and we also take care of some physics stuff.
+Então, dentro do Monobehaviour, fazemos o loop de atualização e também cuidamos de algumas coisas de física.
 
 06:23.140 --> 06:29.200
-Then from the other one, the non monobehaviour, we're able to move as we want and take character input,
+Em seguida, a partir do outro, o não monobehaviour, podemos nos mover como quisermos e receber a entrada do personagem,
 
 06:29.200 --> 06:31.110
-so take keyboard input and stuff like that.
+portanto, receber entrada de teclado e coisas do gênero.
 
 06:31.120 --> 06:35.560
-So it's a pretty good separation here and gets us going with what we need.
+Portanto, essa é uma separação muito boa e nos permite fazer o que precisamos.
 
 06:36.740 --> 06:40.430
-Let me think out loud if there's anything else I wanted to mention about this.
+Deixe-me pensar em voz alta se há algo mais que eu queira mencionar sobre isso.
 
 06:40.970 --> 06:43.070
-Um, yeah.
+Hum, sim.
 
 06:43.070 --> 06:45.230
-So I teased about the idea here.
+Então, eu falei sobre a ideia aqui.
 
 06:45.230 --> 06:53.030
-If you wanted to reduce the hard coded dependency that we have, each class depending on each other
+Se você quiser reduzir a dependência de código rígido que temos, cada classe dependendo uma da outra
 
 06:53.030 --> 06:58.910
-and get more of the flexibility that we saw in the My Data loader example, you could certainly declare
+e obter mais da flexibilidade que vimos no exemplo do carregador My Data, você certamente poderia declarar
 
 06:58.910 --> 07:03.320
-interfaces and address it that way, but we don't need to do that here.
+interfaces e abordá-las dessa forma, mas não precisamos fazer isso aqui.
 
 07:03.320 --> 07:06.020
-We'll just go back and run the example one more time.
+Vamos voltar e executar o exemplo mais uma vez.
 
 07:06.020 --> 07:10.340
-So back here in unity we're running and we've got the arrow keys moving around.
+Então, aqui na unidade, estamos rodando e temos as teclas de seta se movendo.
 
 07:10.370 --> 07:15.770
-In the last few videos we've seen examples of reducing complexity.
+Nos últimos vídeos, vimos exemplos de redução da complexidade.
 
 07:15.770 --> 07:20.480
-So reducing different dependencies some flexibility to separate our code out.
+Portanto, a redução de diferentes dependências proporciona alguma flexibilidade para separar nosso código.
 
 07:20.480 --> 07:26.120
-So for the sake of this example here using input and physics and monobehaviours or stuff like that I
+Então, para este exemplo aqui, usando entrada e física e monobehaviours ou coisas do gênero, eu
 
 07:26.120 --> 07:27.250
-think we're all done here.
+acho que já terminamos por aqui.
 
 07:27.260 --> 07:27.980
-Thanks.
+Obrigado.

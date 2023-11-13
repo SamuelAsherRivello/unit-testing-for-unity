@@ -1,247 +1,247 @@
 WEBVTT
 
 00:00.140 --> 00:03.740
-Editors are some of the main tools we use in software development.
+Os editores são algumas das principais ferramentas que usamos no desenvolvimento de software.
 
 00:03.770 --> 00:10.100
-When developing games with unity, the unity editor itself is where we do most of our work.
+Ao desenvolver jogos com o unity, o próprio unity editor é onde fazemos a maior parte do nosso trabalho.
 
 00:10.100 --> 00:13.470
-And then a separate code editor is where we add the code.
+E um editor de código separado é onde adicionamos o código.
 
 00:13.490 --> 00:19.310
-The unity editor is made up of a concept of a layout, which is a group of different tabbed and docked
+O editor de unidade é composto por um conceito de layout, que é um grupo de diferentes abas e encaixes
 
 00:19.310 --> 00:20.150
-windows.
+janelas.
 
 00:21.040 --> 00:26.830
-And each of these windows performs functions and gives us more information about the game and project
+E cada uma dessas janelas executa funções e nos dá mais informações sobre o jogo e o projeto
 
 00:26.830 --> 00:27.580
-we're creating.
+que estamos criando.
 
 00:27.580 --> 00:31.840
-Here's a fairly common layout with the most popular and useful windows.
+Aqui está um layout bastante comum com as janelas mais populares e úteis.
 
 00:31.840 --> 00:34.960
-The hierarchy window shows us the objects in the world.
+A janela de hierarquia nos mostra os objetos no mundo.
 
 00:34.960 --> 00:38.770
-The scene view gives us a 3D representation of that world.
+A visualização da cena nos dá uma representação 3D desse mundo.
 
 00:38.770 --> 00:42.070
-It can also be toggled to 2D for 2D gameplay.
+Ela também pode ser alternada para 2D para uma jogabilidade 2D.
 
 00:42.070 --> 00:48.040
-The project window represents the library of all possible assets in code we can bring into that scene,
+A janela do projeto representa a biblioteca de todos os ativos possíveis em código que podemos trazer para essa cena,
 
 00:48.040 --> 00:54.460
-and as we select on different items and functionality in these windows, the Inspector window gives
+e, à medida que selecionamos diferentes itens e funcionalidades nessas janelas, a janela do Inspetor fornece
 
 00:54.460 --> 00:58.390
-us more detail and serialized fields from our code.
+mais detalhes e campos serializados do nosso código.
 
 00:58.390 --> 01:02.230
-Show up here for easy editing at edit time and runtime.
+Aparecem aqui para facilitar a edição no momento da edição e no tempo de execução.
 
 01:02.230 --> 01:03.640
-Let's see this in action.
+Vamos ver isso em ação.
 
 01:03.640 --> 01:06.490
-Within the Houdini editor, I'll create a new scene.
+No editor do Houdini, vou criar uma nova cena.
 
 01:06.490 --> 01:08.260
-I'll create a game object.
+Criarei um objeto de jogo.
 
 01:08.260 --> 01:14.500
-I'll add a custom script to that game object, I'll press Play in Unity and we'll see how that script
+Adicionarei um script personalizado a esse objeto de jogo, pressionarei Play no Unity e veremos como esse script
 
 01:14.500 --> 01:15.850
-translates into runtime.
+se traduz em tempo de execução.
 
 01:15.850 --> 01:21.430
-And then I'll play with the serialized fields inside the inspector to demonstrate how that works.
+E depois vou brincar com os campos serializados dentro do inspetor para demonstrar como isso funciona.
 
 01:21.430 --> 01:25.690
-The prerequisites for this course include some free software.
+Os pré-requisitos para este curso incluem algum software livre.
 
 01:25.840 --> 01:29.290
-First, use whatever is your favorite web browser.
+Primeiro, use o seu navegador da Web favorito.
 
 01:30.110 --> 01:35.180
-This is helpful to do any additional research you need to do along with the course.
+Isso é útil para fazer qualquer pesquisa adicional que você precise fazer durante o curso.
 
 01:35.710 --> 01:38.380
-For example, you can get Chrome by Google.
+Por exemplo, você pode obter o Chrome do Google.
 
 01:38.380 --> 01:40.990
-Next, we'll need the unity editor itself.
+Em seguida, precisaremos do editor de unidade propriamente dito.
 
 01:41.200 --> 01:48.430
-The unity editor also comes with a code editor, or you can use whatever code editor you like from the
+O unity editor também vem com um editor de código, ou você pode usar o editor de código que quiser do
 
 01:48.460 --> 01:54.580
-Getting Started button at the top nav, we find different choices and prices for the unity software
+No botão Getting Started na parte superior da navegação, encontramos diferentes opções e preços para o software unity
 
 01:54.580 --> 01:55.240
-package.
+pacote.
 
 01:55.240 --> 02:02.200
-The options include Unity Personal and Unity Student, both of which are free and recommended for use
+As opções incluem o Unity Personal e o Unity Student, ambos gratuitos e recomendados para uso
 
 02:02.200 --> 02:03.090
-in this course.
+neste curso.
 
 02:03.100 --> 02:08.260
-These include all the features and functionality that we talked about, and everything you'll need to
+Eles incluem todos os recursos e funcionalidades de que falamos e tudo o que você precisa para
 
 02:08.260 --> 02:09.880
-learn from this course as well.
+aprender com este curso também.
 
 02:09.880 --> 02:16.600
-When we first download and run unity in an open, empty project, we'll have that familiar layout and
+Quando baixarmos e executarmos o unity pela primeira vez em um projeto aberto e vazio, teremos aquele layout familiar e
 
 02:16.600 --> 02:19.200
-series of windows we saw before.
+série de janelas que vimos antes.
 
 02:19.210 --> 02:20.680
-Let's create a new scene.
+Vamos criar uma nova cena.
 
 02:20.680 --> 02:24.610
-We can do this in many ways, but simply file New Scene.
+Podemos fazer isso de várias maneiras, mas basta arquivar New Scene.
 
 02:24.610 --> 02:30.430
-We'll choose the basic built in scene and in the hierarchy we can see we have the basic scene set up
+Vamos escolher a cena básica integrada e, na hierarquia, podemos ver que temos a cena básica configurada
 
 02:30.430 --> 02:32.770
-with the default camera and lighting.
+com a câmera e a iluminação padrão.
 
 02:32.770 --> 02:34.330
-Let's create a new game object.
+Vamos criar um novo objeto de jogo.
 
 02:34.330 --> 02:38.890
-We'll choose the cube and then put some custom scripting on the cube.
+Escolheremos o cubo e depois colocaremos alguns scripts personalizados no cubo.
 
 02:38.920 --> 02:44.170
-There's many ways we can do that, but we'll choose Game Object, 3D object and Cube.
+Há muitas maneiras de fazer isso, mas escolheremos Game Object, 3D object e Cube.
 
 02:44.170 --> 02:47.680
-Now we can see that cube rendering in the game view.
+Agora podemos ver a renderização do cubo na visualização do jogo.
 
 02:47.680 --> 02:51.970
-The game view represents what the end users will see from the game camera.
+A visualização do jogo representa o que os usuários finais verão a partir da câmera do jogo.
 
 02:51.970 --> 02:58.330
-With that cube selected in the hierarchy, we can see in the inspector window all of the current components
+Com esse cubo selecionado na hierarquia, podemos ver na janela do inspetor todos os componentes atuais
 
 02:58.330 --> 02:59.200
-attached.
+anexados.
 
 02:59.350 --> 03:01.540
-We'll add a new custom component.
+Vamos adicionar um novo componente personalizado.
 
 03:06.320 --> 03:10.190
-Now in our project window, we see the first asset we've created.
+Agora, em nossa janela de projeto, vemos o primeiro ativo que criamos.
 
 03:10.930 --> 03:14.920
-We can double click that script and open it in the default code editor.
+Podemos clicar duas vezes nesse script e abri-lo no editor de código padrão.
 
 03:15.600 --> 03:21.090
-When we create a new script and we open it, the default code editor opens for us.
+Quando criamos um novo script e o abrimos, o editor de código padrão é aberto para nós.
 
 03:21.300 --> 03:25.470
-And to get you started, unity includes a small bit of template code.
+E para você começar, o unity inclui um pequeno trecho de código de modelo.
 
 03:25.500 --> 03:30.510
-You're free to remove the parts that you don't want or need and begin coding from scratch.
+Você é livre para remover as partes que não quer ou não precisa e começar a codificar do zero.
 
 03:30.900 --> 03:35.190
-I'll copy from our scripting slide and paste that into unity.
+Vou copiar do nosso slide de script e colar na unidade.
 
 03:35.220 --> 03:40.920
-We have the awake method, the start method, and the update method that's going to run every frame.
+Temos o método awake, o método start e o método update que será executado a cada quadro.
 
 03:41.640 --> 03:45.010
-Here I'm using the transform component to rotate the object.
+Aqui estou usando o componente transform para girar o objeto.
 
 03:45.030 --> 03:48.570
-We save our script here and return to unity and we'll run the scene.
+Salvamos o nosso script aqui e voltamos para a unidade e executamos a cena.
 
 03:48.600 --> 03:56.070
-You can see at runtime that that transform rotate code inside the update method is spinning that cube.
+Você pode ver em tempo de execução que o código de rotação de transformação dentro do método de atualização está girando o cubo.
 
 03:56.070 --> 04:00.160
-Also, while unity is running here with the cube selected.
+Além disso, enquanto o unity está rodando aqui com o cubo selecionado.
 
 04:00.180 --> 04:04.020
-I see the serialized field of speed and I can manipulate it.
+Eu vejo o campo serializado da velocidade e posso manipulá-lo.
 
 04:12.830 --> 04:15.410
-Now it's spinning much, much faster.
+Agora ele está girando muito, muito mais rápido.
 
 04:24.330 --> 04:25.680
-Or much slower.
+Ou muito mais devagar.
 
 04:28.560 --> 04:35.760
-We're able to make these changes to any serialized fields so we can tweak the gameplay feel or game
+Podemos fazer essas alterações em quaisquer campos serializados para que possamos ajustar a sensação de jogabilidade ou o jogo
 
 04:35.760 --> 04:38.370
-design without stopping unity.
+sem interromper a unidade.
 
 04:39.160 --> 04:43.360
-This is an incredibly powerful feature of the unity engine.
+Esta é uma característica incrivelmente poderosa do motor da unidade.
 
 04:43.390 --> 04:47.620
-The unity editor shows us an approximation of our game in development.
+O unity editor nos mostra uma aproximação do nosso jogo em desenvolvimento.
 
 04:48.070 --> 04:52.510
-It's best to test it in a full build to see the real results.
+É melhor testá-lo em uma compilação completa para ver os resultados reais.
 
 04:52.540 --> 04:56.260
-There's many ways to do that, but I'll use file build and Run.
+Há muitas maneiras de fazer isso, mas vou usar a compilação de arquivos e a execução.
 
 04:56.260 --> 05:00.370
-And now we see our project running in a standalone build.
+E agora vemos nosso projeto em execução em uma compilação autônoma.
 
 05:00.400 --> 05:03.550
-In my case, that's set for windows.
+No meu caso, isso está definido para o Windows.
 
 05:03.580 --> 05:06.280
-That's it for a brief overview of unity.
+Isso é tudo para uma breve visão geral do unity.
 
 05:06.640 --> 05:09.280
-Adding scripting and building the project.
+Adicionando scripts e construindo o projeto.
 
 05:10.810 --> 05:18.670
-With that quick overview of unity, the Unity editor and scripting, we can begin to see how powerful
+Com essa rápida visão geral do Unity, do editor do Unity e dos scripts, podemos começar a ver o quão poderoso é o Unity.
 
 05:18.670 --> 05:19.510
-unity is.
+a unidade é.
 
 05:19.540 --> 05:22.750
-We're only scratching the surface with what's possible.
+Estamos apenas arranhando a superfície do que é possível.
 
 05:22.750 --> 05:27.030
-We've reviewed the theory editor and coding inside Unity.
+Revisamos o editor teórico e a codificação dentro do Unity.
 
 05:27.040 --> 05:33.130
-We've seen the game object is a fundamental concept that prefabs and scenes are used for high level
+Vimos que o objeto de jogo é um conceito fundamental que os pré-fabricados e as cenas são usados para o alto nível
 
 05:33.130 --> 05:38.860
-organization in your project, and that by creating a class and extending monobehaviour, we get a lot
+organização de alto nível em seu projeto, e que, ao criar uma classe e estender o monobehaviour, obtemos muito
 
 05:38.860 --> 05:40.750
-of functionality out of the box.
+de funcionalidade fora da caixa.
 
 05:40.750 --> 05:47.050
-Next, we'll take a step back from the specifics of unity and look at some software design concepts.
+A seguir, vamos nos afastar um pouco das especificidades do unity e examinar alguns conceitos de design de software.
 
 05:47.050 --> 05:55.960
-We'll look at design principles, design patterns, and UML or Unified Modeling Language for diagramming
+Veremos os princípios de design, padrões de design e UML ou Unified Modeling Language para diagramação
 
 05:55.960 --> 05:57.610
-our concepts and plans.
+nossos conceitos e planos.
 
 05:58.210 --> 05:59.080
-Thank you.
+Muito obrigado.

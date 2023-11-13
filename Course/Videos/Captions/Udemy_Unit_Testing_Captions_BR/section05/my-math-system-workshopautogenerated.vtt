@@ -1,739 +1,739 @@
 WEBVTT
 
 00:00.110 --> 00:00.980
-Hello and welcome.
+Olá e seja bem-vindo.
 
 00:00.980 --> 00:07.040
-In this workshop, we're going to be taking a look at the My Math system, stepping into what is a pretty
+Neste workshop, vamos dar uma olhada no sistema My Math, entrando no que é um sistema bastante
 
 00:07.070 --> 00:11.300
-simple example, just getting us reacquainted with the basics of unit testing.
+exemplo bastante simples, apenas para nos familiarizarmos com os fundamentos dos testes unitários.
 
 00:11.300 --> 00:14.720
-So in this demo you can use the Core Sample project to follow along.
+Portanto, nesta demonstração, você pode usar o projeto Core Sample para acompanhá-lo.
 
 00:14.720 --> 00:19.520
-We're going to be opening up the unity editor, opening up that core sample project, and then we'll
+Vamos abrir o unity editor, abrir o projeto Core Sample e depois
 
 00:19.520 --> 00:21.140
-open and play some scenes here.
+abrir e reproduzir algumas cenas aqui.
 
 00:21.140 --> 00:26.360
-We're going to be looking at the My Math system as well as the test behind it, and we'll do a recap
+Vamos analisar o sistema My Math, bem como o teste por trás dele, e vamos fazer uma recapitulação
 
 00:26.390 --> 00:31.970
-of unit testing, just kind of talking about whatever basic concepts I see in there and think to mention.
+dos testes unitários, apenas falando sobre os conceitos básicos que eu vir ali e pensar em mencionar.
 
 00:31.970 --> 00:38.450
-And we'll also talk about parameterized values, which is an intermediate way that you can approach
+E também falaremos sobre valores parametrizados, que é uma forma intermediária de abordar
 
 00:38.450 --> 00:38.960
-testing.
+testes.
 
 00:38.960 --> 00:42.620
-And it's a good additional skill to have as you approach unit testing.
+E é uma boa habilidade adicional para se ter ao abordar os testes unitários.
 
 00:42.620 --> 00:43.640
-Let's dive in.
+Vamos nos aprofundar.
 
 00:43.850 --> 00:48.410
-So here I'm inside the unity editor I've opened them my math system example.
+Aqui estou dentro do editor de unidade e abri o meu exemplo de sistema matemático.
 
 00:48.410 --> 00:51.050
-Let's just give the scene itself a play.
+Vamos apenas dar uma olhada na cena em si.
 
 00:51.080 --> 00:54.710
-Sometimes in these workshops the scene is more exciting.
+Às vezes, nesses workshops, a cena é mais emocionante.
 
 00:54.710 --> 00:56.300
-This one not so exciting.
+Esta não é tão emocionante.
 
 00:56.300 --> 01:01.730
-We'll go ahead and hit play down here in the bottom window, we see some simple text that's helping
+Vamos continuar e apertar o play aqui na janela inferior, vemos um texto simples que está ajudando
 
 01:01.730 --> 01:07.040
-us understand we're in the unit testing demo, and we're going to just play the scene and view the console.
+a entender que estamos na demonstração de teste de unidade, e vamos apenas reproduzir a cena e visualizar o console.
 
 01:07.040 --> 01:08.510
-So let's look at the console.
+Então, vamos dar uma olhada no console.
 
 01:08.600 --> 01:11.210
-The console says this scene has no UI.
+O console diz que esta cena não tem UI.
 
 01:11.630 --> 01:14.510
-See the unity console here we are in the console.
+Veja o console do unity aqui, estamos no console.
 
 01:14.510 --> 01:15.140
-Really.
+Realmente.
 
 01:15.140 --> 01:19.880
-It's just going to show us a value that's been spit out after a successful operation.
+Ele só vai nos mostrar um valor que foi cuspido após uma operação bem-sucedida.
 
 01:19.880 --> 01:25.370
-So this would, in real production code, be a much more interesting scene.
+Portanto, em um código de produção real, essa seria uma cena muito mais interessante.
 
 01:25.370 --> 01:30.590
-Perhaps there's actually the game menu or the game play happening here.
+Talvez haja de fato o menu do jogo ou o jogo acontecendo aqui.
 
 01:30.860 --> 01:35.810
-This is quite a lean scene here where there's not much to see, but you can imagine that that could
+Esta é uma cena bastante enxuta onde não há muito para ver, mas você pode imaginar que isso poderia
 
 01:35.810 --> 01:36.200
-be.
+ser.
 
 01:36.770 --> 01:41.960
-It's not particularly important that there be a runtime scene for the testing sake.
+Não é particularmente importante que haja uma cena de tempo de execução para fins de teste.
 
 01:41.960 --> 01:47.600
-I just want to often talk about the balance between here's your production code doing its production
+Só quero falar com frequência sobre o equilíbrio entre o seu código de produção fazendo a sua produção
 
 01:47.600 --> 01:48.200
-thing.
+coisa.
 
 01:48.200 --> 01:51.560
-And then over here is the test code doing its test thing.
+E aqui está o código de teste fazendo o seu trabalho de teste.
 
 01:51.560 --> 01:57.380
-So production code, we always experience that by hitting play on a unity scene just like this.
+Então, no código de produção, sempre experimentamos isso apertando play em uma cena de unidade como esta.
 
 01:57.380 --> 02:00.860
-And to do our unit testing we do something different.
+E para fazer nossos testes unitários, fazemos algo diferente.
 
 02:00.860 --> 02:04.040
-What we do here is we look at the test runner window.
+O que fazemos aqui é olhar para a janela do executor de testes.
 
 02:04.580 --> 02:08.420
-We explore the category appropriate to what we want to look at here.
+Exploramos a categoria apropriada para o que queremos examinar aqui.
 
 02:08.420 --> 02:10.550
-We're just looking at the my math system.
+Estamos apenas examinando o meu sistema de matemática.
 
 02:11.630 --> 02:14.090
-And then we hit let's see.
+E depois clicamos em let's see.
 
 02:14.090 --> 02:15.350
-Let's just do the edit mode task.
+Vamos apenas fazer a tarefa do modo de edição.
 
 02:15.470 --> 02:19.850
-We'll do run all here and all the tests run just like that.
+Vamos fazer run all aqui e todos os testes serão executados dessa forma.
 
 02:19.880 --> 02:22.120
-Now it didn't actually run the scene.
+Agora, na verdade, a cena não foi executada.
 
 02:22.130 --> 02:28.490
-It's just running kind of off on the side in its own little universe, running those tests inside an
+Está apenas rodando meio que lateralmente em seu próprio universo, executando esses testes dentro de um
 
 02:28.490 --> 02:29.360
-edit mode.
+modo de edição.
 
 02:29.360 --> 02:32.860
-So edit mode tests talking a little bit about the difference there.
+Portanto, testes em modo de edição, falando um pouco sobre a diferença.
 
 02:32.870 --> 02:38.090
-Edit mode tests run in edit mode, which in unity there's two primary modes.
+Os testes do modo de edição são executados no modo de edição, que na unidade tem dois modos primários.
 
 02:38.090 --> 02:43.700
-Basically, from the moment you hit the play button to the moment you hit the play button, that is
+Basicamente, desde o momento em que você aperta o botão play até o momento em que você aperta o botão play, ou seja
 
 02:43.700 --> 02:44.360
-play mode.
+modo de reprodução.
 
 02:44.390 --> 02:47.990
-That's generally where the user experiences the unity game.
+Geralmente é onde o usuário experimenta o jogo da unidade.
 
 02:48.680 --> 02:53.240
-Any anytime we're not in that mode, we're in edit mode sitting right here, we're in edit mode.
+Sempre que não estivermos nesse modo, estaremos no modo de edição, sentado bem aqui, no modo de edição.
 
 02:53.270 --> 02:59.330
-These tests are run in edit mode because they don't necessarily need all the complexity of a runtime
+Esses testes são executados no modo de edição porque não precisam necessariamente de toda a complexidade de um tempo de execução
 
 02:59.330 --> 02:59.870
-scene.
+cena.
 
 02:59.870 --> 03:05.180
-This helps us have a more simple little isolated area where these codes run.
+Isso nos ajuda a ter uma pequena área isolada mais simples onde esses códigos são executados.
 
 03:05.180 --> 03:10.850
-Now sometimes you need the conveniences of monobehaviours and runtime functionality.
+Agora, às vezes você precisa das conveniências dos monocomportamentos e da funcionalidade de tempo de execução.
 
 03:10.850 --> 03:14.750
-That's where the play mode comes into into uses.
+É aí que o modo de reprodução entra em ação.
 
 03:14.750 --> 03:17.330
-And here we've got some play mode tests as well.
+E aqui temos alguns testes de modo de reprodução também.
 
 03:17.330 --> 03:22.550
-So each time I click one of these checkboxes, you can see it's showing us some slightly different lists
+Assim, cada vez que clico em uma dessas caixas de seleção, você pode ver que ele nos mostra algumas listas ligeiramente diferentes
 
 03:22.580 --> 03:23.810
-of what we've got available.
+do que temos disponível.
 
 03:23.810 --> 03:26.240
-So here in play mode I'm going to hit run all.
+Portanto, aqui no modo de jogo, vou clicar em "Run All".
 
 03:27.020 --> 03:34.670
-And here it's actually creating a brand new scene, running a runtime scene that's just for demo sake
+E aqui está criando uma cena totalmente nova, executando uma cena em tempo de execução que é apenas para demonstração
 
 03:34.670 --> 03:36.380
-with whatever test code I've got.
+com qualquer código de teste que eu tenha.
 
 03:36.380 --> 03:39.920
-And then returns us back to the original scene we were in.
+E depois volta à cena original em que estávamos.
 
 03:39.920 --> 03:44.180
-If we didn't have the scene saved, it would prompt us and say, hey, you're about to run a play mode
+Se não tivéssemos a cena salva, ele nos avisaria e diria, ei, você está prestes a executar um modo de reprodução
 
 03:44.210 --> 03:44.660
-test.
+teste.
 
 03:44.690 --> 03:46.430
-We're going to temporarily leave your scene.
+Vamos sair temporariamente de sua cena.
 
 03:46.460 --> 03:48.110
-Do you want to save your scene first?
+Deseja salvar sua cena primeiro?
 
 03:48.110 --> 03:50.570
-Generally, that's a good idea, so look out for that.
+Geralmente, essa é uma boa ideia, portanto, fique atento a isso.
 
 03:50.600 --> 03:52.370
-Now let's look at the source code.
+Agora vamos dar uma olhada no código-fonte.
 
 03:52.400 --> 03:56.060
-Let's first look at the runtime production code.
+Vamos primeiro dar uma olhada no código de produção em tempo de execução.
 
 03:56.060 --> 03:58.850
-So we'll open up the My Math system example.
+Então, vamos abrir o exemplo do sistema My Math.
 
 03:58.880 --> 04:05.810
-Each of these workshops has, generally speaking one game object with one example script that kicks
+Cada um desses workshops tem, em geral, um objeto de jogo com um script de exemplo que inicia
 
 04:05.810 --> 04:06.620
-it all off.
+tudo isso.
 
 04:06.620 --> 04:12.560
-So when we look at that, here we are in the code editor and we can see the complete my math system
+Então, quando olhamos para isso, aqui estamos no editor de código e podemos ver o sistema completo do my math
 
 04:12.560 --> 04:13.250
-example.
+exemplo.
 
 04:13.250 --> 04:18.740
-Now this is a monobehaviour because I want to have the conveniences of code sitting on a game object.
+Este é um monocomportamento porque eu quero ter as conveniências do código em um objeto do jogo.
 
 04:18.740 --> 04:20.230
-And then inside the awake.
+E depois dentro do awake.
 
 04:20.240 --> 04:23.450
-Here I'm going to simulate some production code.
+Aqui vou simular algum código de produção.
 
 04:23.450 --> 04:29.210
-Now it's very lean, there's not much to it, and it kind of looks the same as the test we're about
+Agora ele é bem enxuto, não tem muita coisa e parece o mesmo que o teste que estamos fazendo
 
 04:29.210 --> 04:34.850
-to look at, because I create the class from scratch and then I call a method on it, and then I show
+porque eu crio a classe do zero e chamo um método nela, e então mostro
 
 04:34.850 --> 04:35.600
-the results.
+os resultados.
 
 04:35.600 --> 04:41.390
-But it's important to know that in a production example, in a real game project, this equivalent would
+Mas é importante saber que em um exemplo de produção, em um projeto de jogo real, esse equivalente seria
 
 04:41.390 --> 04:46.640
-be many classes and all the scenes and all the prefabs and all the complexity you would generally have
+seria muitas classes e todas as cenas e todos os prefabs e toda a complexidade que você geralmente teria
 
 04:46.640 --> 04:47.600
-in your project.
+em seu projeto.
 
 04:47.600 --> 04:50.300
-But here I'm keeping it purposely very lean.
+Mas aqui estou mantendo-o propositalmente muito enxuto.
 
 04:50.300 --> 04:51.980
-So notice what we do here.
+Portanto, observe o que fazemos aqui.
 
 04:51.980 --> 04:53.960
-We create the my math system.
+Criamos o sistema my math.
 
 04:53.990 --> 04:58.820
-We grab a couple of ints and populate them with the values five and ten.
+Pegamos um par de ints e os preenchemos com os valores cinco e dez.
 
 04:58.820 --> 05:01.010
-And then we call the my Math system.
+E então chamamos o sistema my Math.
 
 05:01.010 --> 05:03.620
-And we pass in the five and ten together.
+E passamos os valores cinco e dez juntos.
 
 05:03.620 --> 05:05.570
-And then here we show the result.
+E aqui mostramos o resultado.
 
 05:05.570 --> 05:07.100
-So let's go ahead and do that.
+Então vamos em frente e fazer isso.
 
 05:07.100 --> 05:08.540
-So here I hit play.
+Então, aqui eu aperto o play.
 
 05:12.600 --> 05:16.600
-And down here in the console window we see the result is 15.
+E aqui embaixo, na janela do console, vemos que o resultado é 15.
 
 05:16.620 --> 05:22.290
-Now, I like the simplicity of this coding example, because it starts us thinking about in a world
+Gosto da simplicidade desse exemplo de codificação, pois ele nos faz começar a pensar em um mundo
 
 05:22.290 --> 05:27.570
-where unit tests never existed, how would I go about being sure that this code is functional?
+onde os testes unitários nunca existiram, como eu poderia ter certeza de que esse código é funcional?
 
 05:27.600 --> 05:34.620
-Well, perhaps this code of my math system is used in many, many places of your game, and you simply
+Bem, talvez esse código do meu sistema matemático seja usado em muitos, muitos lugares do seu jogo e você simplesmente
 
 05:34.620 --> 05:40.020
-any time you want to see and validate that this system is working well, you just play the game and
+sempre que quiser ver e validar que esse sistema está funcionando bem, basta jogar o jogo e
 
 05:40.020 --> 05:44.160
-your game might be several minutes long, or it could be several hours long.
+seu jogo pode durar alguns minutos ou várias horas.
 
 05:44.160 --> 05:50.220
-And this particular system that's under test could be used throughout so many different places, depending
+E esse sistema específico que está sendo testado pode ser usado em muitos lugares diferentes, dependendo
 
 05:50.220 --> 05:53.400
-on different user behavior and input and situations.
+de diferentes comportamentos, entradas e situações do usuário.
 
 05:53.400 --> 05:55.740
-Perhaps the time of day would be matter.
+Talvez a hora do dia seja importante.
 
 05:55.740 --> 06:01.020
-And so it's difficult for you to know am I really testing it in raw isolation?
+Portanto, é difícil saber se estou realmente testando em isolamento bruto?
 
 06:01.020 --> 06:09.570
-So one first move I could do if I wanted to do some validation is I could copy this here, paste it
+Portanto, um primeiro passo que eu poderia dar se quisesse fazer alguma validação é copiar isso aqui e colar
 
 06:09.570 --> 06:10.440
-here.
+aqui.
 
 06:12.790 --> 06:15.290
-And call this here and test.
+E chamar isso aqui e testar.
 
 06:15.310 --> 06:16.840
-Well, what if it was six?
+Bem, e se fossem seis?
 
 06:16.840 --> 06:18.700
-And what if it was 11?
+E se for 11?
 
 06:20.790 --> 06:22.410
-A to, B to.
+A para, B para.
 
 06:27.060 --> 06:33.060
-So now I'm testing not a unit test, but I'm just validating two different examples here.
+Portanto, agora estou testando não um teste unitário, mas estou apenas validando dois exemplos diferentes aqui.
 
 06:33.060 --> 06:35.820
-So I'm doing this one first and I'm doing that in second.
+Então, estou fazendo este primeiro e o segundo.
 
 06:35.850 --> 06:42.840
-Now this is called user testing or play mode testing or integration testing where I'm actually running
+Isso é chamado de teste de usuário ou teste de modo de jogo ou teste de integração em que estou executando
 
 06:42.840 --> 06:43.980
-production code.
+código de produção.
 
 06:43.980 --> 06:50.760
-And I'm just trying it out as a user, hoping that I accidentally ask it to do a bunch of different
+E estou apenas experimentando como usuário, esperando que eu acidentalmente peça para ele fazer um monte de coisas diferentes
 
 06:50.790 --> 06:53.690
-operations, see that none of them fail.
+operações diferentes e ver se nenhuma delas falha.
 
 06:53.700 --> 06:57.870
-But you could imagine that what I'm doing here is adding stuff that I don't really want for the end
+Mas você pode imaginar que o que estou fazendo aqui é adicionar coisas que eu realmente não quero para o final
 
 06:57.870 --> 06:59.190
-user experience.
+experiência do usuário.
 
 06:59.190 --> 07:05.700
-I'm just trying to give myself a little bit more confidence in my own code by calling some functionality
+Estou apenas tentando me dar um pouco mais de confiança no meu próprio código chamando alguma funcionalidade
 
 07:05.700 --> 07:06.960
-extra times.
+vezes extras.
 
 07:06.990 --> 07:13.590
-You might also set a boolean somewhere in your project that says like is debug mode is true, and then
+Você também pode definir um booleano em algum lugar do seu projeto que diga que o modo de depuração é verdadeiro e então
 
 07:13.590 --> 07:15.330
-you throughout your production code.
+em todo o seu código de produção.
 
 07:15.330 --> 07:18.810
-If that's the situation, you'll do a little extra testing.
+Se essa for a situação, você fará um pouco mais de testes.
 
 07:18.810 --> 07:20.220
-Now that's not bad.
+Isso não é ruim.
 
 07:20.220 --> 07:25.200
-In certain situations, it can definitely help you, but let's look at how much better the situation
+Em determinadas situações, isso pode definitivamente ajudá-lo, mas vejamos como a situação está melhor
 
 07:25.200 --> 07:25.770
-can be.
+pode ser.
 
 07:25.770 --> 07:29.010
-If instead of doing this, I run unit tests.
+Se, em vez de fazer isso, eu executar testes unitários.
 
 07:29.010 --> 07:31.860
-So here's where this project the code sits.
+Então, é aqui que o código desse projeto se encontra.
 
 07:31.860 --> 07:36.060
-In this project we've got the My Math system, My Math system example, which we've looked at.
+Neste projeto, temos o sistema My Math, o exemplo do sistema My Math, que já vimos.
 
 07:36.750 --> 07:42.630
-The structure of that and the way that they work together is talked about earlier in the course.
+A estrutura desse sistema e a forma como ele funciona em conjunto foram abordadas anteriormente no curso.
 
 07:42.630 --> 07:47.430
-But we have one editor test and one runtime test that we'll talk about.
+Mas temos um teste de editor e um teste de tempo de execução sobre os quais falaremos.
 
 07:47.430 --> 07:54.030
-Again, any editor test is going to run an edit mode, and it's generally ideal for things that do not
+Novamente, qualquer teste de editor executará um modo de edição e, em geral, é ideal para coisas que não
 
 07:54.030 --> 07:57.360
-use unity specific classes like Monobehaviour.
+usam classes específicas de unidade como Monobehaviour.
 
 07:57.390 --> 08:02.520
-Monobehaviour is designed only to run in its fullest way in play mode.
+O Monobehaviour foi projetado apenas para ser executado em sua forma mais completa no modo de jogo.
 
 08:02.520 --> 08:04.470
-So here it's not too appropriate.
+Portanto, aqui não é muito apropriado.
 
 08:04.470 --> 08:04.950
-So.
+Então.
 
 08:04.950 --> 08:07.860
-But for simple tests like the one that we've got here, it's great.
+Mas para testes simples como o que temos aqui, ele é ótimo.
 
 08:07.890 --> 08:12.630
-The runtime area here where we have the play mode test would be a great place.
+A área de tempo de execução aqui, onde temos o teste do modo de reprodução, seria um ótimo lugar.
 
 08:12.630 --> 08:18.180
-And each of these workshops I do one of each just so you can see the differences.
+E em cada um desses workshops eu faço um de cada para que você possa ver as diferenças.
 
 08:18.180 --> 08:23.040
-But it's important to think that in certain situations, depending on what you're testing, probably
+Mas é importante pensar que, em determinadas situações, dependendo do que você está testando, provavelmente
 
 08:23.040 --> 08:27.060
-a unit test in edit mode is more appropriate in this situation.
+um teste de unidade em modo de edição é mais apropriado nessa situação.
 
 08:27.060 --> 08:31.680
-That's definitely the case later when we're talking about moving with input and doing something with
+Esse é definitivamente o caso mais tarde, quando estivermos falando sobre mover com a entrada e fazer algo com
 
 08:31.680 --> 08:37.800
-physics, maybe the play mode test is required there, because input and physics are really designed
+física, talvez o teste do modo de jogo seja necessário, porque a entrada e a física são realmente projetadas
 
 08:37.800 --> 08:39.270
-as play mode experiences.
+como experiências de modo de jogo.
 
 08:39.270 --> 08:41.700
-So it's important to know that distinction.
+Portanto, é importante saber essa distinção.
 
 08:41.700 --> 08:43.080
-And I'll bring it up here and there.
+E eu vou falar sobre isso aqui e ali.
 
 08:43.320 --> 08:45.840
-So let's look at the my math system test.
+Então, vamos dar uma olhada no teste do meu sistema de matemática.
 
 08:49.240 --> 08:52.210
-And see how that is organized.
+E ver como ele está organizado.
 
 08:53.800 --> 08:59.050
-So here, notice that the My Math system test has a few different.
+Aqui, observe que o teste do sistema My Math tem algumas diferenças.
 
 09:04.440 --> 09:06.270
-Has a few different methods under it.
+Tem alguns métodos diferentes sob ele.
 
 09:06.420 --> 09:10.560
-Each of the names that we see here are the names of the test methods.
+Cada um dos nomes que vemos aqui são os nomes dos métodos de teste.
 
 09:10.560 --> 09:12.180
-So let's start with the first one.
+Então, vamos começar com o primeiro.
 
 09:12.570 --> 09:18.030
-The convention that I like to use is followed here, and we'll go into it in the code I generally put
+A convenção que eu gosto de usar é seguida aqui, e vamos abordá-la no código que eu geralmente coloco
 
 09:18.030 --> 09:23.520
-first, what method are we testing, what are we expecting and then what's the situation.
+primeiro, qual método estamos testando, o que estamos esperando e, em seguida, qual é a situação.
 
 09:23.520 --> 09:26.490
-So here it says the add method is what we're testing.
+Então, aqui diz que o método add é o que estamos testando.
 
 09:26.490 --> 09:31.140
-We expect the result will be 15 when we pass in five and ten.
+Esperamos que o resultado seja 15 quando passarmos cinco e dez.
 
 09:31.380 --> 09:36.840
-So a nice shortcut here is that as you're running any tests you can just double click it to run it again.
+Um bom atalho aqui é que, ao executar qualquer teste, você pode clicar duas vezes nele para executá-lo novamente.
 
 09:37.890 --> 09:39.600
-And then I can right click it.
+E depois posso clicar com o botão direito do mouse.
 
 09:41.550 --> 09:42.420
-Sorry, I was in play mode.
+Desculpe, eu estava no modo de reprodução.
 
 09:42.960 --> 09:44.910
-Double click it and it runs again.
+Clique duas vezes e ele volta a funcionar.
 
 09:44.940 --> 09:45.390
-Great.
+Ótimo.
 
 09:45.390 --> 09:46.290
-Still green.
+Ainda verde.
 
 09:46.290 --> 09:49.650
-And I can right click it and choose open source code.
+E posso clicar com o botão direito do mouse e escolher código-fonte aberto.
 
 09:50.810 --> 09:54.860
-That's an easy way to get right to the right class and right to the right method.
+Essa é uma maneira fácil de ir direto para a classe certa e para o método certo.
 
 09:54.890 --> 09:57.380
-Here again is that method name that we saw.
+Aqui está novamente o nome do método que vimos.
 
 09:57.410 --> 10:00.920
-Again add result is 15 when five and ten.
+Novamente, o resultado da adição é 15 quando cinco e dez.
 
 10:00.950 --> 10:07.130
-The reason that that's important is that if you have lots of test classes with lots of test methods,
+A razão pela qual isso é importante é que se você tiver muitas classes de teste com muitos métodos de teste,
 
 10:07.130 --> 10:14.660
-and I hope that you do in your project in order to reason which in the test runner is which in the code
+e eu espero que você tenha em seu projeto, a fim de saber qual no executor de teste é qual no código
 
 10:14.660 --> 10:17.670
-base here, it's nice to have that consistent naming.
+Aqui, é bom ter essa nomenclatura consistente.
 
 10:17.690 --> 10:22.960
-So here what we do, we do the arrange, act and assert methodology.
+Então, o que fazemos aqui é a metodologia de organizar, agir e afirmar.
 
 10:22.970 --> 10:23.780
-In the arrange.
+No arranjo.
 
 10:23.780 --> 10:28.370
-What we're going to do first is just create a fresh instance of what we want to test.
+O que vamos fazer primeiro é criar uma nova instância do que queremos testar.
 
 10:28.370 --> 10:32.490
-That way we know it hasn't been sitting around, doesn't have any old data inside of it.
+Dessa forma, sabemos que ela não ficou parada, não tem dados antigos dentro dela.
 
 10:32.510 --> 10:33.850
-It's always a good practice.
+É sempre uma boa prática.
 
 10:33.860 --> 10:35.540
-Then we're going to act upon that.
+Então, vamos agir de acordo com isso.
 
 10:35.540 --> 10:39.200
-This is like, what is the one method if you can get away with it?
+Qual é o único método que você pode usar se conseguir se safar?
 
 10:39.200 --> 10:41.750
-Maybe two methods that really do the testing.
+Talvez dois métodos que realmente façam o teste.
 
 10:41.750 --> 10:43.220
-But one method is ideal.
+Mas um método é o ideal.
 
 10:43.250 --> 10:45.740
-Here we're adding together five and ten.
+Aqui estamos somando cinco e dez.
 
 10:45.740 --> 10:49.720
-And then in the assert we're going to use this assert language.
+E então, no assert, vamos usar essa linguagem de assert.
 
 10:49.730 --> 10:56.720
-The assert class has a certain structure to it where you say I assert that something is something.
+A classe assert tem uma certa estrutura na qual você diz que eu afirmo que algo é algo.
 
 10:56.720 --> 11:01.730
-And you can look at the documentation on that to see some variety of ways that you can format that.
+E você pode consultar a documentação sobre isso para ver uma variedade de maneiras de formatar isso.
 
 11:01.730 --> 11:07.840
-But often I use is equal to or is true or is false.
+Mas muitas vezes eu uso is equal to ou is true ou is false.
 
 11:07.850 --> 11:10.730
-So those are ones that you'll see quite commonly here.
+Portanto, esses são os que você verá com frequência aqui.
 
 11:11.060 --> 11:15.980
-So when I run that because the code runs correctly it adds five and ten to be 15.
+Então, quando eu executo isso, porque o código é executado corretamente, ele adiciona cinco e dez para formar 15.
 
 11:16.010 --> 11:16.760
-That's it.
+É isso aí.
 
 11:16.790 --> 11:18.070
-We're able to do that.
+Somos capazes de fazer isso.
 
 11:18.080 --> 11:21.710
-Now remember the example I was giving in the production code.
+Agora lembre-se do exemplo que eu estava dando no código de produção.
 
 11:21.710 --> 11:30.710
-What if you wanted to test five and ten and then test six and 11 and then test seven and 12 or whatever
+E se você quisesse testar cinco e dez e depois testar seis e 11 e depois testar sete e 12 ou qualquer outra coisa?
 
 11:30.710 --> 11:31.760
-combinations?
+combinações?
 
 11:31.760 --> 11:38.570
-The better you get at testing, you'll realize how many tests you really need to provide adequate coverage.
+Quanto mais você se aperfeiçoar nos testes, perceberá quantos testes realmente precisa para oferecer uma cobertura adequada.
 
 11:38.600 --> 11:44.240
-There's a lot of an art and a science around what's the minimum number of tests you can provide that
+Há muita arte e ciência em torno de qual é o número mínimo de testes que você pode fornecer que
 
 11:44.240 --> 11:47.800
-maximize your impact, and the code coverage that you have.
+maximizar seu impacto e a cobertura de código que você tem.
 
 11:47.810 --> 11:53.090
-So one of the things that I wanted to talk about as part of this particular workshop is what are called
+Portanto, uma das coisas sobre as quais eu gostaria de falar como parte desse workshop específico é o que chamamos de
 
 11:53.090 --> 11:54.890
-parameterized tests.
+testes parametrizados.
 
 11:54.890 --> 12:01.520
-So instead of just copying this one, pasting it below, and tweaking the values to add together six
+Portanto, em vez de simplesmente copiar este, colá-lo abaixo e ajustar os valores para somar seis
 
 12:01.520 --> 12:08.840
-and 11 or 0 and negative ten, we can ask unity to run the same exact test, but passing in some different
+e 11 ou 0 e dez negativos, podemos pedir ao unity para executar exatamente o mesmo teste, mas passando alguns valores diferentes
 
 12:08.840 --> 12:09.590
-values.
+valores diferentes.
 
 12:09.590 --> 12:11.810
-There's a lot of different options you have here.
+Há muitas opções diferentes aqui.
 
 12:11.810 --> 12:13.400
-I'm just showing one of them.
+Estou mostrando apenas uma delas.
 
 12:13.400 --> 12:15.890
-But let's take a look down here.
+Mas vamos dar uma olhada aqui embaixo.
 
 12:16.790 --> 12:23.150
-We say, and together that we assume the result is correct when these values.
+Dizemos, e juntos, que assumimos que o resultado está correto quando esses valores.
 
 12:23.150 --> 12:28.670
-So the method names a little bit more vague because it's parameterized, I don't necessarily know.
+Portanto, os nomes dos métodos são um pouco mais vagos porque são parametrizados, não sei necessariamente.
 
 12:28.700 --> 12:31.490
-Is this going to test five and ten is 15.
+Isso vai testar cinco e dez é 15.
 
 12:31.520 --> 12:37.340
-Notice here instead of the what I did before which was declaring five and ten.
+Observe que aqui, em vez do que eu fiz antes, que foi declarar cinco e dez.
 
 12:37.370 --> 12:42.950
-In the body of the method I use this particular language, I use something called value source.
+No corpo do método, eu uso essa linguagem específica, eu uso algo chamado value source.
 
 12:42.950 --> 12:44.300
-And then I pass it in.
+E então eu o passo.
 
 12:44.300 --> 12:50.180
-What unity does is it populates this first passes values in here.
+O que o unity faz é preencher este primeiro passa valores aqui.
 
 12:50.180 --> 12:51.800
-So let's say it's five.
+Então, digamos que são cinco.
 
 12:51.830 --> 12:54.380
-Then it grabs another value source here.
+Em seguida, ele pega outra fonte de valores aqui.
 
 12:54.410 --> 13:01.070
-Let's say that one is ten and it assumes that they are five plus ten added together.
+Digamos que um é dez e ele assume que são cinco mais dez somados.
 
 13:01.070 --> 13:06.020
-So each time it runs, it's going to do the equivalent of the last test that we saw.
+Assim, toda vez que for executado, ele fará o equivalente ao último teste que vimos.
 
 13:06.020 --> 13:12.110
-But instead of being hard coded to just one set of values, it's going to mix it up and show a variety
+Mas, em vez de ser codificado para apenas um conjunto de valores, ele vai misturar e mostrar uma variedade
 
 13:12.110 --> 13:12.620
-of them.
+deles.
 
 13:12.620 --> 13:15.520
-Now again, there's lots of different ways you can format this.
+Novamente, há várias maneiras diferentes de formatar isso.
 
 13:15.520 --> 13:19.730
-So you want to look at the documentation for parameterized tests in unity.
+Portanto, dê uma olhada na documentação dos testes parametrizados na unidade.
 
 13:19.730 --> 13:21.980
-But let's look at my specific case here.
+Mas vamos dar uma olhada no meu caso específico aqui.
 
 13:22.010 --> 13:24.410
-Those value sources values A and b.
+Esses valores de fontes de valores A e b.
 
 13:24.410 --> 13:27.860
-They just refer to a couple arrays that I've got up here.
+Eles apenas se referem a um par de arrays que tenho aqui.
 
 13:27.860 --> 13:34.040
-And what it's going to do is just step through and it's going to test one and one, negative two and
+E o que ele vai fazer é simplesmente passar por eles e testar um e um, dois negativos e
 
 13:34.040 --> 13:36.620
-negative two, negative three and negative three and pass them in.
+negativo dois, negativo três e negativo três e passá-los para dentro.
 
 13:36.650 --> 13:43.130
-You could organize them any way you want and test different scenarios where you maybe do seven, 11
+Você pode organizá-los da maneira que quiser e testar diferentes cenários, talvez fazendo sete, 11
 
 13:43.130 --> 13:43.730
-and 12.
+e 12.
 
 13:43.760 --> 13:45.260
-You test anything you want.
+Você pode testar o que quiser.
 
 13:45.290 --> 13:48.080
-Now you don't have to test infinite amounts there.
+Agora você não precisa testar quantidades infinitas.
 
 13:48.080 --> 13:50.510
-This is where that art and science comes along.
+É aqui que a arte e a ciência aparecem.
 
 13:50.510 --> 13:57.020
-You might want to test a couple of negative values zero in some scenarios and a couple of positive values.
+Talvez você queira testar alguns valores negativos, zero em alguns cenários e alguns valores positivos.
 
 13:57.050 --> 14:01.880
-Maybe what you're doing is not math based and you want to think about it another way, but what you're
+Talvez o que você esteja fazendo não seja baseado em matemática e você queira pensar nisso de outra forma, mas o que você está fazendo é
 
 14:01.880 --> 14:04.460
-looking for what are called corner cases.
+procurando o que chamamos de casos extremos.
 
 14:04.460 --> 14:10.310
-So for example, if you were doing a division method and you wanted to test it mathematically, there's
+Assim, por exemplo, se você estiver usando um método de divisão e quiser testá-lo matematicamente, há
 
 14:10.310 --> 14:12.800
-a challenge about dividing by zero.
+um desafio sobre a divisão por zero.
 
 14:12.800 --> 14:17.030
-So you would want to see that you pass in zero and handle that elegantly.
+Portanto, você deve verificar se está passando o zero e lidar com isso de forma elegante.
 
 14:17.030 --> 14:22.100
-You really need to know the specific domain that your production code lies in, in order to know how
+Você realmente precisa conhecer o domínio específico em que se encontra o seu código de produção para saber como
 
 14:22.100 --> 14:22.790
-to test it.
+testá-lo.
 
 14:22.790 --> 14:27.080
-But here a couple of each positive and negative and stuff like that.
+Mas aqui estão alguns positivos e negativos e coisas do gênero.
 
 14:28.230 --> 14:31.010
-So let's look at how that looks in the unity editor.
+Então, vamos dar uma olhada em como isso fica no unity editor.
 
 14:31.020 --> 14:32.730
-So notice what it does here.
+Observe o que ele faz aqui.
 
 14:32.730 --> 14:38.040
-It actually runs 49 tests based on all the combinations that we've got there.
+Na verdade, ele executa 49 testes com base em todas as combinações que temos aqui.
 
 14:38.040 --> 14:41.930
-So it shows you when values are and then it passes in.
+Assim, ele mostra quando os valores estão e depois passa para dentro.
 
 14:41.940 --> 14:43.490
-So that's really nice.
+Isso é muito bom.
 
 14:43.500 --> 14:50.490
-Now as you're looking at this output you might realize oh it's going to be important to me to test 100
+Agora, ao olhar para esse resultado, você pode perceber que será importante para mim testar 100
 
 14:50.490 --> 14:51.860
-and -100.
+e -100.
 
 14:51.870 --> 14:52.410
-Great.
+Ótimo.
 
 14:52.410 --> 14:58.950
-Then just go back and add those sample values in if you want to do other things instead of just a hard
+Em seguida, basta voltar e adicionar esses valores de amostra se quiser fazer outras coisas em vez de apenas um valor fixo
 
 14:58.950 --> 14:59.700
-coded list.
+lista codificada.
 
 14:59.700 --> 15:03.600
-If you want to select a random values, there's lots of other options you have there.
+Se você quiser selecionar valores aleatórios, há muitas outras opções disponíveis.
 
 15:03.600 --> 15:06.240
-Again, do some research on parameterized tests.
+Novamente, faça uma pesquisa sobre testes parametrizados.
 
 15:06.420 --> 15:10.950
-You can dig into the play mode test as well if you want, but since that's going to be more interesting
+Você também pode se aprofundar no teste do modo de jogo, se quiser, mas como esse será mais interessante
 
 15:10.950 --> 15:15.060
-in other examples, we'll move on and conclude this one of the workshops.
+em outros exemplos, vamos seguir em frente e concluir este dos workshops.
 
 15:15.060 --> 15:15.900
-Thanks.
+Obrigado.

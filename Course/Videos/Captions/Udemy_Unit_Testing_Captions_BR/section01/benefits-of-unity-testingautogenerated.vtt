@@ -1,136 +1,136 @@
 WEBVTT
 
 00:03.320 --> 00:08.780
-Let's recap some of the benefits we've seen so far just in this theory portion about unit testing.
+Vamos recapitular alguns dos benefícios que vimos até agora apenas nesta parte teórica sobre testes unitários.
 
 00:08.780 --> 00:11.940
-So the benefits include adding confidence to your code.
+Portanto, os benefícios incluem adicionar confiança ao seu código.
 
 00:11.960 --> 00:12.830
-What does that mean?
+O que isso significa?
 
 00:12.830 --> 00:19.070
-It means as your team thinks about that code base, they have more of a happy feeling that that 101st
+Significa que, à medida que a sua equipe pensa sobre essa base de código, eles têm uma sensação mais feliz de que aquele 101º
 
 00:19.070 --> 00:21.080
-feature will not break things.
+recurso não vai quebrar as coisas.
 
 00:21.110 --> 00:26.060
-When there's a lack of confidence, you're a bit shy to add features, particularly in certain areas
+Quando há falta de confiança, você fica um pouco tímido para adicionar recursos, especialmente em determinadas áreas
 
 00:26.060 --> 00:32.300
-of the code base where you know things are held together quite loosely and a new line of code could
+da base de código onde você sabe que as coisas são mantidas juntas de forma bastante frouxa e uma nova linha de código poderia
 
 00:32.330 --> 00:33.320
-break something.
+quebrar alguma coisa.
 
 00:33.320 --> 00:36.080
-It also allows for bolder refactors.
+Também permite refatorações mais ousadas.
 
 00:36.080 --> 00:41.270
-Now, for example, if you're going to be refactoring a particular system in your game and you have
+Agora, por exemplo, se você for refatorar um sistema específico no seu jogo e tiver
 
 00:41.270 --> 00:46.040
-no testing, the process would be play the game and have your team play it.
+nenhum teste, o processo seria jogar o jogo e fazer com que sua equipe o jogue.
 
 00:46.070 --> 00:49.880
-Do all the work of the refactor, then play your game again.
+Fazer todo o trabalho de refatoração e depois jogar o jogo novamente.
 
 00:49.910 --> 00:53.690
-The problem with that manual testing is it's more time consuming.
+O problema com esse teste manual é que ele consome mais tempo.
 
 00:53.690 --> 00:59.960
-It's more challenging to be sure that the test before and after the refactor are the same, and testing
+É mais desafiador ter certeza de que o teste antes e depois da refatoração é o mesmo, e o teste
 
 00:59.960 --> 01:02.450
-the same areas as well.
+as mesmas áreas também.
 
 01:02.990 --> 01:10.340
-So by having some unit tests covering those systems before the refactor, you're able to run the tests,
+Portanto, ao ter alguns testes unitários que cobrem esses sistemas antes da refatoração, você pode executar os testes,
 
 01:10.370 --> 01:14.960
-see that everything passes, that the automation that you've had there works well.
+ver se tudo foi aprovado, se a automação que você fez lá funciona bem.
 
 01:14.960 --> 01:18.350
-Then run those exact same tests after the refactor.
+Em seguida, execute exatamente esses mesmos testes após a refatoração.
 
 01:18.380 --> 01:21.650
-You might find along the way that some of the tests fail.
+Você pode descobrir que alguns dos testes falharam.
 
 01:21.650 --> 01:23.390
-You're able to make some changes.
+Você pode fazer algumas alterações.
 
 01:23.390 --> 01:24.380
-The test pass.
+O teste foi aprovado.
 
 01:24.380 --> 01:30.860
-You may even add new tests because the refactor needs them, and then your code now sits in an even
+Você pode até adicionar novos testes porque a refatoração precisa deles e, então, seu código agora está em uma situação ainda mais
 
 01:30.860 --> 01:34.130
-better place with more code confidence after that refactor.
+melhor, com mais confiança no código após a refatoração.
 
 01:34.310 --> 01:36.170
-This also saves time.
+Isso também economiza tempo.
 
 01:36.170 --> 01:41.480
-It will feel when you're starting with unit testing that this is an extra, maybe even.
+Quando estiver começando com os testes unitários, vai parecer que isso é um extra, talvez até.
 
 01:41.480 --> 01:45.950
-It feels a little unnecessary in certain systems, but we're going to stretch on that.
+Parece um pouco desnecessário em certos sistemas, mas vamos nos estender sobre isso.
 
 01:45.950 --> 01:51.650
-We're going to work on that area and see how and when you want to add your unit tests.
+Vamos trabalhar nessa área e ver como e quando você quer adicionar seus testes unitários.
 
 01:51.680 --> 01:56.810
-Each developer will find their own style, and as a team, you want to come together and establish some
+Cada desenvolvedor encontrará seu próprio estilo e, como equipe, você deve se reunir e estabelecer alguns
 
 01:56.810 --> 01:59.000
-good best practices that you can all follow.
+boas práticas recomendadas que todos vocês possam seguir.
 
 01:59.980 --> 02:04.720
-The results here, you'll have more confidence and robustness in your code base, as I've mentioned,
+Como resultado, você terá mais confiança e robustez em sua base de código, como já mencionei,
 
 02:04.720 --> 02:10.450
-and the effect on your code base isn't just that it's the same old code with tests.
+e o efeito em sua base de código não é apenas o mesmo código antigo com testes.
 
 02:10.480 --> 02:15.040
-It's that the very nature of testing will influence how you design your code.
+É que a própria natureza dos testes influenciará a forma como você projeta o seu código.
 
 02:15.070 --> 02:22.360
-To make testable code, things need to work in smaller units or smaller classes with less code in them,
+Para criar um código testável, as coisas precisam funcionar em unidades menores ou classes menores com menos código nelas,
 
 02:22.360 --> 02:27.550
-and that encourages us to have a single purpose to each class and method, which is a good design practice.
+e isso nos incentiva a ter um único propósito para cada classe e método, o que é uma boa prática de design.
 
 02:27.550 --> 02:30.010
-We'll see that in software design section.
+Veremos isso na seção de design de software.
 
 02:30.010 --> 02:34.630
-It also encourages more simple solutions, especially when we talk about test driven development.
+Também incentiva soluções mais simples, especialmente quando falamos de desenvolvimento orientado por testes.
 
 02:34.660 --> 02:41.290
-Now having this automated testing, which means unit tests as part of your code base that are automatically
+Agora, ter esse teste automatizado, o que significa testes unitários como parte de sua base de código que são automaticamente
 
 02:41.290 --> 02:47.760
-called and retried periodically, that is what's going to really give you the best benefit here.
+chamados e repetidos periodicamente, isso é o que realmente lhe trará o melhor benefício aqui.
 
 02:47.770 --> 02:54.100
-Now, some teams will use the unit testing inside unity, which is going to be the focus of our talk
+Agora, algumas equipes usarão o teste de unidade dentro da unidade, que será o foco da nossa conversa
 
 02:54.100 --> 02:54.550
-here.
+aqui.
 
 02:54.550 --> 03:02.230
-You can also take that skill and have your git repo or other version control system automatically run
+Você também pode usar essa habilidade e fazer com que o seu repositório git ou outro sistema de controle de versão execute automaticamente
 
 03:02.230 --> 03:09.280
-those tests at key moments, perhaps daily or nightly, or each time your team commits to a certain
+esses testes em momentos importantes, talvez diariamente ou à noite, ou cada vez que sua equipe fizer um commit para um determinado
 
 03:09.280 --> 03:11.260
-branch, it will run the test again.
+branch, ele executará o teste novamente.
 
 03:11.260 --> 03:17.110
-So there's elegant ways that you can increase the frequency at which this is called, and then only
+Portanto, há maneiras elegantes de aumentar a frequência com que isso é chamado, e somente
 
 03:17.110 --> 03:20.020
-merge your code together if all the tests pass.
+mesclar seu código se todos os testes forem aprovados.
