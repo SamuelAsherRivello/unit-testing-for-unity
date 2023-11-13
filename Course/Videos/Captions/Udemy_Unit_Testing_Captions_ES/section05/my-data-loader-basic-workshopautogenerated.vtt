@@ -1,0 +1,310 @@
+WEBVTT
+
+00:00.050 --> 00:03.650
+Hello and welcome to this Unity Unit testing workshop.
+
+00:03.650 --> 00:07.190
+We're going to look at my data loader Basic as an example.
+
+00:07.190 --> 00:07.820
+Let's dig in.
+
+00:07.820 --> 00:10.670
+So here in this demo I'm going to open up unity.
+
+00:10.670 --> 00:16.040
+Open up our core sample project and take a look at the scene of my data loader basic.
+
+00:16.040 --> 00:21.890
+Now the reason that I've chosen to do some sort of data loading is just to talk about, well, what
+
+00:21.890 --> 00:30.290
+if our unit tests, which we hope are very dependable and isolated and run quickly for the sake of our
+
+00:30.290 --> 00:32.390
+own testing methodologies?
+
+00:32.390 --> 00:38.150
+What if they depend on other systems, like how do we know that we're able to test just one part?
+
+00:38.180 --> 00:46.130
+In general, unit testing is testing a single unit, which you could think of as one method of one class.
+
+00:46.130 --> 00:52.130
+But often our code is multiple classes depending together, and that can be a challenge for deciding
+
+00:52.130 --> 00:55.460
+how to separate them and test them in isolation.
+
+00:55.460 --> 01:01.640
+Also, you could have a system that depends on something asynchronous, like rendering graphics, rendering
+
+01:01.640 --> 01:05.150
+audio, or in this case, calling a back end server.
+
+01:05.150 --> 01:12.770
+So I created a very simple example here that loads data you pass in a URL, it just calls some web page
+
+01:12.770 --> 01:15.020
+and gets back the text of that web page.
+
+01:15.050 --> 01:21.800
+So this is the simplest example, but you could imagine that this is any server logic calling to send
+
+01:21.800 --> 01:26.930
+a high score from your game, calling to load player data, something related to multiplayer.
+
+01:26.930 --> 01:31.690
+Perhaps all of those could depend on some asynchronous network traffic.
+
+01:31.700 --> 01:32.720
+Let's take a look.
+
+01:32.810 --> 01:34.640
+So here we are in the sample.
+
+01:34.640 --> 01:36.650
+We've got my data loader basic.
+
+01:36.650 --> 01:37.310
+Load it up.
+
+01:37.310 --> 01:38.330
+Let's hit play.
+
+01:41.030 --> 01:42.380
+In this particular demo.
+
+01:42.410 --> 01:46.940
+There's not too real interesting things in this particular demo.
+
+01:46.970 --> 01:49.340
+There's not anything too interesting happening at gameplay.
+
+01:49.610 --> 01:53.330
+We'll go to the console here and see this scene has no UI.
+
+01:53.360 --> 01:59.660
+See the unity console, and then it's just showing the length of what is returned from the server.
+
+01:59.660 --> 02:03.590
+Anything not zero signifies hey, it loaded a page.
+
+02:03.590 --> 02:05.030
+So very light.
+
+02:05.030 --> 02:06.080
+Simple test.
+
+02:06.080 --> 02:09.550
+I don't have error checking or these kinds of things built in.
+
+02:09.560 --> 02:14.030
+It just assumes success for the sake of the simplicity of this demo.
+
+02:14.060 --> 02:18.170
+If you're doing production code and you're calling servers, you'd want to add a lot more functionality
+
+02:18.170 --> 02:18.800
+to it.
+
+02:18.800 --> 02:23.160
+So that's the runtime experience, which is pretty simple and not that interesting.
+
+02:23.180 --> 02:28.940
+Now if we look at the test runner here, we can set our category to be my data loader basic.
+
+02:28.940 --> 02:32.720
+So it just shows us the tests related to this particular code.
+
+02:32.720 --> 02:34.520
+And then we hit our edit mode.
+
+02:34.520 --> 02:38.600
+Here again we have play mode but you can explore that on your own.
+
+02:38.600 --> 02:42.620
+I find for this particular demo that edit mode is more interesting.
+
+02:42.620 --> 02:45.050
+So I'm going to hit run all.
+
+02:46.660 --> 02:48.740
+And we can see we've got success.
+
+02:48.760 --> 02:54.910
+This says load async result contains doctype when is loaded.
+
+02:54.910 --> 02:56.890
+So let's take a look at a little bit of that.
+
+02:57.010 --> 02:59.200
+We'll go here and do open our source.
+
+03:00.590 --> 03:02.210
+And here's the test.
+
+03:02.300 --> 03:08.000
+It is showing that first we create an instance of our data loader basic.
+
+03:08.300 --> 03:12.050
+Then we listen for when it gets loaded.
+
+03:13.000 --> 03:16.260
+We'll check on the data loaded back from the server.
+
+03:16.270 --> 03:21.190
+Again, this is just calling a web page, and whatever the web page source code is returning it as a
+
+03:21.190 --> 03:22.420
+big blob of text.
+
+03:22.420 --> 03:24.760
+So it's going to look like some HTML stuff.
+
+03:24.760 --> 03:30.310
+And as I looked at it while I was creating this, I noticed that it said doctype as part of it.
+
+03:30.310 --> 03:35.920
+So Doctype is not something super significant, certainly not in the unity world, but I just thought
+
+03:35.920 --> 03:40.030
+it was some little test that tells me did I get something back from a web page?
+
+03:40.030 --> 03:43.460
+You can imagine testing for any other substring that makes sense for you.
+
+03:43.480 --> 03:50.410
+Then finally, I do the action here that we're testing upon, and I load the asynchronous call there
+
+03:50.410 --> 03:51.700
+and pass in the URL.
+
+03:51.730 --> 03:58.600
+Now notice the URL is the URL of the GitHub page, but that's not so important if there's nothing unique
+
+03:58.600 --> 03:58.960
+there.
+
+03:58.960 --> 04:06.010
+If you wanted to test like the google.com it will just go and call google.com and get the the source
+
+04:06.010 --> 04:07.210
+code back from that.
+
+04:07.210 --> 04:12.610
+I don't really want to focus on what I'm doing here in the production code, because it's an admittedly
+
+04:12.610 --> 04:13.720
+simple example.
+
+04:13.720 --> 04:19.030
+I just wanted it to be a way to get something asynchronous happening inside unity.
+
+04:20.210 --> 04:22.880
+So let's look at the source code just so we understand.
+
+04:23.880 --> 04:24.330
+Here.
+
+04:24.330 --> 04:24.930
+What we're doing.
+
+04:24.930 --> 04:29.130
+When I call load, I just say, hey, make sure that the URL is not empty.
+
+04:29.520 --> 04:34.710
+Then I go ahead and I use Unity's web request, which is built in functionality.
+
+04:34.710 --> 04:41.880
+I call send request on that, and then I set the result to be the download handler's text.
+
+04:41.910 --> 04:44.220
+This is just a super cheap, easy way.
+
+04:44.220 --> 04:47.400
+Recommended by unity to call simple data online.
+
+04:47.430 --> 04:48.930
+Very simple and straightforward.
+
+04:48.960 --> 04:53.250
+Now this brings up a question what actually are we testing here?
+
+04:53.640 --> 04:59.940
+I have a custom class called my data loader, but inside I'm heavily depending on some existing unity
+
+04:59.970 --> 05:02.550
+functionality of unity web request.
+
+05:02.580 --> 05:06.420
+Then I'm calling some web page in this case GitHub.
+
+05:06.420 --> 05:08.040
+And that's involved.
+
+05:08.040 --> 05:13.170
+If GitHub was somehow down for the day, this test would fail.
+
+05:13.200 --> 05:14.490
+Is that appropriate?
+
+05:14.490 --> 05:21.390
+If my unit test is really about testing my own methodology, my own functionality, I shouldn't consider
+
+05:21.390 --> 05:22.440
+it a failed test.
+
+05:22.440 --> 05:25.230
+If some unrelated dependency fails.
+
+05:25.230 --> 05:27.000
+But here that's the case.
+
+05:27.000 --> 05:29.030
+I would fail if GitHub was down.
+
+05:29.040 --> 05:34.830
+Also, inside here I'm using Unity web request that's built in functionality by unity.
+
+05:34.860 --> 05:41.280
+We hope that it works 100% of the time in all situations, but it's possible that my code works and
+
+05:41.280 --> 05:42.600
+its code doesn't work.
+
+05:42.600 --> 05:44.910
+So there's a gray area here.
+
+05:44.910 --> 05:50.070
+When you think about designing your classes and then designing the tests on those classes, how do you
+
+05:50.070 --> 05:52.350
+know what you should actually focus on?
+
+05:52.350 --> 05:54.780
+Testing, generally speaking.
+
+05:54.780 --> 05:59.940
+And there's books and books written on this subject of how to approach the art of unit testing.
+
+05:59.940 --> 06:05.730
+But generally speaking, you want to reduce your dependencies down, and you want to simplify the number
+
+06:05.730 --> 06:07.920
+of code lines that you're testing.
+
+06:07.920 --> 06:14.880
+So less code is better because it's more simple and focused and you know exactly in isolation which
+
+06:14.880 --> 06:16.410
+code you're testing on.
+
+06:16.410 --> 06:22.710
+So this isn't a perfect example, but for us, it's a great way to get started and just talk about asynchronous
+
+06:22.710 --> 06:23.340
+code running.
+
+06:23.340 --> 06:25.440
+So for now we'll end this example.
