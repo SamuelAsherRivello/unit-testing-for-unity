@@ -8,25 +8,25 @@ namespace RMC.UnitTesting.Examples.PureFunctions
     /// <summary>
     /// This Unit Test validates that code executes as expected.
     /// </summary>
-    [Category ("RMC.UnitTesting.Samples.MyPureSystem")]
+    [Category ("RMC.UnitTesting.Samples.PureFunctions")]
     public class MyPureSystemPlayModeTest
     {
         [UnityTest]
-        public IEnumerator Add_ResultIs15_When5And10()
+        public IEnumerator GetProduct_ResultIs20_WhenInputIs_2_10()
         {
             // Arrange
             MyPureSystem myPureSystem = new MyPureSystem();
-            int productId = 0;
+            int value = 2;
+            int multiplier = 10;
             
             // Act
-            string result = myPureSystem.GetProduct(productId);
-            
+            int result = myPureSystem.ConvertValue(value, multiplier);
+        
             // Await
-            yield return new WaitForSeconds(0.1f);
-            
+            yield return new WaitForSeconds(0.2f);
+        
             // Assert
-            Assert.That(result, Is.EqualTo("Console"));
-
+            Assert.That(result, Is.EqualTo(20));
         }
     }
 }

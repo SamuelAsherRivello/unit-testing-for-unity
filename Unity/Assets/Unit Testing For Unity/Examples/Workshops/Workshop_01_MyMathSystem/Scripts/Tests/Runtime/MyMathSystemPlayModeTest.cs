@@ -21,7 +21,7 @@ namespace RMC.UnitTesting.Examples.MyMathSystem
             int sum = myMathSystem.Add(5, 10);
             
             // Await
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.2f);
             
             // Assert
             Assert.That(sum, Is.EqualTo(15));

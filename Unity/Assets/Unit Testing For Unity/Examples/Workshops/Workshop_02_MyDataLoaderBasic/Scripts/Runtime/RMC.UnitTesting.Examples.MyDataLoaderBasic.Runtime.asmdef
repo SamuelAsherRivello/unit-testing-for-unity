@@ -1,7 +1,9 @@
 {
-    "name": "RMC.UnitTesting.Samples.CharacterPhysics.Runtime",
+    "name": "RMC.UnitTesting.Examples.MyDataLoaderBasic.Runtime",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "GUID:1bd920aa2cc01364d8e15ad9ca79abf3"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

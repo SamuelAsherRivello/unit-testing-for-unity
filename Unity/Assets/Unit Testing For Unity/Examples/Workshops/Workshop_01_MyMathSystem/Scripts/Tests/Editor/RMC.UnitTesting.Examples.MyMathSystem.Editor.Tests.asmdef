@@ -1,8 +1,12 @@
 {
-    "name": "RMC.UnitTesting.Samples.MyMathSystem.Runtime",
+    "name": "RMC.UnitTesting.Examples.MyMathSystem.Editor.Tests",
     "rootNamespace": "",
-    "references": [],
-    "includePlatforms": [],
+    "references": [
+        "GUID:3c6593c28c2372441b571cb6cf7abfb4"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

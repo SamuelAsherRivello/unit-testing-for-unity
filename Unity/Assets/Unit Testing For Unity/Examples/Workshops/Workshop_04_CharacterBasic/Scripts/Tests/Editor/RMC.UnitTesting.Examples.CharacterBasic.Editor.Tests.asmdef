@@ -1,10 +1,12 @@
 {
-    "name": "RMC.UnitTesting.Samples.MyDataLoaderBasic.Runtime",
+    "name": "RMC.UnitTesting.Examples.CharacterBasic.Editor.Tests",
     "rootNamespace": "",
     "references": [
-        "GUID:1bd920aa2cc01364d8e15ad9ca79abf3"
+        "GUID:a96440fe69aa47c4da8386f400dbf636"
     ],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

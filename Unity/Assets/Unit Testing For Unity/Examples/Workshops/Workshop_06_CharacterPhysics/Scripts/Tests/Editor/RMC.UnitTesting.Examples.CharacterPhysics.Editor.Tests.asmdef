@@ -1,10 +1,12 @@
 {
-    "name": "RMC.UnitTesting.Samples.MyDataLoaderAdvanced.Runtime",
+    "name": "RMC.UnitTesting.Examples.CharacterPhysics.Editor.Tests",
     "rootNamespace": "",
     "references": [
-        "GUID:1bd920aa2cc01364d8e15ad9ca79abf3"
+        "GUID:916c916448733784eb014132113e6754"
     ],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

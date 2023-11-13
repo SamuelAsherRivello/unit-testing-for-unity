@@ -1,8 +1,12 @@
 {
-    "name": "RMC.UnitTesting.Samples.CharacterBasic.Runtime",
+    "name": "RMC.UnitTesting.Examples.CharacterAdvanced.Editor.Tests",
     "rootNamespace": "",
-    "references": [],
-    "includePlatforms": [],
+    "references": [
+        "GUID:d545e6af3c91ee74dbeaae46637db8a3"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

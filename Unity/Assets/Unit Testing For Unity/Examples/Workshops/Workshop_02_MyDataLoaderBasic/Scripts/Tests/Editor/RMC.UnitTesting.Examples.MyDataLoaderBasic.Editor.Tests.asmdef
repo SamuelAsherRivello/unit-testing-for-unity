@@ -1,8 +1,8 @@
 {
-    "name": "RMC.UnitTesting.Samples.MyDataLoaderAdvanced.Editor.Tests",
+    "name": "RMC.UnitTesting.Examples.MyDataLoaderBasic.Editor.Tests",
     "rootNamespace": "",
     "references": [
-        "GUID:db7b763a3117acf4186249f9d7452d90"
+        "GUID:24097d6e86a1f2f4a82836a04f918dc5"
     ],
     "includePlatforms": [
         "Editor"
