@@ -1,0 +1,340 @@
+WEBVTT
+
+00:00.050 --> 00:02.240
+Hello and welcome to Unit Testing for unity.
+
+00:02.270 --> 00:05.270
+This is our workshop talking about character physics.
+
+00:05.300 --> 00:11.750
+Now in previous workshops we've slowly moved from a very simple character example, moving with arrow
+
+00:11.750 --> 00:17.600
+keys to the advanced example separating Monobehaviour and non monobehaviour concerns.
+
+00:17.600 --> 00:22.580
+And here in this one we're going to talk about well, what if we depend on yet another unity system
+
+00:22.580 --> 00:23.540
+like physics.
+
+00:23.540 --> 00:29.360
+And also when we're using physics in this particular example our movement becomes fuzzier.
+
+00:29.360 --> 00:33.500
+Meaning I don't click left and it immediately clicks to a position.
+
+00:33.500 --> 00:35.570
+It slowly moves over time.
+
+00:35.570 --> 00:39.740
+How would we be able to test the value that is slowly changing over time?
+
+00:39.740 --> 00:42.860
+So we'll talk about a few of those things here in the source code.
+
+00:42.860 --> 00:47.930
+So to take a look at this demo, we are opening up our unity editor and the sample project.
+
+00:47.930 --> 00:50.660
+The scene here is going to be the character physics scene.
+
+00:50.660 --> 00:54.330
+And one of the things we're going to be looking at is how to test those fuzzy values.
+
+00:54.350 --> 01:01.280
+I called it again, fuzzy values to me is values that aren't necessarily instantaneously changing from
+
+01:01.280 --> 01:02.270
+A to B.
+
+01:02.270 --> 01:09.500
+They slowly animate over time, such as the position of an object or a score that gradually counts up.
+
+01:09.560 --> 01:14.720
+These are all areas where you'd want to be able to test something over time, and we have one easy approach
+
+01:14.720 --> 01:15.860
+here to do that.
+
+01:15.860 --> 01:20.360
+It's not the only way to solve it, but it's one that I think helps us learning along the way.
+
+01:20.360 --> 01:21.410
+So let's take a look.
+
+01:21.410 --> 01:23.060
+So here we are in the unity project.
+
+01:23.060 --> 01:25.580
+We've got the character physics example open.
+
+01:25.580 --> 01:27.140
+Let's go ahead and run the scene.
+
+01:33.260 --> 01:36.170
+Now here I'm able to move using the arrow keys.
+
+01:40.030 --> 01:45.610
+And in previous examples here in the workshop, we've seen it click over every click I did on the left
+
+01:45.610 --> 01:51.040
+arrow, the position would click instantaneously changing, but here there's a smoother movement.
+
+01:51.670 --> 01:56.890
+I can still use all the arrow keys to direct different traffic of which way it should go, but the idea
+
+01:56.890 --> 02:00.670
+of it moving slowly over time is really the novel situation now.
+
+02:00.670 --> 02:06.430
+There's lots of ways you could do that in unity, but I chose to use the physics system just to talk
+
+02:06.430 --> 02:11.530
+a little bit about what happens if we've got a few more unity systems involved.
+
+02:11.530 --> 02:13.570
+Remember what we've been stretching with?
+
+02:13.600 --> 02:20.770
+And as an idea here is that in an ideal world, you get your unit testing to test the fewest lines of
+
+02:20.770 --> 02:24.400
+dependency, fewest lines of code at once.
+
+02:24.400 --> 02:28.240
+But a lot of times our production code isn't so simplistic.
+
+02:28.240 --> 02:30.160
+We are depending on different things.
+
+02:30.160 --> 02:35.620
+So with the My Data loader and with previous character examples here, we've seen some of the ways to
+
+02:35.650 --> 02:37.750
+handle those different dependencies.
+
+02:37.780 --> 02:40.900
+This is one more example a little bit more complex than the rest.
+
+02:40.930 --> 02:42.880
+Let's take a look at the production code here.
+
+02:42.880 --> 02:45.760
+So here we'll look at the character physics example.
+
+02:47.240 --> 02:48.440
+We open that up?
+
+02:49.860 --> 02:53.160
+And here we've got creating a character primitive.
+
+02:53.970 --> 03:02.490
+Here we create the game object first with the cube in appearance for the primitive, and then we add
+
+03:02.490 --> 03:06.120
+the component of the character physics monobehaviour.
+
+03:06.120 --> 03:09.690
+And then we have a separate character physics class that we take that in there.
+
+03:09.690 --> 03:15.360
+So we're already separating from one monolithic class of monobehaviour into two.
+
+03:15.360 --> 03:21.000
+So that's a good way to get our code more simplistic and doing a single purpose each in there.
+
+03:21.000 --> 03:28.260
+We saw in the previous example that most of the Monobehaviour functionality we needed was just the update.
+
+03:28.260 --> 03:30.330
+That's the only thing we really needed to take care of.
+
+03:30.330 --> 03:35.760
+So by moving all the non update stuff into the second class, we now have something that's easier to
+
+03:35.760 --> 03:36.360
+test.
+
+03:39.080 --> 03:42.210
+Then in this simple example, we move to a particular position.
+
+03:42.230 --> 03:46.340
+Now let's run the tests and then let's take a look at the production code.
+
+03:46.370 --> 03:49.130
+So here let's take a look at running the selected.
+
+03:51.190 --> 03:52.480
+It's all running there.
+
+03:52.500 --> 03:53.500
+Everything passes.
+
+03:53.520 --> 03:55.290
+Now that's just the play mode test.
+
+03:55.290 --> 03:59.760
+But we have also got edit mode tests if you want to dig in and take a look at it again, because we're
+
+03:59.760 --> 04:01.600
+dealing with monobehaviour stuff.
+
+04:01.620 --> 04:03.990
+It feels more appropriate to use a play mode.
+
+04:03.990 --> 04:05.610
+So that's the approach I've done here.
+
+04:05.610 --> 04:09.090
+But it's up to you and your project to decide which systems you want to test.
+
+04:09.120 --> 04:10.860
+Edit mode and which ones you want to test.
+
+04:10.890 --> 04:11.430
+Play mode.
+
+04:18.220 --> 04:23.620
+So now that we've seen those tests, let's take a quick look here at the source code for the class.
+
+04:23.620 --> 04:25.300
+And then we'll look at some of the tests on top.
+
+04:25.330 --> 04:25.510
+All right.
+
+04:25.510 --> 04:27.380
+So here we are in the character physics.
+
+04:27.400 --> 04:31.520
+We're going to see it's pretty similar to the character advanced we saw last.
+
+04:31.540 --> 04:35.470
+Again we've separated the Monobehaviour and the non monobehaviour class.
+
+04:35.470 --> 04:39.250
+So here's the non monobehaviour class that's doing most of the work.
+
+04:39.280 --> 04:45.460
+Notice here inside its constructor it takes a reference to the Monobehaviour and stores it and then
+
+04:45.460 --> 04:50.320
+also passes into the Monobehaviour a reference to this class here.
+
+04:50.320 --> 04:54.550
+That's so that it can call the move by every time it does an update.
+
+04:54.580 --> 04:56.620
+Now there's different ways you could organize that.
+
+04:56.620 --> 05:00.460
+You could even remove the hardcoded dependency we have on each other here.
+
+05:00.460 --> 05:04.000
+But for the sake of simplicity in this example, this is very appropriate.
+
+05:04.360 --> 05:05.410
+Going down the code.
+
+05:05.410 --> 05:08.470
+Again, it's just like the advanced in most parts.
+
+05:08.500 --> 05:11.290
+I'll do want to call out where there's physics being used.
+
+05:11.290 --> 05:19.540
+So here in movement, instead of just moving by the position hardcoded over one instance Taneous update,
+
+05:19.570 --> 05:22.960
+we're going to be using the move position here.
+
+05:22.960 --> 05:28.510
+And then under Add force, which is a new method that I did that is going to be moving based on physics
+
+05:28.510 --> 05:29.200
+forces.
+
+05:29.200 --> 05:33.250
+So imagine this is a block and we're giving a push on one side.
+
+05:33.250 --> 05:39.010
+And then based on friction and mass and gravity, you know there's some sort of consequence that tends
+
+05:39.010 --> 05:41.890
+to be a fuzzier reaction here using the add force.
+
+05:41.890 --> 05:48.220
+And we're moving by add force up here at the top of the same class file we see the physics monobehaviour
+
+05:48.220 --> 05:49.240
+is declared.
+
+05:49.240 --> 05:55.210
+It's pretty familiar in that the same character advanced we saw in the last workshop looks pretty similar,
+
+05:55.210 --> 05:58.000
+but we do have a rigid body here that we're storing.
+
+05:58.000 --> 06:04.630
+And then when this class wakes up, we do some attaching of the rigid body and then set some physics
+
+06:04.630 --> 06:05.320
+values.
+
+06:05.320 --> 06:12.070
+So if we think about just kind of recapping instead of having one monobehaviour that does all the physics
+
+06:12.070 --> 06:16.840
+and movement together, we've separated the monobehaviour from the non monobehaviour.
+
+06:16.870 --> 06:23.130
+Then inside the Monobehaviour we do the update loop and we also take care of some physics stuff.
+
+06:23.140 --> 06:29.200
+Then from the other one, the non monobehaviour, we're able to move as we want and take character input,
+
+06:29.200 --> 06:31.110
+so take keyboard input and stuff like that.
+
+06:31.120 --> 06:35.560
+So it's a pretty good separation here and gets us going with what we need.
+
+06:36.740 --> 06:40.430
+Let me think out loud if there's anything else I wanted to mention about this.
+
+06:40.970 --> 06:43.070
+Um, yeah.
+
+06:43.070 --> 06:45.230
+So I teased about the idea here.
+
+06:45.230 --> 06:53.030
+If you wanted to reduce the hard coded dependency that we have, each class depending on each other
+
+06:53.030 --> 06:58.910
+and get more of the flexibility that we saw in the My Data loader example, you could certainly declare
+
+06:58.910 --> 07:03.320
+interfaces and address it that way, but we don't need to do that here.
+
+07:03.320 --> 07:06.020
+We'll just go back and run the example one more time.
+
+07:06.020 --> 07:10.340
+So back here in unity we're running and we've got the arrow keys moving around.
+
+07:10.370 --> 07:15.770
+In the last few videos we've seen examples of reducing complexity.
+
+07:15.770 --> 07:20.480
+So reducing different dependencies some flexibility to separate our code out.
+
+07:20.480 --> 07:26.120
+So for the sake of this example here using input and physics and monobehaviours or stuff like that I
+
+07:26.120 --> 07:27.250
+think we're all done here.
+
+07:27.260 --> 07:27.980
+Thanks.
