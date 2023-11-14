@@ -30,7 +30,7 @@ MonoBehaviour:
     TextSubheading: 
     TextBody: Course
     LinkName: Udemy.com/course/unit-testing-for-unity/
-    LinkUrl: https://www.udemy.com/course/unit-testing-for-unity/
+    LinkUrl: https://bit.ly/unit-testing-for-unity-course
     PingObjectName: 
     PingObjectGuid: 
     MenuItemName: 
@@ -46,7 +46,7 @@ MonoBehaviour:
     MenuItemPath: 
   - TextHeading: Getting Started
     TextSubheading: 
-    TextBody: Explore these examples to learn more.
+    TextBody: Lessons
     LinkName: 
     LinkUrl: 
     PingObjectName: 
@@ -58,7 +58,34 @@ MonoBehaviour:
     TextBody: 
     LinkName: 
     LinkUrl: 
-    PingObjectName: Example_01_MyMathSystem
+    PingObjectName: Lesson_01_PureFunctions
+    PingObjectGuid: db0fef4a2e007a5488d63d00f93317b5
+    MenuItemName: 
+    MenuItemPath: 
+  - TextHeading: 
+    TextSubheading: 
+    TextBody: 
+    LinkName: 
+    LinkUrl: 
+    PingObjectName: More...
+    PingObjectGuid: 43fcee6e649d54a468718edd6c202a3a
+    MenuItemName: 
+    MenuItemPath: 
+  - TextHeading: 
+    TextSubheading: 
+    TextBody: Workshops
+    LinkName: 
+    LinkUrl: 
+    PingObjectName: 
+    PingObjectGuid: 
+    MenuItemName: 
+    MenuItemPath: 
+  - TextHeading: 
+    TextSubheading: 
+    TextBody: 
+    LinkName: 
+    LinkUrl: 
+    PingObjectName: Workshop_01_MyMathSystem
     PingObjectGuid: 1327a78403361844aa54ee525d39fbb9
     MenuItemName: 
     MenuItemPath: 
@@ -67,7 +94,7 @@ MonoBehaviour:
     TextBody: 
     LinkName: 
     LinkUrl: 
-    PingObjectName: Example_02_MyDataLoaderBasic
+    PingObjectName: Workshop_02_MyDataLoaderBasic
     PingObjectGuid: 8a0a19d2b24b9d0439ec2d84c4fdaeb0
     MenuItemName: 
     MenuItemPath: 
@@ -76,7 +103,7 @@ MonoBehaviour:
     TextBody: 
     LinkName: 
     LinkUrl: 
-    PingObjectName: Example_03_MyDataLoaderAdvanced
+    PingObjectName: Workshop_03_MyDataLoaderAdvanced
     PingObjectGuid: 1d5903b7252bb5945bb5fb7ee51f75ff
     MenuItemName: 
     MenuItemPath: 
@@ -85,7 +112,7 @@ MonoBehaviour:
     TextBody: 
     LinkName: 
     LinkUrl: 
-    PingObjectName: Example_04_CharacterBasic
+    PingObjectName: Workshop_04_CharacterBasic
     PingObjectGuid: 1324d7df588744849986a1cf21f83ecd
     MenuItemName: 
     MenuItemPath: 
@@ -94,7 +121,7 @@ MonoBehaviour:
     TextBody: 
     LinkName: 
     LinkUrl: 
-    PingObjectName: Example_05_CharacterAdvanced
+    PingObjectName: Workshop_05_CharacterAdvanced
     PingObjectGuid: a199665dda780324686d6e7aacd9d652
     MenuItemName: 
     MenuItemPath: 
@@ -103,7 +130,7 @@ MonoBehaviour:
     TextBody: 
     LinkName: 
     LinkUrl: 
-    PingObjectName: Example_06_CharacterPhysics
+    PingObjectName: Workshop_06_CharacterPhysics
     PingObjectGuid: 65ac41a27ba6042449b4416c1962e733
     MenuItemName: 
     MenuItemPath: 
@@ -113,7 +140,7 @@ MonoBehaviour:
     LinkName: 
     LinkUrl: 
     PingObjectName: More...
-    PingObjectGuid: bfab0bf5995ad644c886b4edf38348e3
+    PingObjectGuid: c975dd42cc9225f41b7bcbae79daeebc
     MenuItemName: 
     MenuItemPath: 
   HasLoadedLayout: 0
