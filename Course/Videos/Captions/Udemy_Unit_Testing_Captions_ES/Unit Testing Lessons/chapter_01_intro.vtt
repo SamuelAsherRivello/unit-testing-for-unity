@@ -1,0 +1,106 @@
+WEBVTT
+
+00:00.140 --> 00:03.080
+Hello and welcome to Unit Testing for unity.
+
+00:03.110 --> 00:04.010
+Lessons.
+
+00:04.040 --> 00:07.800
+Unit testing is both an art and a science.
+
+00:07.820 --> 00:14.150
+When we describe something being an art, it's where each person leaves their own fingerprint on the
+
+00:14.150 --> 00:15.040
+process.
+
+00:15.050 --> 00:21.740
+Whereas when we think of science, we think of something objective, something that can be universal,
+
+00:21.770 --> 00:25.310
+eternal, and applied consistently over a process.
+
+00:25.340 --> 00:32.180
+This lesson section will help you to learn the science of unit testing, as well as ideas on how you
+
+00:32.180 --> 00:35.120
+can put your own artistic fingerprint of your own now.
+
+00:35.150 --> 00:39.990
+Typically, we think of software development or computer science as a science.
+
+00:40.010 --> 00:46.040
+We think of the rules of mathematics and physics that come into game development as being universally
+
+00:46.040 --> 00:46.820
+applied.
+
+00:47.180 --> 00:54.380
+However, I would say, particularly in game development, as a subgenre of software development, the
+
+00:54.380 --> 01:02.060
+process of what the user experience is and the dynamic changes that we expect when we blend different
+
+01:02.060 --> 01:07.280
+game genres, we're surprising and subverting user expectations.
+
+01:07.310 --> 01:13.310
+That creative and organic process also applies to the software development process of creating those
+
+01:13.310 --> 01:14.150
+games.
+
+01:14.180 --> 01:22.340
+Now, overall, I consider computer science to be more of a science, more of these objective processes
+
+01:22.340 --> 01:24.670
+than necessarily a creative one.
+
+01:24.680 --> 01:29.780
+But there's different areas and different ways that we can look at the subsystems and the tasks that
+
+01:29.780 --> 01:32.150
+we have within unit testing.
+
+01:32.150 --> 01:37.850
+I want to be playful with the idea that there are definitely best practices or the science that we can
+
+01:37.850 --> 01:45.080
+learn here, but there's also so many different ways that you can design your systems that you can meet
+
+01:45.080 --> 01:46.970
+the user's expectations.
+
+01:46.970 --> 01:53.210
+You may be blending different techniques for a end user experience and blending different techniques
+
+01:53.210 --> 01:55.210
+for how you create the systems.
+
+01:55.220 --> 02:01.610
+Also, we're all imperfect as game developers, so we know we're going to be growing along the way.
+
+02:01.610 --> 02:08.840
+And I think noticing that we can be subjective, we can make playful decisions along the way and learn
+
+02:08.840 --> 02:09.650
+from it.
+
+02:09.980 --> 02:16.520
+That artful style, I hope, makes you a bit more comfortable to stick your toe into these waters and
+
+02:16.520 --> 02:18.140
+to learn more unit testing.
+
+02:18.140 --> 02:24.620
+So as you go through this course and you look at these lessons, I'll be adding more content over time
+
+02:24.620 --> 02:32.450
+and revisiting this balancing act between the art side and the creative side, as well as the more technical
+
+02:32.450 --> 02:33.590
+scientific side.
+
+02:33.590 --> 02:35.690
+Now let's get started with the lessons.
