@@ -1,379 +1,379 @@
 WEBVTT
 
 00:00.380 --> 00:02.620
-Pure functions and overview.
+Saf fonksiyonlar ve genel bakış.
 
 00:02.630 --> 00:06.290
-So what is a pure function also known as a pure method.
+Peki, saf bir yöntem olarak da bilinen saf bir fonksiyon nedir?
 
 00:06.290 --> 00:10.250
-And why is it relevant here to the unit testing process?
+Peki bunun birim test süreciyle ne ilgisi var?
 
 00:10.280 --> 00:18.320
-A pure function can be thought of one that has less effect and dependencies on other unrelated systems.
+Saf bir işlev, diğer ilgisiz sistemler üzerinde daha az etkisi ve bağımlılığı olan bir işlev olarak düşünülebilir.
 
 00:18.440 --> 00:24.020
-By unrelated, I mean not directly related to the code in the body of the function itself.
+İlgisiz derken, fonksiyonun kendi gövdesindeki kodla doğrudan ilgili olmadığını kastediyorum.
 
 00:24.440 --> 00:31.580
-A way we can look at it here as I'm reading the screen, that return values are identical for identical
+Burada ekranı okurken bakabileceğimiz bir yol, dönüş değerlerinin aynı
 
 00:31.580 --> 00:37.850
-arguments, meaning if you pass in a value as one of the arguments, you're going to always get the
+argümanlarından biri olarak bir değer iletirseniz, her zaman
 
 00:37.850 --> 00:41.650
-same result, and secondly, that it has no side effects.
+ve ikinci olarak, hiçbir yan etkisi yoktur.
 
 00:41.660 --> 00:50.030
-Side effects are indirect outputs or other systems that get affected during the execution of a given
+Yan etkiler, belirli bir sistemin yürütülmesi sırasında etkilenen dolaylı çıktılar veya diğer sistemlerdir.
 
 00:50.030 --> 00:50.770
-method.
+Yöntem.
 
 00:50.780 --> 00:57.800
-So the more pure a function is, the more isolated and independently it runs.
+Yani bir işlev ne kadar safsa, o kadar izole ve bağımsız çalışır.
 
 00:57.800 --> 01:03.200
-So in the included sample code for the sample project, you'll see something similar to this in the
+Dolayısıyla, örnek proje için verilen örnek kodda, şuna benzer bir şey göreceksiniz
 
 01:03.230 --> 01:04.490
-C-sharp code base.
+C-sharp kod tabanı.
 
 01:04.850 --> 01:07.640
-Here I've put a couple of colors to it just so we can look at it.
+Burada sadece bakabilmemiz için birkaç renk ekledim.
 
 01:07.640 --> 01:15.650
-So imagine we've got a custom class here that is called My System, and one method inside of it is called
+Burada Sistemim adında özel bir sınıfımız olduğunu ve içindeki bir yöntemin
 
 01:15.650 --> 01:16.910
-Convert value.
+Değeri dönüştür.
 
 01:16.940 --> 01:23.810
-Notice that there's two arguments that I pass in and those two values, and only those two values are
+Aktardığım iki argüman ve bu iki değer olduğuna dikkat edin ve yalnızca bu iki değer
 
 01:23.810 --> 01:26.630
-the direct inputs that affect the operation.
+operasyonu etkileyen doğrudan girdiler.
 
 01:26.660 --> 01:34.670
-There's no third public static private static unrelated system that we see in the blue there.
+Orada mavi renkte gördüğümüz üçüncü bir kamu statik özel statik ilişkisiz sistem yoktur.
 
 01:34.670 --> 01:36.140
-It's very simple.
+Çok basit.
 
 01:36.140 --> 01:38.960
-Now you could have many more lines of code here.
+Şimdi burada çok daha fazla kod satırına sahip olabilirsiniz.
 
 01:38.960 --> 01:41.840
-It's not just that this is brief, that makes it pure.
+Bunu saf yapan sadece kısa olması değil.
 
 01:41.840 --> 01:48.860
-It's that we see that the result depends on the arguments and only on those arguments.
+Sonucun argümanlara ve sadece bu argümanlara bağlı olduğunu görüyoruz.
 
 01:48.860 --> 01:56.930
-So it's highly pure when we talk about the outputs or the side effects here we can see that no other
+Dolayısıyla, çıktılar veya yan etkiler hakkında konuştuğumuzda, burada başka hiçbir şeyin olmadığını görebiliriz.
 
 01:56.930 --> 01:58.610
-values are set here.
+değerleri burada ayarlanır.
 
 01:58.880 --> 02:02.840
-If we set any temporary values that's okay in a pure function.
+Eğer herhangi bir geçici değer ayarlarsak, bu saf bir fonksiyonda sorun olmaz.
 
 02:02.840 --> 02:09.620
-But if we were to be setting values within the blue here on unrelated systems or on static variables
+Ancak burada mavi içinde ilgisiz sistemler veya statik değişkenler üzerinde değerler ayarlıyor olsaydık
 
 02:09.620 --> 02:15.620
-that have a lifespan beyond this method, those would be things that would make it less pure.
+Bu yöntemin ötesinde bir ömrü olan şeyler, onu daha az saf hale getirecek şeyler olacaktır.
 
 02:15.620 --> 02:20.840
-Now we're going to be looking at some more slides here, getting some theory as well as jumping into
+Şimdi burada birkaç slayta daha bakacağız, bazı teoriler edineceğiz ve aynı zamanda
 
 02:20.840 --> 02:21.440
-the code.
+kodu.
 
 02:21.440 --> 02:27.470
-So as I'm introducing and reinforcing these concepts, we'll all learn a bit more of the appreciation
+Bu kavramları tanıtırken ve pekiştirirken, hepimiz bu kavramların değerini biraz daha iyi anlayacağız.
 
 02:27.470 --> 02:29.330
-for what it means to be a pure function.
+Saf bir fonksiyon olmanın ne anlama geldiğini.
 
 02:29.330 --> 02:33.140
-So here we see an even more in-depth explanation.
+Burada daha da derinlemesine bir açıklama görüyoruz.
 
 02:33.140 --> 02:34.310
-I'll read it aloud.
+Yüksek sesle okuyacağım.
 
 02:34.400 --> 02:41.450
-A pure function is generally easier to debug, maintain, and unit test because of the following factors
+Saf bir fonksiyonun hata ayıklaması, bakımı ve birim testi genellikle aşağıdaki faktörler nedeniyle daha kolaydır
 
 02:41.450 --> 02:41.930
-one.
+Bir.
 
 02:41.930 --> 02:43.670
-It doesn't have any side effects.
+Herhangi bir yan etkisi yoktur.
 
 02:43.670 --> 02:49.010
-That means the behavior is predictable and consistent solely based on that input.
+Bu, davranışın yalnızca bu girdiye dayalı olarak öngörülebilir ve tutarlı olduğu anlamına gelir.
 
 02:49.010 --> 02:52.640
-Just like we saw in the example, it is deterministic.
+Tıpkı örnekte gördüğümüz gibi, deterministiktir.
 
 02:52.640 --> 02:57.140
-That means given certain input, we always produce the same output.
+Bu, belirli bir girdi verildiğinde her zaman aynı çıktıyı ürettiğimiz anlamına gelir.
 
 02:57.170 --> 03:00.250
-It means there's no other values that are unrelated.
+Bu, ilgisiz başka bir değer olmadığı anlamına gelir.
 
 03:00.260 --> 03:02.060
-There's no randomness to it.
+Rastgelelik yok.
 
 03:02.060 --> 03:07.400
-If we if we pass in the values three and ten, we would always get the value 30.
+Eğer üç ve on değerlerini girersek, her zaman 30 değerini alırız.
 
 03:07.430 --> 03:13.610
-In the previous example, a pure function also runs in isolation, so there's no need to set up and
+Önceki örnekte, saf bir işlev de yalıtılmış olarak çalışır, bu nedenle ayarlamaya gerek yoktur ve
 
 03:13.610 --> 03:15.620
-manage external dependencies.
+dış bağımlılıkları yönetin.
 
 03:15.620 --> 03:19.790
-This could be lots of different examples, but a few here are databases.
+Bu çok sayıda farklı örnek olabilir, ancak burada birkaçı veritabanlarıdır.
 
 03:19.790 --> 03:27.080
-File system network resources, other classes that are created used by the system as well.
+Dosya sistemi ağ kaynakları, sistem tarafından kullanılan oluşturulan diğer sınıflar.
 
 03:27.080 --> 03:32.600
-And another reason that it's so easy to debug and maintain in unit testing is because there's just simpler
+Birim testinde hata ayıklamanın ve bakım yapmanın bu kadar kolay olmasının bir başka nedeni de
 
 03:32.600 --> 03:33.530
-unit tests.
+birim testleri.
 
 03:33.530 --> 03:37.610
-You are able to provide the inputs and assert the specific outputs.
+Girdileri sağlayabilir ve belirli çıktıları ileri sürebilirsiniz.
 
 03:37.610 --> 03:42.560
-There's less boilerplate of creation of things around the test itself.
+Testin etrafındaki şeylerin oluşturulmasına ilişkin daha az şablon vardır.
 
 03:42.560 --> 03:45.080
-And finally it's modular and reusable.
+Ve son olarak modüler ve yeniden kullanılabilir.
 
 03:45.080 --> 03:51.950
-So code that is a pure function and based on pure functions tends to be more self-contained, portable,
+Dolayısıyla, saf bir fonksiyon olan ve saf fonksiyonlara dayanan kod daha bağımsız ve taşınabilir olma eğilimindedir,
 
 03:51.950 --> 03:56.170
-and making it easier to reuse the same functionality in different contexts.
+ve aynı işlevselliğin farklı bağlamlarda yeniden kullanılmasını kolaylaştırır.
 
 03:56.180 --> 04:01.910
-Now as we go through and we talk about pure functions, much like the theme of the course as a whole,
+Şimdi, bir bütün olarak kursun temasına çok benzer şekilde, saf fonksiyonlardan bahsediyoruz,
 
 04:01.910 --> 04:08.690
-I would say when your code is more easily testable, that is good for the testing process, but more
+Kodunuz daha kolay test edilebilir olduğunda, bunun test süreci için iyi olduğunu söyleyebilirim, ancak daha
 
 04:08.690 --> 04:12.890
-largely it hints that the code is just better designed.
+büyük ölçüde kodun daha iyi tasarlandığına işaret ediyor.
 
 04:12.890 --> 04:20.450
-So even if we weren't to test our code, if our code has no side effect, is more deterministic, is
+Yani kodumuzu test etmesek bile, eğer kodumuzun yan etkisi yoksa, daha deterministikse, daha
 
 04:20.450 --> 04:28.010
-more isolated and modular and reusable, that is beneficial to the production code itself.
+daha izole, modüler ve yeniden kullanılabilir olması, üretim kodunun kendisi için faydalıdır.
 
 04:28.010 --> 04:36.110
-So we see a ebb and flow between the benefits of something being unit testable, as well as the benefits
+Dolayısıyla, bir şeyin birim test edilebilir olmasının faydaları ve faydaları arasında bir gelgit görüyoruz
 
 04:36.110 --> 04:37.370
-of it being production code.
+üretim kodu olması.
 
 04:37.370 --> 04:41.120
-So if that's what a pure function is, then what is a non pure function?
+Eğer saf fonksiyon buysa, o zaman saf olmayan fonksiyon nedir?
 
 04:41.120 --> 04:44.410
-Well, it's simply a function that is not so pure.
+Bu sadece çok saf olmayan bir işlevdir.
 
 04:44.420 --> 04:49.190
-Also this isn't 100% pure, 100% not pure.
+Ayrıca bu %100 saf değil, %100 saf değil.
 
 04:49.190 --> 04:53.780
-When we're talking about a given function we can assess its level of purity.
+Belirli bir işlevden bahsederken, onun saflık düzeyini değerlendirebiliriz.
 
 04:53.780 --> 04:55.520
-That might be somewhere in the middle.
+Bu ortalarda bir yerde olabilir.
 
 04:55.520 --> 04:59.660
-Some of the key criteria of a non pure function is that it has.
+Saf olmayan bir fonksiyonun temel kriterlerinden bazıları şunlardır.
 
 04:59.820 --> 05:03.450
-Indirect inputs, meaning there's some sort of shared state.
+Dolaylı girdiler, yani bir çeşit paylaşılan durum vardır.
 
 05:03.570 --> 05:10.740
-Maybe we pass a value in and it operates on that value, plus using some other dependencies that's impure
+Belki bir değer giriyoruz ve bu değer üzerinde çalışıyor, ayrıca saf olmayan başka bağımlılıklar kullanıyor
 
 05:10.740 --> 05:13.140
-and also having indirect outputs.
+ve ayrıca dolaylı çıktılara sahip olmak.
 
 05:13.170 --> 05:14.700
-Remember our simple example.
+Basit örneğimizi hatırlayın.
 
 05:14.700 --> 05:16.200
-We'll look at another one soon.
+Yakında başka bir tanesine bakacağız.
 
 05:16.200 --> 05:18.940
-It would just multiply two numbers and return it.
+Sadece iki sayıyı çarpıp geri döndürür.
 
 05:18.960 --> 05:26.460
-It wasn't setting any unrelated system values that would sit around stagnant as some sort of shared
+Bir tür ortak değer olarak durgun bir şekilde duracak herhangi bir ilgisiz sistem değeri ayarlamıyordu.
 
 05:26.460 --> 05:26.820
-state.
+Durum.
 
 05:27.030 --> 05:33.930
-But here, in the case of a non pure function, it may have one or both of the idea of indirect inputs
+Ancak burada, saf olmayan bir fonksiyon söz konusu olduğunda, dolaylı girdiler fikrinden birine veya her ikisine birden sahip olabilir
 
 05:33.960 --> 05:35.040
-indirect outputs.
+dolaylı çıktılar.
 
 05:35.040 --> 05:36.690
-So here's a very simple example.
+İşte çok basit bir örnek.
 
 05:36.690 --> 05:38.430
-This is also in the sample project.
+Bu aynı zamanda örnek projede de yer almaktadır.
 
 05:38.430 --> 05:41.670
-And this is an example of a system that is non pure.
+Bu da saf olmayan bir sistem örneğidir.
 
 05:41.760 --> 05:43.800
-So it's a little bit different.
+Yani biraz farklı.
 
 05:43.830 --> 05:47.460
-We're kind of doing the same multiplication operation here.
+Burada da aynı çarpma işlemini yapıyoruz.
 
 05:47.460 --> 05:50.490
-But notice here the convert value method.
+Ancak burada değeri dönüştürme yöntemine dikkat edin.
 
 05:50.490 --> 05:53.910
-It doesn't take all the arguments that it needs.
+İhtiyacı olan tüm argümanları almaz.
 
 05:53.910 --> 05:59.180
-It takes one value and it multiplies it by some existing system value.
+Bir değer alır ve onu mevcut bir sistem değeriyle çarpar.
 
 05:59.190 --> 06:03.000
-So this is an example of indirect input.
+Yani bu bir dolaylı girdi örneğidir.
 
 06:03.030 --> 06:09.210
-The multiplier exists before the convert value method is called.
+Çarpan, değeri dönüştür yöntemi çağrılmadan önce mevcuttur.
 
 06:09.210 --> 06:13.890
-So that's the indirect input part of an impure function.
+Yani bu, saf olmayan bir fonksiyonun dolaylı girdi kısmıdır.
 
 06:13.920 --> 06:18.840
-Now the other part we talked about is is having some indirect output here.
+Şimdi bahsettiğimiz diğer kısım ise burada bazı dolaylı çıktılara sahip olmak.
 
 06:18.840 --> 06:20.760
-We don't see an example of that.
+Bunun bir örneğini görmüyoruz.
 
 06:20.790 --> 06:24.270
-There's no state that has changed that persists.
+Değişen ve devam eden bir durum yok.
 
 06:24.300 --> 06:26.310
-We just return a simple value.
+Sadece basit bir değer döndürüyoruz.
 
 06:26.310 --> 06:29.100
-And returning a value does not count against it.
+Ve bir değer döndürmek buna karşı sayılmaz.
 
 06:29.100 --> 06:32.640
-So we have indirect input but no indirect output.
+Yani dolaylı girdimiz var ama dolaylı çıktımız yok.
 
 06:32.640 --> 06:35.880
-But still having one of those here makes it impure.
+Ancak yine de bunlardan birinin burada olması onu safsız yapar.
 
 06:35.880 --> 06:38.610
-So what do we do with these non pure functions.
+Peki bu saf olmayan fonksiyonlarla ne yapacağız.
 
 06:38.610 --> 06:44.250
-We've hinted that pure functions are easier to test and have a lot of benefits in their production code
+Saf fonksiyonların test edilmesinin daha kolay olduğunu ve üretim kodlarında birçok faydası olduğunu ima ettik
 
 06:44.250 --> 06:45.360
-usage as well.
+kullanımı da.
 
 06:45.360 --> 06:50.330
-Well, if we don't have a pure function what can we do about that.
+Peki, eğer saf bir fonksiyonumuz yoksa bu konuda ne yapabiliriz?
 
 06:50.340 --> 06:56.010
-Well some of the things we could do, we could certainly leave it alone, leaving it as impure.
+Yapabileceğimiz şeylerden bazıları, kesinlikle onu kendi haline bırakabilir, saf olmadığı için bırakabiliriz.
 
 06:56.010 --> 06:57.720
-And often we're going to do that.
+Ve bunu sık sık yapacağız.
 
 06:57.720 --> 07:03.570
-But sometimes when we're taking a look at doing the unit testing of something, we might be encouraged
+Ancak bazen bir şeyin birim testini yapmaya çalışırken, aşağıdaki konularda cesaretlenebiliriz
 
 07:03.570 --> 07:07.800
-to do a bit of refactoring to help that system become a bit more pure.
+Bu sistemin biraz daha saf hale gelmesine yardımcı olmak için biraz yeniden düzenleme yapmak.
 
 07:07.800 --> 07:13.380
-Maybe we can't get it 100% there, but it's this is again talking about the art.
+Belki bunu %100 başaramayız ama bu yine sanat hakkında konuşmaktır.
 
 07:13.410 --> 07:18.150
-It's up to you to decide how pure and how impure you want your code to sit.
+Kodunuzun ne kadar saf ve ne kadar saf olmayan bir yapıda olmasını istediğinize karar vermek size kalmış.
 
 07:18.180 --> 07:23.580
-Now, some developers might theoretically approach it where they want everything to be pure all the
+Şimdi, bazı geliştiriciler teorik olarak her şeyin her zaman saf olmasını istedikleri bir yaklaşım sergileyebilirler.
 
 07:23.580 --> 07:24.210
-time.
+Zaman.
 
 07:24.510 --> 07:25.620
-That's one approach.
+Bu da bir yaklaşım.
 
 07:25.650 --> 07:29.250
-Another one is just to create code as you used to create it.
+Bir diğeri de eskiden oluşturduğunuz gibi kod oluşturmaktır.
 
 07:29.250 --> 07:32.550
-And if that happened to be impure, you just leave it impure.
+Ve eğer bu saf değilse, onu saf bırakırsınız.
 
 07:32.550 --> 07:38.010
-What I want to invite you to do is massage the ideas a little bit, and be comfortable to play with
+Sizi davet etmek istediğim şey, fikirlere biraz masaj yapmak ve onlarla oynamak için rahat olmak.
 
 07:38.010 --> 07:42.810
-somewhere in the middle where you can take something non pure and make it a bit more pure.
+Ortada bir yerde saf olmayan bir şeyi alıp biraz daha saf hale getirebilirsiniz.
 
 07:42.810 --> 07:47.580
-Recognizing the benefits to your unit testing as well as the benefits to your production code.
+Üretim kodunuza sağladığı faydaların yanı sıra birim testinize sağladığı faydaların da farkına varmak.
 
 07:47.580 --> 07:49.290
-So let's see what we can do here.
+Bakalım burada ne yapabileceğiz.
 
 07:49.290 --> 07:51.990
-We could eliminate some of the side effects.
+Bazı yan etkileri ortadan kaldırabiliriz.
 
 07:52.110 --> 07:56.700
-We could eliminate the shared state similar to side effects.
+Yan etkilere benzer şekilde paylaşılan durumu ortadan kaldırabiliriz.
 
 07:56.730 --> 07:59.580
-We could eliminate dependencies that are used.
+Kullanılan bağımlılıkları ortadan kaldırabiliriz.
 
 07:59.730 --> 08:04.350
-And we can invite ourselves to have one assertion per test.
+Ve kendimizi test başına bir iddiaya sahip olmaya davet edebiliriz.
 
 08:04.380 --> 08:12.270
-Now that is going to help us understand that if a test asserts just one thing, then our code has to
+Şimdi bu, bir test sadece bir şeyi iddia ediyorsa, kodumuzun şunları yapması gerektiğini anlamamıza yardımcı olacaktır
 
 08:12.270 --> 08:15.270
-be pretty simple in order to meet that assertion.
+bu iddiayı karşılamak için oldukça basit olmalı.
 
 08:15.360 --> 08:17.640
-So we'll play with that a little bit when we look at the code.
+Bu yüzden koda baktığımızda bununla biraz oynayacağız.
 
 08:17.640 --> 08:19.050
-So how can we go about this?
+Peki bunu nasıl yapabiliriz?
 
 08:19.050 --> 08:23.700
-Well, we can do some of the refactoring of the production code, doing the steps that we saw in the
+Peki, üretim kodunun yeniden düzenlenmesinin bir kısmını, aşağıdaki adımları uygulayarak yapabiliriz
 
 08:23.700 --> 08:24.630
-previous slide.
+önceki slayt.
 
 08:24.630 --> 08:29.730
-And another one is I want to introduce a new concept of test doubles in the next section.
+Bir diğeri ise bir sonraki bölümde yeni bir test ikilisi kavramını tanıtmak istiyorum.
 
 08:29.760 --> 08:30.570
-Thanks.
+Teşekkürler.

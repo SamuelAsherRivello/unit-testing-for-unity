@@ -1,475 +1,475 @@
 WEBVTT
 
 00:00.050 --> 00:02.900
-Let's talk about test doubles here.
+Burada test çiftleri hakkında konuşalım.
 
 00:02.910 --> 00:03.970
-I'll give an overview.
+Genel bir bakış sunacağım.
 
 00:03.980 --> 00:07.940
-Let's start by talking about a few types of unit tests.
+Birkaç tür birim testinden bahsederek başlayalım.
 
 00:07.940 --> 00:12.020
-This is a very broad and abstract way to look at your unit testing.
+Bu, birim testinize bakmanın çok geniş ve soyut bir yoludur.
 
 00:12.230 --> 00:13.460
-I'm going to read it here.
+Burada okuyacağım.
 
 00:13.580 --> 00:21.260
-A unit test can be considered to be either solitary, where the system under test has no dependencies,
+Bir birim testi, test edilen sistemin hiçbir bağımlılığının olmadığı tek başına bir test olarak düşünülebilir,
 
 00:21.290 --> 00:26.990
-or sociable where the system under test does indeed have dependencies.
+veya test edilen sistemin gerçekten bağımlılıkları olduğu durumlarda sosyal.
 
 00:27.140 --> 00:34.220
-Something solitary is a bit more pure if you remember the pure functions lesson, whereas something
+Saf fonksiyonlar dersini hatırlarsanız, tek başına olan bir şey biraz daha saftır.
 
 00:34.220 --> 00:36.200
-is sociable is more impure.
+sosyal olan daha saf değildir.
 
 00:36.230 --> 00:37.220
-Let's take a look at that.
+Şuna bir göz atalım.
 
 00:37.220 --> 00:44.150
-In this diagram here, imagine we have some production code and we want to put some solitary unit tests
+Buradaki diyagramda, bazı üretim kodlarımız olduğunu ve bazı tekil birim testleri koymak istediğimizi hayal edin
 
 00:44.150 --> 00:47.780
-on them now because solitary does not have dependencies.
+çünkü solitary'nin bağımlılıkları yok.
 
 00:47.810 --> 00:55.150
-Notice that our first test goes directly to one and only one class within the production code.
+İlk testimizin doğrudan üretim kodu içindeki bir ve yalnızca bir sınıfa gittiğine dikkat edin.
 
 00:55.160 --> 01:01.970
-And we have another solitary test that tests something just on another particular class.
+Ve sadece başka bir sınıf üzerinde bir şeyi test eden başka bir tekil testimiz var.
 
 01:01.970 --> 01:06.080
-That would be more of the solitary approach, more of the pure approach.
+Bu daha çok tek başına bir yaklaşım, daha çok saf bir yaklaşım olacaktır.
 
 01:06.080 --> 01:10.280
-Now let's compare that to a sociable unit test that we see below.
+Şimdi bunu aşağıda gördüğümüz sosyal bir birim testiyle karşılaştıralım.
 
 01:10.310 --> 01:16.760
-A sociable test might test a system that in itself depends on 1 or 2 other systems.
+Sosyal bir test, kendi içinde 1 veya 2 başka sisteme bağlı olan bir sistemi test edebilir.
 
 01:16.760 --> 01:22.670
-So here we're testing something a bit higher level, but recognizing that that's going to be dependent
+Yani burada biraz daha üst düzey bir şeyi test ediyoruz, ancak bunun bağımlı olacağının farkındayız
 
 01:22.670 --> 01:24.770
-on some other systems there.
+diğer bazı sistemlerde.
 
 01:24.770 --> 01:26.560
-So it has some dependencies.
+Yani bazı bağımlılıkları var.
 
 01:26.570 --> 01:30.010
-Now just going to give some $0.02 here.
+Şimdi burada sadece 0.02 dolar vereceğim.
 
 01:30.030 --> 01:31.520
-It's a little bit of an opinion.
+Bu biraz da bir görüş.
 
 01:31.730 --> 01:36.620
-If you do sociable testing you may end up having fewer tests.
+Sosyal testler yaparsanız daha az test yaptırabilirsiniz.
 
 01:36.620 --> 01:42.800
-But those tests are testing higher level concepts with more assumptions and dependencies.
+Ancak bu testler daha fazla varsayım ve bağımlılık içeren daha üst düzey kavramları test etmektedir.
 
 01:43.250 --> 01:49.550
-Whereas if we do solitary unit tests, you might have a higher volume of tests because you're testing
+Oysa tek başına birim testleri yaparsak, daha yüksek hacimli testleriniz olabilir çünkü
 
 01:49.550 --> 01:51.500
-more individual systems.
+daha bireysel sistemler.
 
 01:52.080 --> 01:58.650
-Probably if you're shooting for having more solitary tests as well, you would end up doing more refactoring,
+Muhtemelen daha fazla tek başına test yapmayı hedefliyorsanız, daha fazla yeniden düzenleme yapmanız gerekecektir,
 
 01:58.650 --> 02:02.250
-because probably our production code is based by default.
+çünkü muhtemelen üretim kodumuz varsayılan olarak temel alınmıştır.
 
 02:02.250 --> 02:08.280
-As unity developers, I think on more dependencies, more inter operations of systems.
+Unity geliştiricileri olarak, daha fazla bağımlılık, daha fazla sistemler arası işlem düşünüyorum.
 
 02:08.280 --> 02:15.060
-So if you start moving from sociable tests, which probably are easier to do on your existing code base
+Dolayısıyla, mevcut kod tabanınızda yapılması muhtemelen daha kolay olan sosyal testlerden geçmeye başlarsanız
 
 02:15.060 --> 02:20.520
-and you want to move towards solitary tests, you may be doing some refactoring on your systems so they
+ve tekil testlere doğru ilerlemek istiyorsanız, sistemlerinizde bazı yeniden düzenlemeler yapıyor olabilirsiniz, böylece
 
 02:20.520 --> 02:22.070
-operate more independently.
+daha bağımsız çalışırlar.
 
 02:22.080 --> 02:24.530
-Now let's talk about what test doubles are.
+Şimdi test çiftlerinin ne olduğu hakkında konuşalım.
 
 02:24.540 --> 02:29.610
-So a test double is an object that can stand in for any real object.
+Yani bir test ikilisi, herhangi bir gerçek nesnenin yerine geçebilecek bir nesnedir.
 
 02:29.640 --> 02:35.610
-This can help increase the unit testings purity, making it more solitary.
+Bu, birim testlerinin saflığını artırmaya yardımcı olarak daha yalnız hale getirebilir.
 
 02:35.610 --> 02:42.330
-As our image here hints, a test double is something like a twin for an existing production class.
+Buradaki resmimizin de ima ettiği gibi, bir test dublesi mevcut bir üretim sınıfı için ikiz gibi bir şeydir.
 
 02:42.330 --> 02:44.610
-And how similar are those two twins?
+Peki bu iki ikiz birbirine ne kadar benziyor?
 
 02:44.610 --> 02:48.540
-Well, it very much depends on which type of test double we're implementing.
+Bu, büyük ölçüde hangi tür test çiftini uyguladığımıza bağlıdır.
 
 02:48.660 --> 02:50.130
-There's a whole range.
+Çok geniş bir aralık var.
 
 02:50.130 --> 02:51.510
-Now I'll go through this table.
+Şimdi bu tabloyu inceleyeceğim.
 
 02:51.510 --> 02:53.910
-Here's some of the types of test doubles.
+İşte bazı çift test türleri.
 
 02:53.910 --> 03:00.330
-Generally speaking, at the top of this list is a more dumb object that does less things, and at the
+Genel olarak konuşursak, bu listenin en üstünde daha az şey yapan daha aptal bir nesne ve en altında da
 
 03:00.330 --> 03:03.780
-bottom is a more complete object that does more things.
+alt kısım daha fazla şey yapan daha eksiksiz bir nesnedir.
 
 03:03.930 --> 03:10.440
-Depending on the test at hand that you're talking about, you may find that one of these, any one of
+Bahsettiğiniz teste bağlı olarak, bunlardan birinin, herhangi birinin
 
 03:10.440 --> 03:12.180
-them, is the best solution.
+en iyi çözümdür.
 
 03:12.210 --> 03:17.610
-The goal is not necessarily to always try for mock or to try for fake.
+Amaç ille de her zaman sahte olanı ya da sahte olanı denemek değildir.
 
 03:17.640 --> 03:22.050
-They each have a role here, and depending on what you're doing, you may find some value.
+Her birinin burada bir rolü vardır ve ne yaptığınıza bağlı olarak, bazı değerler bulabilirsiniz.
 
 03:22.410 --> 03:29.220
-So a dummy is passing in a null value, or a dumb object that does little or nothing.
+Yani bir kukla, boş bir değer ya da çok az şey yapan veya hiçbir şey yapmayan aptal bir nesne iletiyor.
 
 03:29.220 --> 03:33.570
-And this is used for compilation, but it's never actually called.
+Ve bu derleme için kullanılır, ancak aslında hiçbir zaman çağrılmaz.
 
 03:33.570 --> 03:38.250
-So imagine you have a class that needs to have something in the constructor, and then you want to call
+Yani kurucuda bir şey olması gereken bir sınıfınız olduğunu düşünün ve sonra
 
 03:38.250 --> 03:40.950
-a method on that class for the test.
+test için o sınıfta bir yöntem.
 
 03:40.980 --> 03:46.020
-As long as the method you're calling doesn't really depend on whatever you've passed in the constructor,
+Çağırdığınız yöntem, yapıcıya aktardığınız şeye gerçekten bağlı olmadığı sürece,
 
 03:46.050 --> 03:52.740
-it would be okay that you pass a null value or whatever the minimum you need for the compilation is.
+null değerini ya da derleme için ihtiyacınız olan minimum değeri geçmenizde bir sakınca yoktur.
 
 03:52.740 --> 03:59.130
-You could think about this as putting just enough in to make it compile, and then testing the parts
+Bunu, sadece derlemeye yetecek kadarını koymak ve ardından parçaları test etmek olarak düşünebilirsiniz
 
 03:59.130 --> 04:00.230
-that still work.
+hala çalışıyor.
 
 04:00.240 --> 04:03.930
-This one has the lowest power or influence over the test.
+Bu test üzerinde en düşük güce veya etkiye sahiptir.
 
 04:03.960 --> 04:05.670
-Effectively it has none.
+Aslında hiç yok.
 
 04:05.670 --> 04:07.560
-Next, there's the idea of stubbing.
+Sırada, saplama fikri var.
 
 04:07.560 --> 04:13.410
-Stubbing in general in life is to put something temporary in that serves just enough of the purpose.
+Hayatta genel olarak saplama, amaca yeterince hizmet eden geçici bir şey koymaktır.
 
 04:13.410 --> 04:15.180
-That's where this term stub comes from.
+Saplama terimi de buradan geliyor.
 
 04:15.180 --> 04:19.260
-So here we're providing fake data to the system under test.
+Yani burada test edilen sisteme sahte veri sağlıyoruz.
 
 04:19.290 --> 04:22.290
-This is for compilation like the dummy.
+Bu, kukla gibi derleme içindir.
 
 04:22.290 --> 04:26.550
-But it is also related to what you're actually calling and testing.
+Ancak bu aynı zamanda gerçekte neyi aradığınız ve test ettiğinizle de ilgilidir.
 
 04:26.850 --> 04:32.550
-But the idea again is to put the minimum amount in and be able to get the results that you want.
+Ancak fikir yine minimum miktarı koymak ve istediğiniz sonuçları alabilmektir.
 
 04:32.580 --> 04:37.050
-And just bringing this back to the concepts of solitary testing.
+Ve bunu tek başına test kavramlarına geri getiriyorum.
 
 04:37.050 --> 04:44.400
-If your system has a dependency on a second system and you want to test it, you could insert a dummy
+Sisteminizin ikinci bir sisteme bağımlılığı varsa ve bunu test etmek istiyorsanız, sahte bir
 
 04:44.400 --> 04:46.590
-or a stub for that second system.
+ya da ikinci sistem için bir saplama.
 
 04:46.590 --> 04:53.760
-That way, your primary system still expects and gets what it needs, but you're not necessarily putting
+Bu şekilde, birincil sisteminiz hala ihtiyaç duyduğu şeyi bekler ve alır, ancak
 
 04:53.760 --> 04:57.540
-the hard coded production code in for that second dependency.
+ikinci bağımlılık için sabit kodlanmış üretim kodu.
 
 04:57.540 --> 04:59.550
-And we'll see this in the coding examples.
+Ve bunu kodlama örneklerinde göreceğiz.
 
 04:59.790 --> 05:01.670
-Next one down is a spy.
+Sıradaki bir casus.
 
 05:01.710 --> 05:06.420
-So a spy records how the system under test is being used.
+Yani bir casus, test edilen sistemin nasıl kullanıldığını kaydeder.
 
 05:06.450 --> 05:12.840
-So here you're testing if a particular method is called in return something something with a bit more
+Yani burada belirli bir yöntemin çağrılıp çağrılmadığını test ediyorsunuz, karşılığında biraz daha fazla bir şey
 
 05:12.840 --> 05:14.730
-power and influence over the testing.
+test üzerinde güç ve etki.
 
 05:14.730 --> 05:17.550
-Continuing here is mocking values.
+Burada devam etmek değerlerle alay etmektir.
 
 05:17.550 --> 05:22.560
-So here you're defining the system under test and what it returns.
+Yani burada test edilen sistemi ve ne döndürdüğünü tanımlıyorsunuz.
 
 05:22.560 --> 05:24.300
-So this has a higher power.
+Yani bu daha yüksek bir güce sahip.
 
 05:24.300 --> 05:28.950
-And this is defining not just if a method returns but what it returns.
+Ve bu sadece bir metodun dönüp dönmeyeceğini değil, ne döndüreceğini de tanımlar.
 
 05:28.950 --> 05:37.980
-And finally baking is when you add full non-production implementation and you have full control to do
+Ve son olarak pişirme, tam üretim dışı uygulama eklediğinizde ve yapmak için tam kontrole sahip olduğunuzda
 
 05:37.980 --> 05:39.180
-whatever it is that you need.
+İhtiyacınız olan her neyse.
 
 05:39.210 --> 05:45.630
-So you can see here in brief that you've got a menu selection of kind of lower powered, quicker, cheaper
+Yani burada kısaca daha düşük güçlü, daha hızlı, daha ucuz bir menü seçeneğiniz olduğunu görebilirsiniz.
 
 05:45.630 --> 05:50.700
-options at the top and higher powered, more powerful stuff there at the end.
+en üstte seçenekler ve en sonda daha yüksek güçlü, daha güçlü şeyler var.
 
 05:50.700 --> 05:55.620
-So here is a code snippet that is from earlier in this same lesson sections.
+İşte aynı dersin daha önceki bölümlerinden bir kod parçacığı.
 
 05:55.620 --> 06:03.570
-And we're seeing that we're passing in when we create this instance of the my system too, we're creating
+Ve sistemimin bu örneğini oluştururken de içeri girdiğimizi görüyoruz, oluşturuyoruz
 
 06:03.570 --> 06:06.540
-the constructor and we're passing in a multiplier value.
+kurucu ve bir çarpan değeri geçiyoruz.
 
 06:06.840 --> 06:12.150
-Then when we call the convert value, imagine we're doing a unit test on the convert value.
+Sonra dönüştürme değerini çağırdığımızda, dönüştürme değeri üzerinde bir birim testi yaptığımızı düşünün.
 
 06:12.180 --> 06:18.990
-We have that indirect input because the convert value depends not just on the argument of value that
+Bu dolaylı girdiye sahibiz çünkü dönüştürme değeri sadece değer argümanına bağlı değildir.
 
 06:18.990 --> 06:21.900
-we're passing in, but on something else.
+geçiyoruz, ama başka bir şey üzerinde.
 
 06:21.900 --> 06:26.220
-And we would consider this to be non pure or impure.
+Ve biz bunu saf olmayan ya da saf olmayan olarak değerlendiriyoruz.
 
 06:26.220 --> 06:28.860
-And it's not necessarily a problem.
+Ve bu mutlaka bir sorun değildir.
 
 06:28.860 --> 06:33.270
-But we recognize that this isn't as deterministic as it could be.
+Ancak bunun olabildiğince deterministik olmadığının farkındayız.
 
 06:33.270 --> 06:37.470
-It also has a dependency on that multiplier value.
+Ayrıca bu çarpan değerine de bağımlıdır.
 
 06:38.320 --> 06:41.170
-Now, you could certainly unit test this as is.
+Şimdi, bunu kesinlikle olduğu gibi birim testine tabi tutabilirsiniz.
 
 06:41.200 --> 06:44.680
-And when we look at the code, we'll see that we can do just that.
+Ve koda baktığımızda, tam da bunu yapabileceğimizi göreceğiz.
 
 06:44.710 --> 06:47.650
-We could operate a standard test right on top of this.
+Bunun üzerine standart bir test uygulayabiliriz.
 
 06:47.650 --> 06:50.590
-But let's consider what type of refactoring we could do here.
+Ancak burada ne tür bir yeniden düzenleme yapabileceğimizi düşünelim.
 
 06:50.590 --> 06:54.940
-So here's a new class meant to improve upon what we've just seen.
+İşte az önce gördüklerimizi geliştirmeyi amaçlayan yeni bir sınıf.
 
 06:55.270 --> 07:03.280
-Now here I am indeed passing in something into the constructor, but instead I'm passing in not just
+Şimdi burada gerçekten de kurucuya bir şey aktarıyorum, ancak bunun yerine sadece
 
 07:03.280 --> 07:07.120
-one value, but an interface that holds that value.
+bir değer, ancak bu değeri tutan bir arayüz.
 
 07:07.150 --> 07:10.030
-Now, this is a very simple example.
+Şimdi, bu çok basit bir örnek.
 
 07:10.060 --> 07:16.900
-Doesn't necessarily solve all of the challenges, but in this small baby step, as we're learning more,
+Tüm zorlukları çözmesi gerekmiyor, ancak bu küçük bebek adımında daha fazla şey öğreniyoruz,
 
 07:16.900 --> 07:20.530
-we'll learn why that an interface is more helpful here.
+Burada bir arayüzün neden daha yararlı olduğunu öğreneceğiz.
 
 07:21.460 --> 07:26.790
-Again down here in the convert value we're going to use that converter class.
+Yine burada dönüştürme değerinde bu dönüştürücü sınıfını kullanacağız.
 
 07:26.800 --> 07:33.340
-We're passing off some of the responsibility there in ways we're introducing a bit more of indirect
+Oradaki sorumluluğun bir kısmını biraz daha dolaylı yollardan aktarıyoruz.
 
 07:33.340 --> 07:35.950
-functionality a bit more dependency.
+işlevselliği biraz daha bağımlılık.
 
 07:35.950 --> 07:40.780
-But we're going to again see that because it's an interface, we're going to be able to play with something
+Ama yine göreceğiz ki, bu bir arayüz olduğu için, bir şeylerle oynayabileceğiz
 
 07:40.780 --> 07:43.780
-here using one of the libraries available to us.
+Burada elimizdeki kütüphanelerden birini kullanıyoruz.
 
 07:43.780 --> 07:45.850
-So let's see how that could help us.
+Bunun bize nasıl yardımcı olabileceğini görelim.
 
 07:45.850 --> 07:53.860
-So here in the green we're going to be using a library that will help us create some of the test doubles
+Bu yüzden burada yeşil renkte, bazı test çiftlerini oluşturmamıza yardımcı olacak bir kütüphane kullanacağız
 
 07:54.220 --> 07:55.450
-in this case.
+Bu durumda.
 
 07:55.450 --> 07:58.110
-Well what kind of test double are we creating.
+Peki ne tür bir test çifti yaratıyoruz.
 
 07:58.120 --> 08:02.620
-Well the language of the end substitute library that we're using.
+Kullandığımız son yedek kütüphanenin dili.
 
 08:02.620 --> 08:07.180
-And that end substitute dependency is included in the sample project for you.
+Ve bu son yedek bağımlılık sizin için örnek projeye dahil edilmiştir.
 
 08:07.180 --> 08:09.550
-And we'll look at it in the sample code.
+Ve buna örnek kodda bakacağız.
 
 08:10.240 --> 08:19.120
-What end substitute can do for us is substitute dot for and we can create a new test double based on
+Son ikamenin bizim için yapabileceği şey, nokta yerine nokta koymaktır ve aşağıdakilere dayalı yeni bir test ikilisi oluşturabiliriz
 
 08:19.120 --> 08:20.350
-the I converter.
+I dönüştürücü.
 
 08:20.530 --> 08:27.130
-Then here in green in the world of the test, without affecting any production code, we're able to
+Daha sonra burada, test dünyasında, herhangi bir üretim kodunu etkilemeden şunları yapabiliriz
 
 08:27.130 --> 08:32.580
-define exactly what the converter test double should do for us.
+dönüştürücü test çiftinin bizim için tam olarak ne yapması gerektiğini tanımlayın.
 
 08:32.590 --> 08:39.670
-So because right here in green, we can completely control and simulate the behavior that we want.
+Çünkü tam burada yeşil renkte, istediğimiz davranışı tamamen kontrol edebilir ve simüle edebiliriz.
 
 08:39.700 --> 08:44.230
-We're reducing dependencies on production code.
+Üretim koduna olan bağımlılıkları azaltıyoruz.
 
 08:44.530 --> 08:49.540
-We're moving the dependency right here to test only code.
+Bağımlılığı sadece test koduna taşıyoruz.
 
 08:49.540 --> 08:50.950
-And that's very useful.
+Ve bu çok faydalı.
 
 08:50.950 --> 08:56.470
-The more you would embrace these kinds of concepts where your production code is flexible enough.
+Üretim kodunuzun yeterince esnek olduğu durumlarda bu tür kavramları daha fazla benimseyebilirsiniz.
 
 08:56.470 --> 08:59.230
-In this case, flexible enough means interfaces.
+Bu durumda, yeterince esnek, arayüzler anlamına gelir.
 
 08:59.230 --> 09:01.120
-But there's other ways we could sell that.
+Ama bunu satabileceğimiz başka yollar da var.
 
 09:01.450 --> 09:09.910
-Having it be flexible enough so that our tests can simulate mock fake stub, more of what we need,
+Testlerimizin sahte saplamaları simüle edebilmesi için yeterince esnek olması, ihtiyacımız olan şeylerden daha fazlası,
 
 09:09.910 --> 09:10.840
-the better.
+daha iyi.
 
 09:11.170 --> 09:13.540
-Then what we do is we pass the converter in.
+Sonra yapacağımız şey dönüştürücüyü içeri aktarmaktır.
 
 09:13.540 --> 09:19.750
-So comparing to the earlier example, we're not passing in the multiplier value of 20.
+Dolayısıyla, önceki örnekle karşılaştırıldığında, 20 çarpan değerini geçmiyoruz.
 
 09:19.780 --> 09:28.420
-We're passing in a mock simulated stubbed test double that we can more intimately control here.
+Burada daha yakından kontrol edebildiğimiz sahte simüle edilmiş bir stubbed test double'ı geçiriyoruz.
 
 09:28.600 --> 09:33.910
-So now that we know in the second line here it says converter convert convert value.
+Şimdi burada ikinci satırda dönüştürücü dönüştürme değeri yazdığını biliyoruz.
 
 09:33.940 --> 09:35.940
-There's a particular language.
+Belirli bir dil var.
 
 09:35.940 --> 09:41.530
-It looks a little odd if you're not familiar to it, but I include links to the documentation for this.
+Aşina değilseniz biraz garip görünüyor, ancak bunun için belgelere bağlantılar ekliyorum.
 
 09:41.560 --> 09:50.470
-What we're saying is if we call convert value and we pass in any argument of type int, which is what
+Söylediğimiz şey, convert değerini çağırırsak ve int türünde herhangi bir argüman geçirirsek, ki bu
 
 09:50.470 --> 09:56.080
-it needs, it is always going to return value times multiplier.
+ihtiyacı varsa, her zaman değer çarpanını döndürecektir.
 
 09:56.380 --> 09:57.670
-Effectively.
+Etkili bir şekilde.
 
 09:57.700 --> 10:00.790
-We're like hot wiring in the result.
+Sonuçtaki sıcak kablolar gibiyiz.
 
 10:00.790 --> 10:07.030
-We expect the implementation we expect without having to go create our own test classes.
+Kendi test sınıflarımızı oluşturmak zorunda kalmadan beklediğimiz uygulamayı bekliyoruz.
 
 10:07.060 --> 10:11.530
-Dummy classes, fake classes I think is the better word.
+Sahte sınıflar, sahte sınıflar sanırım daha iyi bir kelime.
 
 10:12.070 --> 10:17.230
-And then down here in the blue we call the same old system dot convert value.
+Ve sonra burada aşağıda mavi renkte aynı eski sisteme nokta dönüştürme değeri diyoruz.
 
 10:17.410 --> 10:25.630
-Now looking at this between the green and the blue, we can see enough that we can make the assumption
+Şimdi buna yeşil ve mavi arasında baktığımızda, varsayım yapabileceğimiz kadarını görebiliyoruz
 
 10:25.630 --> 10:31.510
-that our result will equal 30 because all the implementation is right here.
+sonucumuz 30'a eşit olacak çünkü tüm uygulama burada.
 
 10:31.600 --> 10:37.840
-So the blue is really testing a minimal amount of functionality.
+Yani mavi gerçekten minimum miktarda işlevselliği test ediyor.
 
 10:38.230 --> 10:42.610
-You could even argue it's testing no functionality on the system itself.
+Sistemin kendisinde hiçbir işlevselliği test etmediğini bile iddia edebilirsiniz.
 
 10:42.790 --> 10:47.920
-But again, we're playing with this and a purposely simple example showing a mock.
+Ancak yine de, bununla oynuyoruz ve bilerek basit bir örnek gösteriyoruz.
 
 10:48.190 --> 10:55.090
-If the convert value was doing quite a bit more, we would be able to influence part, but not all of
+Eğer dönüşüm değeri biraz daha fazla olsaydı, dönüşümün tamamını olmasa da bir kısmını etkileyebilirdik.
 
 10:55.090 --> 10:57.970
-its implementation by using what's shown in the green here.
+burada yeşil ile gösterilenleri kullanarak uygulanması.
 
 10:57.970 --> 11:04.060
-But remember here we're playing with the idea of moving between the pure and the impure, and between
+Ancak burada saf ile saf olmayan arasında ve saf ile saf olmayan arasında hareket etme fikriyle oynadığımızı unutmayın.
 
 11:04.060 --> 11:09.730
-solitary and sociable tests, and the benefit of being able to look at these libraries that help us
+yalnız ve sosyal testler ve bize yardımcı olan bu kütüphanelere bakabilmenin yararı
 
 11:09.730 --> 11:17.560
-do test doubles is that we can do more within our unit tests without necessarily having to refactor
+test çiftleri yapmak, birim testlerimizde yeniden düzenlemeye gerek kalmadan daha fazlasını yapabilmemizdir.
 
 11:17.560 --> 11:18.850
-our production code.
+üretim kodumuz.
 
 11:18.850 --> 11:25.870
-But I think as you use test driven development and also unit testing in general, testing your existing
+Ancak test odaklı geliştirmeyi ve genel olarak birim testini kullandıkça, mevcut
 
 11:25.870 --> 11:31.690
-production code and being open to refactor your production code if and when it's necessary.
+üretim kodu ve gerektiğinde üretim kodunuzu yeniden düzenlemeye açık olmak.
 
 11:31.720 --> 11:39.340
-These are great tools that you can use along that ride, so you can see that by reducing the complexity
+Bunlar bu yolculuk boyunca kullanabileceğiniz harika araçlardır, böylece karmaşıklığı azaltarak
 
 11:39.340 --> 11:43.960
-and dependencies in your production code, we get more unit testable code.
+ve üretim kodunuzdaki bağımlılıklar, daha fazla birim test edilebilir kod elde ederiz.
 
 11:43.960 --> 11:50.320
-But even if you did not do that, we have some libraries here that can help us do better types of test
+Ancak bunu yapmamış olsanız bile, burada daha iyi test türleri yapmamıza yardımcı olabilecek bazı kütüphanelerimiz var
 
 11:50.320 --> 11:50.860
-doubling.
+İkiye katlanıyor.
 
 11:50.860 --> 11:52.420
-So that gives us some more options.
+Bu da bize daha fazla seçenek sunuyor.

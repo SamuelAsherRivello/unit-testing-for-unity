@@ -1,106 +1,106 @@
 WEBVTT
 
 00:00.140 --> 00:03.080
-Hello and welcome to Unit Testing for unity.
+Merhaba ve Unity için Birim Testine hoş geldiniz.
 
 00:03.110 --> 00:04.010
-Lessons.
+Dersler.
 
 00:04.040 --> 00:07.800
-Unit testing is both an art and a science.
+Birim testi hem bir sanat hem de bir bilimdir.
 
 00:07.820 --> 00:14.150
-When we describe something being an art, it's where each person leaves their own fingerprint on the
+Bir şeyi sanat olarak tanımladığımızda, her bir kişinin o şey üzerinde kendi parmak izini bıraktığı yerdir.
 
 00:14.150 --> 00:15.040
-process.
+süreç.
 
 00:15.050 --> 00:21.740
-Whereas when we think of science, we think of something objective, something that can be universal,
+Oysa bilimi düşündüğümüzde aklımıza nesnel, evrensel olabilecek bir şey gelir,
 
 00:21.770 --> 00:25.310
-eternal, and applied consistently over a process.
+ve bir süreç boyunca tutarlı bir şekilde uygulanır.
 
 00:25.340 --> 00:32.180
-This lesson section will help you to learn the science of unit testing, as well as ideas on how you
+Bu ders bölümü, birim testi bilimini öğrenmenize yardımcı olmanın yanı sıra nasıl yapacağınıza dair fikirler verecektir
 
 00:32.180 --> 00:35.120
-can put your own artistic fingerprint of your own now.
+şimdi kendi sanatsal parmak izinizi koyabilirsiniz.
 
 00:35.150 --> 00:39.990
-Typically, we think of software development or computer science as a science.
+Genellikle yazılım geliştirmeyi ya da bilgisayar bilimini bir bilim olarak düşünürüz.
 
 00:40.010 --> 00:46.040
-We think of the rules of mathematics and physics that come into game development as being universally
+Oyun geliştirmeye giren matematik ve fizik kurallarının evrensel olduğunu düşünüyoruz.
 
 00:46.040 --> 00:46.820
-applied.
+uygulandı.
 
 00:47.180 --> 00:54.380
-However, I would say, particularly in game development, as a subgenre of software development, the
+Bununla birlikte, özellikle yazılım geliştirmenin bir alt türü olarak oyun geliştirmede
 
 00:54.380 --> 01:02.060
-process of what the user experience is and the dynamic changes that we expect when we blend different
+Kullanıcı deneyiminin ne olduğuna dair süreç ve farklı deneyimleri harmanladığımızda beklediğimiz dinamik değişiklikler
 
 01:02.060 --> 01:07.280
-game genres, we're surprising and subverting user expectations.
+oyun türlerinde, kullanıcı beklentilerini şaşırtıyor ve altüst ediyoruz.
 
 01:07.310 --> 01:13.310
-That creative and organic process also applies to the software development process of creating those
+Bu yaratıcı ve organik süreç, yazılım geliştirme süreci için de geçerlidir.
 
 01:13.310 --> 01:14.150
-games.
+Oyunlar.
 
 01:14.180 --> 01:22.340
-Now, overall, I consider computer science to be more of a science, more of these objective processes
+Şimdi, genel olarak, bilgisayar bilimini daha çok bir bilim, daha çok şu nesnel süreçler olarak görüyorum
 
 01:22.340 --> 01:24.670
-than necessarily a creative one.
+yaratıcı olmasından ziyade.
 
 01:24.680 --> 01:29.780
-But there's different areas and different ways that we can look at the subsystems and the tasks that
+Ancak alt sistemlere ve görevlere bakabileceğimiz farklı alanlar ve farklı yollar var.
 
 01:29.780 --> 01:32.150
-we have within unit testing.
+birim testi içinde var.
 
 01:32.150 --> 01:37.850
-I want to be playful with the idea that there are definitely best practices or the science that we can
+Kesinlikle yapabileceğimiz en iyi uygulamalar veya bilim olduğu fikriyle eğlenceli olmak istiyorum.
 
 01:37.850 --> 01:45.080
-learn here, but there's also so many different ways that you can design your systems that you can meet
+burada öğrenebilirsiniz, ancak aynı zamanda sistemlerinizi tasarlayabileceğiniz pek çok farklı yol vardır.
 
 01:45.080 --> 01:46.970
-the user's expectations.
+kullanıcının beklentileri.
 
 01:46.970 --> 01:53.210
-You may be blending different techniques for a end user experience and blending different techniques
+Bir son kullanıcı deneyimi için farklı teknikleri harmanlıyor olabilirsiniz
 
 01:53.210 --> 01:55.210
-for how you create the systems.
+sistemleri nasıl oluşturduğunuz için.
 
 01:55.220 --> 02:01.610
-Also, we're all imperfect as game developers, so we know we're going to be growing along the way.
+Ayrıca, oyun geliştiricileri olarak hepimiz kusurluyuz, bu yüzden yol boyunca büyüyeceğimizi biliyoruz.
 
 02:01.610 --> 02:08.840
-And I think noticing that we can be subjective, we can make playful decisions along the way and learn
+Ve bence öznel olabileceğimizi fark ederek, yol boyunca eğlenceli kararlar alabilir ve öğrenebiliriz
 
 02:08.840 --> 02:09.650
-from it.
+ondan.
 
 02:09.980 --> 02:16.520
-That artful style, I hope, makes you a bit more comfortable to stick your toe into these waters and
+Bu sanatsal üslup, umarım sizi bu sulara ayak basma konusunda biraz daha rahatlatır ve
 
 02:16.520 --> 02:18.140
-to learn more unit testing.
+daha fazla birim testi öğrenmek için.
 
 02:18.140 --> 02:24.620
-So as you go through this course and you look at these lessons, I'll be adding more content over time
+Siz bu kursta ilerledikçe ve bu derslere baktıkça, zaman içinde daha fazla içerik ekleyeceğim
 
 02:24.620 --> 02:32.450
-and revisiting this balancing act between the art side and the creative side, as well as the more technical
+ve sanat tarafı ile yaratıcı taraf ve daha teknik taraf arasındaki bu dengeleme eylemini yeniden gözden geçirmek
 
 02:32.450 --> 02:33.590
-scientific side.
+bilimsel taraf.
 
 02:33.590 --> 02:35.690
-Now let's get started with the lessons.
+Şimdi derslere başlayalım.
