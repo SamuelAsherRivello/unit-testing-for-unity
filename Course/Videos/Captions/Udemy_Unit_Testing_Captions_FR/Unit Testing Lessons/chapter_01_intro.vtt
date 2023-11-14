@@ -1,106 +1,106 @@
 WEBVTT
 
 00:00.140 --> 00:03.080
-Hello and welcome to Unit Testing for unity.
+Bonjour et bienvenue à Unit Testing for unity.
 
 00:03.110 --> 00:04.010
-Lessons.
+Leçons.
 
 00:04.040 --> 00:07.800
-Unit testing is both an art and a science.
+Les tests unitaires sont à la fois un art et une science.
 
 00:07.820 --> 00:14.150
-When we describe something being an art, it's where each person leaves their own fingerprint on the
+Lorsque nous décrivons quelque chose comme un art, c'est que chaque personne laisse sa propre empreinte sur l'œuvre.
 
 00:14.150 --> 00:15.040
-process.
+processus.
 
 00:15.050 --> 00:21.740
-Whereas when we think of science, we think of something objective, something that can be universal,
+Alors que quand on pense à la science, on pense à quelque chose d'objectif, quelque chose qui peut être universel,
 
 00:21.770 --> 00:25.310
-eternal, and applied consistently over a process.
+éternel, et appliqué de manière cohérente au cours d'un processus.
 
 00:25.340 --> 00:32.180
-This lesson section will help you to learn the science of unit testing, as well as ideas on how you
+Cette section de la leçon vous aidera à apprendre la science des tests unitaires, ainsi que des idées sur la manière dont vous pouvez
 
 00:32.180 --> 00:35.120
-can put your own artistic fingerprint of your own now.
+pouvez mettre votre propre empreinte artistique.
 
 00:35.150 --> 00:39.990
-Typically, we think of software development or computer science as a science.
+En règle générale, nous considérons le développement de logiciels ou l'informatique comme une science.
 
 00:40.010 --> 00:46.040
-We think of the rules of mathematics and physics that come into game development as being universally
+Nous pensons que les règles mathématiques et physiques qui interviennent dans le développement d'un jeu sont universelles.
 
 00:46.040 --> 00:46.820
-applied.
+universelles.
 
 00:47.180 --> 00:54.380
-However, I would say, particularly in game development, as a subgenre of software development, the
+Cependant, je dirais, en particulier dans le développement de jeux, en tant que sous-genre du développement de logiciels, que l'application des mathématiques et de la physique dans le développement de jeux est universelle.
 
 00:54.380 --> 01:02.060
-process of what the user experience is and the dynamic changes that we expect when we blend different
+l'expérience de l'utilisateur et les changements dynamiques auxquels nous nous attendons lorsque nous mélangeons différents types de jeux.
 
 01:02.060 --> 01:07.280
-game genres, we're surprising and subverting user expectations.
+genres de jeux, nous surprenons et subvertissons les attentes des utilisateurs.
 
 01:07.310 --> 01:13.310
-That creative and organic process also applies to the software development process of creating those
+Ce processus créatif et organique s'applique également au processus de développement logiciel qui consiste à créer ces jeux.
 
 01:13.310 --> 01:14.150
-games.
+jeux.
 
 01:14.180 --> 01:22.340
-Now, overall, I consider computer science to be more of a science, more of these objective processes
+Dans l'ensemble, je considère que l'informatique est davantage une science, qu'il s'agit davantage de ces processus objectifs
 
 01:22.340 --> 01:24.670
-than necessarily a creative one.
+qu'une science nécessairement créative.
 
 01:24.680 --> 01:29.780
-But there's different areas and different ways that we can look at the subsystems and the tasks that
+Mais il existe différents domaines et différentes manières d'examiner les sous-systèmes et les tâches qui sont à l'origine de la créativité.
 
 01:29.780 --> 01:32.150
-we have within unit testing.
+nous avons au sein des tests unitaires.
 
 01:32.150 --> 01:37.850
-I want to be playful with the idea that there are definitely best practices or the science that we can
+Je veux jouer avec l'idée qu'il y a certainement des meilleures pratiques ou de la science que nous pouvons utiliser.
 
 01:37.850 --> 01:45.080
-learn here, but there's also so many different ways that you can design your systems that you can meet
+mais qu'il y a aussi tellement de façons différentes de concevoir vos systèmes que vous pouvez répondre aux besoins de vos clients.
 
 01:45.080 --> 01:46.970
-the user's expectations.
+les attentes de l'utilisateur.
 
 01:46.970 --> 01:53.210
-You may be blending different techniques for a end user experience and blending different techniques
+Il se peut que vous mélangiez différentes techniques pour une expérience utilisateur finale et que vous mélangiez différentes techniques
 
 01:53.210 --> 01:55.210
-for how you create the systems.
+pour la création des systèmes.
 
 01:55.220 --> 02:01.610
-Also, we're all imperfect as game developers, so we know we're going to be growing along the way.
+De plus, nous sommes tous imparfaits en tant que développeurs de jeux, nous savons donc que nous allons évoluer en cours de route.
 
 02:01.610 --> 02:08.840
-And I think noticing that we can be subjective, we can make playful decisions along the way and learn
+Et je pense qu'en remarquant que nous pouvons être subjectifs, nous pouvons prendre des décisions ludiques en cours de route et apprendre
 
 02:08.840 --> 02:09.650
-from it.
+et en tirer des leçons.
 
 02:09.980 --> 02:16.520
-That artful style, I hope, makes you a bit more comfortable to stick your toe into these waters and
+Ce style artistique, je l'espère, vous rendra un peu plus à l'aise pour mettre le doigt dans l'engrenage et
 
 02:16.520 --> 02:18.140
-to learn more unit testing.
+d'apprendre plus de tests unitaires.
 
 02:18.140 --> 02:24.620
-So as you go through this course and you look at these lessons, I'll be adding more content over time
+Au fur et à mesure que vous suivrez ce cours et que vous regarderez ces leçons, j'ajouterai du contenu au fil du temps.
 
 02:24.620 --> 02:32.450
-and revisiting this balancing act between the art side and the creative side, as well as the more technical
+et je reviendrai sur cet équilibre entre le côté artistique et le côté créatif, ainsi que le côté plus technique.
 
 02:32.450 --> 02:33.590
-scientific side.
+scientifique.
 
 02:33.590 --> 02:35.690
-Now let's get started with the lessons.
+Commençons maintenant par les leçons.
