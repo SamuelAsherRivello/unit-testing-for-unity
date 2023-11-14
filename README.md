@@ -3,7 +3,7 @@
 
 This is the official repo for the [Unit Testing For Unity](https://bit.ly/unit-testing-for-unity-course) course.
 
-<img width="200" src="./Unity/Assets/Unit Testing For Unity/Shared/Documentation/ReadMe/Art/Sprites/ProjectIcon.png" alt="Best Practices">
+<a href="https://bit.ly/unit-testing-for-unity-course"><img width="200" src="./Unity/Assets/Unit Testing For Unity/Shared/Documentation/ReadMe/Art/Sprites/ProjectIcon.png" alt="Best Practices"></a>
 
 
 **Getting Started**
