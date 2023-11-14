@@ -1,7 +1,7 @@
 
 # Unit Testing For Unity
 
-This is the official repo for the [Unit Testing For Unity](https://www.udemy.com/course/unit-testing-for-unity/) course.
+This is the official repo for the [Unit Testing For Unity](https://bit.ly/unit-testing-for-unity-course) course.
 
 <img width="200" src="./Unity/Assets/Unit Testing For Unity/Shared/Documentation/ReadMe/Art/Sprites/ProjectIcon.png" alt="Best Practices">
 
