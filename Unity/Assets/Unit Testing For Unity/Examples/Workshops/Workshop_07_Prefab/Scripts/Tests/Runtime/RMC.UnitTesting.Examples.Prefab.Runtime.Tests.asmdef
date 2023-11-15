@@ -1,5 +1,5 @@
 {
-    "name": "RMC.UnitTesting.Examples.SceneLoading.Runtime.Tests",
+    "name": "RMC.UnitTesting.Examples.Prefab.Runtime.Tests",
     "rootNamespace": "",
     "references": [
         "GUID:27619889b8ba8c24980f49ee34dbb44a",

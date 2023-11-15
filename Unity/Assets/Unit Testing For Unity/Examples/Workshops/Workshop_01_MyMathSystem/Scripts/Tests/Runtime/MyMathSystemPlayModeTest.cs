@@ -8,7 +8,7 @@ namespace RMC.UnitTesting.Examples.MyMathSystem
     /// <summary>
     /// This Unit Test validates that code executes as expected.
     /// </summary>
-    [Category ("RMC.UnitTesting.Samples.MyMathSystem")]
+    [Category ("RMC.UnitTesting.Examples.MyMathSystem")]
     public class MyMathSystemPlayModeTest
     {
         [UnityTest]

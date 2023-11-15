@@ -9,7 +9,7 @@ namespace RMC.UnitTesting.Examples.CharacterPhysics
     /// <summary>
     /// This Unit Test validates that code executes as expected.
     /// </summary>
-    [Category("RMC.UnitTesting.Samples.CharacterPhysics")]
+    [Category("RMC.UnitTesting.Examples.CharacterPhysics")]
     public class CharacterPhysicsPlayModeTest
     {
         private GameObject _testGameObject;
@@ -68,7 +68,7 @@ namespace RMC.UnitTesting.Examples.CharacterPhysics
         /// OPTIONAL: Similar tests would be written for MoveType.Up and MoveType.Down
         /// </summary>
         [UnityTest]
-        public IEnumerator MoveByKeyCode_ResultXIsGreaterThan_WhenMovesRight()
+        public IEnumerator MoveByKeyCode_ResultXIsGreaterThan_WhenMovesRight_()
         {
             // Arrange
             Vector3 initialPosition = _testGameObject.transform.position;

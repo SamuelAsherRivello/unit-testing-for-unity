@@ -1,25 +1,26 @@
 using NUnit.Framework;
 
-namespace RMC.UnitTesting.Examples.CharacterBasic
+namespace RMC.UnitTesting.Examples.SceneLoading
 {
     /// <summary>
     /// This Unit Test validates that code executes as expected.
     /// </summary>
-    [Category ("RMC.UnitTesting.Examples.CharacterBasic")]
-    public class CharacterBasicTest
+    [Category ("RMC.UnitTesting.Examples.SceneLoading")]
+    public class SceneLoadingTest
     {
         /// <summary>
-        /// While using EDITOR tests on a MonoBehaviour-based
+        /// While using EDITOR tests on a Scene-based
         /// is possible, it is not recommended. Instead, use a PlayModeTest
         /// </summary>
         [Test]
-        public void MoveTo_Result123_When123()
+        public void Empty_Passing_Test()
         {
             // Arrange
             
             // Act
             
             // Assert
+            Assert.That(true, Is.True); //Replace with any test you like
         }
     }
 }

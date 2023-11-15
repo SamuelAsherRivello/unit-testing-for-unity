@@ -14,15 +14,16 @@ namespace RMC.UnitTesting.Examples.SceneLoading
     /// <summary>
     /// This Unit Test validates that code executes as expected.
     /// </summary>
-    [Category("RMC.UnitTesting.Samples.SceneLoading")]
+    [Category("RMC.UnitTesting.Examples.SceneLoading")]
     public class SceneLoadingPlayModeTest : IPrebuildSetup, IPostBuildCleanup
     {
+        private const float DelayForSetupTime = 1f;
         private EditorBuildSettingsScene[] _editorBuildSettingsSceneBackup;
 
         private string[] _sceneNamesToAdd = new[]
         {
-            $"Assets/Unit Testing For Unity/Examples/Workshops/Workshop_07_SceneLoading/Scenes/{SceneLoadingPlayModeTest.Scene01_Intro}.unity",
-            $"Assets/Unit Testing For Unity/Examples/Workshops/Workshop_07_SceneLoading/Scenes/{SceneLoadingPlayModeTest.Scene02_Game}.unity",
+            $"Assets/Unit Testing For Unity/Examples/Workshops/Workshop_08_SceneLoading/Scenes/{SceneLoadingPlayModeTest.Scene01_Intro}.unity",
+            $"Assets/Unit Testing For Unity/Examples/Workshops/Workshop_08_SceneLoading/Scenes/{SceneLoadingPlayModeTest.Scene02_Game}.unity",
         };
 
         public void Setup()
@@ -100,7 +101,7 @@ namespace RMC.UnitTesting.Examples.SceneLoading
                 SceneManager.LoadScene(Scene01_Intro, LoadSceneMode.Single);
 
                 // Assert
-                while (!_isSceneLoaded && Time.realtimeSinceStartup < 0.5f)
+                while (!_isSceneLoaded && Time.realtimeSinceStartup < DelayForSetupTime)
                 {
                     // Await
                 }

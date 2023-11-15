@@ -10,7 +10,7 @@ namespace RMC.UnitTesting.Examples.MyDataLoaderAdvanced
     /// <summary>
     /// This Unit Test validates that code executes as expected.
     /// </summary>
-    [Category("RMC.UnitTesting.Samples.MyDataLoaderAdvanced")]
+    [Category("RMC.UnitTesting.Examples.MyDataLoaderAdvanced")]
     public class MyDataLoaderAdvancedPlayModeTest
     {
         private const string _url = "https://github.com/SamuelAsherRivello/unit-testing-for-unity/";

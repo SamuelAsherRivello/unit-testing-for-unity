@@ -2,7 +2,7 @@
     "name": "RMC.UnitTesting.Examples.SceneLoading.Editor.Tests",
     "rootNamespace": "",
     "references": [
-        "GUID:5f511dd9de38dc348bb081c65a00a0d7"
+        "GUID:4bddff30f5118b14883049f68db4d3da"
     ],
     "includePlatforms": [
         "Editor"

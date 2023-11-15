@@ -5,7 +5,7 @@ namespace RMC.UnitTesting.Examples.PureFunctions
     /// <summary>
     /// This Unit Test validates that code executes as expected.
     /// </summary>
-    [Category ("RMC.UnitTesting.Samples.PureFunctions")]
+    [Category ("RMC.UnitTesting.Examples.PureFunctions")]
     public class MySystem01_PureTest
     {
         [Test]

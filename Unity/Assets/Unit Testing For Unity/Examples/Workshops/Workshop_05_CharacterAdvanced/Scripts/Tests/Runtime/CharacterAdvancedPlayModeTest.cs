@@ -7,7 +7,7 @@ namespace RMC.UnitTesting.Examples.CharacterAdvanced
     /// <summary>
     /// This Unit Test validates that code executes as expected.
     /// </summary>
-    [Category("RMC.UnitTesting.Samples.CharacterAdvanced")]
+    [Category("RMC.UnitTesting.Examples.CharacterAdvanced")]
     public class CharacterAdvancedPlayModeTest
     {
         private GameObject _testGameObject;

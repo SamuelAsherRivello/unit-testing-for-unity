@@ -5,7 +5,7 @@ namespace RMC.UnitTesting.Examples.CharacterPhysics
     /// <summary>
     /// This Unit Test validates that code executes as expected.
     /// </summary>
-    [Category ("RMC.UnitTesting.Samples.CharacterPhysics")]
+    [Category ("RMC.UnitTesting.Examples.CharacterPhysics")]
     public class CharacterPhysicsTest
     {
         /// <summary>

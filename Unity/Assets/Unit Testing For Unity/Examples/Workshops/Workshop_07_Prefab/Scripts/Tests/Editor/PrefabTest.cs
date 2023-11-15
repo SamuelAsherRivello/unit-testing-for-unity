@@ -1,12 +1,12 @@
 using NUnit.Framework;
 
-namespace RMC.UnitTesting.Examples.SceneLoading
+namespace RMC.UnitTesting.Examples.Prefab
 {
     /// <summary>
     /// This Unit Test validates that code executes as expected.
     /// </summary>
-    [Category ("RMC.UnitTesting.Samples.SceneLoading")]
-    public class SceneLoadingTest
+    [Category ("RMC.UnitTesting.Examples.Prefab")]
+    public class PrefabTest
     {
         /// <summary>
         /// While using EDITOR tests on a Scene-based
