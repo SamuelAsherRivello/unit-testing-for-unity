@@ -1,0 +1,18 @@
+{
+    "name": "RMC.UnitTesting.Examples.AI.Editor.Tests",
+    "rootNamespace": "",
+    "references": [
+        "GUID:4997887c276c2714995ec1752ddea882"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
