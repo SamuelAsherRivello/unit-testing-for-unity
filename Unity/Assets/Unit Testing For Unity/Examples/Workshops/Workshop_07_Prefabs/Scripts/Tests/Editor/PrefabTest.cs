@@ -1,11 +1,11 @@
 using NUnit.Framework;
 
-namespace RMC.UnitTesting.Examples.Prefab
+namespace RMC.UnitTesting.Examples.Prefabs
 {
     /// <summary>
     /// This Unit Test validates that code executes as expected.
     /// </summary>
-    [Category ("RMC.UnitTesting.Examples.Prefab")]
+    [Category ("RMC.UnitTesting.Examples.Prefabs")]
     public class PrefabTest
     {
         /// <summary>

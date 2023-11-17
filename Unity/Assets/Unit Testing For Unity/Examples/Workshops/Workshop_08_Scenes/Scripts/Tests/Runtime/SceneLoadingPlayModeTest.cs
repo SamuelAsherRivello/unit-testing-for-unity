@@ -9,12 +9,12 @@ using UnityEngine;
 using UnityEditor;
 #endif //UNITY_EDITOR
 
-namespace RMC.UnitTesting.Examples.SceneLoading
+namespace RMC.UnitTesting.Examples.Scenes
 {
     /// <summary>
     /// This Unit Test validates that code executes as expected.
     /// </summary>
-    [Category("RMC.UnitTesting.Examples.SceneLoading")]
+    [Category("RMC.UnitTesting.Examples.Scenes")]
     public class SceneLoadingPlayModeTest : IPrebuildSetup, IPostBuildCleanup
     {
         private const float DelayForSetupTime = 1f;
@@ -22,8 +22,8 @@ namespace RMC.UnitTesting.Examples.SceneLoading
 
         private string[] _sceneNamesToAdd = new[]
         {
-            $"Assets/Unit Testing For Unity/Examples/Workshops/Workshop_08_SceneLoading/Scenes/{SceneLoadingPlayModeTest.Scene01_Intro}.unity",
-            $"Assets/Unit Testing For Unity/Examples/Workshops/Workshop_08_SceneLoading/Scenes/{SceneLoadingPlayModeTest.Scene02_Game}.unity",
+            $"Assets/Unit Testing For Unity/Examples/Workshops/Workshop_08_Scenes/Scenes/{SceneLoadingPlayModeTest.Scene01_Intro}.unity",
+            $"Assets/Unit Testing For Unity/Examples/Workshops/Workshop_08_Scenes/Scenes/{SceneLoadingPlayModeTest.Scene02_Game}.unity",
         };
 
         public void Setup()

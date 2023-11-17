@@ -1,7 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 
-namespace RMC.UnitTesting.Examples.Prefab
+namespace RMC.UnitTesting.Examples.Prefabs
 {   
     /// <summary>
     /// This example is the main entry point for the

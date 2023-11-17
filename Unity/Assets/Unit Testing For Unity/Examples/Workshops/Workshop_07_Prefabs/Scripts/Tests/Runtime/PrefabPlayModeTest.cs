@@ -3,17 +3,17 @@ using UnityEditor;
 using UnityEngine;
 
 
-namespace RMC.UnitTesting.Examples.Prefab
+namespace RMC.UnitTesting.Examples.Prefabs
 {
     /// <summary>
     /// This Unit Test validates that code executes as expected.
     /// </summary>
-    [Category("RMC.UnitTesting.Examples.Prefab")]
+    [Category("RMC.UnitTesting.Examples.Prefabs")]
     public class PrefabPlayModeTest
     {
         private const float DelayForSetupTime = 0.5f;
         private const string EnemyPrefabPath = 
-            "Assets/Unit Testing For Unity/Examples/Workshops/Workshop_07_Prefab/Scripts/Prefabs/Enemy.prefab";
+            "Assets/Unit Testing For Unity/Examples/Workshops/Workshop_07_Prefabs/Scripts/Prefabs/Enemy.prefab";
 
         private Enemy _enemy;
 

@@ -1,16 +1,13 @@
 using UnityEngine;
 
-namespace RMC.UnitTesting.Examples.Prefab
+namespace RMC.UnitTesting.Examples.Scenes
 {
     /// <summary>
     /// This class will handle Unity specific logic
     /// </summary>
     [RequireComponent(typeof(Rigidbody))]
-    public class Enemy : MonoBehaviour
+    public class Hero : MonoBehaviour
     {
-        [SerializeField] 
-        public Rigidbody Rigidbody;
-        
         private void Awake()
         {
     
