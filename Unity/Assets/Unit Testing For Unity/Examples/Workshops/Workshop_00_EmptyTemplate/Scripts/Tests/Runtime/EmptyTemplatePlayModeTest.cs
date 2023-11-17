@@ -3,28 +3,27 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-namespace RMC.UnitTesting.Examples.MyMathSystem
+namespace RMC.UnitTesting.Examples.EmptyTemplate
 {
     /// <summary>
     /// This Unit Test validates that code executes as expected.
     /// </summary>
-    [Category ("RMC.UnitTesting.Examples.MyMathSystem")]
-    public class MyMathSystemPlayModeTest
+    [Category ("RMC.UnitTesting.Examples.EmptyTemplate")]
+    public class EmptyTemplatePlayModeTest
     {
         [UnityTest]
-        public IEnumerator Add_ResultIs15_When5And10_()
+        public IEnumerator MethodCall_IsExpected_WhenCondition_PlayMode()
         {
             // Arrange
-            MyMathSystem myMathSystem = new MyMathSystem();
-            
+            EmptyTemplate emptyTemplate = new EmptyTemplate();
+
             // Act
-            int sum = myMathSystem.Add(5, 10);
             
             // Await
             yield return new WaitForSeconds(0.2f);
-            
+
             // Assert
-            Assert.That(sum, Is.EqualTo(15));
+            Assert.That(true, Is.EqualTo(true));
         }
     }
 }
