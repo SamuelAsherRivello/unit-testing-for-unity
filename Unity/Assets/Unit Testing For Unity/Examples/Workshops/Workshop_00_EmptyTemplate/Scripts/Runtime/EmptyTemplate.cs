@@ -2,8 +2,7 @@
 namespace RMC.UnitTesting.Examples.EmptyTemplate
 {
     /// <summary>
-    /// This performs common math operations on
-    /// operands of a and b.
+    /// Empty Template, replace as you like
     /// </summary>
     public class EmptyTemplate
     {
