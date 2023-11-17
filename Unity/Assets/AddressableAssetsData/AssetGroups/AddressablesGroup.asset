@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: AddressablesGroup
+  m_EditorClassIdentifier: 
+  m_GroupName: AddressablesGroup
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 0ade6e2491c3c454c9f6d8e334ceaa3d
+  m_SerializeEntries:
+  - m_GUID: 1757333409e836643aded0955a818d1d
+    m_Address: Assets/Unit Testing For Unity/Examples/Workshops/Workshop_09_Addressables/Prefabs/Tree.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 168394a3ae1b29749a8dcb201b174cc8, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: f5c66601d6b7d16439d953290303e513, type: 2}
+    - {fileID: 11400000, guid: 40619af737f41e94a902fc2daccbf373, type: 2}
