@@ -13,7 +13,6 @@ namespace RMC.UnitTesting.Examples.EmptyTemplate
         {
             EmptyTemplate empty = new EmptyTemplate();
 
-            // TODO: Call a method on the class here
             string result = empty.MyMethod("hello world");
             
             Debug.Log($"Instructions: This Scene has no UI. See Unity Console.");
