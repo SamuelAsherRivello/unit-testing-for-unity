@@ -663,20 +663,14 @@ Sie können alles testen, was Sie wollen.
 13:45.290 --> 13:48.080
 Jetzt müssen Sie nicht mehr unendlich viel testen.
 
-13:48.080 --> 13:50.510
-
-
 13:50.510 --> 13:57.020
 In manchen Szenarien sollte man ein paar negative Werte mit Null und ein paar positive Werte testen.
 
 13:57.050 --> 14:01.880
 Vielleicht ist das, was du tust, nicht mathematisch begründet und du möchtest es anders angehen, aber was du tust
 
-14:01.880 --> 14:04.460
-nach so genannten Eckfällen suchen.
-
-
-Wenn Sie zum Beispiel eine Divisionsmethode anwenden und sie mathematisch testen wollen, gibt es
+14:01.880 --> 14:10.309
+nach so genannten Eckfällen suchen. Wenn Sie zum Beispiel eine Divisionsmethode anwenden und sie mathematisch testen wollen, gibt es
 
 14:10.310 --> 14:12.800
 eine Herausforderung bei der Division durch Null.
