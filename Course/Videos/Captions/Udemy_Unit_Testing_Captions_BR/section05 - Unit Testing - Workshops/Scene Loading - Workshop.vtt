@@ -1,364 +1,364 @@
 WEBVTT
 
 00:00.320 --> 00:03.950
-Hello and welcome to the unit testing for Unity Workshops.
+Olá e bem-vindo ao teste de unidade para Unity Workshops.
 
 00:03.950 --> 00:06.800
-And here we're going to be looking at scene loading.
+E aqui vamos dar uma olhada no carregamento de cenas.
 
 00:06.800 --> 00:12.860
-Now traditionally when we think of unit testing we think of testing the smallest unit of code with the
+Tradicionalmente, quando pensamos em testes unitários, pensamos em testar a menor unidade de código com o
 
 00:12.860 --> 00:15.530
-fewest lines and the fewest dependencies.
+menos linhas e menos dependências.
 
 00:15.530 --> 00:21.530
-So on the opposite end of that spectrum of simplicity, we have complexity.
+Portanto, no extremo oposto desse espectro de simplicidade, temos a complexidade.
 
 00:21.530 --> 00:27.710
-And one of the important foundational objects inside unity is the scene itself.
+E um dos objetos fundamentais importantes dentro da unidade é a própria cena.
 
 00:28.220 --> 00:35.150
-Everything that you see as a player in a game experience is inside of a scene.
+Tudo o que você vê como jogador em uma experiência de jogo está dentro de uma cena.
 
 00:35.150 --> 00:39.950
-So we can unit test the individual scripts or elements within a scene.
+Portanto, podemos testar a unidade de scripts individuais ou elementos dentro de uma cena.
 
 00:39.950 --> 00:44.210
-Or as we're going to show here, we could test the entire scene itself.
+Ou, como vamos mostrar aqui, podemos testar a cena inteira.
 
 00:44.210 --> 00:45.710
-Now why might we do that?
+Por que poderíamos fazer isso?
 
 00:45.710 --> 00:48.110
-First of all, it's a nice smoke test.
+Em primeiro lugar, é um bom teste de fumaça.
 
 00:48.140 --> 00:53.630
-A simple way to just see did the scene load and did it load with no exceptions.
+Uma maneira simples de ver se a cena foi carregada e se foi carregada sem exceções.
 
 00:53.630 --> 00:54.980
-That alone is worth it.
+Só isso já vale a pena.
 
 00:54.980 --> 00:56.690
-Let's think about the things that we can do.
+Vamos pensar nas coisas que podemos fazer.
 
 00:56.720 --> 01:00.770
-We could make assumptions on the scene structure and what objects are inside of it.
+Poderíamos fazer suposições sobre a estrutura da cena e quais objetos estão dentro dela.
 
 01:00.770 --> 01:04.340
-We could make assumptions on the behaviors in things in that scene.
+Podemos fazer suposições sobre os comportamentos das coisas nessa cena.
 
 01:04.340 --> 01:11.210
-And a workflow that I find really cool is you can leave these tests behind and have the non-programmers
+E um fluxo de trabalho que eu acho muito legal é que você pode deixar esses testes para trás e deixar que os não-programadores
 
 01:11.210 --> 01:15.590
-on your team run the tests before and after doing their work.
+da sua equipe executem os testes antes e depois de fazer o trabalho deles.
 
 01:15.590 --> 01:21.590
-Perhaps a level designer being able to work more confidently, knowing that new levels added, do not
+Talvez um designer de níveis possa trabalhar com mais confiança, sabendo que os novos níveis adicionados não
 
 01:21.590 --> 01:25.490
-break any existing scenes or revisions to existing levels.
+quebrar nenhuma cena existente ou revisões de níveis existentes.
 
 01:25.490 --> 01:31.450
-Don't break any of the scenes either, and your art team can be sure that if they were to replace some
+Também não quebre nenhuma das cenas e a sua equipe de arte pode ter certeza de que, se for substituir alguma
 
 01:31.460 --> 01:37.400
-assets or add some new assets, that from the programmer's standpoint, nothing has been broken.
+ativos ou adicionar novos ativos, do ponto de vista do programador, nada foi quebrado.
 
 01:37.400 --> 01:39.200
-So what would that workflow look like?
+Então, como seria esse fluxo de trabalho?
 
 01:39.200 --> 01:45.680
-Well, I'll show an example here of being able to create a play mode test and load an entire scene into
+Bem, vou mostrar aqui um exemplo de como criar um teste de modo de reprodução e carregar uma cena inteira em
 
 01:45.680 --> 01:49.070
-that play mode test and make some assumptions on it using assertions.
+esse teste de modo de reprodução e fazer algumas suposições sobre ele usando asserções.
 
 01:49.070 --> 01:56.030
-For example, you could load a scene and in the intro scene check that the menu properly is being displayed.
+Por exemplo, você poderia carregar uma cena e, na cena de introdução, verificar se o menu está sendo exibido corretamente.
 
 01:56.030 --> 01:57.620
-We're in a gameplay scene.
+Estamos em uma cena de jogo.
 
 01:57.650 --> 02:03.080
-Be sure that the background element, the hero and all the enemies have been instantiated at the proper
+Certifique-se de que o elemento de fundo, o herói e todos os inimigos tenham sido instanciados no momento adequado.
 
 02:03.080 --> 02:03.470
-moment.
+momento adequado.
 
 02:03.470 --> 02:08.900
-Now, because we're opening the door to the great complexity possible within a given scene, it may
+Agora, como estamos abrindo a porta para a grande complexidade possível em uma determinada cena, pode ser que
 
 02:08.900 --> 02:15.380
-seem overwhelming that you'd want to test out everything in a scene, but again, I think even a very
+parecer muito grande que você queira testar tudo em uma cena, mas, novamente, acho que até mesmo uma pessoa muito
 
 02:15.380 --> 02:22.490
-conservative test that just loads the scene and makes sure 1 or 2 key elements are there, with no exceptions.
+teste conservador que apenas carrega a cena e garante que um ou dois elementos-chave estejam lá, sem exceções.
 
 02:22.490 --> 02:27.400
-Thrown is a fantastic low hanging fruit that will bring value to your team.
+O Thrown é uma fruta fantástica e fácil de pendurar que agregará valor à sua equipe.
 
 02:27.410 --> 02:28.580
-Let's take a look inside.
+Vamos dar uma olhada no interior.
 
 02:28.580 --> 02:29.240
-Unity.
+Unidade.
 
 02:29.510 --> 02:31.910
-Here we are inside the core sample project.
+Aqui estamos dentro do projeto de amostra do núcleo.
 
 02:31.940 --> 02:33.440
-Now in the test runner window.
+Agora na janela do executor de teste.
 
 02:33.440 --> 02:35.450
-Here we've got lots of different categories.
+Aqui temos muitas categorias diferentes.
 
 02:35.450 --> 02:42.140
-I've got the scene loading selected and you can see that we've got some editor and runtime tests.
+Tenho o carregamento de cena selecionado e você pode ver que temos alguns testes de editor e tempo de execução.
 
 02:42.140 --> 02:48.380
-Because scenes and the things that I'm choosing to test here are related to the typical runtime behavior
+Porque as cenas e as coisas que estou escolhendo para testar aqui estão relacionadas com o comportamento típico do tempo de execução
 
 02:48.380 --> 02:50.240
-of unity Monobehaviours.
+da unidade Monobehaviours.
 
 02:50.240 --> 02:54.470
-For example, I'm going to focus on just the runtime test, the play mode test.
+Por exemplo, vou me concentrar apenas no teste de tempo de execução, o teste do modo de reprodução.
 
 02:54.470 --> 02:56.470
-So I'll disable the edit mode test.
+Então, vou desativar o teste do modo de edição.
 
 02:56.480 --> 02:58.220
-Let's take a look at what we've got here.
+Vamos dar uma olhada no que temos aqui.
 
 02:58.220 --> 03:04.970
-So what we're going to do is every time we run this particular test, we're going to be checking that
+Então, o que vamos fazer é, toda vez que executarmos esse teste específico, verificar se
 
 03:04.970 --> 03:12.500
-the intro scene has a hero inside of it that simulates our main game character, that the intro scene
+a cena de introdução tem um herói dentro dela que simula o personagem principal do jogo, que a cena de introdução
 
 03:12.500 --> 03:15.020
-loads without any exceptions thrown.
+carrega sem nenhuma exceção lançada.
 
 03:15.260 --> 03:17.720
-And then we'll repeat that for the game scene.
+E depois repetiremos isso para a cena do jogo.
 
 03:17.930 --> 03:23.480
-You could imagine that you'd have one test that could test all of your scenes in a systematic way.
+Você poderia imaginar que teria um teste que poderia testar todas as suas cenas de forma sistemática.
 
 03:23.480 --> 03:30.950
-What I've chosen to do here is structure one test for each of the functionalities that we'd want, one
+O que eu escolhi fazer aqui foi estruturar um teste para cada uma das funcionalidades que queremos, um
 
 03:30.950 --> 03:36.770
-for the hero, one for the exceptions, and doing that for each of the scenes, all within one test
+para o herói, um para as exceções, e fazer isso para cada uma das cenas, tudo em um único teste
 
 03:36.770 --> 03:37.310
-structure.
+estrutura.
 
 03:37.310 --> 03:40.610
-But you could decide how to scale it up depending what you and your team want to do.
+Mas você pode decidir como aumentar a escala, dependendo do que você e a sua equipe quiserem fazer.
 
 03:40.640 --> 03:41.840
-Let me run these tests.
+Deixe-me executar esses testes.
 
 03:41.840 --> 03:42.920
-Everything passes there.
+Tudo passa aqui.
 
 03:42.920 --> 03:44.690
-You can see we've got some console traffic.
+Você pode ver que temos algum tráfego de console.
 
 03:44.690 --> 03:45.920
-Let's take a look at the source code.
+Vamos dar uma olhada no código-fonte.
 
 03:45.920 --> 03:50.990
-So in this test I'm saying that the scene one intro, which is the name of one of the scenes in the
+Portanto, neste teste, estou dizendo que a introdução da cena um, que é o nome de uma das cenas no
 
 03:50.990 --> 03:57.710
-project, we'll assume that the hero is not null when the scene is loaded, unlike some of our smallest
+vamos assumir que o herói não é nulo quando a cena é carregada, ao contrário de alguns dos nossos menores
 
 03:57.710 --> 04:01.280
-unit testing, loading the scene and doing it well and nice.
+testes unitários, carregando a cena e fazendo isso bem e de forma agradável.
 
 04:01.280 --> 04:02.540
-Having a nice workflow here.
+Temos um bom fluxo de trabalho aqui.
 
 04:02.540 --> 04:06.140
-It does involve some setup, so let's talk about what the setup is.
+Isso envolve alguma configuração, então vamos falar sobre o que é a configuração.
 
 04:06.140 --> 04:09.380
-First thing is that I'll listen to the scene manager to see.
+A primeira coisa que farei é ouvir o gerenciador de cena para ver.
 
 04:09.380 --> 04:14.840
-Hey has the scene that I want to load been loaded, then I will load the scene here.
+Ei, a cena que eu quero carregar já foi carregada, então eu vou carregar a cena aqui.
 
 04:14.840 --> 04:21.830
-I've made a static variable for the scene names, just so it's easier for me to be able to isolate and
+Criei uma variável estática para os nomes das cenas, para que seja mais fácil para mim isolar e
 
 04:21.830 --> 04:23.360
-update those if I need to.
+atualizá-los se for necessário.
 
 04:23.390 --> 04:26.090
-Then I will sit here and wait while the scene is loaded.
+Em seguida, vou me sentar aqui e esperar enquanto a cena é carregada.
 
 04:26.090 --> 04:31.580
-This makes sure I don't assume or assert anything about that until after the scene is loaded.
+Isso garante que eu não assuma ou afirme nada sobre isso até que a cena seja carregada.
 
 04:31.580 --> 04:33.020
-It happens quite quickly.
+Isso acontece muito rapidamente.
 
 04:33.020 --> 04:37.640
-Then here I will be able to do any of the introspection into the scene.
+Então, aqui eu poderei fazer qualquer introspecção na cena.
 
 04:37.670 --> 04:43.700
-A very powerful thing I can do is look through the entire scene after it's loaded, and look for any
+Uma coisa muito poderosa que posso fazer é examinar toda a cena depois de carregada e procurar por qualquer
 
 04:43.700 --> 04:45.320
-existence of a given script.
+existência de um determinado script.
 
 04:45.320 --> 04:52.730
-If I had a prefab called hero or an individual hero script in that scene, this would return one value.
+Se eu tivesse um prefab chamado hero ou um script de herói individual nessa cena, isso retornaria um valor.
 
 04:52.730 --> 04:57.020
-I could also get a list back of all of the heroes or all of the enemies.
+Eu também poderia obter uma lista de todos os heróis ou de todos os inimigos.
 
 04:57.020 --> 04:59.840
-If I have multiple, then I can iterate over them and.
+Se eu tiver vários, posso iterar sobre eles e...
 
 04:59.940 --> 05:01.670
-And perform whatever test I want.
+E realizar qualquer teste que eu quiser.
 
 05:01.680 --> 05:03.960
-I'm doing a purposely lean test here.
+Estou fazendo um teste propositalmente enxuto aqui.
 
 05:03.990 --> 05:06.780
-All I do is make sure that the hero is not null.
+Tudo o que faço é me certificar de que o herói não é nulo.
 
 05:06.810 --> 05:14.100
-If, for example, an artist or a level designer accidentally deleted the hero in a given scene, this
+Se, por exemplo, um artista ou um designer de níveis acidentalmente excluiu o herói em uma determinada cena, isso
 
 05:14.100 --> 05:14.730
-would fail.
+falharia.
 
 05:14.730 --> 05:17.680
-And it was a nice test just to make sure that the elements are there.
+E foi um bom teste apenas para garantir que os elementos estão lá.
 
 05:17.700 --> 05:23.550
-You can imagine a system inside unity could be quite complex and your scenes could be quite complex
+Você pode imaginar que um sistema dentro da unidade pode ser bastante complexo e suas cenas podem ser bastante complexas
 
 05:23.550 --> 05:24.000
-too.
+também.
 
 05:24.030 --> 05:26.820
-You may have hundreds or even thousands of objects.
+Você pode ter centenas ou até milhares de objetos.
 
 05:26.820 --> 05:33.060
-You may not necessarily want to do an assertion for every single one of them, but depending how you
+Talvez você não queira necessariamente fazer uma asserção para cada um deles, mas dependendo de como você
 
 05:33.060 --> 05:38.460
-organize your scene, you may be able to check for some simple things like the background, the UI,
+organizar sua cena, talvez seja possível verificar algumas coisas simples como o plano de fundo, a interface do usuário,
 
 05:38.490 --> 05:45.360
-the hero, and a list of enemies that alone easy test to perform by just adding some lines here, and
+o herói e uma lista de inimigos, que é um teste fácil de executar, bastando adicionar algumas linhas aqui e
 
 05:45.360 --> 05:50.340
-then you have more confidence that as you and your team work on the code and make commits to your version
+então você terá mais confiança de que, à medida que você e sua equipe trabalharem no código e fizerem commits na sua versão
 
 05:50.340 --> 05:53.790
-control repository that no one is accidentally breaking something.
+que ninguém está quebrando algo acidentalmente.
 
 05:53.790 --> 06:00.630
-Remember, what you're currently doing now is needing to then play the scene or all the scenes and make
+Lembre-se, o que você está fazendo agora é reproduzir a cena ou todas as cenas e fazer
 
 06:00.630 --> 06:05.780
-sure that you don't visually detect that something is missing or broken here.
+se você não detecta visualmente que algo está faltando ou quebrado aqui.
 
 06:05.790 --> 06:07.930
-Being automated is much, much smoother.
+Ser automatizado é muito, muito mais suave.
 
 06:07.950 --> 06:09.290
-Let's take a look at the other tests.
+Vamos dar uma olhada nos outros testes.
 
 06:09.300 --> 06:16.080
-We've got one here that loads the scene, and then just make sure it does not throw any exceptions.
+Temos um teste aqui que carrega a cena e, em seguida, verifica se ele não lança nenhuma exceção.
 
 06:17.110 --> 06:20.960
-Then we repeat the same two tests for the all other scene.
+Em seguida, repetimos os mesmos dois testes para todas as outras cenas.
 
 06:20.980 --> 06:25.630
-Now let's take a look at the top of that testing scene and see some of the additional setups that's
+Agora, vamos dar uma olhada na parte superior da cena de teste e ver algumas das configurações adicionais que são
 
 06:25.660 --> 06:26.230
-needed.
+necessárias.
 
 06:26.260 --> 06:32.410
-One thing is that because we're loading scenes with code, those need to exist in the unity build settings.
+Uma coisa é que, como estamos carregando cenas com código, elas precisam existir nas configurações de compilação da unidade.
 
 06:32.410 --> 06:35.530
-That's true in production as well as in testing.
+Isso é verdade tanto na produção quanto nos testes.
 
 06:35.560 --> 06:41.110
-Now you and your team could simply make sure that it's always updated and do that manually within the
+Agora, você e sua equipe podem simplesmente garantir que ele seja sempre atualizado e fazer isso manualmente dentro do
 
 06:41.110 --> 06:41.950
 unity editor.
 
 06:41.950 --> 06:44.950
-And let's take a look at how we would do that now here inside unity.
+Vamos dar uma olhada em como faríamos isso agora aqui dentro do unity.
 
 06:44.980 --> 06:46.840
-You go to File Build Settings.
+Você vai para File Build Settings.
 
 06:46.840 --> 06:50.020
-And up here is the list of all the scenes that you need.
+E aqui em cima está a lista de todas as cenas que você precisa.
 
 06:50.050 --> 06:53.710
-Now if you forget to add one in there, the test would fail.
+Agora, se você esquecer de adicionar uma delas, o teste falhará.
 
 06:53.710 --> 06:59.380
-So rather than require us to remember this particular step, which is okay if your team wants to do
+Portanto, em vez de exigir que nos lembremos desse passo específico, o que não tem problema se a sua equipe quiser fazer
 
 06:59.380 --> 07:04.030
-that, I'm automating that and dynamically adding the scenes that we want to add.
+isso, estou automatizando isso e adicionando dinamicamente as cenas que queremos adicionar.
 
 07:04.060 --> 07:10.990
-So the way that I do that, I use some existing interfaces that unity makes available here for when
+Portanto, a maneira de fazer isso é usar algumas interfaces existentes que o unity disponibiliza aqui para quando
 
 07:10.990 --> 07:13.930
-the build is being set up and when the build is being cleaned up.
+a compilação está sendo configurada e quando a compilação está sendo limpa.
 
 07:13.960 --> 07:18.550
-These are different than some of the attributes we've seen in earlier tests, but then I won't get into
+Esses são diferentes de alguns dos atributos que vimos em testes anteriores, mas não vou entrar no assunto
 
 07:18.550 --> 07:19.720
-the complexity here.
+a complexidade aqui.
 
 07:19.720 --> 07:25.960
-But just know that in the setup, what I'm doing is adding our two test scenes to the build settings.
+Mas saiba que na configuração, o que estou fazendo é adicionar nossas duas cenas de teste às configurações de compilação.
 
 07:26.290 --> 07:32.020
-And down here in the cleanup, I'm reverting or removing those two that have been added.
+E aqui embaixo, na limpeza, estou revertendo ou removendo as duas que foram adicionadas.
 
 07:32.230 --> 07:35.890
-Now there's lots of different ways you could organize that, but you can take a look at the source code
+Há muitas maneiras diferentes de organizar isso, mas você pode dar uma olhada no código-fonte
 
 07:35.890 --> 07:37.520
-and see if there's something else you want to do there.
+e ver se há algo mais que você queira fazer lá.
 
 07:37.540 --> 07:44.800
-Down here in the test, I'm assuming that I'm able to call load scene on any of the testable scenes
+Aqui no teste, estou assumindo que posso chamar o load scene em qualquer uma das cenas testáveis
 
 07:44.800 --> 07:46.150
-and we're good to go.
+e estamos prontos para ir.
 
 07:46.150 --> 07:47.110
-So that's it.
+Então é isso.
 
 07:47.140 --> 07:52.660
-It's pretty easy to set up, and if you build off of what is given here in the sample project, you'll
+É muito fácil de configurar e, se você construir a partir do que é dado aqui no projeto de exemplo, você terá
 
 07:52.660 --> 07:57.750
-find quick success in being able to test your scenes for your game production.
+terá sucesso rápido ao testar suas cenas para a produção do jogo.
 
 07:57.760 --> 07:58.660
-Thanks.
+Obrigado.

@@ -1,0 +1,484 @@
+WEBVTT
+
+00:00.110 --> 00:06.330
+Hello and welcome to Artificial Intelligence for Production Code incorporating AI into unity.
+
+00:06.350 --> 00:09.350
+Game development can streamline development and testing.
+
+00:09.350 --> 00:11.180
+Some of the benefits are listed here.
+
+00:11.180 --> 00:15.710
+And what we're going to be talking about in this particular video is code generation.
+
+00:15.740 --> 00:22.430
+Being able to analyze and suggest design for new systems optimizations make your code more efficient,
+
+00:22.430 --> 00:25.430
+better performance, and save development time.
+
+00:25.430 --> 00:27.550
+There's many tools you can use for this step.
+
+00:27.560 --> 00:32.330
+The two that I'm going to be showing are ChatGPT and GitHub Copilot.
+
+00:32.540 --> 00:40.520
+I generally use ChatGPT to ask larger questions, give me more bulk of code samples and response, whereas
+
+00:40.520 --> 00:47.450
+I use GitHub copilot when I need one line, one method, something smaller within the context of a given
+
+00:47.450 --> 00:48.470
+page of code.
+
+00:48.860 --> 00:51.380
+I'm continuing to evolve my own practice.
+
+00:51.380 --> 00:55.970
+I'll show a little bit about how they both work, and you can decide for yourself what workflow makes
+
+00:55.970 --> 00:56.780
+sense for you.
+
+00:56.810 --> 00:59.360
+One of the tools that we can use is OpenAI.
+
+00:59.390 --> 01:05.240
+As I mentioned, and you can click the try ChatGPT button on the website here and we'll open up the
+
+01:05.240 --> 01:05.510
+chat.
+
+01:05.510 --> 01:13.550
+GPT I am a paying user, and that is a monthly subscription fee to get ChatGPT plus, some of the features
+
+01:13.550 --> 01:19.430
+you might see are not used in the free version, but you can certainly follow along using the free version
+
+01:19.430 --> 01:20.300
+and check it out.
+
+01:20.300 --> 01:23.330
+The other tool I'll show is GitHub Copilot.
+
+01:23.330 --> 01:27.350
+This is typically enabled inside your code editor.
+
+01:27.350 --> 01:33.110
+I use writer, but you can use Visual Studio, Visual Studio Code or other tools, and it knows about
+
+01:33.110 --> 01:36.740
+the page of code you're sitting in and can give you better contextual answers.
+
+01:36.740 --> 01:41.390
+I'd suggest doing a trial of one or both of these softwares to see if you like the flow.
+
+01:41.420 --> 01:47.510
+I think over time these tools will be maturing, maturing rapidly, and also the price will come down
+
+01:47.510 --> 01:50.870
+or a free tier will be introduced for most of these products.
+
+01:50.870 --> 01:51.620
+Eventually.
+
+01:51.620 --> 01:58.160
+When I open ChatGPT up in the browser, I get this experience here and I can begin starting the conversation
+
+01:58.160 --> 01:59.210
+with an AI.
+
+01:59.210 --> 02:03.680
+If I want to have a completely separate conversation, I open up a different chat.
+
+02:03.710 --> 02:07.910
+ChatGPT only knows about the conversation you're having in a given chat.
+
+02:07.910 --> 02:13.370
+So if here I introduce a few concepts and then I open up a separate chat, it won't know any of the
+
+02:13.370 --> 02:14.660
+concepts I've talked about.
+
+02:14.660 --> 02:18.410
+So generally I'll leave a chat open for each of the major areas.
+
+02:18.410 --> 02:22.310
+What we want to do is start with a prompt that says something like this.
+
+02:22.490 --> 02:28.340
+I'll say, act like a unity game development expert and tell me this or that.
+
+02:28.760 --> 02:34.760
+So I've decided to say create a class called Product Manager that allows for add product, remove product
+
+02:34.760 --> 02:36.020
+and get products.
+
+02:36.020 --> 02:39.290
+Use a list or dictionary to manage the list of products.
+
+02:39.290 --> 02:44.750
+This list will start empty, so you can give it just that bit of info and it knows it's going to be
+
+02:44.750 --> 02:46.670
+a unity game development expert.
+
+02:46.700 --> 02:50.240
+It will infer that it needs to give you C-sharp information.
+
+02:50.240 --> 02:51.950
+So let's go ahead and see the result.
+
+02:51.950 --> 02:53.120
+We've gotten two full response.
+
+02:53.120 --> 02:54.500
+Let's take a look at what we got here.
+
+02:54.800 --> 02:59.420
+GPT says certainly in unity you would typically use C-sharp to create such a class.
+
+02:59.420 --> 02:59.810
+Great.
+
+02:59.810 --> 03:00.940
+It's on the right path.
+
+03:00.950 --> 03:06.500
+Here's an example of how you might implement a product manager using a list to manage the products.
+
+03:06.770 --> 03:10.010
+This assumes that you have a product class defined elsewhere.
+
+03:10.010 --> 03:14.180
+It added that I didn't necessarily want or need that, but I love the suggestion.
+
+03:14.180 --> 03:21.680
+So first it defines what a product is so it knows about the word product and general software application
+
+03:21.680 --> 03:22.970
+uses of a product.
+
+03:22.970 --> 03:29.690
+It might have a name or an ID, and as it hints at other properties there, then it has the constructor
+
+03:29.690 --> 03:32.240
+set up and we could even add more things to it.
+
+03:32.270 --> 03:35.930
+Now I can copy and paste this into unity and we can get started.
+
+03:35.930 --> 03:37.970
+Next let's see what other code it gives us.
+
+03:37.970 --> 03:41.120
+Here's the product manager which will have a list of the products.
+
+03:41.150 --> 03:45.830
+It knows the difference between private and public, and how we probably want to manage that.
+
+03:45.830 --> 03:53.030
+And generally at this point of using this ChatGPT for code about a year into the technology, I assume
+
+03:53.030 --> 03:55.910
+generally the code is going to compile right off the bat.
+
+03:55.910 --> 03:57.830
+Occasionally there'll be an issue with that.
+
+03:57.830 --> 04:03.260
+Particularly it might get something correct in the C-sharp, but not know about unity or something like
+
+04:03.260 --> 04:03.650
+that.
+
+04:03.650 --> 04:08.420
+But if you know what you're looking for and you always paste it into unity and give it a try, you'll
+
+04:08.420 --> 04:13.160
+pretty quickly get a feel for it's about 9,599% right.
+
+04:14.110 --> 04:17.210
+Here we have the add product, remove product, etcetera.
+
+04:17.230 --> 04:20.030
+Let's take a look at our unity setup and then we'll paste this in.
+
+04:20.050 --> 04:25.420
+So here we are inside unity I've already got a nice folder set up where I can do my work.
+
+04:25.420 --> 04:29.500
+So inside the workshops I've got an I folder here.
+
+04:29.500 --> 04:33.070
+And inside I've got some pretty empty classes already.
+
+04:33.100 --> 04:37.120
+For our AI example, the AI example script is here.
+
+04:37.120 --> 04:38.950
+Let's take a look at the source code for that.
+
+04:38.980 --> 04:40.540
+Here's the AI example.
+
+04:40.540 --> 04:45.250
+And as the comment says, it's ready for a product manager to be thrown in here.
+
+04:45.250 --> 04:47.410
+But it's got a pretty empty setup.
+
+04:48.580 --> 04:55.420
+Then I've got the test runner here showing the category of AI, and we've got some different AI tests
+
+04:55.420 --> 04:55.870
+here.
+
+04:55.900 --> 04:57.480
+Just set up an empty.
+
+04:57.490 --> 05:02.500
+If we took a look at the source code for the AI test, it is pretty empty.
+
+05:02.500 --> 05:03.550
+Looks like that.
+
+05:07.570 --> 05:11.170
+And if we look at the I play mode test, it's pretty empty as well.
+
+05:11.500 --> 05:15.380
+And finally, we have a product manager class here which is ready for the code coming in.
+
+05:15.400 --> 05:21.130
+Now I'm giving a somewhat contrived example here where I already know I want a product manager, but
+
+05:21.130 --> 05:24.520
+I don't have much else that it depends on or needs to talk to.
+
+05:24.550 --> 05:27.010
+So it's going to be easy for us to integrate.
+
+05:27.040 --> 05:31.690
+You could imagine here you've got an existing game with hundreds of existing classes, and you want
+
+05:31.690 --> 05:32.920
+to add one new system.
+
+05:32.920 --> 05:36.610
+It's not going to know all about your existing project, so you're going to have to explain that to
+
+05:36.610 --> 05:36.890
+it.
+
+05:36.910 --> 05:40.740
+So it's admittedly a simpler example here starting from zero.
+
+05:40.750 --> 05:45.640
+But one thing I want to mention is I've got something like the namespace here.
+
+05:45.640 --> 05:52.090
+And probably as I interact with ChatGPT, I'm going to paste from ChatGPT into unity.
+
+05:52.120 --> 05:53.260
+Use it a little bit.
+
+05:53.260 --> 05:58.510
+I might tweak the code here, and then I'll want to copy and paste back to ChatGPT again.
+
+05:58.510 --> 06:04.180
+ChatGPT doesn't know about my code here, so I always have to keep that chat going on in this separate
+
+06:04.180 --> 06:05.080
+conversation.
+
+06:05.080 --> 06:11.830
+So one of the things I've learned is that I don't want to have to manually paste certain sections from
+
+06:11.830 --> 06:14.860
+ChatGPT into my code and certain sections back.
+
+06:14.860 --> 06:19.000
+So just for an example, I have this namespace already declared.
+
+06:19.000 --> 06:19.630
+And here.
+
+06:19.630 --> 06:24.460
+So I'm going to come back into ChatGPT and notice that it doesn't have any namespaces.
+
+06:24.460 --> 06:27.370
+So I'm going to say great job.
+
+06:28.890 --> 06:34.170
+Please integrate this code into your sample.
+
+06:35.240 --> 06:36.900
+And I'm just going to paste that there.
+
+06:36.920 --> 06:38.600
+So let's see what it did here.
+
+06:38.600 --> 06:44.390
+It said certainly to integrate the product manager class in the provided namespace and structure.
+
+06:44.390 --> 06:48.580
+So I can see that it's added this and it's added this.
+
+06:48.590 --> 06:55.340
+It's just a little hack that I realize is useful, so that I don't have to manually re add that every
+
+06:55.340 --> 06:56.660
+time I ask a question.
+
+06:56.660 --> 06:59.210
+I think over the course of this exercise you'll see why.
+
+06:59.240 --> 07:02.960
+So I'm going to copy the code completely and paste it into unity.
+
+07:03.080 --> 07:03.680
+There we go.
+
+07:03.680 --> 07:08.540
+It's pasted in and I don't see any errors coming from compilation.
+
+07:08.540 --> 07:09.080
+Let's check in.
+
+07:09.080 --> 07:09.620
+Unity.
+
+07:09.650 --> 07:11.270
+Unity has recompiled.
+
+07:11.270 --> 07:12.440
+Everything looks good.
+
+07:12.440 --> 07:19.220
+Now, before we do any testing, let's check out the I example here and have it run a simple example
+
+07:19.220 --> 07:20.840
+of some of the functionality.
+
+07:20.840 --> 07:28.040
+So I'm going to copy this entire script and I'm going to say okay don't repeat that code.
+
+07:29.340 --> 07:33.930
+Create me a new page of code for a new class.
+
+07:34.080 --> 07:37.770
+Use this as inspiration.
+
+07:37.920 --> 07:40.020
+Update the awake.
+
+07:40.640 --> 07:45.830
+With a simple demo of Product Manager.
+
+07:45.830 --> 07:47.070
+Let's see the response here.
+
+07:47.090 --> 07:52.100
+Certainly to create a new class that demonstrates the use of Product Manager in the awake.
+
+07:52.130 --> 07:53.390
+Here is the example.
+
+07:53.420 --> 07:55.150
+Let's take a look at the source code.
+
+07:55.160 --> 07:59.800
+We can see that it's kept the class name, the comment, the namespace that I like.
+
+07:59.810 --> 08:03.010
+It's kept this part here that I wanted to use.
+
+08:03.020 --> 08:07.550
+I put this attribute here just so that it doesn't get confused in the testing.
+
+08:07.550 --> 08:09.980
+And then I run the awake here.
+
+08:10.070 --> 08:10.810
+Looks good.
+
+08:10.820 --> 08:14.820
+Now let's just copy that into our unity project and see how it works.
+
+08:14.840 --> 08:16.480
+Okay, I've pasted it in.
+
+08:16.490 --> 08:17.900
+I don't see any errors here.
+
+08:17.900 --> 08:18.440
+Let's check in.
+
+08:18.440 --> 08:18.980
+Unity.
+
+08:19.010 --> 08:19.460
+Unity.
+
+08:19.460 --> 08:20.150
+Recompiled.
+
+08:20.160 --> 08:21.650
+Looks like everything works well.
+
+08:21.650 --> 08:23.750
+Here's the example already in the scene.
+
+08:23.750 --> 08:24.830
+Let's go ahead and run.
+
+08:24.860 --> 08:29.090
+My console shows product ID one, two and three.
+
+08:29.120 --> 08:30.680
+Let's take a look at the source code.
+
+08:30.680 --> 08:32.860
+So let's review what we're doing here.
+
+08:32.870 --> 08:36.190
+We've got a product manager that gets instantiated.
+
+08:36.200 --> 08:37.700
+We add three products.
+
+08:37.700 --> 08:39.320
+We call the get products.
+
+08:39.320 --> 08:40.730
+And then we spit them out.
+
+08:40.760 --> 08:46.910
+Now this is a simple example that's doing something in a pretty empty project.
+
+08:46.910 --> 08:52.520
+So we agree that it's probably easier to integrate than something much later in a larger, more complex
+
+08:52.520 --> 08:53.090
+product.
+
+08:53.090 --> 08:55.190
+But look how amazing this is.
+
+08:55.220 --> 08:59.450
+It was able to give me the product manager and a demo example on top of it.
+
+08:59.450 --> 09:06.320
+That's it for this demonstration of showing how artificial intelligence, particularly ChatGPT, can
+
+09:06.320 --> 09:12.140
+give us the ability to add new production code in a future video, we'll take a look at how AI can help
+
+09:12.140 --> 09:15.140
+us create unit tests on top of this production code.
+
+09:15.710 --> 09:16.490
+Thanks.
