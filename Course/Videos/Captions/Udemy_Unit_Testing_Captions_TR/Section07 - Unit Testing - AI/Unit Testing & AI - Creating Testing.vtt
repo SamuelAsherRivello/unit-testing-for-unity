@@ -1,391 +1,391 @@
 WEBVTT
 
 00:00.410 --> 00:03.080
-Hello and welcome to Artificial Intelligence.
+Merhaba ve Yapay Zeka'ya hoş geldiniz.
 
 00:03.080 --> 00:07.700
-Here we're using artificial intelligence to help us create unit testing code.
+Burada birim test kodu oluşturmamıza yardımcı olması için yapay zeka kullanıyoruz.
 
 00:07.700 --> 00:12.530
-Now, incorporating AI into game development can streamline development and testing.
+Yapay zekanın oyun geliştirmeye dahil edilmesi, geliştirme ve test süreçlerini kolaylaştırabilir.
 
 00:12.530 --> 00:17.480
-Some of the benefits are included here, and we're going to focus on automated testing.
+Bazı faydalar burada yer almaktadır ve biz otomatik testlere odaklanacağız.
 
 00:17.780 --> 00:23.060
-AI can rapidly identify and fix your bugs, and it can reduce test creation time.
+Yapay zeka hatalarınızı hızla tespit edip düzeltebilir ve test oluşturma süresini kısaltabilir.
 
 00:23.060 --> 00:28.580
-Now, the traditional approach without any AI would be to create your production code.
+Şimdi, yapay zeka olmadan geleneksel yaklaşım, üretim kodunuzu oluşturmak olacaktır.
 
 00:28.580 --> 00:34.040
-And then if you're going to embrace unit testing to manually create those tests as you go.
+Ve eğer birim testlerini benimseyecekseniz, bu testleri ilerledikçe manuel olarak oluşturun.
 
 00:34.070 --> 00:40.430
-We've seen in the previous video how AI can help us create our production code for some or all of a
+Bir önceki videoda, yapay zekanın bir üretim kodunun bir kısmı veya tamamı için üretim kodumuzu oluşturmamıza nasıl yardımcı olabileceğini gördük.
 
 00:40.430 --> 00:41.060
-game system.
+oyun sistemi.
 
 00:41.060 --> 00:47.000
-Now let's take a look at how AI can help us automate the process of creating our unit testing.
+Şimdi yapay zekanın birim testlerimizi oluşturma sürecini otomatikleştirmemize nasıl yardımcı olabileceğine bir göz atalım.
 
 00:47.000 --> 00:52.160
-We have an existing chat GPT chat, open with how we created the production code.
+Mevcut bir sohbet GPT sohbetimiz var, üretim kodunu nasıl oluşturduğumuzu açın.
 
 00:52.160 --> 00:58.070
-Now it's very important that I continue within this exact same chat when I begin to ask the next questions
+Şimdi, sonraki soruları sormaya başladığımda aynı sohbet içinde devam etmem çok önemli
 
 00:58.070 --> 00:59.450
-about unit testing.
+birim testi hakkında.
 
 01:00.370 --> 01:06.670
-If, for example, I wanted to create a brand new chat here, I would need to reintroduce the context,
+Örneğin, burada yepyeni bir sohbet oluşturmak isteseydim, bağlamı yeniden tanıtmam gerekirdi,
 
 01:06.670 --> 01:12.190
-perhaps saying, hey, can you create me unit testing for this class and then paste in the class or
+belki de, hey, bana bu sınıf için birim testi oluşturabilir misin ve sonra sınıfa yapıştırabilir misin veya
 
 01:12.190 --> 01:13.440
-classes that are related?
+ilişkili olan sınıflar?
 
 01:13.450 --> 01:16.030
-But because we've already got context here, I'll use this.
+Ancak burada zaten bir bağlamımız olduğu için bunu kullanacağım.
 
 01:16.030 --> 01:23.680
-So from the previous section, the I created us an example here of using a product manager class, adding
+Önceki bölümde, burada bir ürün yöneticisi sınıfı kullanarak bir örnek oluşturdum ve
 
 01:23.680 --> 01:24.820
-some products to it.
+bazı ürünler.
 
 01:24.820 --> 01:31.390
-You could imagine this being a product being sold in a game store, or an NPC character who has a shop
+Bunun bir oyun mağazasında satılan bir ürün veya dükkanı olan bir NPC karakteri olduğunu hayal edebilirsiniz
 
 01:31.390 --> 01:35.590
-that perhaps gives you items or puts them in your inventory, something like that.
+belki de size eşyalar veren veya envanterinize koyan, bunun gibi bir şey.
 
 01:35.590 --> 01:40.870
-And above that, in the same chat we have the I create us the product manager itself.
+Ve bunun da ötesinde, aynı sohbette ürün yöneticisinin kendisini oluşturuyoruz.
 
 01:40.870 --> 01:44.490
-So the product manager has created an I and the example on top of it.
+Böylece ürün yöneticisi bir I ve bunun üzerine bir örnek oluşturdu.
 
 01:44.500 --> 01:46.680
-Now let's ask it to give us some tests.
+Şimdi ondan bize bazı testler vermesini isteyelim.
 
 01:46.690 --> 01:51.880
-What I'm going to do is paste in an edit mode test that I already have so that it knows the namespace
+Yapacağım şey, zaten sahip olduğum bir düzenleme modu testini yapıştırmaktır, böylece ad alanını bilir
 
 01:51.880 --> 01:56.200
-and naming that I like, and then ask it to fill that with relevant tests.
+ve beğendiğim bir adlandırma yapmasını ve ardından bunu ilgili testlerle doldurmasını istiyorum.
 
 01:56.200 --> 01:57.700
-Let's see how it goes here.
+Bakalım burada nasıl olacak.
 
 01:57.700 --> 02:02.080
-Inside unity I've got an I test and I playmode test.
+Unity içinde bir I testi ve I playmode testi var.
 
 02:02.110 --> 02:04.660
-Let's just do the edit mode test here.
+Burada sadece düzenleme modu testi yapalım.
 
 02:04.660 --> 02:05.740
-So here it is.
+İşte burada.
 
 02:05.740 --> 02:09.610
-Here we can see it's got one test called my test.
+Burada testim adında bir test olduğunu görebiliriz.
 
 02:09.640 --> 02:11.620
-We open up the source code and we see it here.
+Kaynak kodunu açıyoruz ve burada görüyoruz.
 
 02:11.620 --> 02:13.480
-It's got the namespace that I like.
+Sevdiğim isim alanına sahip.
 
 02:13.480 --> 02:16.090
-It's got usings I assume the category.
+Kategori olduğunu varsaydığım kullanımlar var.
 
 02:16.090 --> 02:21.640
-So rather than asking ChatGPT to create us something from complete scratch, I'm going to give it this
+Bu yüzden ChatGPT'den bize tamamen sıfırdan bir şey yaratmasını istemek yerine, ona şunu vereceğim
 
 02:21.640 --> 02:22.180
-here.
+Buraya.
 
 02:24.160 --> 02:26.620
-I think I'll get rid of the naming here.
+Sanırım burada isimlendirmeden kurtulacağım.
 
 02:27.370 --> 02:29.290
-So that I don't suggest that part.
+Bu yüzden o kısmı önermiyorum.
 
 02:29.320 --> 02:32.710
-So back here in ChatGPT, I'm going to say great.
+ChatGPT'ye dönecek olursak, harika diyeceğim.
 
 02:32.740 --> 02:40.150
-Now I want unit testing on top of the product Manager class.
+Şimdi ürün Yöneticisi sınıfının üstünde birim testi istiyorum.
 
 02:40.600 --> 02:49.540
-Create a new response with one test class with one or more test methods.
+Bir veya daha fazla test yöntemi içeren bir test sınıfı ile yeni bir yanıt oluşturun.
 
 02:52.090 --> 02:54.490
-Start with this code.
+Bu kodla başlayın.
 
 02:55.490 --> 02:57.050
-Let's take a look at the response.
+Cevaba bir göz atalım.
 
 02:57.050 --> 03:02.630
-To create unit tests for the Product Manager class, you can use any unit a popular testing framework
+Ürün Yöneticisi sınıfı için birim testleri oluşturmak için herhangi bir popüler test çerçevesini kullanabilirsiniz
 
 03:02.630 --> 03:02.780
-for.
+için.
 
 03:02.990 --> 03:03.500
 Net.
 
 03:03.530 --> 03:05.930
-Below is an example of the test class.
+Aşağıda test sınıfının bir örneği yer almaktadır.
 
 03:07.070 --> 03:13.730
-We can see that it used the namespace, the comments, the category test name, all things that I gave
+Ad alanını, yorumları, kategori test adını, verdiğim her şeyi kullandığını görebiliriz
 
 03:13.730 --> 03:14.060
-it.
+o.
 
 03:14.090 --> 03:16.850
-Then it does the rest on its own.
+Sonra gerisini kendi başına halleder.
 
 03:16.880 --> 03:19.880
-Now one thing I notice is that it's creating one.
+Şimdi fark ettiğim bir şey var, o da bir tane yaratıyor olması.
 
 03:20.900 --> 03:26.270
-It's creating one variable here that is going to populate in the setup and maybe tear down later.
+Burada kurulumda doldurulacak ve belki daha sonra kaldırılacak bir değişken oluşturuyor.
 
 03:26.270 --> 03:27.800
-Actually, it doesn't do the tear down.
+Aslında, yıkma işlemini yapmıyor.
 
 03:28.100 --> 03:33.470
-Then here what it does in each of the tests is it uses the arrange, act and assert, which happens
+Sonra burada testlerin her birinde yaptığı şey, arrange, act ve assert'i kullanmaktır.
 
 03:33.470 --> 03:35.090
-to match my particular preference.
+benim özel tercihime uyması için.
 
 03:35.090 --> 03:41.390
-So I like that it was just guessing that based on popularity as a general solution there, if somehow
+Bu yüzden, genel bir çözüm olarak popülariteye dayalı bir tahminde bulunmak hoşuma gitti, eğer bir şekilde
 
 03:41.390 --> 03:45.140
-I had a different way that I wanted to go about this, I could instruct that.
+Bunu yapmak istediğim farklı bir yol vardı, bunu talimat verebilirim.
 
 03:45.140 --> 03:46.550
-But I like that so far.
+Ama şu ana kadar bunu sevdim.
 
 03:46.550 --> 03:52.970
-So it sets up the test product, it adds the product, and then it makes sure that the get product returns
+Böylece test ürününü kurar, ürünü ekler ve ardından get ürününün geri döndüğünden emin olur
 
 03:52.970 --> 03:54.410
-that particular product.
+o özel ürün.
 
 03:54.410 --> 03:55.760
-So that looks good.
+Bu iyi görünüyor.
 
 03:55.760 --> 03:57.740
-Then it tests how to remove a product.
+Daha sonra bir ürünün nasıl çıkarılacağını test eder.
 
 03:57.740 --> 04:01.100
-So it goes to create a product and add it.
+Böylece bir ürün oluşturmaya ve eklemeye gider.
 
 04:01.100 --> 04:06.170
-Then to remove it, then to make sure that it actually worked there.
+Sonra onu çıkarmak ve orada gerçekten çalıştığından emin olmak için.
 
 04:06.170 --> 04:11.540
-And that it does not have that product in it like that.
+Ve içinde bu şekilde bir ürün olmadığını.
 
 04:11.570 --> 04:13.790
-Get products, returns all products.
+Ürünleri al, tüm ürünleri döndürür.
 
 04:13.790 --> 04:16.130
-So it does two and it knows two.
+Yani iki tane yapıyor ve iki tane biliyor.
 
 04:16.130 --> 04:21.230
-Now, this would be a great step for me to paste this into unity and make sure it works.
+Şimdi, bunu unity'ye yapıştırmak ve çalıştığından emin olmak benim için harika bir adım olacaktır.
 
 04:21.230 --> 04:22.280
-I'm going to do that.
+Bunu yapacağım.
 
 04:22.280 --> 04:27.800
-And then I'll come back and think, is there another test that it could add, or is there some refactor
+Ve sonra geri dönüp düşüneceğim, ekleyebileceğim başka bir test var mı veya bir refactor var mı?
 
 04:27.800 --> 04:30.500
-to the code that we could do just to play with it a little bit more?
+Kodla biraz daha oynamak için yapabileceğimiz bir şey var mı?
 
 04:30.500 --> 04:31.820
-But I like where this is going.
+Ama bu işin gidişatını seviyorum.
 
 04:31.820 --> 04:33.200
-So let's paste this into unity.
+Bunu Unity'ye yapıştıralım.
 
 04:33.230 --> 04:37.820
-Save it inside unity looks like it compiles and inside unity looks like it's running.
+Unity'nin içine kaydedin, derlenmiş gibi görünür ve unity'nin içinde çalışıyor gibi görünür.
 
 04:37.820 --> 04:38.990
-Let's run the test.
+Testi çalıştıralım.
 
 04:40.910 --> 04:42.200
-All the tests pass.
+Tüm testler geçti.
 
 04:42.230 --> 04:43.010
-Now.
+Şimdi.
 
 04:43.730 --> 04:45.590
-The test names that it gave us.
+Bize verdiği test isimleri.
 
 04:45.590 --> 04:45.890
-Great.
+Harika.
 
 04:45.890 --> 04:51.110
-It doesn't happen to match my particular style and I can decide at this point, adopt what gives me
+Benim özel tarzıma uymuyor ve bu noktada karar verebilirim, bana ne verdiğini benimseyebilirim
 
 04:51.110 --> 04:52.730
-or suggest a difference.
+ya da bir farklılık önermek.
 
 04:52.730 --> 04:58.040
-So just to play with the idea here, I'm going to suggest that use a slightly different naming scheme.
+Buradaki fikirle oynamak için, biraz farklı bir adlandırma şeması kullanmanızı önereceğim.
 
 04:58.040 --> 05:01.610
-But I love the test that gave me and I love that they all pass.
+Ama bana verilen testi ve hepsinin geçmesini seviyorum.
 
 05:01.610 --> 05:03.530
-So we're doing really good so far.
+Yani şu ana kadar gerçekten iyi gidiyoruz.
 
 05:03.530 --> 05:08.390
-Let's go back and just play with the idea of giving some small suggestion and see it iterate one more
+Geri dönelim ve sadece küçük bir öneri verme fikriyle oynayalım ve bir kez daha yinelenmesini görelim
 
 05:08.390 --> 05:08.780
-time.
+Zaman.
 
 05:08.780 --> 05:11.900
-So let's tell it what works great.
+O zaman ona neyin harika çalıştığını söyleyelim.
 
 05:11.900 --> 05:16.960
-That works and compiles and all tests pass.
+Bu çalışır, derlenir ve tüm testler geçer.
 
 05:16.970 --> 05:25.790
-However, I don't like the test method naming, so please change from the format of add product.
+Ancak, test yöntemi adlandırmasını sevmiyorum, bu nedenle lütfen ürün ekleme biçiminden değiştirin.
 
 05:25.790 --> 05:28.880
-Add products to list to a new format like Add product.
+Ürün ekle gibi yeni bir formatta listeye ürün ekleyin.
 
 05:28.910 --> 05:32.510
-Get products contains product when product added.
+Ürün eklendiğinde ürün içeren ürünleri alın.
 
 05:33.080 --> 05:38.930
-I generally like to follow something like the method under test the expected result, and then when
+Genellikle beklenen sonucu test etmek için aşağıdaki gibi bir yöntem izlemeyi severim
 
 05:38.930 --> 05:43.970
-this particular thing happens, sometimes the naming gets a little bit long as shown here.
+bu özel durum gerçekleştiğinde, bazen adlandırma burada gösterildiği gibi biraz uzar.
 
 05:43.970 --> 05:45.650
-Sometimes it's not the clearest.
+Bazen çok net olmayabilir.
 
 05:45.650 --> 05:47.240
-It really depends on the context.
+Bu gerçekten bağlama göre değişir.
 
 05:47.240 --> 05:52.100
-But moreover, what I'm showing here is that I like most of what ChatGPT gave me.
+Ama dahası, burada gösterdiğim şey ChatGPT'nin bana verdiklerinin çoğunu beğendiğimdir.
 
 05:52.100 --> 05:53.990
-But I want to suggest a change.
+Ama bir değişiklik önermek istiyorum.
 
 05:53.990 --> 05:57.200
-So let's just play with this as the change and see what result we get.
+Şimdi değişiklik olarak bununla oynayalım ve nasıl bir sonuç alacağımızı görelim.
 
 05:57.230 --> 05:58.520
-Let's take a look at the result.
+Sonuca bir göz atalım.
 
 05:58.520 --> 06:01.040
-It says certainly renaming looks good.
+Yeniden adlandırmanın kesinlikle iyi göründüğünü söylüyor.
 
 06:01.070 --> 06:06.110
-It mentions that it's inferring method, name, condition, expected result.
+Yöntem, ad, koşul, beklenen sonuç çıkarımı yaptığından bahsediyor.
 
 06:06.230 --> 06:09.530
-I actually think expected result then condition.
+Aslında beklenen sonucun koşuldan sonra geldiğini düşünüyorum.
 
 06:09.530 --> 06:11.660
-But let's take a look at the results here.
+Ama şimdi sonuçlara bir göz atalım.
 
 06:11.660 --> 06:14.270
-So again I admit this is pretty long.
+Bunun oldukça uzun olduğunu tekrar kabul ediyorum.
 
 06:14.270 --> 06:18.170
-But add product get products contains the product.
+Ancak ürün ekle get ürünleri ürünü içerir.
 
 06:18.170 --> 06:20.480
-When the product is added, great.
+Ürün eklendiğinde, harika.
 
 06:20.510 --> 06:21.710
-Here's an even longer one.
+İşte daha da uzun bir tane.
 
 06:21.710 --> 06:23.240
-Get product does not.
+Ürün alınmıyor.
 
 06:23.270 --> 06:28.100
-Now you could argue that this isn't the best naming scheme, which as I'm seeing this long name here,
+Şimdi bunun en iyi adlandırma şeması olmadığını iddia edebilirsiniz, ki burada bu uzun ismi görüyorum,
 
 06:28.100 --> 06:32.690
-I'm thinking, hey, maybe it's not a good one, but what we've seen is that we're able to bounce back
+Düşünüyorum da, hey, belki de iyi bir tane değildir, ama gördüğümüz şey, geri dönebildiğimizdir.
 
 06:32.690 --> 06:37.790
-and forth and give a little bit of a suggestion and see that ChatGPT works well.
+ve ileri ve biraz öneri verin ve ChatGPT'nin iyi çalıştığını görün.
 
 06:37.790 --> 06:41.300
-So we'll copy this into the unity and see how it works.
+Bunu unity'ye kopyalayalım ve nasıl çalıştığını görelim.
 
 06:41.300 --> 06:42.110
-So here we are.
+İşte buradayız.
 
 06:42.110 --> 06:42.800
-It's in unity.
+Birlik içinde.
 
 06:42.800 --> 06:43.520
-It's compiled.
+Derlendi.
 
 06:43.520 --> 06:44.810
-And let's run the tests.
+Ve testleri çalıştıralım.
 
 06:47.350 --> 06:48.850
-And everything looks good there.
+Ve orada her şey iyi görünüyor.
 
 06:48.850 --> 06:54.490
-So we've seen a fantastic use case of artificial intelligence, not just to make production code as
+Bu nedenle, yapay zekanın sadece üretim kodunu aşağıdaki gibi yapmak için değil, harika bir kullanım örneğini gördük
 
 06:54.490 --> 06:59.200
-we did in the earlier lesson, but also to create new unit tests on top of that production code.
+önceki derste yaptığımız gibi, aynı zamanda bu üretim kodunun üzerinde yeni birim testleri oluşturmak için.
 
 06:59.200 --> 07:05.440
-Here, at least in our simple demo, we've seen unity compiled the code every single time with no problems,
+Burada, en azından basit demomuzda, unity'nin kodu her seferinde sorunsuz bir şekilde derlediğini gördük,
 
 07:05.440 --> 07:07.350
-and all of our tests passed.
+ve tüm testlerimiz geçti.
 
 07:07.360 --> 07:11.110
-If you would find that the code didn't compile, you could tell ChatGPT.
+Kodun derlenmediğini fark ederseniz, ChatGPT'ye söyleyebilirsiniz.
 
 07:11.410 --> 07:16.720
-Hey, that was pretty good, but I got this error and you would be helping to educate it and give you
+Hey, bu oldukça iyiydi, ama bu hatayı aldım ve onu eğitmek ve size
 
 07:16.720 --> 07:17.590
-a better answer.
+daha iyi bir cevap.
 
 07:17.590 --> 07:19.000
-We didn't need to do that here.
+Burada bunu yapmamıza gerek yoktu.
 
 07:19.000 --> 07:24.460
-Also, if some or all of the tests failed, you could tell unity that I generally don't see that the
+Ayrıca, testlerin bir kısmı veya tamamı başarısız olursa, unity'ye genellikle
 
 07:24.460 --> 07:26.350
-tests fail, but it is possible.
+testler başarısız olur, ancak bu mümkündür.
 
 07:26.350 --> 07:27.490
-So that's it here.
+İşte bu kadar.
 
 07:27.490 --> 07:31.000
-We've seen a fantastic use case for AI in unit testing.
+Birim testlerinde yapay zeka için harika bir kullanım örneği gördük.
 
 07:31.030 --> 07:31.750
-Thanks.
+Teşekkürler.

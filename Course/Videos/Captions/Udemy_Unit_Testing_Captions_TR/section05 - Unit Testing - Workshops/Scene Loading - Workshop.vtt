@@ -1,364 +1,364 @@
 WEBVTT
 
 00:00.320 --> 00:03.950
-Hello and welcome to the unit testing for Unity Workshops.
+Merhaba ve Unity Workshops için birim testine hoş geldiniz.
 
 00:03.950 --> 00:06.800
-And here we're going to be looking at scene loading.
+Ve burada sahne yüklemesine bakacağız.
 
 00:06.800 --> 00:12.860
-Now traditionally when we think of unit testing we think of testing the smallest unit of code with the
+Şimdi geleneksel olarak birim testini düşündüğümüzde, en küçük kod birimini
 
 00:12.860 --> 00:15.530
-fewest lines and the fewest dependencies.
+en az satır ve en az bağımlılık.
 
 00:15.530 --> 00:21.530
-So on the opposite end of that spectrum of simplicity, we have complexity.
+Yani bu basitlik spektrumunun diğer ucunda karmaşıklık vardır.
 
 00:21.530 --> 00:27.710
-And one of the important foundational objects inside unity is the scene itself.
+Unity'nin içindeki önemli temel nesnelerden biri de sahnenin kendisidir.
 
 00:28.220 --> 00:35.150
-Everything that you see as a player in a game experience is inside of a scene.
+Bir oyun deneyiminde oyuncu olarak gördüğünüz her şey bir sahnenin içindedir.
 
 00:35.150 --> 00:39.950
-So we can unit test the individual scripts or elements within a scene.
+Böylece bir sahne içindeki tek tek komut dosyalarını veya öğeleri birim testine tabi tutabiliriz.
 
 00:39.950 --> 00:44.210
-Or as we're going to show here, we could test the entire scene itself.
+Ya da burada göstereceğimiz gibi, tüm sahnenin kendisini test edebiliriz.
 
 00:44.210 --> 00:45.710
-Now why might we do that?
+Bunu neden yapalım ki?
 
 00:45.710 --> 00:48.110
-First of all, it's a nice smoke test.
+Her şeyden önce, bu güzel bir duman testi.
 
 00:48.140 --> 00:53.630
-A simple way to just see did the scene load and did it load with no exceptions.
+Sahnenin yüklenip yüklenmediğini ve istisna olmadan yüklenip yüklenmediğini görmenin basit bir yolu.
 
 00:53.630 --> 00:54.980
-That alone is worth it.
+Bu bile tek başına buna değer.
 
 00:54.980 --> 00:56.690
-Let's think about the things that we can do.
+Yapabileceğimiz şeyler hakkında düşünelim.
 
 00:56.720 --> 01:00.770
-We could make assumptions on the scene structure and what objects are inside of it.
+Sahne yapısı ve içinde hangi nesnelerin bulunduğu hakkında varsayımlarda bulunabiliriz.
 
 01:00.770 --> 01:04.340
-We could make assumptions on the behaviors in things in that scene.
+O sahnedeki şeylerin davranışları hakkında varsayımlarda bulunabiliriz.
 
 01:04.340 --> 01:11.210
-And a workflow that I find really cool is you can leave these tests behind and have the non-programmers
+Ve gerçekten harika bulduğum bir iş akışı, bu testleri geride bırakabilir ve programcı olmayanların
 
 01:11.210 --> 01:15.590
-on your team run the tests before and after doing their work.
+Ekibinizdeki kişiler işlerini yapmadan önce ve sonra testleri yaparlar.
 
 01:15.590 --> 01:21.590
-Perhaps a level designer being able to work more confidently, knowing that new levels added, do not
+Belki de bir seviye tasarımcısı, yeni seviyelerin eklendiğini bilerek daha güvenle çalışabilir.
 
 01:21.590 --> 01:25.490
-break any existing scenes or revisions to existing levels.
+mevcut sahneleri veya mevcut seviyelerdeki revizyonları kırın.
 
 01:25.490 --> 01:31.450
-Don't break any of the scenes either, and your art team can be sure that if they were to replace some
+Hiçbir sahneyi de bozmayın ve sanat ekibiniz bazı sahneleri değiştirecek olsalar
 
 01:31.460 --> 01:37.400
-assets or add some new assets, that from the programmer's standpoint, nothing has been broken.
+varlıklar veya yeni varlıklar eklemek, programcının bakış açısından hiçbir şeyin bozulmadığını gösterir.
 
 01:37.400 --> 01:39.200
-So what would that workflow look like?
+Peki bu iş akışı neye benziyor?
 
 01:39.200 --> 01:45.680
-Well, I'll show an example here of being able to create a play mode test and load an entire scene into
+Burada bir oyun modu testi oluşturabilmenin ve tüm sahneyi bir oyun moduna yükleyebilmenin bir örneğini göstereceğim.
 
 01:45.680 --> 01:49.070
-that play mode test and make some assumptions on it using assertions.
+Bu oyun modu testini yapın ve varsayımları kullanarak bazı varsayımlarda bulunun.
 
 01:49.070 --> 01:56.030
-For example, you could load a scene and in the intro scene check that the menu properly is being displayed.
+Örneğin, bir sahne yükleyebilir ve giriş sahnesinde menünün düzgün bir şekilde görüntülendiğini kontrol edebilirsiniz.
 
 01:56.030 --> 01:57.620
-We're in a gameplay scene.
+Bir oyun sahnesindeyiz.
 
 01:57.650 --> 02:03.080
-Be sure that the background element, the hero and all the enemies have been instantiated at the proper
+Arka plan öğesinin, kahramanın ve tüm düşmanların uygun şekilde örneklendiğinden emin olun
 
 02:03.080 --> 02:03.470
-moment.
+An.
 
 02:03.470 --> 02:08.900
-Now, because we're opening the door to the great complexity possible within a given scene, it may
+Şimdi, belirli bir sahnede mümkün olan büyük karmaşıklığa kapı açtığımız için
 
 02:08.900 --> 02:15.380
-seem overwhelming that you'd want to test out everything in a scene, but again, I think even a very
+bir sahnede her şeyi test etmek istemeniz çok zor görünüyor, ancak yine de bence çok
 
 02:15.380 --> 02:22.490
-conservative test that just loads the scene and makes sure 1 or 2 key elements are there, with no exceptions.
+Sadece sahneyi yükleyen ve istisna olmaksızın 1 veya 2 temel öğenin orada olduğundan emin olan muhafazakar test.
 
 02:22.490 --> 02:27.400
-Thrown is a fantastic low hanging fruit that will bring value to your team.
+Thrown, ekibinize değer katacak harika bir düşük asılı meyvedir.
 
 02:27.410 --> 02:28.580
-Let's take a look inside.
+İçeri bir göz atalım.
 
 02:28.580 --> 02:29.240
-Unity.
+Birlik.
 
 02:29.510 --> 02:31.910
-Here we are inside the core sample project.
+Burada çekirdek örnek projenin içindeyiz.
 
 02:31.940 --> 02:33.440
-Now in the test runner window.
+Şimdi test çalıştırıcı penceresinde.
 
 02:33.440 --> 02:35.450
-Here we've got lots of different categories.
+Burada birçok farklı kategorimiz var.
 
 02:35.450 --> 02:42.140
-I've got the scene loading selected and you can see that we've got some editor and runtime tests.
+Sahne yüklemeyi seçtim ve bazı editör ve çalışma zamanı testlerimiz olduğunu görebilirsiniz.
 
 02:42.140 --> 02:48.380
-Because scenes and the things that I'm choosing to test here are related to the typical runtime behavior
+Çünkü sahneler ve burada test etmeyi seçtiğim şeyler tipik çalışma zamanı davranışıyla ilgilidir
 
 02:48.380 --> 02:50.240
-of unity Monobehaviours.
+birlik Monobehaviours.
 
 02:50.240 --> 02:54.470
-For example, I'm going to focus on just the runtime test, the play mode test.
+Örneğin, ben sadece çalışma zamanı testine, oyun modu testine odaklanacağım.
 
 02:54.470 --> 02:56.470
-So I'll disable the edit mode test.
+Bu yüzden düzenleme modu testini devre dışı bırakacağım.
 
 02:56.480 --> 02:58.220
-Let's take a look at what we've got here.
+Elimizdekilere bir göz atalım.
 
 02:58.220 --> 03:04.970
-So what we're going to do is every time we run this particular test, we're going to be checking that
+Yani yapacağımız şey, bu testi her çalıştırdığımızda şunu kontrol etmek olacak
 
 03:04.970 --> 03:12.500
-the intro scene has a hero inside of it that simulates our main game character, that the intro scene
+Giriş sahnesinin içinde ana oyun karakterimizi simüle eden bir kahraman var, giriş sahnesi
 
 03:12.500 --> 03:15.020
-loads without any exceptions thrown.
+herhangi bir istisna atılmadan yüklenir.
 
 03:15.260 --> 03:17.720
-And then we'll repeat that for the game scene.
+Ve sonra bunu oyun sahnesi için tekrarlayacağız.
 
 03:17.930 --> 03:23.480
-You could imagine that you'd have one test that could test all of your scenes in a systematic way.
+Tüm sahnelerinizi sistematik bir şekilde test edebilecek tek bir testiniz olduğunu hayal edebilirsiniz.
 
 03:23.480 --> 03:30.950
-What I've chosen to do here is structure one test for each of the functionalities that we'd want, one
+Burada yapmayı seçtiğim şey, istediğimiz işlevlerin her biri için bir test yapılandırmak, bir
 
 03:30.950 --> 03:36.770
-for the hero, one for the exceptions, and doing that for each of the scenes, all within one test
+kahraman için bir tane, istisnalar için bir tane ve bunu her bir sahne için tek bir test içinde yapmak
 
 03:36.770 --> 03:37.310
-structure.
+Yapı.
 
 03:37.310 --> 03:40.610
-But you could decide how to scale it up depending what you and your team want to do.
+Ancak siz ve ekibinizin ne yapmak istediğine bağlı olarak bunu nasıl ölçeklendireceğinize karar verebilirsiniz.
 
 03:40.640 --> 03:41.840
-Let me run these tests.
+Şu testleri yapayım.
 
 03:41.840 --> 03:42.920
-Everything passes there.
+Her şey oradan geçiyor.
 
 03:42.920 --> 03:44.690
-You can see we've got some console traffic.
+Biraz konsol trafiğimiz olduğunu görebilirsiniz.
 
 03:44.690 --> 03:45.920
-Let's take a look at the source code.
+Kaynak koduna bir göz atalım.
 
 03:45.920 --> 03:50.990
-So in this test I'm saying that the scene one intro, which is the name of one of the scenes in the
+Yani bu testte sahne bir girişinin, ki bu sahnelerden birinin adıdır
 
 03:50.990 --> 03:57.710
-project, we'll assume that the hero is not null when the scene is loaded, unlike some of our smallest
+projesinde, sahne yüklendiğinde kahramanın null olmadığını varsayacağız, bazı en küçük
 
 03:57.710 --> 04:01.280
-unit testing, loading the scene and doing it well and nice.
+birim testi, sahneyi yüklemek ve bunu iyi ve güzel bir şekilde yapmak.
 
 04:01.280 --> 04:02.540
-Having a nice workflow here.
+Burada güzel bir iş akışı var.
 
 04:02.540 --> 04:06.140
-It does involve some setup, so let's talk about what the setup is.
+Biraz kurulum gerektiriyor, bu yüzden kurulumun ne olduğundan bahsedelim.
 
 04:06.140 --> 04:09.380
-First thing is that I'll listen to the scene manager to see.
+İlk olarak, görmek için sahne yöneticisini dinleyeceğim.
 
 04:09.380 --> 04:14.840
-Hey has the scene that I want to load been loaded, then I will load the scene here.
+Yüklemek istediğim sahne yüklendi mi, o zaman sahneyi buraya yükleyeceğim.
 
 04:14.840 --> 04:21.830
-I've made a static variable for the scene names, just so it's easier for me to be able to isolate and
+Sahne adları için statik bir değişken oluşturdum, böylece sahne adlarını izole edebilmem ve
 
 04:21.830 --> 04:23.360
-update those if I need to.
+Gerekirse bunları güncellerim.
 
 04:23.390 --> 04:26.090
-Then I will sit here and wait while the scene is loaded.
+Sonra burada oturup sahne yüklenirken bekleyeceğim.
 
 04:26.090 --> 04:31.580
-This makes sure I don't assume or assert anything about that until after the scene is loaded.
+Bu, sahne yüklenene kadar bu konuda hiçbir şey varsaymamamı veya iddia etmememi sağlar.
 
 04:31.580 --> 04:33.020
-It happens quite quickly.
+Oldukça hızlı gerçekleşir.
 
 04:33.020 --> 04:37.640
-Then here I will be able to do any of the introspection into the scene.
+O zaman burada sahneye dair herhangi bir iç gözlem yapabileceğim.
 
 04:37.670 --> 04:43.700
-A very powerful thing I can do is look through the entire scene after it's loaded, and look for any
+Yapabileceğim çok güçlü bir şey, yüklendikten sonra tüm sahneye bakmak ve herhangi bir
 
 04:43.700 --> 04:45.320
-existence of a given script.
+belirli bir senaryonun varlığı.
 
 04:45.320 --> 04:52.730
-If I had a prefab called hero or an individual hero script in that scene, this would return one value.
+Eğer o sahnede hero adında bir prefabrik veya bireysel bir hero betiği olsaydı, bu bir değer döndürecekti.
 
 04:52.730 --> 04:57.020
-I could also get a list back of all of the heroes or all of the enemies.
+Ayrıca tüm kahramanların veya tüm düşmanların bir listesini de alabilirim.
 
 04:57.020 --> 04:59.840
-If I have multiple, then I can iterate over them and.
+Birden fazla varsa, bunların üzerinde yineleme yapabilirim ve
 
 04:59.940 --> 05:01.670
-And perform whatever test I want.
+Ve istediğim testi yapabiliyorum.
 
 05:01.680 --> 05:03.960
-I'm doing a purposely lean test here.
+Burada bilerek zayıf bir test yapıyorum.
 
 05:03.990 --> 05:06.780
-All I do is make sure that the hero is not null.
+Tek yaptığım kahramanın null olmadığından emin olmak.
 
 05:06.810 --> 05:14.100
-If, for example, an artist or a level designer accidentally deleted the hero in a given scene, this
+Örneğin, bir sanatçı veya seviye tasarımcısı belirli bir sahnedeki kahramanı yanlışlıkla silmişse, bu
 
 05:14.100 --> 05:14.730
-would fail.
+başarısız olur.
 
 05:14.730 --> 05:17.680
-And it was a nice test just to make sure that the elements are there.
+Elementlerin orada olduğundan emin olmak için güzel bir test oldu.
 
 05:17.700 --> 05:23.550
-You can imagine a system inside unity could be quite complex and your scenes could be quite complex
+Unity içindeki bir sistemin oldukça karmaşık olabileceğini ve sahnelerinizin oldukça karmaşık olabileceğini hayal edebilirsiniz
 
 05:23.550 --> 05:24.000
-too.
+çok.
 
 05:24.030 --> 05:26.820
-You may have hundreds or even thousands of objects.
+Yüzlerce hatta binlerce nesneniz olabilir.
 
 05:26.820 --> 05:33.060
-You may not necessarily want to do an assertion for every single one of them, but depending how you
+Bunların her biri için bir iddia yapmak istemeyebilirsiniz, ancak nasıl yaptığınıza bağlı olarak
 
 05:33.060 --> 05:38.460
-organize your scene, you may be able to check for some simple things like the background, the UI,
+sahnenizi düzenleyerek, arka plan, kullanıcı arayüzü gibi bazı basit şeyleri kontrol edebilirsiniz,
 
 05:38.490 --> 05:45.360
-the hero, and a list of enemies that alone easy test to perform by just adding some lines here, and
+ve buraya birkaç satır ekleyerek tek başına kolay bir test gerçekleştirilebilecek bir düşman listesi ve
 
 05:45.360 --> 05:50.340
-then you have more confidence that as you and your team work on the code and make commits to your version
+o zaman siz ve ekibiniz kod üzerinde çalıştıkça ve sürümünüze taahhütlerde bulundukça daha fazla güvene sahip olursunuz
 
 05:50.340 --> 05:53.790
-control repository that no one is accidentally breaking something.
+kimsenin yanlışlıkla bir şeyi kırmadığı kontrol deposu.
 
 05:53.790 --> 06:00.630
-Remember, what you're currently doing now is needing to then play the scene or all the scenes and make
+Unutmayın, şu anda yaptığınız şey, sahneyi veya tüm sahneleri oynatmak ve
 
 06:00.630 --> 06:05.780
-sure that you don't visually detect that something is missing or broken here.
+Burada bir şeylerin eksik veya bozuk olduğunu görsel olarak tespit etmediğinizden emin olun.
 
 06:05.790 --> 06:07.930
-Being automated is much, much smoother.
+Otomatik olmak çok çok daha sorunsuzdur.
 
 06:07.950 --> 06:09.290
-Let's take a look at the other tests.
+Diğer testlere bir göz atalım.
 
 06:09.300 --> 06:16.080
-We've got one here that loads the scene, and then just make sure it does not throw any exceptions.
+Burada sahneyi yükleyen bir tane var ve sonra herhangi bir istisna atmadığından emin olun.
 
 06:17.110 --> 06:20.960
-Then we repeat the same two tests for the all other scene.
+Ardından diğer tüm sahneler için aynı iki testi tekrarlıyoruz.
 
 06:20.980 --> 06:25.630
-Now let's take a look at the top of that testing scene and see some of the additional setups that's
+Şimdi bu test sahnesinin üst kısmına bir göz atalım ve bazı ek kurulumları görelim
 
 06:25.660 --> 06:26.230
-needed.
+gerekli.
 
 06:26.260 --> 06:32.410
-One thing is that because we're loading scenes with code, those need to exist in the unity build settings.
+Bir şey var ki, sahneleri kodla yüklediğimiz için, bunların unity derleme ayarlarında bulunması gerekiyor.
 
 06:32.410 --> 06:35.530
-That's true in production as well as in testing.
+Bu, testte olduğu kadar üretimde de geçerlidir.
 
 06:35.560 --> 06:41.110
-Now you and your team could simply make sure that it's always updated and do that manually within the
+Artık siz ve ekibiniz her zaman güncellendiğinden emin olabilir ve bunu manuel olarak
 
 06:41.110 --> 06:41.950
-unity editor.
+unity editör.
 
 06:41.950 --> 06:44.950
-And let's take a look at how we would do that now here inside unity.
+Şimdi bunu unity içinde nasıl yapacağımıza bir göz atalım.
 
 06:44.980 --> 06:46.840
-You go to File Build Settings.
+Dosya Oluşturma Ayarları'na gidin.
 
 06:46.840 --> 06:50.020
-And up here is the list of all the scenes that you need.
+Ve burada ihtiyacınız olan tüm sahnelerin listesi var.
 
 06:50.050 --> 06:53.710
-Now if you forget to add one in there, the test would fail.
+Şimdi eğer oraya bir tane eklemeyi unutursanız, test başarısız olur.
 
 06:53.710 --> 06:59.380
-So rather than require us to remember this particular step, which is okay if your team wants to do
+Bu nedenle, bu özel adımı hatırlamamızı istemek yerine, ekibiniz bunu yapmak istiyorsa sorun değil
 
 06:59.380 --> 07:04.030
-that, I'm automating that and dynamically adding the scenes that we want to add.
+Bunu otomatikleştiriyorum ve eklemek istediğimiz sahneleri dinamik olarak ekliyorum.
 
 07:04.060 --> 07:10.990
-So the way that I do that, I use some existing interfaces that unity makes available here for when
+Bunu yapmanın yolu, unity'nin burada ne zaman kullanılabilir hale getirdiği bazı mevcut arayüzleri kullanmaktır
 
 07:10.990 --> 07:13.930
-the build is being set up and when the build is being cleaned up.
+derleme kurulurken ve derleme temizlenirken.
 
 07:13.960 --> 07:18.550
-These are different than some of the attributes we've seen in earlier tests, but then I won't get into
+Bunlar daha önceki testlerde gördüğümüz bazı özelliklerden farklıdır, ancak o zaman bu konuya girmeyeceğim
 
 07:18.550 --> 07:19.720
-the complexity here.
+Buradaki karmaşıklık.
 
 07:19.720 --> 07:25.960
-But just know that in the setup, what I'm doing is adding our two test scenes to the build settings.
+Ancak kurulumda yaptığım şeyin iki test sahnemizi derleme ayarlarına eklemek olduğunu bilin.
 
 07:26.290 --> 07:32.020
-And down here in the cleanup, I'm reverting or removing those two that have been added.
+Ve burada temizlik kısmında, eklenen iki tanesini geri alıyorum ya da kaldırıyorum.
 
 07:32.230 --> 07:35.890
-Now there's lots of different ways you could organize that, but you can take a look at the source code
+Şimdi bunu organize etmenin birçok farklı yolu var, ancak kaynak koda bir göz atabilirsiniz
 
 07:35.890 --> 07:37.520
-and see if there's something else you want to do there.
+ve orada yapmak istediğiniz başka bir şey olup olmadığına bakın.
 
 07:37.540 --> 07:44.800
-Down here in the test, I'm assuming that I'm able to call load scene on any of the testable scenes
+Burada testte, test edilebilir sahnelerden herhangi birinde sahneyi yükle'yi çağırabileceğimi varsayıyorum
 
 07:44.800 --> 07:46.150
-and we're good to go.
+ve gitmeye hazırız.
 
 07:46.150 --> 07:47.110
-So that's it.
+İşte bu kadar.
 
 07:47.140 --> 07:52.660
-It's pretty easy to set up, and if you build off of what is given here in the sample project, you'll
+Kurulumu oldukça kolaydır ve burada örnek projede verilenleri temel alırsanız, şunları yaparsınız
 
 07:52.660 --> 07:57.750
-find quick success in being able to test your scenes for your game production.
+oyun prodüksiyonunuz için sahnelerinizi test edebilme konusunda hızlı bir başarı elde edin.
 
 07:57.760 --> 07:58.660
-Thanks.
+Teşekkürler.

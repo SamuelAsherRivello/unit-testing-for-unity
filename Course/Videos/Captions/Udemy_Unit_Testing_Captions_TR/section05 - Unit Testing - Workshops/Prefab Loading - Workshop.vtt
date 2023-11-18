@@ -1,496 +1,496 @@
 WEBVTT
 
 00:00.290 --> 00:04.310
-Hello and welcome to the unit Testing for Unity Workshop Series.
+Merhaba ve Unity için Birim Testi Atölye Serisine hoş geldiniz.
 
 00:04.460 --> 00:06.770
-Here we're going to be looking at prefabs.
+Burada prefabriklere bakacağız.
 
 00:06.800 --> 00:10.940
-Now up until this moment in the course we have not tested prefabs.
+Kursun bu anına kadar prefabrikleri test etmedik.
 
 00:10.970 --> 00:16.460
-In the moments where I did want to test some monobehaviours, I created them from scratch using code
+Bazı monobehaviour'ları test etmek istediğim anlarda, bunları kod kullanarak sıfırdan oluşturdum
 
 00:16.460 --> 00:18.080
-as shown in the previous videos.
+önceki videolarda gösterildiği gibi.
 
 00:18.080 --> 00:24.440
-But of course, a major fundamental building block in unity game development is the prefab.
+Ancak elbette, unity oyun geliştirmede önemli bir temel yapı taşı prefabriktir.
 
 00:24.680 --> 00:32.300
-Prefabs allow you to gather together various assets and functionality, put them in your project, and
+Prefabrikler, çeşitli varlıkları ve işlevleri bir araya getirmenize, bunları projenize koymanıza ve
 
 00:32.300 --> 00:38.020
-easily reuse them either by dragging them into the scene so you save them in the scene and they're there,
+Bunları sahneye sürükleyerek kolayca yeniden kullanabilirsiniz, böylece sahneye kaydedersiniz ve orada kalırlar,
 
 00:38.030 --> 00:40.690
-or by dynamically creating them with code.
+ya da bunları dinamik olarak kodla oluşturarak.
 
 00:40.700 --> 00:43.040
-Now, why would we want to test these prefabs?
+Şimdi, neden bu prefabrikleri test etmek isteyelim?
 
 00:43.040 --> 00:48.800
-Well, in a very light form, imagine that your game uses a character prefab in an enemy prefab, perhaps
+Çok hafif bir biçimde, oyununuzun bir düşman prefabriğinde bir karakter prefabriği kullandığını düşünün, belki
 
 00:48.800 --> 00:49.900
-multiple of each.
+Her birinin katları.
 
 00:49.910 --> 00:58.280
-You can have a unit test that creates just the player and validates that it doesn't throw any exceptions,
+Sadece oyuncuyu oluşturan ve herhangi bir istisna atmadığını doğrulayan bir birim testiniz olabilir,
 
 00:58.400 --> 01:04.970
-just that alone gives you a little bit more confidence that the asset works well over time.
+Sadece bu bile varlığın zaman içinde iyi çalıştığına dair size biraz daha fazla güven verir.
 
 01:04.970 --> 01:10.670
-And as you're collaborating with different non-programming talent, including level designers and artists,
+Ve seviye tasarımcıları ve sanatçılar da dahil olmak üzere programcı olmayan farklı yeteneklerle işbirliği yaptığınız için,
 
 01:10.700 --> 01:14.030
-you know that those prefabs have not accidentally been broken.
+bu prefabriklerin yanlışlıkla kırılmadığını biliyorsunuz.
 
 01:14.030 --> 01:17.870
-You can make some assumptions on the structure by using a test.
+Bir test kullanarak yapı hakkında bazı varsayımlarda bulunabilirsiniz.
 
 01:17.870 --> 01:22.760
-You can make assumptions on the serialized fields and check that they're properly populated, and you
+Serileştirilmiş alanlar üzerinde varsayımlarda bulunabilir ve bunların doğru şekilde doldurulup doldurulmadığını kontrol edebilirsiniz ve
 
 01:22.760 --> 01:25.400
-can make assumptions on behavior of course, as well.
+elbette davranışlar üzerinde de varsayımlarda bulunabilir.
 
 01:25.400 --> 01:31.160
-In the earlier character example, which did not use prefabs, I had a character script and I would
+Prefabreleri kullanmayan önceki karakter örneğinde, bir karakter komut dosyam vardı ve
 
 01:31.160 --> 01:36.770
-check to make sure that it could move properly around the world when I call it move by or move to functionality.
+move by veya move to işlevini çağırdığımda dünya etrafında düzgün bir şekilde hareket edebildiğinden emin olmak için kontrol edin.
 
 01:36.770 --> 01:43.730
-As you create complex prefabs with dependencies, you'd be able to call functionality on those prefabs
+Bağımlılıkları olan karmaşık prefabrikler oluşturdukça, bu prefabrikler üzerinde işlevsellik çağırabilirsiniz
 
 01:43.730 --> 01:44.300
-as well.
+aynı zamanda.
 
 01:44.300 --> 01:47.990
-Now, tests can cover a small unit of code.
+Artık testler küçük bir kod birimini kapsayabilir.
 
 01:48.140 --> 01:54.680
-In the ideal world you have few lines and maybe no dependencies all the way up to a more complex system,
+İdeal dünyada birkaç satıra sahip olursunuz ve belki de daha karmaşık bir sisteme kadar hiç bağımlılığınız olmaz,
 
 01:54.680 --> 01:59.810
-which if you know what you're doing when you're doing your unit testing, you can faithfully have a
+Eğer birim testlerinizi yaparken ne yaptığınızı biliyorsanız, bir
 
 01:59.810 --> 02:06.200
-test that executes over some dependencies as well, and gives you some assurance that those systems
+Bazı bağımlılıklar üzerinde de çalışan ve size bu sistemler hakkında biraz güvence veren test
 
 02:06.200 --> 02:07.490
-are working well together.
+birlikte iyi çalışıyorlar.
 
 02:07.520 --> 02:14.120
-A prefab is indeed probably your more complex on the end of that spectrum, and you're going to be testing
+Bir prefabrik gerçekten de muhtemelen bu spektrumun sonunda daha karmaşıktır ve test edeceksiniz
 
 02:14.120 --> 02:14.270
-that.
+Bu.
 
 02:14.270 --> 02:21.560
-The prefab can make use of its own custom components as well as unity components like rigidbody.
+Prefabrik, kendi özel bileşenlerinin yanı sıra rigidbody gibi unity bileşenlerini de kullanabilir.
 
 02:21.560 --> 02:26.750
-So be aware as you're setting these tests up that you're not testing too large of a system.
+Bu nedenle, bu testleri hazırlarken çok büyük bir sistemi test etmediğinizi unutmayın.
 
 02:26.750 --> 02:34.160
-If, for example, your hero character is using rigid body and a custom flying component, you may want
+Örneğin, kahraman karakteriniz sert gövde ve özel bir uçan bileşen kullanıyorsa, şunları isteyebilirsiniz
 
 02:34.160 --> 02:38.060
-to test the custom flying component separately in its own unit test.
+özel uçan bileşeni kendi birim testinde ayrı olarak test etmek için.
 
 02:38.060 --> 02:42.980
-Remember, there's always benefits to being able to break down and have less dependencies in your unit
+Unutmayın, biriminizi parçalara ayırabilmenin ve daha az bağımlılığa sahip olmanın her zaman faydaları vardır
 
 02:42.980 --> 02:43.460
-testing.
+Test.
 
 02:43.460 --> 02:49.550
-But that said, we can indeed create a test that runs on an entire prefab, including its dependencies
+Ancak bununla birlikte, bağımlılıkları da dahil olmak üzere tüm bir prefabrik üzerinde çalışan bir test oluşturabiliriz
 
 02:49.550 --> 02:50.240
-if we see fit.
+eğer uygun görürsek.
 
 02:50.240 --> 02:52.370
-Let's take a look at an example of this in the code.
+Bunun koddaki bir örneğine göz atalım.
 
 02:52.940 --> 02:54.640
-Here we are inside unity.
+İşte birliğin içindeyiz.
 
 02:54.650 --> 02:59.720
-If I look at the test runner window here in the category, I have it set already to prefab.
+Buradaki kategoride test çalıştırıcı penceresine bakarsam, zaten prefabrik olarak ayarlanmış olduğunu görürüm.
 
 02:59.720 --> 03:05.510
-And down here in this folder we're able to see that there's a prefab example.
+Ve burada bu klasörde bir prefabrik örneği olduğunu görebiliyoruz.
 
 03:05.510 --> 03:10.520
-Let's go ahead and open up the scene and just take a look at that scene running I'll go ahead and run
+Devam edelim ve sahneyi açalım ve çalıştırdığım sahneye bir göz atalım.
 
 03:10.520 --> 03:10.850
-it.
+o.
 
 03:13.540 --> 03:18.130
-So when I run that scene, a ball falls down with physics and slides along the floor.
+Bu sahneyi çalıştırdığımda, bir top fizik kurallarına göre yere düşüyor ve zemin boyunca kayıyor.
 
 03:18.160 --> 03:21.420
-It's not that particular behavior that we're interested in.
+İlgilendiğimiz şey bu özel davranış değil.
 
 03:21.430 --> 03:27.760
-I just wanted to put an enemy prefab in the scene, see it exist in the production code here.
+Sadece sahneye bir düşman prefabrik koymak istedim, burada üretim kodunda var olduğunu görün.
 
 03:27.760 --> 03:34.750
-Simulating this would be your larger game menu, settings, scene, whatever it is, and having some
+Bunu simüle etmek, daha büyük oyun menünüz, ayarlarınız, sahneniz, her neyse ve bazı
 
 03:34.750 --> 03:39.730
-dependency on one or more mono behaviors on a on a prefab.
+bir prefabrik üzerindeki bir veya daha fazla mono davranışa bağımlılık.
 
 03:39.940 --> 03:43.340
-So with that set up, let's take a look at how we would go about testing it.
+Bu hazırlıkla birlikte, bunu nasıl test edeceğimize bir göz atalım.
 
 03:43.360 --> 03:49.480
-Now in this scene I have a editor test and also a runtime test.
+Şimdi bu sahnede bir editör testim ve bir de çalışma zamanı testim var.
 
 03:49.480 --> 03:55.450
-But since this is testing more unity behavior and we've seen that mono behaviors, for example, are
+Ancak bu daha çok unity davranışını test ettiğinden ve örneğin mono davranışlarının
 
 03:55.450 --> 03:57.400
-something you want to test only at runtime.
+sadece çalışma zamanında test etmek istediğiniz bir şey.
 
 03:57.400 --> 03:59.470
-Let's focus just on the play mode test here.
+Burada sadece oyun modu testine odaklanalım.
 
 03:59.470 --> 04:00.820
-So I'm going to uncheck that one.
+Bu yüzden onun işaretini kaldıracağım.
 
 04:01.600 --> 04:06.820
-And here I've got a few different things we can do when this play mode test run, I check that the enemy
+Ve burada bu oyun modu test çalıştırıldığında yapabileceğimiz birkaç farklı şey var, düşmanın
 
 04:06.820 --> 04:08.380
-itself is not null.
+kendisi null değildir.
 
 04:08.410 --> 04:10.420
-That's the amount of behavior script.
+Bu davranış senaryosunun miktarı.
 
 04:10.450 --> 04:16.330
-Then I test that the game object it's sitting on is not null, and we would generally assume that if
+Sonra üzerinde bulunduğu oyun nesnesinin null olmadığını test ediyorum ve genellikle eğer
 
 04:16.330 --> 04:18.460
-the enemy exists, the game object does as well.
+düşman varsa, oyun nesnesi de vardır.
 
 04:18.460 --> 04:20.740
-But this is just a further test on that.
+Ama bu sadece bunun bir başka testi.
 
 04:20.740 --> 04:23.410
-And then finally we can check that the rigid body is not null.
+Ve son olarak katı cismin boş olmadığını kontrol edebiliriz.
 
 04:23.410 --> 04:27.670
-So here we're checking mostly the structure of what we've got there.
+Yani burada çoğunlukla elimizdeki yapıyı kontrol ediyoruz.
 
 04:27.670 --> 04:33.940
-But you could also check serialized fields, initialized public values, some of the behavior functionality
+Ancak serileştirilmiş alanları, ilklendirilmiş genel değerleri ve bazı davranış işlevlerini de kontrol edebilirsiniz
 
 04:33.940 --> 04:35.230
-by calling methods on it.
+yöntemleri çağırarak.
 
 04:35.230 --> 04:36.430
-You can do that on your own.
+Bunu kendi başınıza yapabilirsiniz.
 
 04:36.430 --> 04:41.350
-Expand what you see here and add your own testing functionality on top of new production code.
+Burada gördüklerinizi genişletin ve yeni üretim kodunun üzerine kendi test işlevselliğinizi ekleyin.
 
 04:41.380 --> 04:44.200
-Get your feet wet with that and see how it goes for you.
+Ayaklarınızı bununla ıslatın ve sizin için nasıl gittiğine bakın.
 
 04:44.230 --> 04:46.120
-Let's take a look at the source code here.
+Kaynak koduna bir göz atalım.
 
 04:46.270 --> 04:47.620
-Here's the play mode test.
+İşte oyun modu testi.
 
 04:47.620 --> 04:52.090
-I'll take a look at those three tests, and then talk about the setup that's needed specifically for
+Bu üç teste bir göz atacağım ve ardından özellikle aşağıdakiler için gereken kurulumdan bahsedeceğim
 
 04:52.090 --> 04:52.900
-prefabs.
+Prefabrikler.
 
 04:52.900 --> 04:55.270
-So here we've got a very simple test.
+Yani burada çok basit bir testimiz var.
 
 04:55.300 --> 04:58.960
-We have the arrange, act and assert paradigm that we're used to seeing.
+Görmeye alışık olduğumuz düzenle, harekete geç ve iddia et paradigmasına sahibiz.
 
 04:58.960 --> 05:03.070
-Notice that the arrange and act are suspiciously missing here.
+Burada arrange ve act kelimelerinin şüpheli bir şekilde eksik olduğuna dikkat edin.
 
 05:03.070 --> 05:06.820
-And all I'm doing is checking that the enemy is not null.
+Ve tek yaptığım düşmanın null olup olmadığını kontrol etmek.
 
 05:06.820 --> 05:10.210
-In the next test that enemy game object is not null.
+Bir sonraki testte düşman oyun nesnesi null değil.
 
 05:10.210 --> 05:13.240
-And finally, that enemy rigidbody is not null.
+Ve son olarak, düşman katı cisim boş değil.
 
 05:13.270 --> 05:14.620
-In the case of the rigid body.
+Rijit gövde durumunda.
 
 05:14.620 --> 05:20.830
-That's a public field that I've created and it's serialized, and I assume a properly set up prefab
+Bu, oluşturduğum ve serileştirdiğim genel bir alan ve düzgün bir şekilde ayarlanmış bir prefabrik olduğunu varsayıyorum
 
 05:20.830 --> 05:25.150
-of that would already have that serialized field declared and populated.
+bu serileştirilmiş alan zaten bildirilmiş ve doldurulmuş olacaktır.
 
 05:25.150 --> 05:26.560
-So it all passes.
+Yani hepsi geçiyor.
 
 05:26.560 --> 05:27.760
-So everything's going good.
+Yani her şey yolunda gidiyor.
 
 05:27.760 --> 05:29.800
-Now, how do we get the prefab here?
+Şimdi, prefabrik yapıyı buraya nasıl getireceğiz?
 
 05:29.800 --> 05:31.900
-Notice that we're using play mode testing.
+Oynatma modu testini kullandığımıza dikkat edin.
 
 05:31.900 --> 05:37.840
-As we've seen a play mode test runs in its own dynamically created empty scene.
+Gördüğümüz gibi, bir oyun modu testi dinamik olarak oluşturulan kendi boş sahnesinde çalışır.
 
 05:37.840 --> 05:41.680
-So anything that we want to do on that, we have to manually set up ourselves.
+Dolayısıyla, bu konuda yapmak istediğimiz her şeyi kendimiz manuel olarak ayarlamamız gerekiyor.
 
 05:41.680 --> 05:46.000
-So we're going to take advantage of the text fixture and some of the things we can do with the test
+Bu yüzden metin fikstüründen ve test ile yapabileceğimiz bazı şeylerden yararlanacağız
 
 05:46.000 --> 05:46.300
-fixture.
+Fikstür.
 
 05:46.300 --> 05:53.230
-So one of the things we can do up here is we're going to set up a reference to how long to delay allowing
+Burada yapabileceğimiz şeylerden biri, izin vermeyi ne kadar geciktireceğimize dair bir referans oluşturmaktır
 
 05:53.230 --> 05:57.340
-the prefab to be instantiated, the path to the enemy prefab itself.
+örneklenecek prefabrik, düşman prefabrikin kendisine giden yol.
 
 05:57.340 --> 05:59.710
-Notice the path there begins with assets.
+Yolun varlıklar ile başladığına dikkat edin.
 
 05:59.710 --> 06:01.300
-That's going to be important in a second.
+Bu birazdan önemli olacak.
 
 06:01.300 --> 06:03.520
-And then I have a reference to the private enemy.
+Ve sonra özel düşmana bir referansım var.
 
 06:03.550 --> 06:09.010
-Now, in addition to the test attribute that we've used quite a bit, there's a setup attribute that
+Şimdi, oldukça sık kullandığımız test niteliğine ek olarak, bir de kurulum niteliği var.
 
 06:09.010 --> 06:11.860
-will run once before every test method.
+her test yönteminden önce bir kez çalışacaktır.
 
 06:11.860 --> 06:19.570
-So here what we want to do before every test method is we simply load that asset at the path we.
+Yani burada her test yönteminden önce yapmak istediğimiz şey, bu varlığı basitçe yüklediğimiz yola yüklemektir.
 
 06:20.380 --> 06:26.560
-Get a reference to the enemy sitting on that game object once we instantiate it, and then we wait a
+Oyun nesnesini oluşturduktan sonra bu nesnede oturan düşmana bir referans alırız ve sonra bir
 
 06:26.590 --> 06:31.450
-three seconds or some arbitrary amount of time, actually realize that it doesn't need three seconds.
+Üç saniye ya da keyfi bir süre, aslında üç saniyeye ihtiyacı olmadığını fark eder.
 
 06:31.450 --> 06:33.250
-It probably needs one frame.
+Muhtemelen bir kareye ihtiyacı var.
 
 06:33.250 --> 06:35.590
-So you could experiment with what you do there.
+Yani orada ne yaptığınızı deneyebilirsiniz.
 
 06:35.890 --> 06:38.800
-I just wait up to, I think, a half a second here.
+Sanırım yarım saniye kadar bekledim.
 
 06:38.830 --> 06:44.260
-The reason we need that is that I've seen that when you do game object dot instantiate, you need to
+Buna ihtiyaç duymamızın nedeni, oyun nesnesi nokta instantiate yaptığınızda
 
 06:44.260 --> 06:50.080
-wait an entire frame for the awake to be called and the start to be called on that game object.
+awake'in çağrılması ve start'ın o oyun nesnesi üzerinde çağrılması için tüm bir kareyi bekleyin.
 
 06:50.080 --> 06:55.420
-So depending what you're doing in that awake and that start in your monobehaviour, you may need to
+Dolayısıyla, uyanıkken ne yaptığınıza ve tekli davranışınıza nasıl başladığınıza bağlı olarak, şunları yapmanız gerekebilir
 
 06:55.420 --> 06:56.800
-wait a little bit longer.
+Biraz daha bekle.
 
 06:56.800 --> 07:03.550
-I would guess waiting 2 or 3 frames across all the board on all your situations would probably be enough.
+Tüm durumlarınızda 2 veya 3 kare beklemenin muhtemelen yeterli olacağını tahmin ediyorum.
 
 07:03.550 --> 07:08.230
-But here I'm just doing a half a second and you can fool around with that and see if it meets your needs.
+Ancak burada sadece yarım saniye yapıyorum ve bununla dalga geçip ihtiyaçlarınızı karşılayıp karşılamadığını görebilirsiniz.
 
 07:08.230 --> 07:10.300
-Then down here I use the Teradyne attribute.
+Sonra burada Teradyne özelliğini kullanıyorum.
 
 07:10.300 --> 07:13.840
-This is called once after each of the test methods.
+Bu, her test yönteminden sonra bir kez çağrılır.
 
 07:13.840 --> 07:15.970
-So in the setup we create the prefab.
+Böylece kurulumda prefabrik oluşturuyoruz.
 
 07:16.000 --> 07:17.200
-Then the test gets run.
+Sonra test çalıştırılır.
 
 07:17.200 --> 07:19.630
-And in the teardown what I do is clean it up.
+Ve sökme işleminde yaptığım şey onu temizlemek.
 
 07:19.630 --> 07:26.470
-Now you could also as an alternative you could do the setup and the teardown equivalents within every
+Şimdi alternatif olarak kurulum ve söküm eşdeğerlerini her
 
 07:26.470 --> 07:27.400
-single test.
+tek test.
 
 07:27.400 --> 07:29.050
-If you wanted to do that, you could.
+Eğer bunu yapmak istiyorsanız, yapabilirsiniz.
 
 07:29.080 --> 07:33.190
-But I'm taking advantage of being able to reuse some existing methods here.
+Ancak burada mevcut bazı yöntemleri yeniden kullanabilmenin avantajını kullanıyorum.
 
 07:33.190 --> 07:36.520
-So I only declare the setup once and the teardown once.
+Bu yüzden sadece bir kez kurulum ve bir kez de söküm beyan ediyorum.
 
 07:36.520 --> 07:40.270
-And I know dependably those are going to be called before and after every test method.
+Ve bunların her test yönteminden önce ve sonra çağrılacağını biliyorum.
 
 07:40.270 --> 07:41.320
-So that's it.
+İşte bu kadar.
 
 07:41.320 --> 07:45.190
-Let's take a look at the enemy script itself just to see how that's set up.
+Nasıl kurulduğunu görmek için düşman senaryosunun kendisine bir göz atalım.
 
 07:45.190 --> 07:47.590
-So the enemy is a very simple monobehaviour.
+Yani düşman çok basit tek bir davranıştır.
 
 07:47.590 --> 07:52.390
-I don't really need to do anything to make it testable, but just to have something exciting here to
+Test edilebilir hale getirmek için gerçekten bir şey yapmama gerek yok, sadece burada heyecan verici bir şey olması için
 
 07:52.390 --> 07:53.290
-be able to test.
+test edebilmek.
 
 07:53.290 --> 07:57.940
-I have a serialized field of rigidbody, and then I have a test that assumes it's populated.
+Seri hale getirilmiş bir rigidbody alanım var ve sonra bunun doldurulduğunu varsayan bir testim var.
 
 07:57.940 --> 08:01.960
-Now, looking at the code, you can see that there's nothing that actually populates it.
+Şimdi, koda baktığınızda, aslında onu dolduran hiçbir şey olmadığını görebilirsiniz.
 
 08:01.960 --> 08:08.320
-But if we go look in unity and click on the prefab, we'll see that the prefab is what makes that association.
+Ancak unity'ye girip prefabriğe tıklarsak, prefabriğin bu ilişkiyi kuran şey olduğunu görürüz.
 
 08:08.320 --> 08:09.400
-So let's check that now.
+Şimdi kontrol edelim.
 
 08:09.400 --> 08:11.740
-So back here in unity we go down.
+Birlik içinde aşağı iniyoruz.
 
 08:11.740 --> 08:13.570
-We look at the enemy prefab.
+Düşman prefabriklerine bakıyoruz.
 
 08:13.570 --> 08:17.860
-And we can see here on the right the prefab has an enemy script.
+Ve burada sağ tarafta prefabrikte bir düşman betiği olduğunu görebiliyoruz.
 
 08:17.860 --> 08:20.380
-And it already has the rigid body declared.
+Ve halihazırda rijit gövde beyan edilmiş durumda.
 
 08:20.410 --> 08:23.110
-If somehow I was to forget that.
+Eğer bir şekilde bunu unutursam.
 
 08:23.110 --> 08:29.140
-Or perhaps someone on your team breaks this aspect of the prefab, then let's run those tests again.
+Ya da belki ekibinizden biri prefabriğin bu yönünü bozar, o zaman bu testleri tekrar çalıştıralım.
 
 08:32.310 --> 08:35.310
-And we can see that the rigid body is null has failed.
+Ve rijit gövdenin boş olduğunu görebiliyoruz.
 
 08:35.310 --> 08:41.680
-So that's a very simple example of a system that you've got that functions and then it breaks.
+Yani bu, işleyen ve sonra bozulan bir sisteme dair çok basit bir örnektir.
 
 08:41.700 --> 08:47.370
-Now if you're a unity game developer and you've worked on teams before, I'm sure you've had the experience
+Eğer bir unity oyun geliştiricisiyseniz ve daha önce ekiplerde çalıştıysanız, eminim bu deneyimi yaşamışsınızdır
 
 08:47.370 --> 08:51.810
-that you or someone that you work with has accidentally broken a prefab.
+sizin ya da birlikte çalıştığınız birinin yanlışlıkla bir prefabriği kırması.
 
 08:51.840 --> 08:53.320
-It's a very common workflow.
+Bu çok yaygın bir iş akışıdır.
 
 08:53.340 --> 08:56.460
-You might not see any errors in the unity editor.
+Unity editöründe herhangi bir hata görmeyebilirsiniz.
 
 08:56.460 --> 09:01.200
-You might even be able to play the game, and in certain circumstances, you don't see the effect of
+Hatta oyunu oynayabilirsiniz ve bazı durumlarda, oyunun etkisini görmezsiniz.
 
 09:01.230 --> 09:06.990
-that until the final moment when that particular rigid body is being used or the functionality that's
+son ana kadar belirli bir katı cismin kullanıldığı veya işlevselliğin
 
 09:06.990 --> 09:08.130
-missing is being called.
+kayıp aranıyor.
 
 09:08.130 --> 09:13.110
-So this is a wonderful way that you can have everyone on your team follow the following workflow.
+Bu, ekibinizdeki herkesin aşağıdaki iş akışını takip etmesini sağlamanın harika bir yoludur.
 
 09:13.200 --> 09:19.650
-Hey, any time you're going to pull from git and do some changes to the assets level, design, etcetera,
+Hey, git'ten çekeceğiniz ve varlık seviyesinde, tasarımda vb. bazı değişiklikler yapacağınız her zaman,
 
 09:19.680 --> 09:26.940
-make sure you open the test runner window and simply hit run selected or run all and execute them all.
+test runner penceresini açtığınızdan ve sadece seçileni çalıştır veya tümünü çalıştır düğmesine basıp hepsini çalıştırdığınızdan emin olun.
 
 09:26.970 --> 09:28.620
-You'll see everything pass well.
+Her şeyin yolunda gittiğini göreceksiniz.
 
 09:28.620 --> 09:34.800
-Then before you commit your work again, do it again and if and when you've noticed that someone commits
+Sonra çalışmanızı tekrar işlemeden önce, tekrar yapın ve eğer birisinin
 
 09:34.800 --> 09:40.710
-something that passed the tests but broke something, you want to add a new unit test that perhaps tests
+Testleri geçen ancak bir şeyleri bozan bir şey varsa, belki de testleri test eden yeni bir birim testi eklemek istersiniz
 
 09:40.710 --> 09:47.760
-for the enemies flying script existing or whatever is the offending part, and then you now have a legacy
+düşmanlar için uçan komut dosyası mevcut veya rahatsız edici kısım her neyse, ve sonra artık bir mirasınız var
 
 09:47.760 --> 09:52.320
-of a little more testing that makes sure that particular instance doesn't happen again.
+Bu belirli örneğin bir daha yaşanmayacağından emin olmak için biraz daha fazla test.
 
 09:52.320 --> 09:56.760
-You don't necessarily have to test for every single thing of the prefab up front.
+Prefabrikteki her bir şeyi önceden test etmek zorunda değilsiniz.
 
 09:56.760 --> 10:01.470
-You want to look at your team's workflows and identify some low hanging fruit for things that could
+Ekibinizin iş akışlarına bakmak ve aşağıdakileri yapabilecek bazı düşük asılı meyveleri belirlemek istersiniz
 
 10:01.470 --> 10:03.120
-be fixed most easily.
+en kolay şekilde düzeltilebilir.
 
 10:03.120 --> 10:04.950
-Then add some light tests for that.
+O zaman bunun için bazı hafif testler ekleyin.
 
 10:04.980 --> 10:10.950
-It's very easy once you have this test here for one particular prefab to run it on a bunch of prefabs,
+Burada belirli bir prefabrik için bu testi yaptıktan sonra bir grup prefabrik üzerinde çalıştırmak çok kolaydır,
 
 10:10.950 --> 10:16.650
-you could, in theory have one testing script that tests a large number of different prefabs, doing
+Teorik olarak, çok sayıda farklı prefabriği test eden tek bir test betiğine sahip olabilirsiniz.
 
 10:16.650 --> 10:22.200
-the little bit of just making sure no null refs are happening, no exceptions are thrown.
+null ref'lerin olmadığından, istisnaların atılmadığından emin olmak için birazcık.
 
 10:22.440 --> 10:26.340
-The game objects exist, the prefab can be found.
+Oyun nesneleri mevcut, prefabrik bulunabilir.
 
 10:26.340 --> 10:28.920
-You could do that all within one if you wanted to.
+İsterseniz bunların hepsini bir arada yapabilirsiniz.
 
 10:28.950 --> 10:34.530
-What I'm showing here is one particular script for one particular prefab, and you can decide how to
+Burada gösterdiğim şey, belirli bir prefabrik için belirli bir komut dosyasıdır ve nasıl yapılacağına siz karar verebilirsiniz
 
 10:34.530 --> 10:35.400
-scale that up.
+Bunu ölçeklendir.
 
 10:35.670 --> 10:36.870
-That's it for this.
+Bu kadar.
 
 10:36.870 --> 10:40.410
-Talk about using prefabs and unit testing together.
+Prefabrikleri ve birim testlerini birlikte kullanma hakkında konuşun.
 
 10:40.410 --> 10:41.190
-Thanks.
+Teşekkürler.

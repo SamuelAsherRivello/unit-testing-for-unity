@@ -1,196 +1,196 @@
 WEBVTT
 
 00:00.140 --> 00:03.230
-Hello and welcome to Unit testing for unity.
+Bonjour et bienvenue à Unit testing for unity.
 
 00:03.260 --> 00:09.230
-Here we're going to be talking about artificial intelligence and how it can be used for production code
+Ici, nous allons parler de l'intelligence artificielle et de la façon dont elle peut être utilisée pour le code de production.
 
 00:09.230 --> 00:10.730
-and for unit testing code.
+et pour les tests unitaires.
 
 00:11.000 --> 00:17.600
-AI is an especially hot topic, and as game developers, we're interested in how AI can help us build
+L'IA est un sujet particulièrement brûlant et, en tant que développeurs de jeux, nous nous intéressons à la manière dont l'IA peut nous aider à créer des jeux.
 
 00:17.600 --> 00:21.080
-projects and be used at runtime for our projects.
+et être utilisée en cours d'exécution pour nos projets.
 
 00:21.110 --> 00:24.500
-In this section, I'll give a brief introduction to the topic.
+Dans cette section, je vais donner une brève introduction au sujet.
 
 00:24.500 --> 00:31.010
-Then look at the specific subtopics of AI for production code and treat that separately.
+Ensuite, je me pencherai sur les sous-thèmes spécifiques de l'IA pour le code de production et les traiterai séparément.
 
 00:31.010 --> 00:35.210
-Then AI for writing your unit tests about your production code.
+Puis l'IA pour l'écriture de vos tests unitaires sur votre code de production.
 
 00:35.570 --> 00:39.830
-There's also an opportunity for more topics and expanding after that.
+Il est également possible d'aborder d'autres sujets et de les développer par la suite.
 
 00:40.010 --> 00:44.660
-AI has been a part of game development since the beginning of game dev itself.
+L'IA fait partie du développement des jeux depuis le début du développement des jeux lui-même.
 
 00:44.690 --> 00:51.530
-In the last year or so, we've seen an explosive growth in the topic in pop culture, social media,
+Depuis un an environ, nous assistons à une croissance explosive du sujet dans la culture pop, les médias sociaux,
 
 00:51.530 --> 00:53.980
-as well as in the game dev community itself.
+ainsi que dans la communauté des développeurs de jeux elle-même.
 
 00:53.990 --> 00:56.810
-There's an awesome website that I like to check out called.
+Il y a un site web génial que j'aime consulter et qui s'appelle.
 
 00:56.810 --> 01:03.680
-There's an AI for that link below, and you can see how AI can enable all sorts of different industries,
+Il y a une IA pour ce lien ci-dessous, et vous pouvez voir comment l'IA peut permettre toutes sortes d'industries différentes,
 
 01:03.680 --> 01:04.970
-including game dev.
+y compris le développement de jeux.
 
 01:05.000 --> 01:11.390
-As with all things software, game dev will be forever changed as this AI technology grows.
+Comme pour tout ce qui concerne les logiciels, le développement de jeux sera à jamais transformé par le développement de la technologie de l'IA.
 
 01:11.420 --> 01:17.540
-Game developers who embrace this technology and are able to use the tools well will continue to compete
+Les développeurs de jeux qui adoptent cette technologie et sont capables de bien utiliser les outils resteront compétitifs.
 
 01:17.540 --> 01:18.500
-in the workplace.
+sur le marché du travail.
 
 01:18.530 --> 01:19.520
-Let's read here.
+Lisons ici.
 
 01:19.550 --> 01:24.660
-A game developer is responsible for creating and designing video games for various platforms.
+Un développeur de jeux vidéo est chargé de créer et de concevoir des jeux vidéo pour différentes plates-formes.
 
 01:24.680 --> 01:30.200
-They work closely with different disciplines game developers using programming language and software
+Il travaille en étroite collaboration avec les développeurs de jeux de différentes disciplines en utilisant des langages de programmation et des logiciels.
 
 01:30.200 --> 01:33.560
-to create engaging and interactive experiences for their players.
+pour créer des expériences attrayantes et interactives pour leurs joueurs.
 
 01:33.590 --> 01:36.050
-Now in all of this, we can use AI.
+Dans tout cela, nous pouvons utiliser l'IA.
 
 01:36.140 --> 01:41.750
-Let's see how incorporating AI into unity game development in particular, can streamline development
+Voyons comment l'intégration de l'IA dans le développement de jeux unity, en particulier, peut rationaliser le développement.
 
 01:41.750 --> 01:42.590
-and testing.
+et les tests.
 
 01:42.590 --> 01:48.440
-Some of the benefits include content generation, assist in creating the assets such as the textures
+Parmi les avantages, citons la génération de contenu, l'aide à la création d'éléments tels que les textures
 
 01:48.440 --> 01:52.430
-and models, and speeding up the asset creation process overall.
+et les modèles, et l'accélération du processus de création d'actifs en général.
 
 01:53.000 --> 01:58.130
-There's cogeneration as well, analyzing, suggesting designs for new systems.
+Il y a également la cogénération, l'analyse et la suggestion de conceptions pour de nouveaux systèmes.
 
 01:58.160 --> 02:04.550
-Optimizing, making your systems more efficient leads to better performance in your gameplay and reduce
+Optimiser, rendre vos systèmes plus efficaces permet d'améliorer les performances de votre jeu et de réduire les coûts.
 
 02:04.550 --> 02:05.450
-development time.
+temps de développement.
 
 02:05.450 --> 02:09.320
-And also of particular interest to this topic is automated testing.
+Les tests automatisés présentent également un intérêt particulier pour ce sujet.
 
 02:09.530 --> 02:15.990
-I can rapidly identify and fix the bugs, and also reduce the time it takes to create those unit tests.
+Je peux rapidement identifier et corriger les bogues, et réduire le temps nécessaire à la création de ces tests unitaires.
 
 02:16.010 --> 02:20.330
-One of the amazing tools we've seen is OpenAI's ChatGPT.
+L'un des outils les plus remarquables que nous ayons vus est le ChatGPT d'OpenAI.
 
 02:20.540 --> 02:25.550
-This feels like a text chat conversation with a friend, except it's an AI.
+Cela ressemble à une conversation par chat textuel avec un ami, sauf qu'il s'agit d'une IA.
 
 02:25.580 --> 02:29.900
-You text chat, you get a response, and you can iterate on that conversation.
+Vous discutez par texto, vous obtenez une réponse et vous pouvez poursuivre la conversation.
 
 02:29.930 --> 02:35.810
-The AI knows about all aspects of game development marketing, your game, coming up with game ideas,
+L'IA connaît tous les aspects du développement d'un jeu : le marketing, votre jeu, les idées de jeu,
 
 02:35.810 --> 02:36.260
-and more.
+et bien d'autres choses encore.
 
 02:36.260 --> 02:41.750
-When you're having that text conversation with the ChatGPT, you're giving it prompts or instructions,
+Lorsque vous avez cette conversation textuelle avec le ChatGPT, vous lui donnez des invites ou des instructions,
 
 02:41.750 --> 02:46.490
-and there's lots of different cheat sheets like what we see here for how to make effective prompts.
+et il existe de nombreuses antisèches, comme celle que nous voyons ici, qui expliquent comment créer des messages-guides efficaces.
 
 02:46.490 --> 02:51.620
-You might want to start the conversation by saying act like a unity game development expert.
+Vous pourriez commencer la conversation en disant : " Agissez comme un expert en développement de jeux unity ".
 
 02:51.650 --> 02:54.180
-Tell me about this or that in C-sharp.
+Parlez-moi de ceci ou de cela en Do dièse.
 
 02:54.200 --> 02:57.120
-That allows the AI to know how to best explain it.
+Cela permet à l'IA de savoir comment l'expliquer au mieux.
 
 02:57.140 --> 03:00.140
-Another fantastic tool is GitHub's copilot.
+Un autre outil fantastique est le copilote de GitHub.
 
 03:00.170 --> 03:06.500
-This is trained specifically on programming language material, and it knows everything about C-sharp
+Ce copilote est formé spécifiquement aux langages de programmation et il sait tout sur C-sharp.
 
 03:06.500 --> 03:08.040
-and Unity that you'd want to know.
+et Unity que vous voudriez connaître.
 
 03:08.060 --> 03:13.850
-Also, code editors that you use to type the code instructions into unity know about the specific context
+De même, les éditeurs de code que vous utilisez pour taper les instructions de code dans Unity connaissent le contexte spécifique.
 
 03:13.850 --> 03:19.160
-of the class that you're sitting in, so it can answer not just theoretical questions, but what would
+de la classe dans laquelle vous êtes assis, de sorte qu'il peut répondre non seulement à des questions théoriques, mais aussi à ce qui se passerait dans la classe.
 
 03:19.160 --> 03:21.720
-the next line of this page look like?
+à quoi ressemblerait la prochaine ligne de cette page ?
 
 03:21.740 --> 03:26.570
-And then it can fill out more of your code page to learn more about unit testing for unity.
+Et ensuite, il peut remplir plus de votre page de code pour en savoir plus sur les tests unitaires pour unity.
 
 03:26.600 --> 03:31.820
-You can check out this great course link below, and this video will also be part of the course itself,
+Vous pouvez consulter le lien de ce cours ci-dessous, et cette vidéo fera également partie du cours lui-même,
 
 03:31.820 --> 03:34.730
-with expanded chapters beyond this video itself.
+avec des chapitres élargis au-delà de la vidéo elle-même.
 
 03:34.730 --> 03:40.490
-In the course we look at why unit testing is amazing tool, why it is going to help your game development,
+Dans ce cours, nous examinons les raisons pour lesquelles les tests unitaires sont un outil extraordinaire, et pourquoi ils vont vous aider dans le développement de vos jeux,
 
 03:40.520 --> 03:46.430
-why it's a fantastic career building tool specifically for people in the mid to late phase of their
+pourquoi il s'agit d'un outil fantastique de développement de carrière, en particulier pour les personnes qui se trouvent dans la phase intermédiaire ou tardive de leur carrière, et pourquoi il s'agit d'un outil de développement de carrière.
 
 03:46.430 --> 03:46.970
-career.
+carrière.
 
 03:47.000 --> 03:50.050
-Really giving you a way to compete in the workplace.
+Il s'agit vraiment d'un moyen de rivaliser sur le marché du travail.
 
 03:50.060 --> 03:54.470
-Now, in the game development community, we have a variety of different peoples with different goals.
+Dans la communauté des développeurs de jeux, nous avons une variété de personnes différentes avec des objectifs différents.
 
 03:54.470 --> 03:58.880
-Some are hobbyists just looking to have fun and be creative on nights and weekends.
+Certains sont des passionnés qui cherchent simplement à s'amuser et à être créatifs le soir et le week-end.
 
 03:58.910 --> 04:04.010
-Others want to make a career out of it, or get a group of friends together and create a real project
+D'autres veulent en faire leur métier ou réunir un groupe d'amis pour créer un véritable projet.
 
 04:04.010 --> 04:07.460
-for moneymaking, really, across all those different user profiles.
+pour gagner de l'argent, vraiment, à travers tous ces différents profils d'utilisateurs.
 
 04:07.490 --> 04:13.910
-Adding unit testing into your workflow is fantastic, and being able to take advantage of AI to help
+L'ajout de tests unitaires à votre flux de travail est fantastique, et le fait de pouvoir tirer parti de l'IA pour aider à la mise en œuvre de ces tests est un atout majeur.
 
 04:13.910 --> 04:16.880
-you along with that process is a time saver.
+vous aider dans ce processus, c'est un gain de temps.
 
 04:16.880 --> 04:23.270
-It's a great learning tool and it will make you a more competitive coworker in your industry in the
+C'est un excellent outil d'apprentissage qui fera de vous un collaborateur plus compétitif dans votre secteur d'activité au cours des prochaines années.
 
 04:23.270 --> 04:23.630
-course.
+cours.
 
 04:23.630 --> 04:29.180
-In the next videos, we'll take a look exactly how this works inside the unity editor using the AI tools.
+Dans les prochaines vidéos, nous verrons comment cela fonctionne exactement dans l'éditeur unity à l'aide des outils d'IA.
 
 04:29.180 --> 04:30.110
-Thanks.
+Merci à tous.
