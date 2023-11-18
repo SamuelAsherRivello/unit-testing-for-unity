@@ -1,0 +1,364 @@
+WEBVTT
+
+00:00.320 --> 00:03.950
+Hello and welcome to the unit testing for Unity Workshops.
+
+00:03.950 --> 00:06.800
+And here we're going to be looking at scene loading.
+
+00:06.800 --> 00:12.860
+Now traditionally when we think of unit testing we think of testing the smallest unit of code with the
+
+00:12.860 --> 00:15.530
+fewest lines and the fewest dependencies.
+
+00:15.530 --> 00:21.530
+So on the opposite end of that spectrum of simplicity, we have complexity.
+
+00:21.530 --> 00:27.710
+And one of the important foundational objects inside unity is the scene itself.
+
+00:28.220 --> 00:35.150
+Everything that you see as a player in a game experience is inside of a scene.
+
+00:35.150 --> 00:39.950
+So we can unit test the individual scripts or elements within a scene.
+
+00:39.950 --> 00:44.210
+Or as we're going to show here, we could test the entire scene itself.
+
+00:44.210 --> 00:45.710
+Now why might we do that?
+
+00:45.710 --> 00:48.110
+First of all, it's a nice smoke test.
+
+00:48.140 --> 00:53.630
+A simple way to just see did the scene load and did it load with no exceptions.
+
+00:53.630 --> 00:54.980
+That alone is worth it.
+
+00:54.980 --> 00:56.690
+Let's think about the things that we can do.
+
+00:56.720 --> 01:00.770
+We could make assumptions on the scene structure and what objects are inside of it.
+
+01:00.770 --> 01:04.340
+We could make assumptions on the behaviors in things in that scene.
+
+01:04.340 --> 01:11.210
+And a workflow that I find really cool is you can leave these tests behind and have the non-programmers
+
+01:11.210 --> 01:15.590
+on your team run the tests before and after doing their work.
+
+01:15.590 --> 01:21.590
+Perhaps a level designer being able to work more confidently, knowing that new levels added, do not
+
+01:21.590 --> 01:25.490
+break any existing scenes or revisions to existing levels.
+
+01:25.490 --> 01:31.450
+Don't break any of the scenes either, and your art team can be sure that if they were to replace some
+
+01:31.460 --> 01:37.400
+assets or add some new assets, that from the programmer's standpoint, nothing has been broken.
+
+01:37.400 --> 01:39.200
+So what would that workflow look like?
+
+01:39.200 --> 01:45.680
+Well, I'll show an example here of being able to create a play mode test and load an entire scene into
+
+01:45.680 --> 01:49.070
+that play mode test and make some assumptions on it using assertions.
+
+01:49.070 --> 01:56.030
+For example, you could load a scene and in the intro scene check that the menu properly is being displayed.
+
+01:56.030 --> 01:57.620
+We're in a gameplay scene.
+
+01:57.650 --> 02:03.080
+Be sure that the background element, the hero and all the enemies have been instantiated at the proper
+
+02:03.080 --> 02:03.470
+moment.
+
+02:03.470 --> 02:08.900
+Now, because we're opening the door to the great complexity possible within a given scene, it may
+
+02:08.900 --> 02:15.380
+seem overwhelming that you'd want to test out everything in a scene, but again, I think even a very
+
+02:15.380 --> 02:22.490
+conservative test that just loads the scene and makes sure 1 or 2 key elements are there, with no exceptions.
+
+02:22.490 --> 02:27.400
+Thrown is a fantastic low hanging fruit that will bring value to your team.
+
+02:27.410 --> 02:28.580
+Let's take a look inside.
+
+02:28.580 --> 02:29.240
+Unity.
+
+02:29.510 --> 02:31.910
+Here we are inside the core sample project.
+
+02:31.940 --> 02:33.440
+Now in the test runner window.
+
+02:33.440 --> 02:35.450
+Here we've got lots of different categories.
+
+02:35.450 --> 02:42.140
+I've got the scene loading selected and you can see that we've got some editor and runtime tests.
+
+02:42.140 --> 02:48.380
+Because scenes and the things that I'm choosing to test here are related to the typical runtime behavior
+
+02:48.380 --> 02:50.240
+of unity Monobehaviours.
+
+02:50.240 --> 02:54.470
+For example, I'm going to focus on just the runtime test, the play mode test.
+
+02:54.470 --> 02:56.470
+So I'll disable the edit mode test.
+
+02:56.480 --> 02:58.220
+Let's take a look at what we've got here.
+
+02:58.220 --> 03:04.970
+So what we're going to do is every time we run this particular test, we're going to be checking that
+
+03:04.970 --> 03:12.500
+the intro scene has a hero inside of it that simulates our main game character, that the intro scene
+
+03:12.500 --> 03:15.020
+loads without any exceptions thrown.
+
+03:15.260 --> 03:17.720
+And then we'll repeat that for the game scene.
+
+03:17.930 --> 03:23.480
+You could imagine that you'd have one test that could test all of your scenes in a systematic way.
+
+03:23.480 --> 03:30.950
+What I've chosen to do here is structure one test for each of the functionalities that we'd want, one
+
+03:30.950 --> 03:36.770
+for the hero, one for the exceptions, and doing that for each of the scenes, all within one test
+
+03:36.770 --> 03:37.310
+structure.
+
+03:37.310 --> 03:40.610
+But you could decide how to scale it up depending what you and your team want to do.
+
+03:40.640 --> 03:41.840
+Let me run these tests.
+
+03:41.840 --> 03:42.920
+Everything passes there.
+
+03:42.920 --> 03:44.690
+You can see we've got some console traffic.
+
+03:44.690 --> 03:45.920
+Let's take a look at the source code.
+
+03:45.920 --> 03:50.990
+So in this test I'm saying that the scene one intro, which is the name of one of the scenes in the
+
+03:50.990 --> 03:57.710
+project, we'll assume that the hero is not null when the scene is loaded, unlike some of our smallest
+
+03:57.710 --> 04:01.280
+unit testing, loading the scene and doing it well and nice.
+
+04:01.280 --> 04:02.540
+Having a nice workflow here.
+
+04:02.540 --> 04:06.140
+It does involve some setup, so let's talk about what the setup is.
+
+04:06.140 --> 04:09.380
+First thing is that I'll listen to the scene manager to see.
+
+04:09.380 --> 04:14.840
+Hey has the scene that I want to load been loaded, then I will load the scene here.
+
+04:14.840 --> 04:21.830
+I've made a static variable for the scene names, just so it's easier for me to be able to isolate and
+
+04:21.830 --> 04:23.360
+update those if I need to.
+
+04:23.390 --> 04:26.090
+Then I will sit here and wait while the scene is loaded.
+
+04:26.090 --> 04:31.580
+This makes sure I don't assume or assert anything about that until after the scene is loaded.
+
+04:31.580 --> 04:33.020
+It happens quite quickly.
+
+04:33.020 --> 04:37.640
+Then here I will be able to do any of the introspection into the scene.
+
+04:37.670 --> 04:43.700
+A very powerful thing I can do is look through the entire scene after it's loaded, and look for any
+
+04:43.700 --> 04:45.320
+existence of a given script.
+
+04:45.320 --> 04:52.730
+If I had a prefab called hero or an individual hero script in that scene, this would return one value.
+
+04:52.730 --> 04:57.020
+I could also get a list back of all of the heroes or all of the enemies.
+
+04:57.020 --> 04:59.840
+If I have multiple, then I can iterate over them and.
+
+04:59.940 --> 05:01.670
+And perform whatever test I want.
+
+05:01.680 --> 05:03.960
+I'm doing a purposely lean test here.
+
+05:03.990 --> 05:06.780
+All I do is make sure that the hero is not null.
+
+05:06.810 --> 05:14.100
+If, for example, an artist or a level designer accidentally deleted the hero in a given scene, this
+
+05:14.100 --> 05:14.730
+would fail.
+
+05:14.730 --> 05:17.680
+And it was a nice test just to make sure that the elements are there.
+
+05:17.700 --> 05:23.550
+You can imagine a system inside unity could be quite complex and your scenes could be quite complex
+
+05:23.550 --> 05:24.000
+too.
+
+05:24.030 --> 05:26.820
+You may have hundreds or even thousands of objects.
+
+05:26.820 --> 05:33.060
+You may not necessarily want to do an assertion for every single one of them, but depending how you
+
+05:33.060 --> 05:38.460
+organize your scene, you may be able to check for some simple things like the background, the UI,
+
+05:38.490 --> 05:45.360
+the hero, and a list of enemies that alone easy test to perform by just adding some lines here, and
+
+05:45.360 --> 05:50.340
+then you have more confidence that as you and your team work on the code and make commits to your version
+
+05:50.340 --> 05:53.790
+control repository that no one is accidentally breaking something.
+
+05:53.790 --> 06:00.630
+Remember, what you're currently doing now is needing to then play the scene or all the scenes and make
+
+06:00.630 --> 06:05.780
+sure that you don't visually detect that something is missing or broken here.
+
+06:05.790 --> 06:07.930
+Being automated is much, much smoother.
+
+06:07.950 --> 06:09.290
+Let's take a look at the other tests.
+
+06:09.300 --> 06:16.080
+We've got one here that loads the scene, and then just make sure it does not throw any exceptions.
+
+06:17.110 --> 06:20.960
+Then we repeat the same two tests for the all other scene.
+
+06:20.980 --> 06:25.630
+Now let's take a look at the top of that testing scene and see some of the additional setups that's
+
+06:25.660 --> 06:26.230
+needed.
+
+06:26.260 --> 06:32.410
+One thing is that because we're loading scenes with code, those need to exist in the unity build settings.
+
+06:32.410 --> 06:35.530
+That's true in production as well as in testing.
+
+06:35.560 --> 06:41.110
+Now you and your team could simply make sure that it's always updated and do that manually within the
+
+06:41.110 --> 06:41.950
+unity editor.
+
+06:41.950 --> 06:44.950
+And let's take a look at how we would do that now here inside unity.
+
+06:44.980 --> 06:46.840
+You go to File Build Settings.
+
+06:46.840 --> 06:50.020
+And up here is the list of all the scenes that you need.
+
+06:50.050 --> 06:53.710
+Now if you forget to add one in there, the test would fail.
+
+06:53.710 --> 06:59.380
+So rather than require us to remember this particular step, which is okay if your team wants to do
+
+06:59.380 --> 07:04.030
+that, I'm automating that and dynamically adding the scenes that we want to add.
+
+07:04.060 --> 07:10.990
+So the way that I do that, I use some existing interfaces that unity makes available here for when
+
+07:10.990 --> 07:13.930
+the build is being set up and when the build is being cleaned up.
+
+07:13.960 --> 07:18.550
+These are different than some of the attributes we've seen in earlier tests, but then I won't get into
+
+07:18.550 --> 07:19.720
+the complexity here.
+
+07:19.720 --> 07:25.960
+But just know that in the setup, what I'm doing is adding our two test scenes to the build settings.
+
+07:26.290 --> 07:32.020
+And down here in the cleanup, I'm reverting or removing those two that have been added.
+
+07:32.230 --> 07:35.890
+Now there's lots of different ways you could organize that, but you can take a look at the source code
+
+07:35.890 --> 07:37.520
+and see if there's something else you want to do there.
+
+07:37.540 --> 07:44.800
+Down here in the test, I'm assuming that I'm able to call load scene on any of the testable scenes
+
+07:44.800 --> 07:46.150
+and we're good to go.
+
+07:46.150 --> 07:47.110
+So that's it.
+
+07:47.140 --> 07:52.660
+It's pretty easy to set up, and if you build off of what is given here in the sample project, you'll
+
+07:52.660 --> 07:57.750
+find quick success in being able to test your scenes for your game production.
+
+07:57.760 --> 07:58.660
+Thanks.
