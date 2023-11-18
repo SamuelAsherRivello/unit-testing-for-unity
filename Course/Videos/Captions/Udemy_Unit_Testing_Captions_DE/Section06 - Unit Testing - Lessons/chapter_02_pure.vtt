@@ -1,0 +1,379 @@
+WEBVTT
+
+00:00.380 --> 00:02.620
+Pure functions and overview.
+
+00:02.630 --> 00:06.290
+So what is a pure function also known as a pure method.
+
+00:06.290 --> 00:10.250
+And why is it relevant here to the unit testing process?
+
+00:10.280 --> 00:18.320
+A pure function can be thought of one that has less effect and dependencies on other unrelated systems.
+
+00:18.440 --> 00:24.020
+By unrelated, I mean not directly related to the code in the body of the function itself.
+
+00:24.440 --> 00:31.580
+A way we can look at it here as I'm reading the screen, that return values are identical for identical
+
+00:31.580 --> 00:37.850
+arguments, meaning if you pass in a value as one of the arguments, you're going to always get the
+
+00:37.850 --> 00:41.650
+same result, and secondly, that it has no side effects.
+
+00:41.660 --> 00:50.030
+Side effects are indirect outputs or other systems that get affected during the execution of a given
+
+00:50.030 --> 00:50.770
+method.
+
+00:50.780 --> 00:57.800
+So the more pure a function is, the more isolated and independently it runs.
+
+00:57.800 --> 01:03.200
+So in the included sample code for the sample project, you'll see something similar to this in the
+
+01:03.230 --> 01:04.490
+C-sharp code base.
+
+01:04.850 --> 01:07.640
+Here I've put a couple of colors to it just so we can look at it.
+
+01:07.640 --> 01:15.650
+So imagine we've got a custom class here that is called My System, and one method inside of it is called
+
+01:15.650 --> 01:16.910
+Convert value.
+
+01:16.940 --> 01:23.810
+Notice that there's two arguments that I pass in and those two values, and only those two values are
+
+01:23.810 --> 01:26.630
+the direct inputs that affect the operation.
+
+01:26.660 --> 01:34.670
+There's no third public static private static unrelated system that we see in the blue there.
+
+01:34.670 --> 01:36.140
+It's very simple.
+
+01:36.140 --> 01:38.960
+Now you could have many more lines of code here.
+
+01:38.960 --> 01:41.840
+It's not just that this is brief, that makes it pure.
+
+01:41.840 --> 01:48.860
+It's that we see that the result depends on the arguments and only on those arguments.
+
+01:48.860 --> 01:56.930
+So it's highly pure when we talk about the outputs or the side effects here we can see that no other
+
+01:56.930 --> 01:58.610
+values are set here.
+
+01:58.880 --> 02:02.840
+If we set any temporary values that's okay in a pure function.
+
+02:02.840 --> 02:09.620
+But if we were to be setting values within the blue here on unrelated systems or on static variables
+
+02:09.620 --> 02:15.620
+that have a lifespan beyond this method, those would be things that would make it less pure.
+
+02:15.620 --> 02:20.840
+Now we're going to be looking at some more slides here, getting some theory as well as jumping into
+
+02:20.840 --> 02:21.440
+the code.
+
+02:21.440 --> 02:27.470
+So as I'm introducing and reinforcing these concepts, we'll all learn a bit more of the appreciation
+
+02:27.470 --> 02:29.330
+for what it means to be a pure function.
+
+02:29.330 --> 02:33.140
+So here we see an even more in-depth explanation.
+
+02:33.140 --> 02:34.310
+I'll read it aloud.
+
+02:34.400 --> 02:41.450
+A pure function is generally easier to debug, maintain, and unit test because of the following factors
+
+02:41.450 --> 02:41.930
+one.
+
+02:41.930 --> 02:43.670
+It doesn't have any side effects.
+
+02:43.670 --> 02:49.010
+That means the behavior is predictable and consistent solely based on that input.
+
+02:49.010 --> 02:52.640
+Just like we saw in the example, it is deterministic.
+
+02:52.640 --> 02:57.140
+That means given certain input, we always produce the same output.
+
+02:57.170 --> 03:00.250
+It means there's no other values that are unrelated.
+
+03:00.260 --> 03:02.060
+There's no randomness to it.
+
+03:02.060 --> 03:07.400
+If we if we pass in the values three and ten, we would always get the value 30.
+
+03:07.430 --> 03:13.610
+In the previous example, a pure function also runs in isolation, so there's no need to set up and
+
+03:13.610 --> 03:15.620
+manage external dependencies.
+
+03:15.620 --> 03:19.790
+This could be lots of different examples, but a few here are databases.
+
+03:19.790 --> 03:27.080
+File system network resources, other classes that are created used by the system as well.
+
+03:27.080 --> 03:32.600
+And another reason that it's so easy to debug and maintain in unit testing is because there's just simpler
+
+03:32.600 --> 03:33.530
+unit tests.
+
+03:33.530 --> 03:37.610
+You are able to provide the inputs and assert the specific outputs.
+
+03:37.610 --> 03:42.560
+There's less boilerplate of creation of things around the test itself.
+
+03:42.560 --> 03:45.080
+And finally it's modular and reusable.
+
+03:45.080 --> 03:51.950
+So code that is a pure function and based on pure functions tends to be more self-contained, portable,
+
+03:51.950 --> 03:56.170
+and making it easier to reuse the same functionality in different contexts.
+
+03:56.180 --> 04:01.910
+Now as we go through and we talk about pure functions, much like the theme of the course as a whole,
+
+04:01.910 --> 04:08.690
+I would say when your code is more easily testable, that is good for the testing process, but more
+
+04:08.690 --> 04:12.890
+largely it hints that the code is just better designed.
+
+04:12.890 --> 04:20.450
+So even if we weren't to test our code, if our code has no side effect, is more deterministic, is
+
+04:20.450 --> 04:28.010
+more isolated and modular and reusable, that is beneficial to the production code itself.
+
+04:28.010 --> 04:36.110
+So we see a ebb and flow between the benefits of something being unit testable, as well as the benefits
+
+04:36.110 --> 04:37.370
+of it being production code.
+
+04:37.370 --> 04:41.120
+So if that's what a pure function is, then what is a non pure function?
+
+04:41.120 --> 04:44.410
+Well, it's simply a function that is not so pure.
+
+04:44.420 --> 04:49.190
+Also this isn't 100% pure, 100% not pure.
+
+04:49.190 --> 04:53.780
+When we're talking about a given function we can assess its level of purity.
+
+04:53.780 --> 04:55.520
+That might be somewhere in the middle.
+
+04:55.520 --> 04:59.660
+Some of the key criteria of a non pure function is that it has.
+
+04:59.820 --> 05:03.450
+Indirect inputs, meaning there's some sort of shared state.
+
+05:03.570 --> 05:10.740
+Maybe we pass a value in and it operates on that value, plus using some other dependencies that's impure
+
+05:10.740 --> 05:13.140
+and also having indirect outputs.
+
+05:13.170 --> 05:14.700
+Remember our simple example.
+
+05:14.700 --> 05:16.200
+We'll look at another one soon.
+
+05:16.200 --> 05:18.940
+It would just multiply two numbers and return it.
+
+05:18.960 --> 05:26.460
+It wasn't setting any unrelated system values that would sit around stagnant as some sort of shared
+
+05:26.460 --> 05:26.820
+state.
+
+05:27.030 --> 05:33.930
+But here, in the case of a non pure function, it may have one or both of the idea of indirect inputs
+
+05:33.960 --> 05:35.040
+indirect outputs.
+
+05:35.040 --> 05:36.690
+So here's a very simple example.
+
+05:36.690 --> 05:38.430
+This is also in the sample project.
+
+05:38.430 --> 05:41.670
+And this is an example of a system that is non pure.
+
+05:41.760 --> 05:43.800
+So it's a little bit different.
+
+05:43.830 --> 05:47.460
+We're kind of doing the same multiplication operation here.
+
+05:47.460 --> 05:50.490
+But notice here the convert value method.
+
+05:50.490 --> 05:53.910
+It doesn't take all the arguments that it needs.
+
+05:53.910 --> 05:59.180
+It takes one value and it multiplies it by some existing system value.
+
+05:59.190 --> 06:03.000
+So this is an example of indirect input.
+
+06:03.030 --> 06:09.210
+The multiplier exists before the convert value method is called.
+
+06:09.210 --> 06:13.890
+So that's the indirect input part of an impure function.
+
+06:13.920 --> 06:18.840
+Now the other part we talked about is is having some indirect output here.
+
+06:18.840 --> 06:20.760
+We don't see an example of that.
+
+06:20.790 --> 06:24.270
+There's no state that has changed that persists.
+
+06:24.300 --> 06:26.310
+We just return a simple value.
+
+06:26.310 --> 06:29.100
+And returning a value does not count against it.
+
+06:29.100 --> 06:32.640
+So we have indirect input but no indirect output.
+
+06:32.640 --> 06:35.880
+But still having one of those here makes it impure.
+
+06:35.880 --> 06:38.610
+So what do we do with these non pure functions.
+
+06:38.610 --> 06:44.250
+We've hinted that pure functions are easier to test and have a lot of benefits in their production code
+
+06:44.250 --> 06:45.360
+usage as well.
+
+06:45.360 --> 06:50.330
+Well, if we don't have a pure function what can we do about that.
+
+06:50.340 --> 06:56.010
+Well some of the things we could do, we could certainly leave it alone, leaving it as impure.
+
+06:56.010 --> 06:57.720
+And often we're going to do that.
+
+06:57.720 --> 07:03.570
+But sometimes when we're taking a look at doing the unit testing of something, we might be encouraged
+
+07:03.570 --> 07:07.800
+to do a bit of refactoring to help that system become a bit more pure.
+
+07:07.800 --> 07:13.380
+Maybe we can't get it 100% there, but it's this is again talking about the art.
+
+07:13.410 --> 07:18.150
+It's up to you to decide how pure and how impure you want your code to sit.
+
+07:18.180 --> 07:23.580
+Now, some developers might theoretically approach it where they want everything to be pure all the
+
+07:23.580 --> 07:24.210
+time.
+
+07:24.510 --> 07:25.620
+That's one approach.
+
+07:25.650 --> 07:29.250
+Another one is just to create code as you used to create it.
+
+07:29.250 --> 07:32.550
+And if that happened to be impure, you just leave it impure.
+
+07:32.550 --> 07:38.010
+What I want to invite you to do is massage the ideas a little bit, and be comfortable to play with
+
+07:38.010 --> 07:42.810
+somewhere in the middle where you can take something non pure and make it a bit more pure.
+
+07:42.810 --> 07:47.580
+Recognizing the benefits to your unit testing as well as the benefits to your production code.
+
+07:47.580 --> 07:49.290
+So let's see what we can do here.
+
+07:49.290 --> 07:51.990
+We could eliminate some of the side effects.
+
+07:52.110 --> 07:56.700
+We could eliminate the shared state similar to side effects.
+
+07:56.730 --> 07:59.580
+We could eliminate dependencies that are used.
+
+07:59.730 --> 08:04.350
+And we can invite ourselves to have one assertion per test.
+
+08:04.380 --> 08:12.270
+Now that is going to help us understand that if a test asserts just one thing, then our code has to
+
+08:12.270 --> 08:15.270
+be pretty simple in order to meet that assertion.
+
+08:15.360 --> 08:17.640
+So we'll play with that a little bit when we look at the code.
+
+08:17.640 --> 08:19.050
+So how can we go about this?
+
+08:19.050 --> 08:23.700
+Well, we can do some of the refactoring of the production code, doing the steps that we saw in the
+
+08:23.700 --> 08:24.630
+previous slide.
+
+08:24.630 --> 08:29.730
+And another one is I want to introduce a new concept of test doubles in the next section.
+
+08:29.760 --> 08:30.570
+Thanks.

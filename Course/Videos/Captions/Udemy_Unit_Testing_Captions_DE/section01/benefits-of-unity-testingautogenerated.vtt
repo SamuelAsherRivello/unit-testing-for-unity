@@ -1,0 +1,136 @@
+WEBVTT
+
+00:03.320 --> 00:08.780
+Let's recap some of the benefits we've seen so far just in this theory portion about unit testing.
+
+00:08.780 --> 00:11.940
+So the benefits include adding confidence to your code.
+
+00:11.960 --> 00:12.830
+What does that mean?
+
+00:12.830 --> 00:19.070
+It means as your team thinks about that code base, they have more of a happy feeling that that 101st
+
+00:19.070 --> 00:21.080
+feature will not break things.
+
+00:21.110 --> 00:26.060
+When there's a lack of confidence, you're a bit shy to add features, particularly in certain areas
+
+00:26.060 --> 00:32.300
+of the code base where you know things are held together quite loosely and a new line of code could
+
+00:32.330 --> 00:33.320
+break something.
+
+00:33.320 --> 00:36.080
+It also allows for bolder refactors.
+
+00:36.080 --> 00:41.270
+Now, for example, if you're going to be refactoring a particular system in your game and you have
+
+00:41.270 --> 00:46.040
+no testing, the process would be play the game and have your team play it.
+
+00:46.070 --> 00:49.880
+Do all the work of the refactor, then play your game again.
+
+00:49.910 --> 00:53.690
+The problem with that manual testing is it's more time consuming.
+
+00:53.690 --> 00:59.960
+It's more challenging to be sure that the test before and after the refactor are the same, and testing
+
+00:59.960 --> 01:02.450
+the same areas as well.
+
+01:02.990 --> 01:10.340
+So by having some unit tests covering those systems before the refactor, you're able to run the tests,
+
+01:10.370 --> 01:14.960
+see that everything passes, that the automation that you've had there works well.
+
+01:14.960 --> 01:18.350
+Then run those exact same tests after the refactor.
+
+01:18.380 --> 01:21.650
+You might find along the way that some of the tests fail.
+
+01:21.650 --> 01:23.390
+You're able to make some changes.
+
+01:23.390 --> 01:24.380
+The test pass.
+
+01:24.380 --> 01:30.860
+You may even add new tests because the refactor needs them, and then your code now sits in an even
+
+01:30.860 --> 01:34.130
+better place with more code confidence after that refactor.
+
+01:34.310 --> 01:36.170
+This also saves time.
+
+01:36.170 --> 01:41.480
+It will feel when you're starting with unit testing that this is an extra, maybe even.
+
+01:41.480 --> 01:45.950
+It feels a little unnecessary in certain systems, but we're going to stretch on that.
+
+01:45.950 --> 01:51.650
+We're going to work on that area and see how and when you want to add your unit tests.
+
+01:51.680 --> 01:56.810
+Each developer will find their own style, and as a team, you want to come together and establish some
+
+01:56.810 --> 01:59.000
+good best practices that you can all follow.
+
+01:59.980 --> 02:04.720
+The results here, you'll have more confidence and robustness in your code base, as I've mentioned,
+
+02:04.720 --> 02:10.450
+and the effect on your code base isn't just that it's the same old code with tests.
+
+02:10.480 --> 02:15.040
+It's that the very nature of testing will influence how you design your code.
+
+02:15.070 --> 02:22.360
+To make testable code, things need to work in smaller units or smaller classes with less code in them,
+
+02:22.360 --> 02:27.550
+and that encourages us to have a single purpose to each class and method, which is a good design practice.
+
+02:27.550 --> 02:30.010
+We'll see that in software design section.
+
+02:30.010 --> 02:34.630
+It also encourages more simple solutions, especially when we talk about test driven development.
+
+02:34.660 --> 02:41.290
+Now having this automated testing, which means unit tests as part of your code base that are automatically
+
+02:41.290 --> 02:47.760
+called and retried periodically, that is what's going to really give you the best benefit here.
+
+02:47.770 --> 02:54.100
+Now, some teams will use the unit testing inside unity, which is going to be the focus of our talk
+
+02:54.100 --> 02:54.550
+here.
+
+02:54.550 --> 03:02.230
+You can also take that skill and have your git repo or other version control system automatically run
+
+03:02.230 --> 03:09.280
+those tests at key moments, perhaps daily or nightly, or each time your team commits to a certain
+
+03:09.280 --> 03:11.260
+branch, it will run the test again.
+
+03:11.260 --> 03:17.110
+So there's elegant ways that you can increase the frequency at which this is called, and then only
+
+03:17.110 --> 03:20.020
+merge your code together if all the tests pass.
