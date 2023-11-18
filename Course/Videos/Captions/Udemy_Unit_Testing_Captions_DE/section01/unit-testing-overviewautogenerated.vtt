@@ -1,241 +1,241 @@
 WEBVTT
 
 00:00.080 --> 00:02.870
-Hello and welcome to Unit Testing for unity.
+Hallo und willkommen zu Unit Testing für Unity.
 
 00:02.900 --> 00:04.940
-My name is Samuel Asher Rivello.
+Mein Name ist Samuel Asher Rivello.
 
 00:04.970 --> 00:10.130
-I'm a unity developer and instructor with over 20 years of game development experience.
+Ich bin ein Unity-Entwickler und Ausbilder mit über 20 Jahren Erfahrung in der Spieleentwicklung.
 
 00:10.130 --> 00:15.720
-My mission is to educate and entertain with interactive technology, including unity.
+Meine Mission ist es, mit interaktiver Technologie, einschließlich Unity, zu unterrichten und zu unterhalten.
 
 00:15.740 --> 00:22.610
-I've shipped unity titles for PC, Xbox consoles, and more, and I'm available for remote contract
+Ich habe Unity-Titel für PC, Xbox-Konsolen und mehr entwickelt und stehe für Fernverträge zur Verfügung
 
 00:22.640 --> 00:29.390
-hire as a unity game developer, a unity game instructor, as well as a product evangelist.
+als Unity-Spieleentwickler, Unity-Spieleinstrukteur sowie als Produktevangelist.
 
 00:29.420 --> 00:35.660
-My career experience includes being a game developer, a manager of game developers, and doing education
+Meine berufliche Erfahrung umfasst die Arbeit als Spieleentwickler, als Manager von Spieleentwicklern und in der Ausbildung
 
 00:35.660 --> 00:37.120
-in the game development space.
+im Bereich der Spieleentwicklung.
 
 00:37.130 --> 00:44.450
-My teaching experience includes universities, classroom, online, creating YouTube videos and doing
+Ich habe Erfahrung im Unterrichten an Universitäten, im Klassenzimmer, online, beim Erstellen von YouTube-Videos und in der
 
 00:44.450 --> 00:49.910
-videos and first time user experience analysis and overviews for clients.
+Videos und erstmalige Analysen und Übersichten über die Benutzererfahrung für Kunden.
 
 00:49.940 --> 00:52.790
-Our topic here is Unit Testing for unity.
+Unser Thema hier ist Unit Testing für Unity.
 
 00:52.820 --> 00:58.580
-Unity is a versatile game engine that can be used for all sorts of industries, including, of course,
+Unity ist eine vielseitige Spiel-Engine, die für alle möglichen Branchen verwendet werden kann, darunter natürlich auch,
 
 00:58.580 --> 01:06.380
-game development and unit testing is a sub topic that allows you to design and test your classes and
+Spieleentwicklung und Unit-Testing ist ein Unterthema, das es dir erlaubt, deine Klassen zu entwerfen und zu testen und
 
 01:06.380 --> 01:10.040
-architectures so that they're more robust and maintainable.
+Architekturen so zu entwerfen und zu testen, dass sie robuster und wartbar sind.
 
 01:10.040 --> 01:15.530
-The takeaway here is that after this course, you'll think about creating your classes in a new way,
+Nach diesem Kurs werden Sie über die Erstellung Ihrer Klassen auf eine neue Art und Weise nachdenken,
 
 01:15.530 --> 01:21.050
-and you'll think about the lifetime and the maintenance of your project as well, with more confidence
+und Sie werden auch über die Lebensdauer und die Wartung Ihres Projekts mit mehr Selbstvertrauen nachdenken
 
 01:21.050 --> 01:27.800
-enabling you to do refactors and analysis of your projects and scale them up more easily than ever before.
+Sie werden in der Lage sein, Ihre Projekte zu überarbeiten und zu analysieren und sie leichter als je zuvor zu erweitern.
 
 01:27.830 --> 01:33.110
-The course is informally broken into a few different learning tracks at any given time.
+Der Kurs ist informell in verschiedene Lernabschnitte unterteilt.
 
 01:33.110 --> 01:40.040
-We'll be focusing a bit more on the theory and fundamentals behind what is the technique or topic at
+Wir konzentrieren uns ein bisschen mehr auf die Theorie und die Grundlagen, die hinter der Technik oder dem Thema stehen
 
 01:40.070 --> 01:40.610
-hand.
+Hand.
 
 01:40.640 --> 01:42.860
-We'll also take a look at the editor.
+Wir werden auch einen Blick auf den Editor werfen.
 
 01:42.860 --> 01:47.630
-Unique features that we can do within unity to empower us as game developers.
+Einzigartige Funktionen, die wir in Unity nutzen können, um uns als Spieleentwickler zu befähigen.
 
 01:47.630 --> 01:53.600
-Here we'll be talking about unit testing and using the Test Runner window withinside the unity editor.
+Hier werden wir über Unit-Tests und die Verwendung des Test-Runner-Fensters innerhalb des Unity-Editors sprechen.
 
 01:53.600 --> 01:56.390
-And then of course, we're going to be diving deep into code.
+Und dann werden wir natürlich tief in den Code eintauchen.
 
 01:56.390 --> 02:02.090
-We're going to assume that the production code that we're writing, while quite simple, is within reach
+Wir gehen davon aus, dass der Produktionscode, den wir schreiben, zwar recht einfach ist, aber dennoch in Reichweite ist
 
 02:02.120 --> 02:03.230
-of the students here.
+der Studenten hier.
 
 02:03.230 --> 02:08.960
-And we'll be focusing more on new testing code that accompanies our production code.
+Und wir werden uns mehr auf neuen Testcode konzentrieren, der unseren Produktionscode begleitet.
 
 02:08.960 --> 02:15.680
-This testing code will perform automatic tests on that code to give us more code confidence and security
+Dieser Testcode wird automatische Tests für diesen Code durchführen, um uns mehr Vertrauen in den Code und mehr Sicherheit zu geben
 
 02:15.680 --> 02:20.930
-on the current state of our project, particularly when we're designing as well as doing refactors and
+über den aktuellen Stand unseres Projekts zu geben, insbesondere wenn wir entwerfen, Refactors durchführen und
 
 02:20.930 --> 02:21.650
-maintenance.
+Wartung.
 
 02:21.650 --> 02:23.510
-Let's take a look at the course prerequisites.
+Werfen wir einen Blick auf die Kursvoraussetzungen.
 
 02:23.510 --> 02:25.490
-First, there's going to be some software involved.
+Erstens: Es wird etwas Software benötigt.
 
 02:25.490 --> 02:30.650
-Everything's free from unity to the code editor to opening up a web browser to do some more research
+Alles ist kostenlos, von Unity über den Code-Editor bis hin zum Öffnen eines Webbrowsers, um weitere Nachforschungen anzustellen
 
 02:30.680 --> 02:31.880
-as we're going along.
+während wir weitermachen.
 
 02:31.880 --> 02:33.040
-That's easy.
+Das ist ganz einfach.
 
 02:33.050 --> 02:36.410
-I include instructions in this course for how to install those things you need.
+Ich habe in diesem Kurs eine Anleitung, wie man die Dinge, die man braucht, installiert.
 
 02:36.410 --> 02:39.470
-And to get started, let's talk about the knowledge prerequisites.
+Und um loszulegen, lass uns über die Wissensvoraussetzungen sprechen.
 
 02:39.470 --> 02:43.490
-So it's important to note that this course is not for beginners.
+Es ist also wichtig zu wissen, dass dieser Kurs nicht für Anfänger geeignet ist.
 
 02:43.490 --> 02:48.230
-We're going to make some assumptions about object oriented programming class designs.
+Wir werden einige Annahmen über das Design von objektorientierten Programmierklassen machen.
 
 02:48.230 --> 02:54.320
-And we'll even talk a bit about interfaces which some beginner developers are unfamiliar with here and
+Und wir werden auch ein wenig über Schnittstellen sprechen, die einigen Anfängern nicht bekannt sind, und
 
 02:54.320 --> 02:55.190
-there through the course.
+im Laufe des Kurses.
 
 02:55.190 --> 02:59.570
-If there's something that you don't understand that is not part of our course curriculum, I recommend
+Wenn es etwas gibt, das Sie nicht verstehen und das nicht in unserem Kurs enthalten ist, empfehle ich
 
 02:59.570 --> 03:04.760
-to pause the video and go check it out, maybe 5 or 10 minutes of reading and then coming back into
+das Video zu pausieren und es nachzulesen, vielleicht 5 oder 10 Minuten zu lesen und dann zurück zu kommen
 
 03:04.760 --> 03:05.180
-the course.
+den Kurs.
 
 03:05.180 --> 03:11.720
-With that knowledge, we're really focusing on adding unit testing as a new layer on top of our production
+Mit diesem Wissen konzentrieren wir uns wirklich darauf, Unit-Tests als neue Schicht über unserer Produktion hinzuzufügen
 
 03:11.720 --> 03:12.230
-code.
+Code.
 
 03:12.230 --> 03:16.670
-I won't go too deep into talking about production code itself, and in the course we'll be going through
+Ich werde nicht zu tief in die Diskussion über den Produktionscode selbst gehen, und im Kurs werden wir durch
 
 03:16.670 --> 03:23.270
-some simple examples as well, from something like a calculator to a simple character movement and a
+einige einfache Beispiele durchgehen, von etwas wie einem Taschenrechner bis zu einer einfachen Zeichenbewegung und einem
 
 03:23.270 --> 03:26.480
-little bit of stuff around loading some data from an external server.
+ein bisschen was über das Laden von Daten von einem externen Server.
 
 03:26.480 --> 03:28.730
-Let's take a look together at the course contents.
+Schauen wir uns gemeinsam die Kursinhalte an.
 
 03:28.730 --> 03:29.960
-I'm going to read along.
+Ich werde mitlesen.
 
 03:30.130 --> 03:32.690
-We're covering the course introduction here.
+Wir behandeln hier die Kurseinführung.
 
 03:32.720 --> 03:35.960
-There's a whole section giving a review about unity.
+Es gibt einen ganzen Abschnitt mit einem Überblick über die Einheit.
 
 03:35.960 --> 03:41.570
-In that section we'll look at a unity overview about why unity is a popular game engine.
+In diesem Abschnitt sehen wir uns einen Überblick über Unity an und warum Unity eine beliebte Spiel-Engine ist.
 
 03:41.570 --> 03:45.320
-While the game industry is great and interesting to work within.
+Die Spieleindustrie ist großartig und interessant, um darin zu arbeiten.
 
 03:45.320 --> 03:51.200
-And then we'll look at some things about the unity structure game objects, projects, scenes, things
+Und dann schauen wir uns einige Dinge über die Unity-Struktur an: Spielobjekte, Projekte, Szenen, Dinge
 
 03:51.200 --> 03:51.890
-like that.
+und so weiter.
 
 03:51.890 --> 03:56.690
-For many of us, that'll be review, but I do recommend checking it out because some of the things we
+Für viele von uns wird das ein Überblick sein, aber ich empfehle, sich das anzusehen, weil einige der Dinge, die wir
 
 03:56.690 --> 04:01.040
-mentioned there will all repeat later in the course, and it's good to have that fresh connection.
+erwähnt haben, werden sich später im Kurs wiederholen, und es ist gut, diese neue Verbindung zu haben.
 
 04:01.550 --> 04:06.800
-Then we'll do a little bit of software design, talking about some design principles and a little bit
+Dann werden wir ein bisschen Softwaredesign machen, über einige Designprinzipien sprechen und ein bisschen
 
 04:06.800 --> 04:14.300
-about design patterns, just so we understand the science and the art behind how we design well-performing
+über Entwurfsmuster, damit wir die Wissenschaft und die Kunst dahinter verstehen, wie wir gut funktionierende
 
 04:14.300 --> 04:20.150
-code, so that once we begin unit testing on that, we'll be talking a bit about those efficiencies
+Code zu entwerfen, so dass wir, sobald wir mit den Unit-Tests beginnen, ein wenig über diese Effizienz sprechen werden
 
 04:20.150 --> 04:24.740
-and those design principles in the unity testing fundamentals.
+und diese Entwurfsprinzipien in den Unity-Testing-Grundlagen.
 
 04:24.740 --> 04:27.320
-We'll go over what is a unit test.
+Wir werden besprechen, was ein Unit-Test ist.
 
 04:27.350 --> 04:28.820
-Why do you want to do it.
+Warum man das tun sollte.
 
 04:28.850 --> 04:30.770
-How do you do it inside unity.
+Wie macht man das in Unity.
 
 04:30.770 --> 04:37.070
-And that's going to be a step by step process to really look from a project that has no unity unit tests
+Und das wird ein schrittweiser Prozess sein, um wirklich von einem Projekt aus zu sehen, das keine Unity Unit Tests hat
 
 04:37.070 --> 04:39.140
-to adding our first unit tests.
+bis zum Hinzufügen unserer ersten Unit-Tests.
 
 04:39.140 --> 04:43.640
-That's a great place to really get those basics solved.
+Das ist ein großartiger Ort, um diese Grundlagen wirklich zu lösen.
 
 04:43.670 --> 04:49.160
-Then we'll move on to doing a series of workshops in the workshops, each of them is going to be a bit
+Dann werden wir in den Workshops eine Reihe von Workshops machen, jeder von ihnen wird ein bisschen
 
 04:49.160 --> 04:50.420
-more free form.
+freie Form sein.
 
 04:50.540 --> 04:56.720
-I'm just going to share my screen and go through the core core sample project that's included for you.
+Ich werde einfach meinen Bildschirm freigeben und das Beispielprojekt durchgehen, das für Sie enthalten ist.
 
 04:56.720 --> 04:59.560
-And in each of those I will just.
+Und in jedem dieser Projekte werde ich einfach.
 
 04:59.750 --> 05:03.890
-Kind of go with a stream of consciousness explaining the motivation behind it.
+eine Art Bewusstseinsstrom, um die Motivation dahinter zu erklären.
 
 05:03.920 --> 05:06.620
-We'll do a bit of coding as we go in some of them.
+Wir werden ein bisschen kodieren, während wir in einigen von ihnen gehen.
 
 05:06.620 --> 05:08.990
-Some of the workshops will be more code heavy.
+Einige der Workshops werden sehr programmierlastig sein.
 
 05:09.020 --> 05:14.420
-Other ones I'll be reviewing existing code, but throughout all of them, it's really another chance
+In anderen werde ich bestehenden Code überprüfen, aber in allen Workshops ist es wirklich eine weitere Chance
 
 05:14.420 --> 05:19.700
-to just add another layer upon layer of comfort and familiarity with the concepts.
+um eine weitere Schicht von Komfort und Vertrautheit mit den Konzepten zu erreichen.
 
 05:20.060 --> 05:24.800
-During the workshops, I recommend to open up the sample project and follow along and here and there
+Während der Workshops empfehle ich, das Beispielprojekt zu öffnen und hier und da mitzumachen
 
 05:24.800 --> 05:28.910
-through the course, I'll mention that there'll be an opportunity for some advanced topics to.
+während des Kurses werde ich erwähnen, dass es die Möglichkeit geben wird, einige fortgeschrittene Themen zu behandeln.

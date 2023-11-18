@@ -1,391 +1,391 @@
 WEBVTT
 
 00:00.410 --> 00:03.080
-Hello and welcome to Artificial Intelligence.
+Hallo und willkommen bei Artificial Intelligence.
 
 00:03.080 --> 00:07.700
-Here we're using artificial intelligence to help us create unit testing code.
+Hier verwenden wir künstliche Intelligenz, um uns bei der Erstellung von Unit-Testing-Code zu helfen.
 
 00:07.700 --> 00:12.530
-Now, incorporating AI into game development can streamline development and testing.
+Der Einsatz von künstlicher Intelligenz in der Spieleentwicklung kann die Entwicklung und das Testen rationalisieren.
 
 00:12.530 --> 00:17.480
-Some of the benefits are included here, and we're going to focus on automated testing.
+Einige der Vorteile sind hier aufgeführt, und wir werden uns auf automatisierte Tests konzentrieren.
 
 00:17.780 --> 00:23.060
-AI can rapidly identify and fix your bugs, and it can reduce test creation time.
+KI kann Ihre Fehler schnell identifizieren und beheben und die Zeit für die Testerstellung reduzieren.
 
 00:23.060 --> 00:28.580
-Now, the traditional approach without any AI would be to create your production code.
+Der traditionelle Ansatz ohne KI wäre, den Produktionscode zu erstellen.
 
 00:28.580 --> 00:34.040
-And then if you're going to embrace unit testing to manually create those tests as you go.
+Und dann, wenn man Unit-Tests einführt, diese Tests manuell zu erstellen, während man arbeitet.
 
 00:34.070 --> 00:40.430
-We've seen in the previous video how AI can help us create our production code for some or all of a
+Wir haben im vorigen Video gesehen, wie KI uns helfen kann, unseren Produktionscode für einige oder alle Teile einer
 
 00:40.430 --> 00:41.060
-game system.
+Spielsystems.
 
 00:41.060 --> 00:47.000
-Now let's take a look at how AI can help us automate the process of creating our unit testing.
+Schauen wir uns nun an, wie KI uns helfen kann, den Prozess der Erstellung unserer Unit-Tests zu automatisieren.
 
 00:47.000 --> 00:52.160
-We have an existing chat GPT chat, open with how we created the production code.
+Wir haben einen bestehenden GPT-Chat geöffnet, der zeigt, wie wir den Produktionscode erstellt haben.
 
 00:52.160 --> 00:58.070
-Now it's very important that I continue within this exact same chat when I begin to ask the next questions
+Jetzt ist es sehr wichtig, dass ich in genau diesem Chat weitermache, wenn ich die nächsten Fragen stelle
 
 00:58.070 --> 00:59.450
-about unit testing.
+über Unit-Tests.
 
 01:00.370 --> 01:06.670
-If, for example, I wanted to create a brand new chat here, I would need to reintroduce the context,
+Wenn ich hier zum Beispiel einen ganz neuen Chat erstellen wollte, müsste ich den Kontext wieder einführen,
 
 01:06.670 --> 01:12.190
-perhaps saying, hey, can you create me unit testing for this class and then paste in the class or
+vielleicht sagen, hey, kannst du mir Unit-Tests für diese Klasse erstellen und dann die Klasse einfügen oder
 
 01:12.190 --> 01:13.440
-classes that are related?
+Klassen einfügen, die verwandt sind?
 
 01:13.450 --> 01:16.030
-But because we've already got context here, I'll use this.
+Aber da wir hier schon einen Kontext haben, werde ich das hier verwenden.
 
 01:16.030 --> 01:23.680
-So from the previous section, the I created us an example here of using a product manager class, adding
+Im vorherigen Abschnitt habe ich ein Beispiel für die Verwendung einer Produktmanager-Klasse erstellt, indem ich
 
 01:23.680 --> 01:24.820
-some products to it.
+einige Produkte hinzuzufügen.
 
 01:24.820 --> 01:31.390
-You could imagine this being a product being sold in a game store, or an NPC character who has a shop
+Du könntest dir vorstellen, dass dies ein Produkt ist, das in einem Spielladen verkauft wird, oder ein NPC-Charakter, der einen Laden hat
 
 01:31.390 --> 01:35.590
-that perhaps gives you items or puts them in your inventory, something like that.
+der dir vielleicht Gegenstände gibt oder sie in dein Inventar legt, so etwas in der Art.
 
 01:35.590 --> 01:40.870
-And above that, in the same chat we have the I create us the product manager itself.
+Und darüber, im selben Chat, haben wir den Ich erstelle uns den Produktmanager selbst.
 
 01:40.870 --> 01:44.490
-So the product manager has created an I and the example on top of it.
+Der Produktmanager hat also ein I erstellt und das Beispiel darüber.
 
 01:44.500 --> 01:46.680
-Now let's ask it to give us some tests.
+Bitten wir ihn nun, uns einige Tests zu geben.
 
 01:46.690 --> 01:51.880
-What I'm going to do is paste in an edit mode test that I already have so that it knows the namespace
+Ich werde einen Test für den Bearbeitungsmodus einfügen, den ich bereits habe, damit er den Namensraum kennt
 
 01:51.880 --> 01:56.200
-and naming that I like, and then ask it to fill that with relevant tests.
+und die von mir gewünschte Benennung, und dann bitte ich es, diesen mit relevanten Tests zu füllen.
 
 01:56.200 --> 01:57.700
-Let's see how it goes here.
+Schauen wir mal, wie es hier läuft.
 
 01:57.700 --> 02:02.080
-Inside unity I've got an I test and I playmode test.
+Innerhalb von unity habe ich einen I-Test und einen Playmode-Test.
 
 02:02.110 --> 02:04.660
-Let's just do the edit mode test here.
+Lass uns einfach den Editiermodus-Test hier machen.
 
 02:04.660 --> 02:05.740
-So here it is.
+Hier ist es also.
 
 02:05.740 --> 02:09.610
-Here we can see it's got one test called my test.
+Hier können wir sehen, dass es einen Test namens "Mein Test" gibt.
 
 02:09.640 --> 02:11.620
-We open up the source code and we see it here.
+Wir öffnen den Quellcode und sehen ihn hier.
 
 02:11.620 --> 02:13.480
-It's got the namespace that I like.
+Er hat den Namespace, den ich mag.
 
 02:13.480 --> 02:16.090
-It's got usings I assume the category.
+Es hat Verwendungen, ich nehme an, die Kategorie.
 
 02:16.090 --> 02:21.640
-So rather than asking ChatGPT to create us something from complete scratch, I'm going to give it this
+Anstatt ChatGPT zu bitten, uns etwas von Grund auf neu zu erstellen, gebe ich ihm dies
 
 02:21.640 --> 02:22.180
-here.
+hier.
 
 02:24.160 --> 02:26.620
-I think I'll get rid of the naming here.
+Ich denke, ich werde die Namensgebung hier loswerden.
 
 02:27.370 --> 02:29.290
-So that I don't suggest that part.
+Damit ich diesen Teil nicht vorschlage.
 
 02:29.320 --> 02:32.710
-So back here in ChatGPT, I'm going to say great.
+Hier in ChatGPT werde ich sagen, großartig.
 
 02:32.740 --> 02:40.150
-Now I want unit testing on top of the product Manager class.
+Jetzt möchte ich Unit-Tests über der Produktmanager-Klasse durchführen.
 
 02:40.600 --> 02:49.540
-Create a new response with one test class with one or more test methods.
+Erstellen Sie eine neue Antwort mit einer Testklasse mit einer oder mehreren Testmethoden.
 
 02:52.090 --> 02:54.490
-Start with this code.
+Beginnen Sie mit diesem Code.
 
 02:55.490 --> 02:57.050
-Let's take a look at the response.
+Werfen wir einen Blick auf die Antwort.
 
 02:57.050 --> 03:02.630
-To create unit tests for the Product Manager class, you can use any unit a popular testing framework
+Um Unit-Tests für die Klasse Product Manager zu erstellen, können Sie ein beliebiges Unit-Test-Framework verwenden
 
 03:02.630 --> 03:02.780
-for.
+für.
 
 03:02.990 --> 03:03.500
-Net.
+Netz.
 
 03:03.530 --> 03:05.930
-Below is an example of the test class.
+Nachfolgend ein Beispiel für die Testklasse.
 
 03:07.070 --> 03:13.730
-We can see that it used the namespace, the comments, the category test name, all things that I gave
+Wir können sehen, dass der Namespace, die Kommentare und der Name der Kategorie test verwendet werden, alles Dinge, die ich angegeben habe
 
 03:13.730 --> 03:14.060
-it.
+es.
 
 03:14.090 --> 03:16.850
-Then it does the rest on its own.
+Dann macht es den Rest von alleine.
 
 03:16.880 --> 03:19.880
-Now one thing I notice is that it's creating one.
+Eine Sache, die mir auffällt, ist, dass es eine erstellt.
 
 03:20.900 --> 03:26.270
-It's creating one variable here that is going to populate in the setup and maybe tear down later.
+Es wird hier eine Variable erstellt, die im Setup aufgefüllt und vielleicht später wieder abgebaut wird.
 
 03:26.270 --> 03:27.800
-Actually, it doesn't do the tear down.
+Eigentlich wird sie nicht abgebaut.
 
 03:28.100 --> 03:33.470
-Then here what it does in each of the tests is it uses the arrange, act and assert, which happens
+Hier wird in jedem der Tests das Arrange, Act und Assert verwendet, was geschieht
 
 03:33.470 --> 03:35.090
-to match my particular preference.
+meiner besonderen Vorliebe entspricht.
 
 03:35.090 --> 03:41.390
-So I like that it was just guessing that based on popularity as a general solution there, if somehow
+Ich finde es gut, dass es nur eine allgemeine Lösung ist, die auf der Popularität basiert, wenn irgendwie
 
 03:41.390 --> 03:45.140
-I had a different way that I wanted to go about this, I could instruct that.
+Wenn ich eine andere Lösung haben wollte, konnte ich sie anweisen.
 
 03:45.140 --> 03:46.550
-But I like that so far.
+Aber das gefällt mir bis jetzt.
 
 03:46.550 --> 03:52.970
-So it sets up the test product, it adds the product, and then it makes sure that the get product returns
+Es richtet also das Testprodukt ein, fügt das Produkt hinzu und sorgt dann dafür, dass das Produkt zurückkommt
 
 03:52.970 --> 03:54.410
-that particular product.
+dieses bestimmte Produkt.
 
 03:54.410 --> 03:55.760
-So that looks good.
+Das sieht also gut aus.
 
 03:55.760 --> 03:57.740
-Then it tests how to remove a product.
+Dann testet es, wie man ein Produkt entfernt.
 
 03:57.740 --> 04:01.100
-So it goes to create a product and add it.
+Es wird also ein Produkt erstellt und hinzugefügt.
 
 04:01.100 --> 04:06.170
-Then to remove it, then to make sure that it actually worked there.
+Dann entfernen Sie es und stellen sicher, dass es tatsächlich funktioniert.
 
 04:06.170 --> 04:11.540
-And that it does not have that product in it like that.
+Und dass es das Produkt nicht so drin hat.
 
 04:11.570 --> 04:13.790
-Get products, returns all products.
+Produkte holen, gibt alle Produkte zurück.
 
 04:13.790 --> 04:16.130
-So it does two and it knows two.
+Es macht also zwei und weiß zwei.
 
 04:16.130 --> 04:21.230
-Now, this would be a great step for me to paste this into unity and make sure it works.
+Das wäre ein guter Schritt für mich, um das in Unity einzufügen und sicherzustellen, dass es funktioniert.
 
 04:21.230 --> 04:22.280
-I'm going to do that.
+Ich werde das tun.
 
 04:22.280 --> 04:27.800
-And then I'll come back and think, is there another test that it could add, or is there some refactor
+Und dann werde ich zurückkommen und überlegen, ob es einen weiteren Test gibt, den man hinzufügen könnte, oder ob man etwas umgestalten kann
 
 04:27.800 --> 04:30.500
-to the code that we could do just to play with it a little bit more?
+am Code, die wir machen könnten, um ein bisschen mehr damit zu spielen?
 
 04:30.500 --> 04:31.820
-But I like where this is going.
+Aber ich mag, wohin das führt.
 
 04:31.820 --> 04:33.200
-So let's paste this into unity.
+Fügen wir das also in Unity ein.
 
 04:33.230 --> 04:37.820
-Save it inside unity looks like it compiles and inside unity looks like it's running.
+Speichere es in Unity und es sieht so aus, als ob es kompiliert wird und in Unity sieht es so aus, als ob es läuft.
 
 04:37.820 --> 04:38.990
-Let's run the test.
+Lasst uns den Test ausführen.
 
 04:40.910 --> 04:42.200
-All the tests pass.
+Alle Tests sind erfolgreich.
 
 04:42.230 --> 04:43.010
-Now.
+Jetzt.
 
 04:43.730 --> 04:45.590
-The test names that it gave us.
+Die Namen der Tests, die er uns gegeben hat.
 
 04:45.590 --> 04:45.890
-Great.
+Sehr gut.
 
 04:45.890 --> 04:51.110
-It doesn't happen to match my particular style and I can decide at this point, adopt what gives me
+Es passt nicht zu meinem Stil und ich kann an dieser Stelle entscheiden, ob ich das, was mir
 
 04:51.110 --> 04:52.730
-or suggest a difference.
+oder einen Unterschied vorschlagen.
 
 04:52.730 --> 04:58.040
-So just to play with the idea here, I'm going to suggest that use a slightly different naming scheme.
+Um mit der Idee zu spielen, schlage ich vor, ein etwas anderes Benennungsschema zu verwenden.
 
 04:58.040 --> 05:01.610
-But I love the test that gave me and I love that they all pass.
+Aber ich liebe den Test, den ich bekommen habe, und ich liebe es, dass sie alle bestehen.
 
 05:01.610 --> 05:03.530
-So we're doing really good so far.
+Bis jetzt läuft es also wirklich gut.
 
 05:03.530 --> 05:08.390
-Let's go back and just play with the idea of giving some small suggestion and see it iterate one more
+Gehen wir zurück und spielen einfach mit der Idee, einen kleinen Vorschlag zu machen und sehen, wie es weitergeht
 
 05:08.390 --> 05:08.780
-time.
+Zeit.
 
 05:08.780 --> 05:11.900
-So let's tell it what works great.
+Sagen wir ihm also, was gut funktioniert.
 
 05:11.900 --> 05:16.960
-That works and compiles and all tests pass.
+Das funktioniert und kompiliert und alle Tests bestehen.
 
 05:16.970 --> 05:25.790
-However, I don't like the test method naming, so please change from the format of add product.
+Allerdings gefällt mir die Benennung der Testmethoden nicht, also bitte das Format von add product ändern.
 
 05:25.790 --> 05:28.880
-Add products to list to a new format like Add product.
+Produkte zur Liste hinzufügen in ein neues Format wie Produkt hinzufügen.
 
 05:28.910 --> 05:32.510
-Get products contains product when product added.
+Produkte erhalten enthält Produkt, wenn Produkt hinzugefügt.
 
 05:33.080 --> 05:38.930
-I generally like to follow something like the method under test the expected result, and then when
+Im Allgemeinen möchte ich so etwas wie die zu testende Methode das erwartete Ergebnis, und dann, wenn
 
 05:38.930 --> 05:43.970
-this particular thing happens, sometimes the naming gets a little bit long as shown here.
+diese bestimmte Sache passiert, wird die Benennung manchmal etwas lang, wie hier gezeigt.
 
 05:43.970 --> 05:45.650
-Sometimes it's not the clearest.
+Manchmal ist es nicht ganz so klar.
 
 05:45.650 --> 05:47.240
-It really depends on the context.
+Es kommt wirklich auf den Kontext an.
 
 05:47.240 --> 05:52.100
-But moreover, what I'm showing here is that I like most of what ChatGPT gave me.
+Aber was ich hier zeige, ist, dass ich das meiste von dem, was ChatGPT mir gegeben hat, mag.
 
 05:52.100 --> 05:53.990
-But I want to suggest a change.
+Aber ich möchte eine Änderung vorschlagen.
 
 05:53.990 --> 05:57.200
-So let's just play with this as the change and see what result we get.
+Spielen wir also mit dieser Änderung und sehen, welches Ergebnis wir erhalten.
 
 05:57.230 --> 05:58.520
-Let's take a look at the result.
+Werfen wir einen Blick auf das Ergebnis.
 
 05:58.520 --> 06:01.040
-It says certainly renaming looks good.
+Es sagt, dass die Umbenennung gut aussieht.
 
 06:01.070 --> 06:06.110
-It mentions that it's inferring method, name, condition, expected result.
+Es wird erwähnt, dass es Methode, Name, Bedingung und erwartetes Ergebnis ableitet.
 
 06:06.230 --> 06:09.530
-I actually think expected result then condition.
+Ich denke, erst das erwartete Ergebnis, dann die Bedingung.
 
 06:09.530 --> 06:11.660
-But let's take a look at the results here.
+Aber schauen wir uns die Ergebnisse hier an.
 
 06:11.660 --> 06:14.270
-So again I admit this is pretty long.
+Ich gebe zu, dass dies wieder ziemlich lang ist.
 
 06:14.270 --> 06:18.170
-But add product get products contains the product.
+Aber add product get products enthält das Produkt.
 
 06:18.170 --> 06:20.480
-When the product is added, great.
+Wenn das Produkt hinzugefügt wird, toll.
 
 06:20.510 --> 06:21.710
-Here's an even longer one.
+Hier ist ein noch längeres Beispiel.
 
 06:21.710 --> 06:23.240
-Get product does not.
+Das Produkt nicht erhalten.
 
 06:23.270 --> 06:28.100
-Now you could argue that this isn't the best naming scheme, which as I'm seeing this long name here,
+Nun könnte man argumentieren, dass dies nicht das beste Benennungsschema ist, da ich diesen langen Namen hier sehe,
 
 06:28.100 --> 06:32.690
-I'm thinking, hey, maybe it's not a good one, but what we've seen is that we're able to bounce back
+Ich denke, hey, vielleicht ist es kein gutes Schema, aber wir haben gesehen, dass wir in der Lage sind, zurück zu kommen
 
 06:32.690 --> 06:37.790
-and forth and give a little bit of a suggestion and see that ChatGPT works well.
+und hin und her und geben ein paar Vorschläge und sehen, dass ChatGPT gut funktioniert.
 
 06:37.790 --> 06:41.300
-So we'll copy this into the unity and see how it works.
+Also kopieren wir das in die Unity und sehen, wie es funktioniert.
 
 06:41.300 --> 06:42.110
-So here we are.
+Hier sind wir also.
 
 06:42.110 --> 06:42.800
-It's in unity.
+Es ist in Unity.
 
 06:42.800 --> 06:43.520
-It's compiled.
+Es ist kompiliert.
 
 06:43.520 --> 06:44.810
-And let's run the tests.
+Und lass die Tests laufen.
 
 06:47.350 --> 06:48.850
-And everything looks good there.
+Und alles sieht gut aus.
 
 06:48.850 --> 06:54.490
-So we've seen a fantastic use case of artificial intelligence, not just to make production code as
+Wir haben also einen fantastischen Anwendungsfall von künstlicher Intelligenz gesehen, nicht nur um den Produktionscode so
 
 06:54.490 --> 06:59.200
-we did in the earlier lesson, but also to create new unit tests on top of that production code.
+wie wir es in der vorherigen Lektion getan haben, sondern auch um neue Unit-Tests auf diesem Produktionscode zu erstellen.
 
 06:59.200 --> 07:05.440
-Here, at least in our simple demo, we've seen unity compiled the code every single time with no problems,
+Hier, zumindest in unserer einfachen Demo, haben wir gesehen, dass Unity den Code jedes Mal ohne Probleme kompiliert hat,
 
 07:05.440 --> 07:07.350
-and all of our tests passed.
+und alle unsere Tests haben bestanden.
 
 07:07.360 --> 07:11.110
-If you would find that the code didn't compile, you could tell ChatGPT.
+Wenn du feststellst, dass der Code nicht kompiliert werden kann, kannst du das ChatGPT mitteilen.
 
 07:11.410 --> 07:16.720
-Hey, that was pretty good, but I got this error and you would be helping to educate it and give you
+Hey, das war ziemlich gut, aber ich habe diesen Fehler und du würdest helfen, es zu erziehen und dir
 
 07:16.720 --> 07:17.590
-a better answer.
+eine bessere Antwort geben.
 
 07:17.590 --> 07:19.000
-We didn't need to do that here.
+Das brauchten wir hier nicht zu tun.
 
 07:19.000 --> 07:24.460
-Also, if some or all of the tests failed, you could tell unity that I generally don't see that the
+Auch wenn einige oder alle Tests fehlgeschlagen sind, könnten Sie der Einheit sagen, dass ich im Allgemeinen nicht sehe, dass die
 
 07:24.460 --> 07:26.350
-tests fail, but it is possible.
+Tests fehlschlagen, aber es ist möglich.
 
 07:26.350 --> 07:27.490
-So that's it here.
+Das war's also hier.
 
 07:27.490 --> 07:31.000
-We've seen a fantastic use case for AI in unit testing.
+Wir haben einen fantastischen Anwendungsfall für KI in Unit-Tests gesehen.
 
 07:31.030 --> 07:31.750
-Thanks.
+Vielen Dank!

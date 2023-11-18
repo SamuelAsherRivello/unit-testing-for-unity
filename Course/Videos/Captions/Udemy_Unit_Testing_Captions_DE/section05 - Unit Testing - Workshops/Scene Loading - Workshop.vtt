@@ -1,364 +1,364 @@
 WEBVTT
 
 00:00.320 --> 00:03.950
-Hello and welcome to the unit testing for Unity Workshops.
+Hallo und herzlich willkommen zu den Unit-Tests für Unity-Workshops.
 
 00:03.950 --> 00:06.800
-And here we're going to be looking at scene loading.
+Und hier werden wir uns das Laden von Szenen ansehen.
 
 00:06.800 --> 00:12.860
-Now traditionally when we think of unit testing we think of testing the smallest unit of code with the
+Wenn wir an Unit-Tests denken, denken wir traditionell an das Testen der kleinsten Code-Einheit mit dem
 
 00:12.860 --> 00:15.530
-fewest lines and the fewest dependencies.
+wenigsten Zeilen und den wenigsten Abhängigkeiten.
 
 00:15.530 --> 00:21.530
-So on the opposite end of that spectrum of simplicity, we have complexity.
+Am anderen Ende des Spektrums der Einfachheit steht die Komplexität.
 
 00:21.530 --> 00:27.710
-And one of the important foundational objects inside unity is the scene itself.
+Und eines der wichtigen grundlegenden Objekte innerhalb der Einheit ist die Szene selbst.
 
 00:28.220 --> 00:35.150
-Everything that you see as a player in a game experience is inside of a scene.
+Alles, was du als Spieler in einem Spiel siehst, befindet sich in einer Szene.
 
 00:35.150 --> 00:39.950
-So we can unit test the individual scripts or elements within a scene.
+Wir können also die einzelnen Skripte oder Elemente innerhalb einer Szene testen.
 
 00:39.950 --> 00:44.210
-Or as we're going to show here, we could test the entire scene itself.
+Oder, wie wir hier zeigen werden, können wir die gesamte Szene selbst testen.
 
 00:44.210 --> 00:45.710
-Now why might we do that?
+Und warum sollten wir das tun?
 
 00:45.710 --> 00:48.110
-First of all, it's a nice smoke test.
+Zunächst einmal ist es ein netter Rauchtest.
 
 00:48.140 --> 00:53.630
-A simple way to just see did the scene load and did it load with no exceptions.
+Ein einfacher Weg, um zu sehen, ob die Szene geladen wurde und ob sie ohne Ausnahmen geladen wurde.
 
 00:53.630 --> 00:54.980
-That alone is worth it.
+Das allein ist es wert.
 
 00:54.980 --> 00:56.690
-Let's think about the things that we can do.
+Lasst uns über die Dinge nachdenken, die wir tun können.
 
 00:56.720 --> 01:00.770
-We could make assumptions on the scene structure and what objects are inside of it.
+Wir könnten Annahmen über die Struktur der Szene und die darin befindlichen Objekte machen.
 
 01:00.770 --> 01:04.340
-We could make assumptions on the behaviors in things in that scene.
+Wir können Annahmen über das Verhalten von Dingen in der Szene machen.
 
 01:04.340 --> 01:11.210
-And a workflow that I find really cool is you can leave these tests behind and have the non-programmers
+Und ein Arbeitsablauf, den ich wirklich cool finde, ist, dass man diese Tests hinter sich lassen kann und die Nicht-Programmierer
 
 01:11.210 --> 01:15.590
-on your team run the tests before and after doing their work.
+in Ihrem Team die Tests vor und nach ihrer Arbeit durchführen lassen.
 
 01:15.590 --> 01:21.590
-Perhaps a level designer being able to work more confidently, knowing that new levels added, do not
+Vielleicht kann ein Leveldesigner zuversichtlicher arbeiten, weil er weiß, dass neu hinzugefügte Level nicht
 
 01:21.590 --> 01:25.490
-break any existing scenes or revisions to existing levels.
+bestehende Szenen oder Überarbeitungen bestehender Levels unterbrechen.
 
 01:25.490 --> 01:31.450
-Don't break any of the scenes either, and your art team can be sure that if they were to replace some
+Machen Sie auch keine der Szenen kaputt, und Ihr Grafikteam kann sicher sein, dass, wenn sie einige Szenen ersetzen würden
 
 01:31.460 --> 01:37.400
-assets or add some new assets, that from the programmer's standpoint, nothing has been broken.
+Assets ersetzt oder neue Assets hinzufügt, aus der Sicht des Programmierers nichts kaputt gemacht wird.
 
 01:37.400 --> 01:39.200
-So what would that workflow look like?
+Wie würde dieser Arbeitsablauf also aussehen?
 
 01:39.200 --> 01:45.680
-Well, I'll show an example here of being able to create a play mode test and load an entire scene into
+Nun, ich zeige hier ein Beispiel, wie man einen Test im Wiedergabemodus erstellt und eine ganze Szene in
 
 01:45.680 --> 01:49.070
-that play mode test and make some assumptions on it using assertions.
+diesen Wiedergabemodus-Test laden und mit Hilfe von Assertions einige Annahmen treffen.
 
 01:49.070 --> 01:56.030
-For example, you could load a scene and in the intro scene check that the menu properly is being displayed.
+Zum Beispiel könnte man eine Szene laden und in der Intro-Szene prüfen, ob das Menü richtig angezeigt wird.
 
 01:56.030 --> 01:57.620
-We're in a gameplay scene.
+Wir sind in einer Gameplay-Szene.
 
 01:57.650 --> 02:03.080
-Be sure that the background element, the hero and all the enemies have been instantiated at the proper
+Stellen Sie sicher, dass das Hintergrundelement, der Held und alle Feinde an der richtigen Stelle instanziiert wurden.
 
 02:03.080 --> 02:03.470
-moment.
+Moment instanziiert werden.
 
 02:03.470 --> 02:08.900
-Now, because we're opening the door to the great complexity possible within a given scene, it may
+Da wir nun die Tür zu der großen Komplexität öffnen, die innerhalb einer bestimmten Szene möglich ist, kann es
 
 02:08.900 --> 02:15.380
-seem overwhelming that you'd want to test out everything in a scene, but again, I think even a very
+überwältigend erscheinen, dass man alles in einer Szene ausprobieren möchte, aber auch hier denke ich, dass selbst ein sehr
 
 02:15.380 --> 02:22.490
-conservative test that just loads the scene and makes sure 1 or 2 key elements are there, with no exceptions.
+konservativer Test, der nur die Szene lädt und sicherstellt, dass 1 oder 2 Schlüsselelemente vorhanden sind, ohne Ausnahmen.
 
 02:22.490 --> 02:27.400
-Thrown is a fantastic low hanging fruit that will bring value to your team.
+Thrown ist eine fantastische niedrig hängende Frucht, die Ihrem Team einen Mehrwert bringt.
 
 02:27.410 --> 02:28.580
-Let's take a look inside.
+Lassen Sie uns einen Blick hineinwerfen.
 
 02:28.580 --> 02:29.240
-Unity.
+Einigkeit.
 
 02:29.510 --> 02:31.910
-Here we are inside the core sample project.
+Hier sind wir innerhalb des Kernprojekts.
 
 02:31.940 --> 02:33.440
-Now in the test runner window.
+Jetzt im Fenster des Testläufers.
 
 02:33.440 --> 02:35.450
-Here we've got lots of different categories.
+Hier haben wir viele verschiedene Kategorien.
 
 02:35.450 --> 02:42.140
-I've got the scene loading selected and you can see that we've got some editor and runtime tests.
+Ich habe das Laden der Szene ausgewählt und Sie können sehen, dass wir einige Editor- und Laufzeittests haben.
 
 02:42.140 --> 02:48.380
-Because scenes and the things that I'm choosing to test here are related to the typical runtime behavior
+Weil die Szenen und die Dinge, die ich hier testen will, mit dem typischen Laufzeitverhalten zusammenhängen
 
 02:48.380 --> 02:50.240
-of unity Monobehaviours.
+von Unity Monobehaviours.
 
 02:50.240 --> 02:54.470
-For example, I'm going to focus on just the runtime test, the play mode test.
+Ich werde mich zum Beispiel nur auf den Laufzeittest konzentrieren, den Spielmodus-Test.
 
 02:54.470 --> 02:56.470
-So I'll disable the edit mode test.
+Ich werde also den Test im Bearbeitungsmodus deaktivieren.
 
 02:56.480 --> 02:58.220
-Let's take a look at what we've got here.
+Schauen wir uns mal an, was wir hier haben.
 
 02:58.220 --> 03:04.970
-So what we're going to do is every time we run this particular test, we're going to be checking that
+Wir werden also jedes Mal, wenn wir diesen Test ausführen, überprüfen, ob
 
 03:04.970 --> 03:12.500
-the intro scene has a hero inside of it that simulates our main game character, that the intro scene
+die Intro-Szene einen Helden enthält, der unseren Hauptcharakter im Spiel simuliert, dass die Intro-Szene
 
 03:12.500 --> 03:15.020
-loads without any exceptions thrown.
+geladen wird, ohne dass Ausnahmen ausgelöst werden.
 
 03:15.260 --> 03:17.720
-And then we'll repeat that for the game scene.
+Und dann wiederholen wir das für die Spielszene.
 
 03:17.930 --> 03:23.480
-You could imagine that you'd have one test that could test all of your scenes in a systematic way.
+Sie könnten sich vorstellen, dass Sie einen Test haben, der alle Ihre Szenen systematisch testet.
 
 03:23.480 --> 03:30.950
-What I've chosen to do here is structure one test for each of the functionalities that we'd want, one
+Ich habe mich dafür entschieden, einen Test für jede der gewünschten Funktionalitäten zu strukturieren, einen
 
 03:30.950 --> 03:36.770
-for the hero, one for the exceptions, and doing that for each of the scenes, all within one test
+für den Helden, einen für die Ausnahmen, und das für jede der Szenen, alles innerhalb eines Tests
 
 03:36.770 --> 03:37.310
-structure.
+Struktur.
 
 03:37.310 --> 03:40.610
-But you could decide how to scale it up depending what you and your team want to do.
+Aber Sie können entscheiden, wie Sie das Ganze skalieren, je nachdem, was Sie und Ihr Team tun wollen.
 
 03:40.640 --> 03:41.840
-Let me run these tests.
+Lassen Sie mich diese Tests durchführen.
 
 03:41.840 --> 03:42.920
-Everything passes there.
+Alles ist bestanden.
 
 03:42.920 --> 03:44.690
-You can see we've got some console traffic.
+Sie können sehen, dass wir etwas Konsolenverkehr haben.
 
 03:44.690 --> 03:45.920
-Let's take a look at the source code.
+Werfen wir einen Blick auf den Quellcode.
 
 03:45.920 --> 03:50.990
-So in this test I'm saying that the scene one intro, which is the name of one of the scenes in the
+In diesem Test sage ich also, dass das Intro der Szene eins, das ist der Name einer der Szenen im
 
 03:50.990 --> 03:57.710
-project, we'll assume that the hero is not null when the scene is loaded, unlike some of our smallest
+Projekt ist, gehen wir davon aus, dass der Held nicht Null ist, wenn die Szene geladen wird, im Gegensatz zu einigen unserer kleinsten
 
 03:57.710 --> 04:01.280
-unit testing, loading the scene and doing it well and nice.
+Unit-Tests, die Szene laden und es gut und schön machen.
 
 04:01.280 --> 04:02.540
-Having a nice workflow here.
+Einen schönen Arbeitsablauf hier zu haben.
 
 04:02.540 --> 04:06.140
-It does involve some setup, so let's talk about what the setup is.
+Es erfordert einige Vorbereitungen, also lasst uns darüber sprechen, was die Vorbereitungen sind.
 
 04:06.140 --> 04:09.380
-First thing is that I'll listen to the scene manager to see.
+Als erstes höre ich mir den Szenenmanager an, um zu sehen.
 
 04:09.380 --> 04:14.840
-Hey has the scene that I want to load been loaded, then I will load the scene here.
+Hey, ist die Szene, die ich laden möchte, geladen worden, dann werde ich die Szene hier laden.
 
 04:14.840 --> 04:21.830
-I've made a static variable for the scene names, just so it's easier for me to be able to isolate and
+Ich habe eine statische Variable für die Szenennamen erstellt, damit ich sie leichter isolieren kann und
 
 04:21.830 --> 04:23.360
-update those if I need to.
+zu aktualisieren, wenn ich das muss.
 
 04:23.390 --> 04:26.090
-Then I will sit here and wait while the scene is loaded.
+Dann werde ich hier sitzen und warten, während die Szene geladen wird.
 
 04:26.090 --> 04:31.580
-This makes sure I don't assume or assert anything about that until after the scene is loaded.
+Das stellt sicher, dass ich nichts annehme oder behaupte, bis die Szene geladen ist.
 
 04:31.580 --> 04:33.020
-It happens quite quickly.
+Es passiert ziemlich schnell.
 
 04:33.020 --> 04:37.640
-Then here I will be able to do any of the introspection into the scene.
+Dann kann ich hier eine Introspektion der Szene durchführen.
 
 04:37.670 --> 04:43.700
-A very powerful thing I can do is look through the entire scene after it's loaded, and look for any
+Eine sehr mächtige Sache, die ich tun kann, ist, die gesamte Szene zu durchsuchen, nachdem sie geladen wurde, und nach irgendwelchen
 
 04:43.700 --> 04:45.320
-existence of a given script.
+Existenz eines bestimmten Skripts.
 
 04:45.320 --> 04:52.730
-If I had a prefab called hero or an individual hero script in that scene, this would return one value.
+Wenn ich eine Voreinstellung namens hero oder ein individuelles hero-Skript in dieser Szene hätte, würde dies einen Wert zurückgeben.
 
 04:52.730 --> 04:57.020
-I could also get a list back of all of the heroes or all of the enemies.
+Ich könnte auch eine Liste aller Helden oder aller Feinde zurückbekommen.
 
 04:57.020 --> 04:59.840
-If I have multiple, then I can iterate over them and.
+Wenn ich mehrere habe, kann ich über sie iterieren und.
 
 04:59.940 --> 05:01.670
-And perform whatever test I want.
+Und jeden Test durchführen, den ich will.
 
 05:01.680 --> 05:03.960
-I'm doing a purposely lean test here.
+Ich mache hier einen absichtlich schlanken Test.
 
 05:03.990 --> 05:06.780
-All I do is make sure that the hero is not null.
+Ich muss nur sicherstellen, dass der Held nicht Null ist.
 
 05:06.810 --> 05:14.100
-If, for example, an artist or a level designer accidentally deleted the hero in a given scene, this
+Wenn zum Beispiel ein Künstler oder ein Leveldesigner den Helden in einer bestimmten Szene versehentlich gelöscht hat, ist das
 
 05:14.100 --> 05:14.730
-would fail.
+
 
 05:14.730 --> 05:17.680
-And it was a nice test just to make sure that the elements are there.
+Und es war ein netter Test, um sicherzustellen, dass die Elemente vorhanden sind.
 
 05:17.700 --> 05:23.550
-You can imagine a system inside unity could be quite complex and your scenes could be quite complex
+Sie können sich vorstellen, dass ein System in Unity ziemlich komplex sein kann und Ihre Szenen ziemlich komplex sein können
 
 05:23.550 --> 05:24.000
-too.
+auch.
 
 05:24.030 --> 05:26.820
-You may have hundreds or even thousands of objects.
+Du kannst hunderte oder sogar tausende von Objekten haben.
 
 05:26.820 --> 05:33.060
-You may not necessarily want to do an assertion for every single one of them, but depending how you
+Sie müssen nicht unbedingt für jedes einzelne Objekt eine Behauptung aufstellen, aber je nachdem, wie Sie
 
 05:33.060 --> 05:38.460
-organize your scene, you may be able to check for some simple things like the background, the UI,
+organisieren, können Sie vielleicht einige einfache Dinge wie den Hintergrund oder die Benutzeroberfläche überprüfen,
 
 05:38.490 --> 05:45.360
-the hero, and a list of enemies that alone easy test to perform by just adding some lines here, and
+der Held, und eine Liste von Feinden, die allein einfach zu testen sind, indem man einfach ein paar Zeilen hier hinzufügt, und
 
 05:45.360 --> 05:50.340
-then you have more confidence that as you and your team work on the code and make commits to your version
+dann haben Sie mehr Vertrauen, wenn Sie und Ihr Team am Code arbeiten und Änderungen an Ihrer Version vornehmen
 
 05:50.340 --> 05:53.790
-control repository that no one is accidentally breaking something.
+Kontroll-Repository, dass niemand aus Versehen etwas kaputt macht.
 
 05:53.790 --> 06:00.630
-Remember, what you're currently doing now is needing to then play the scene or all the scenes and make
+Erinnern Sie sich, was Sie jetzt tun, ist die Szene oder alle Szenen abzuspielen und dann
 
 06:00.630 --> 06:05.780
-sure that you don't visually detect that something is missing or broken here.
+sicherstellen, dass Sie nicht visuell feststellen, dass hier etwas fehlt oder kaputt ist.
 
 06:05.790 --> 06:07.930
-Being automated is much, much smoother.
+Die Automatisierung ist viel, viel reibungsloser.
 
 06:07.950 --> 06:09.290
-Let's take a look at the other tests.
+Werfen wir einen Blick auf die anderen Tests.
 
 06:09.300 --> 06:16.080
-We've got one here that loads the scene, and then just make sure it does not throw any exceptions.
+Wir haben hier einen, der die Szene lädt und dann sicherstellt, dass er keine Ausnahmen auslöst.
 
 06:17.110 --> 06:20.960
-Then we repeat the same two tests for the all other scene.
+Dann wiederholen wir die gleichen zwei Tests für alle anderen Szenen.
 
 06:20.980 --> 06:25.630
-Now let's take a look at the top of that testing scene and see some of the additional setups that's
+Werfen wir nun einen Blick auf den oberen Teil dieser Testszene und sehen uns einige der zusätzlichen Einstellungen an, die
 
 06:25.660 --> 06:26.230
-needed.
+benötigt werden.
 
 06:26.260 --> 06:32.410
-One thing is that because we're loading scenes with code, those need to exist in the unity build settings.
+Eine Sache ist, dass, weil wir Szenen mit Code laden, diese in den Unity Build Einstellungen vorhanden sein müssen.
 
 06:32.410 --> 06:35.530
-That's true in production as well as in testing.
+Das gilt sowohl für die Produktion als auch für das Testen.
 
 06:35.560 --> 06:41.110
-Now you and your team could simply make sure that it's always updated and do that manually within the
+Nun könnten Sie und Ihr Team einfach sicherstellen, dass es immer aktualisiert wird und dies manuell innerhalb der
 
 06:41.110 --> 06:41.950
-unity editor.
+Unity-Editor.
 
 06:41.950 --> 06:44.950
-And let's take a look at how we would do that now here inside unity.
+Schauen wir uns an, wie wir das jetzt hier in Unity machen würden.
 
 06:44.980 --> 06:46.840
-You go to File Build Settings.
+Man geht zu File Build Settings.
 
 06:46.840 --> 06:50.020
-And up here is the list of all the scenes that you need.
+Und hier oben ist die Liste mit allen Szenen, die man braucht.
 
 06:50.050 --> 06:53.710
-Now if you forget to add one in there, the test would fail.
+Wenn Sie nun vergessen, eine Szene hinzuzufügen, wird der Test fehlschlagen.
 
 06:53.710 --> 06:59.380
-So rather than require us to remember this particular step, which is okay if your team wants to do
+Anstatt also zu verlangen, dass wir uns diesen speziellen Schritt merken, was in Ordnung ist, wenn Ihr Team das tun möchte
 
 06:59.380 --> 07:04.030
-that, I'm automating that and dynamically adding the scenes that we want to add.
+Ich automatisiere das und füge die Szenen, die wir hinzufügen wollen, dynamisch hinzu.
 
 07:04.060 --> 07:10.990
-So the way that I do that, I use some existing interfaces that unity makes available here for when
+Ich verwende also einige vorhandene Schnittstellen, die Unity hier zur Verfügung stellt, wenn
 
 07:10.990 --> 07:13.930
-the build is being set up and when the build is being cleaned up.
+der Build aufgesetzt wird und wenn der Build aufgeräumt wird.
 
 07:13.960 --> 07:18.550
-These are different than some of the attributes we've seen in earlier tests, but then I won't get into
+Diese sind anders als einige der Attribute, die wir in früheren Tests gesehen haben, aber ich werde nicht weiter darauf eingehen
 
 07:18.550 --> 07:19.720
-the complexity here.
+die Komplexität hier.
 
 07:19.720 --> 07:25.960
-But just know that in the setup, what I'm doing is adding our two test scenes to the build settings.
+Aber Sie sollten wissen, dass ich im Setup unsere beiden Testszenen zu den Build-Einstellungen hinzufüge.
 
 07:26.290 --> 07:32.020
-And down here in the cleanup, I'm reverting or removing those two that have been added.
+Und hier unten, in der Bereinigung, mache ich die beiden hinzugefügten Szenen rückgängig oder entferne sie.
 
 07:32.230 --> 07:35.890
-Now there's lots of different ways you could organize that, but you can take a look at the source code
+Es gibt viele verschiedene Möglichkeiten, das zu organisieren, aber Sie können einen Blick auf den Quellcode werfen
 
 07:35.890 --> 07:37.520
-and see if there's something else you want to do there.
+und sehen, ob man dort etwas anderes machen will.
 
 07:37.540 --> 07:44.800
-Down here in the test, I'm assuming that I'm able to call load scene on any of the testable scenes
+Hier unten im Test nehme ich an, dass ich in der Lage bin, load scene für jede der testbaren Szenen aufzurufen
 
 07:44.800 --> 07:46.150
-and we're good to go.
+und wir sind startklar.
 
 07:46.150 --> 07:47.110
-So that's it.
+Das war's also.
 
 07:47.140 --> 07:52.660
-It's pretty easy to set up, and if you build off of what is given here in the sample project, you'll
+Es ist ziemlich einfach einzurichten, und wenn Sie auf dem aufbauen, was hier im Beispielprojekt angegeben ist, werden Sie
 
 07:52.660 --> 07:57.750
-find quick success in being able to test your scenes for your game production.
+werden Sie schnell Erfolg haben, wenn Sie Ihre Szenen für Ihre Spielproduktion testen.
 
 07:57.760 --> 07:58.660
-Thanks.
+Danke!

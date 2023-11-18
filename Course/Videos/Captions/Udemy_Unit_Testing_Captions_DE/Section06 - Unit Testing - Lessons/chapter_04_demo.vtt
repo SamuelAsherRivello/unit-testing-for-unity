@@ -1,1294 +1,1294 @@
 WEBVTT
 
 00:00.170 --> 00:03.020
-Let's take a look at a demo of this in action.
+Werfen wir einen Blick auf eine Demo, die dies in Aktion zeigt.
 
 00:03.020 --> 00:07.400
-We're going to open up the unity editor, open our course sample project.
+Wir öffnen den Unity-Editor und öffnen unser Kursbeispielprojekt.
 
 00:07.400 --> 00:09.740
-Same project for for the entire course.
+Dasselbe Projekt für den gesamten Kurs.
 
 00:09.740 --> 00:12.260
-And within it we'll be looking at some of the scenes.
+Und darin werden wir uns einige Szenen ansehen.
 
 00:12.260 --> 00:15.620
-I've got a pure functions area within the lessons.
+Ich habe einen reinen Funktionsbereich innerhalb der Lektionen.
 
 00:15.620 --> 00:23.990
-And we'll see a bit more about dummy sub, fake mock and spy and we'll be able to compare those.
+Und wir werden ein bisschen mehr über Dummy Sub, Fake Mock und Spy sehen und wir werden in der Lage sein, diese zu vergleichen.
 
 00:23.990 --> 00:25.970
-So here we are inside unity.
+Hier sind wir also in Unity.
 
 00:25.970 --> 00:30.920
-This is the course sample project used elsewhere in some of the other lessons and videos.
+Dies ist das Beispielprojekt des Kurses, das auch in einigen anderen Lektionen und Videos verwendet wird.
 
 00:30.920 --> 00:36.590
-And what I want to show here, just as a brief reintroduction, is that in my layout on the right,
+Und was ich hier zeigen möchte, nur als kurze Einführung, ist, dass in meinem Layout auf der rechten Seite,
 
 00:36.590 --> 00:42.850
-I've got the inspector showing the readme asset inside the project, so you can click that here and
+Ich habe den Inspektor, der das Readme-Asset innerhalb des Projekts anzeigt, also können Sie hier darauf klicken und
 
 00:42.860 --> 00:44.840
-see Readme and it shows up here.
+siehe Readme und es wird hier angezeigt.
 
 00:44.840 --> 00:49.580
-Or you can go to Window Unit Testing and open readme.
+Oder Sie können zu Window Unit Testing gehen und Readme öffnen.
 
 00:49.790 --> 00:57.620
-The Readme here gives you some high level info about the sample project, and also includes a ever updating
+Die Readme gibt Ihnen einige Informationen über das Beispielprojekt und enthält auch eine Aktualisierung
 
 00:57.620 --> 01:01.970
-list here of which lessons and which workshops are interesting.
+Liste, welche Lektionen und welche Workshops interessant sind.
 
 01:01.970 --> 01:07.280
-So you may notice from video to video that this looks a little different as the course gets expanded
+Sie werden feststellen, dass sich die Liste von Video zu Video ein wenig verändert, wenn der Kurs erweitert wird
 
 01:07.280 --> 01:08.570
-and there's more content.
+und es mehr Inhalt gibt.
 
 01:08.600 --> 01:11.960
-What we're going to look at here is the pure functions lesson.
+Was wir uns hier ansehen werden, ist die Lektion über reine Funktionen.
 
 01:11.960 --> 01:15.200
-So if I click on that it selects right here where we want to be.
+Wenn ich darauf klicke, wird genau hier ausgewählt, wo wir sein wollen.
 
 01:16.060 --> 01:18.430
-Then I'll open up the pure functions example.
+Dann öffne ich das Beispiel mit den reinen Funktionen.
 
 01:18.460 --> 01:24.310
-Now, as with the other scenes that we've looked at, there is a production scene that you can run.
+Wie bei den anderen Szenen, die wir uns angeschaut haben, gibt es auch hier eine Produktionsszene, die Sie ausführen können.
 
 01:24.310 --> 01:27.700
-That's not the most interesting part, but let's start with that here.
+Das ist nicht der interessanteste Teil, aber lassen Sie uns damit anfangen.
 
 01:27.940 --> 01:30.100
-If I just click play.
+Wenn ich einfach auf Play klicke.
 
 01:33.170 --> 01:35.060
-In the scene here.
+In der Szene hier.
 
 01:35.090 --> 01:37.970
-It will give us a little bit of console output.
+Es wird uns ein wenig Konsolenausgabe geben.
 
 01:37.970 --> 01:43.760
-So this is just to reinforce the idea as we're going through this, that there is a scene, there is
+Das ist nur zur Verdeutlichung der Idee, dass es eine Szene gibt, es gibt
 
 01:43.760 --> 01:45.020
-production code.
+Produktionscode.
 
 01:45.020 --> 01:48.080
-In our case it's doing pretty little stuff.
+In unserem Fall macht es ziemlich kleine Sachen.
 
 01:48.110 --> 01:50.990
-We're really invited to look at the test runner window above.
+Wir sind wirklich eingeladen, uns das Fenster des Testläufers oben anzusehen.
 
 01:52.930 --> 01:57.370
-The test runner window here allows us to zero in on any one category.
+Das Fenster des Testläufers hier ermöglicht es uns, eine beliebige Kategorie auszuwählen.
 
 01:57.370 --> 01:59.800
-In this case, we're looking at the pure functions.
+In diesem Fall sehen wir uns die reinen Funktionen an.
 
 01:59.800 --> 02:02.530
-And then we've got all the pure functions here.
+Und dann haben wir hier alle reinen Funktionen.
 
 02:04.640 --> 02:07.280
-These are all testing and all testing is passing.
+Diese sind alle Tests und alle Tests sind erfolgreich.
 
 02:07.280 --> 02:11.720
-So if I select the top node here and click Run All, it will run all those tests.
+Wenn ich also den obersten Knoten hier auswähle und auf Run All klicke, werden alle Tests ausgeführt.
 
 02:11.750 --> 02:18.590
-Now I've included edit mode and play mode tests for every lesson, every scene throughout the course.
+Jetzt habe ich Tests für den Bearbeitungsmodus und den Wiedergabemodus für jede Lektion und jede Szene des Kurses hinzugefügt.
 
 02:18.590 --> 02:23.480
-And in certain cases, I think it's more relevant for us to look at one or the other.
+Und in bestimmten Fällen denke ich, dass es für uns relevanter ist, das eine oder das andere zu betrachten.
 
 02:23.480 --> 02:25.900
-In this case, the edit mode is really important.
+In diesem Fall ist der Bearbeitungsmodus wirklich wichtig.
 
 02:25.910 --> 02:28.160
-So why is the edit mode important?
+Warum ist der Bearbeitungsmodus so wichtig?
 
 02:28.160 --> 02:33.830
-Because we're not really using in this specific case any runtime features like Monobehaviour and other
+Weil wir in diesem speziellen Fall keine Laufzeitfunktionen wie Monobehaviour und andere
 
 02:33.830 --> 02:35.300
-things from the unity library.
+Dinge aus der Unity-Bibliothek.
 
 02:35.300 --> 02:37.220
-So edit mode is relevant there.
+Der Editiermodus ist hier also relevant.
 
 02:37.220 --> 02:42.890
-And moreover, we're going to be looking at the end substitute library and that we're operates edit
+Und außerdem werden wir uns die End Substitute Library anschauen und das wir editieren
 
 02:42.890 --> 02:43.520
-only.
+nur.
 
 02:43.520 --> 02:46.310
-So you can only apply that in these edit mode tests.
+Sie können das also nur in diesen Tests im Bearbeitungsmodus anwenden.
 
 02:46.310 --> 02:48.560
-So let's expand the test here and see.
+Erweitern wir also den Test hier und sehen wir nach.
 
 02:51.310 --> 02:59.710
-We've got a pure test here a non pure test and then a non pure advanced test similar to the theory that
+Wir haben hier einen reinen Test, einen nicht reinen Test und einen nicht reinen, erweiterten Test, ähnlich der Theorie, dass
 
 02:59.710 --> 03:01.330
-we saw in the slides portion.
+die wir im Diavortrag gesehen haben.
 
 03:01.330 --> 03:03.850
-We had the original pure example.
+Wir hatten das ursprüngliche reine Beispiel.
 
 03:03.850 --> 03:09.820
-Then we thought well let's take a look at a non pure example that is somehow has these indirect inputs
+Dann haben wir uns überlegt, dass wir uns ein nicht reines Beispiel ansehen sollten, das irgendwie diese indirekten Eingaben hat
 
 03:09.820 --> 03:11.020
-or indirect outputs.
+oder indirekte Ausgänge.
 
 03:11.020 --> 03:15.370
-And then the advanced is kind of the evolved solution to the problem.
+Und dann ist das Fortgeschrittene sozusagen die weiterentwickelte Lösung des Problems.
 
 03:15.370 --> 03:21.910
-Now the non pure even after getting massaged here it's not 100% pure.
+Das nicht reine Produkt ist nicht 100% rein, auch wenn es hier massiert wurde.
 
 03:21.910 --> 03:26.400
-So it may be helpful for you to look at the pure test to reinforce the theory.
+Es kann also hilfreich sein, sich den reinen Test anzusehen, um die Theorie zu untermauern.
 
 03:26.410 --> 03:35.470
-Why is a pure test pure then see the my system number two as a starting point for a non refactored kind
+Warum ist ein reiner Test rein, dann sehen Sie sich mein System Nummer zwei als Ausgangspunkt für eine nicht refaktorisierte Art an
 
 03:35.470 --> 03:37.210
-of problematic use case.
+eines problematischen Anwendungsfalls.
 
 03:37.210 --> 03:43.810
-And then look at the advanced test here showing the advanced as a kind of evolved solution to it.
+Und dann sehen Sie sich den fortgeschrittenen Test hier an, der die fortgeschrittene Lösung als eine Art weiterentwickelte Lösung zeigt.
 
 03:44.050 --> 03:46.720
-And those are all options that you'd have for yourself.
+Und das sind alles Optionen, die Sie für sich selbst haben würden.
 
 03:46.720 --> 03:49.450
-You can create certainly pure systems in your code base.
+Sie können sicherlich reine Systeme in Ihrer Codebasis erstellen.
 
 03:49.450 --> 03:53.260
-You can create ones that are non pure and a bit problematic for the testing.
+Sie können Systeme erstellen, die nicht rein sind und ein wenig problematisch für das Testen sind.
 
 03:53.260 --> 03:55.570
-And maybe that's fine in certain situations.
+Und vielleicht ist das in bestimmten Situationen in Ordnung.
 
 03:55.570 --> 04:02.410
-And then if you want to evolve, refactor and improve, making the test more solitary then sociable,
+Und dann, wenn man sich weiterentwickeln, überarbeiten und verbessern will, macht man den Test eher einsam als gesellig,
 
 04:02.410 --> 04:05.730
-for example, you can look at the advanced as a model there.
+kann man sich zum Beispiel den Fortgeschrittenen als Modell ansehen.
 
 04:05.740 --> 04:08.290
-So let's go through and look at the source code for each of them.
+Schauen wir uns also den Quellcode für jedes dieser Modelle an.
 
 04:08.290 --> 04:12.100
-So let's start here by looking at the test for the pure system.
+Beginnen wir hier mit dem Test für das reine System.
 
 04:12.100 --> 04:12.760
-I'll read it here.
+Ich lese ihn hier vor.
 
 04:12.760 --> 04:15.400
-The test we're going to be converting the value.
+Der Test, den wir in einen Wert umwandeln werden.
 
 04:15.700 --> 04:18.040
-The result we assume is 20.
+Wir nehmen an, dass das Ergebnis 20 ist.
 
 04:18.070 --> 04:22.030
-We expect that when the input is two and ten.
+Das erwarten wir, wenn die Eingabe zwei und zehn ist.
 
 04:22.180 --> 04:24.670
-So here's our arranged inputs.
+Hier sind also unsere arrangierten Eingaben.
 
 04:24.700 --> 04:26.740
-Here's passing them in.
+Hier sind die Eingaben.
 
 04:26.740 --> 04:28.410
-And here's the value out.
+Und hier ist der Ausgangswert.
 
 04:28.420 --> 04:35.050
-So again as we saw in the theory portion, the reason that this is a pure function is that the result
+Wie wir im Theorieteil gesehen haben, ist der Grund dafür, dass dies eine reine Funktion ist, dass das Ergebnis
 
 04:35.050 --> 04:39.520
-depends only on the passed in input and nothing else.
+nur von der übergebenen Eingabe abhängt und von nichts anderem.
 
 04:39.520 --> 04:41.410
-And it has no side effects.
+Und sie hat keine Nebeneffekte.
 
 04:41.410 --> 04:45.550
-So no indirect inputs and no indirect outputs.
+Also keine indirekten Eingaben und keine indirekten Ausgaben.
 
 04:45.550 --> 04:46.510
-So that's pure.
+Das ist also rein.
 
 04:46.540 --> 04:48.880
-Let's look at the source code for the pure.
+Schauen wir uns den Quellcode für das pure an.
 
 04:50.180 --> 04:51.510
-And it's quite simple.
+Und es ist ganz einfach.
 
 04:51.530 --> 04:55.100
-I believe it's identical to what we saw in the slides, maybe a little bit of tweaking.
+Ich glaube, es ist identisch mit dem, was wir auf den Folien gesehen haben, vielleicht mit ein paar kleinen Anpassungen.
 
 04:55.130 --> 04:58.670
-We're passing in the int and the multiplier and we return that.
+Wir übergeben den int und den Multiplikator und geben das zurück.
 
 04:58.700 --> 05:02.070
-We don't do any other unrelated dependencies here.
+Wir machen hier keine anderen Abhängigkeiten.
 
 05:02.090 --> 05:03.890
-We're not creating any new systems.
+Wir erstellen keine neuen Systeme.
 
 05:03.890 --> 05:05.870
-We're not addressing any other systems.
+Wir adressieren keine anderen Systeme.
 
 05:05.870 --> 05:08.090
-We're not setting any other values.
+Wir setzen keine anderen Werte.
 
 05:08.090 --> 05:09.890
-We're just multiplying and returning it.
+Wir multiplizieren nur und geben es zurück.
 
 05:09.890 --> 05:14.020
-And again, returning value doesn't count as an indirect output.
+Und wieder gilt die Rückgabe des Wertes nicht als indirekte Ausgabe.
 
 05:14.030 --> 05:15.270
-That is the direct output.
+Das ist die direkte Ausgabe.
 
 05:15.290 --> 05:17.330
-So this is about as pure as you can get.
+Das ist also die reinste Ausgabe, die man bekommen kann.
 
 05:17.360 --> 05:19.400
-It's a very beautiful example and a good starting point.
+Das ist ein sehr schönes Beispiel und ein guter Startpunkt.
 
 05:19.400 --> 05:21.380
-And when we run that example here.
+Und wenn wir das Beispiel hier laufen lassen.
 
 05:22.890 --> 05:25.530
-We see that it works great.
+Wir sehen, dass es gut funktioniert.
 
 05:25.530 --> 05:26.160
-It's green.
+Es ist grün.
 
 05:26.160 --> 05:26.870
-Check mark.
+Häkchen gesetzt.
 
 05:26.880 --> 05:28.400
-Now let's move on to the next one.
+Jetzt gehen wir zum nächsten Punkt über.
 
 05:28.410 --> 05:30.750
-So here is a non pure test.
+Hier ist also ein nicht reiner Test.
 
 05:31.020 --> 05:33.120
-Here we see we're going to convert the value.
+Hier sehen wir, dass wir den Wert umwandeln werden.
 
 05:33.150 --> 05:37.140
-We assume the result is 30 when the input passed in is three.
+Wir nehmen an, dass das Ergebnis 30 ist, wenn die eingegebene Zahl drei ist.
 
 05:37.260 --> 05:43.350
-Now we're establishing a value of three and a multiplier of ten.
+Jetzt legen wir einen Wert von drei und einen Multiplikator von zehn fest.
 
 05:43.380 --> 05:46.890
-Those two int values were also used in the previous test.
+Diese beiden int-Werte wurden auch im vorherigen Test verwendet.
 
 05:46.890 --> 05:51.630
-Slightly different values being used, but the point is similar inputs.
+Es werden etwas andere Werte verwendet, aber es geht um ähnliche Eingaben.
 
 05:51.630 --> 05:56.490
-But notice how one input goes in here and one input goes in here.
+Beachten Sie aber, dass eine Eingabe hier und eine Eingabe hier hineingeht.
 
 05:56.490 --> 06:00.570
-So this test here is about convert value.
+Bei diesem Test geht es also um die Umwandlung von Werten.
 
 06:00.570 --> 06:05.610
-So convert value depends on value of three being passed in.
+Der umgewandelte Wert hängt also vom Wert der drei Eingaben ab.
 
 06:05.610 --> 06:13.470
-And unfortunately from a purity standpoint it also depends on the multiplier value which is some shared
+Und leider hängt es vom Standpunkt der Reinheit auch vom Multiplikatorwert ab, der ein gemeinsamer Wert ist
 
 06:13.470 --> 06:15.780
-state that was passed in up here.
+Zustand, der hier oben eingegeben wurde.
 
 06:15.840 --> 06:22.380
-Now you can imagine depending on the production needs you have, you might have this type of situation.
+Sie können sich vorstellen, dass je nach den Produktionsanforderungen, die Sie haben, diese Art von Situation auftreten kann.
 
 06:22.380 --> 06:25.620
-You might have in the constructor setting some state.
+Sie könnten im Konstruktor einen Zustand einstellen.
 
 06:25.620 --> 06:28.350
-And then in a method using part of that state.
+Und dann in einer Methode einen Teil dieses Zustands verwenden.
 
 06:28.350 --> 06:32.820
-As we see here, you might also have seven different methods to a class.
+Wie wir hier sehen, kann man auch sieben verschiedene Methoden in einer Klasse haben.
 
 06:32.820 --> 06:37.500
-And calling method one and method three are going to be affecting the state.
+Und der Aufruf von Methode eins und Methode drei wird sich auf den Zustand auswirken.
 
 06:37.500 --> 06:41.220
-When we finally call method seven, it depends on did you call three?
+Wenn wir schließlich Methode sieben aufrufen, hängt es davon ab, ob Sie Methode drei aufgerufen haben?
 
 06:41.250 --> 06:44.730
-Did you call five, did you set some public properties, etcetera?
+Haben Sie fünf aufgerufen, haben Sie einige öffentliche Eigenschaften gesetzt, usw.?
 
 06:44.760 --> 06:46.080
-It's very normal.
+Das ist ganz normal.
 
 06:46.080 --> 06:51.330
-In object oriented programming, you would expect different method calls to perhaps leave behind some
+In der objektorientierten Programmierung würde man erwarten, dass verschiedene Methodenaufrufe vielleicht einige
 
 06:51.330 --> 06:52.260
-shared state.
+gemeinsamen Zustand hinterlassen.
 
 06:52.710 --> 06:59.490
-That is all okay, but we'd consider it to be impure and testing it has some additional thoughts and
+Das ist alles in Ordnung, aber wir würden es als unrein betrachten und das Testen hat einige zusätzliche Gedanken und
 
 06:59.490 --> 07:00.480
-implications.
+Implikationen.
 
 07:00.480 --> 07:07.830
-So here again the problematic part is that we have the indirect input.
+Auch hier besteht das Problem darin, dass wir einen indirekten Input haben.
 
 07:08.280 --> 07:10.410
-So let's take a look at the source code here.
+Werfen wir also einen Blick auf den Quellcode.
 
 07:10.560 --> 07:16.860
-Here compared to the pure implementation I added a few things just for the academic process here.
+Im Vergleich zur reinen Implementierung habe ich hier ein paar Dinge für den akademischen Prozess hinzugefügt.
 
 07:17.160 --> 07:19.230
-If you kind of problems to be solved.
+Wenn man eine Art von Problemen zu lösen hat.
 
 07:19.230 --> 07:25.350
-One is that we're storing a multiplier, and one is that we're storing a last result down here.
+Das eine ist, dass wir einen Multiplikator speichern, und das andere ist, dass wir ein letztes Ergebnis hier unten speichern.
 
 07:25.350 --> 07:27.570
-We see last result is getting set.
+Wir sehen, dass das letzte Ergebnis gesetzt wird.
 
 07:27.570 --> 07:35.940
-This is an example of indirect output because before we call convert value last result does not have
+Dies ist ein Beispiel für eine indirekte Ausgabe, denn bevor wir den Wert umwandeln, hat das letzte Ergebnis nicht
 
 07:35.940 --> 07:36.960
-any value set.
+keinen Wert gesetzt.
 
 07:36.960 --> 07:42.030
-But after calling convert value last result does have a value set.
+Aber nach dem Aufruf von Wert umwandeln hat das letzte Ergebnis einen Wert.
 
 07:42.030 --> 07:47.910
-Perhaps changing from what it was previously, depending exactly on what the value and multiplier are.
+Vielleicht ändert sich der Wert im Vergleich zu vorher, je nachdem, wie der Wert und der Multiplikator genau lauten.
 
 07:47.940 --> 07:54.870
-So this non pure example shows both indirect input and indirect output.
+Dieses nicht reine Beispiel zeigt also sowohl indirekten Input als auch indirekten Output.
 
 07:54.870 --> 07:56.220
-Indirect input.
+Indirekte Eingabe.
 
 07:56.220 --> 08:00.270
-Because part of the input comes here and gets used here.
+Denn ein Teil des Inputs kommt hierher und wird hier verwendet.
 
 08:01.140 --> 08:05.940
-So from the convert values standpoint, just the highlighted code here.
+Vom Standpunkt der Konvertierung der Werte aus gesehen, nur der hervorgehobene Code hier.
 
 08:05.940 --> 08:10.170
-Some of what's going to affect the input is not highlighted blue here.
+Einiges, was sich auf die Eingabe auswirken wird, ist hier nicht blau hervorgehoben.
 
 08:10.170 --> 08:12.030
-It actually was set earlier.
+Es wurde tatsächlich früher eingestellt.
 
 08:12.180 --> 08:16.110
-You could you could call that problematic from a purity standpoint.
+Man könnte das vom Standpunkt der Reinheit aus als problematisch bezeichnen.
 
 08:16.110 --> 08:18.780
-And then also we have indirect output.
+Und dann haben wir noch eine indirekte Ausgabe.
 
 08:18.810 --> 08:25.240
-Not only are we returning a value which is perfect and pure, we are also setting last result.
+Wir geben nicht nur einen Wert zurück, der perfekt und rein ist, wir setzen auch das letzte Ergebnis.
 
 08:25.260 --> 08:31.500
-Again this is an indirect output and would be considered undesirable from a purity standpoint.
+Auch hier handelt es sich um eine indirekte Ausgabe, die unter dem Gesichtspunkt der Reinheit als unerwünscht anzusehen ist.
 
 08:31.660 --> 08:36.810
-Doesn't indicate that this is a problematic piece of source code that would not help our production
+Dies deutet nicht darauf hin, dass es sich um einen problematischen Quellcode handelt, der unserer Produktion nicht zuträglich wäre
 
 08:36.810 --> 08:37.470
-needs.
+braucht.
 
 08:37.470 --> 08:42.960
-Certainly, you're going to have some situations in your code where you have these indirect inputs and
+Sicherlich wird es in Ihrem Code einige Situationen geben, in denen Sie diese indirekten Eingaben haben und
 
 08:42.990 --> 08:44.490
-or indirect outputs.
+oder indirekte Ausgänge.
 
 08:44.820 --> 08:51.270
-But what I see here is something that could be it could have some implications for our unit testing.
+Aber was ich hier sehe, ist etwas, das Auswirkungen auf unsere Unit-Tests haben könnte.
 
 08:51.270 --> 08:56.970
-So back here in unit let we just run that again I'll hit run runs fine and works great.
+Also zurück in Unit Let, lassen wir das einfach nochmal laufen, ich drücke auf Run und es läuft prima.
 
 08:56.970 --> 09:02.190
-Then down here for our non pure advanced I took that problematic use case.
+Dann hier unten für unseren nicht reinen fortgeschrittenen Anwendungsfall habe ich diesen problematischen Anwendungsfall genommen.
 
 09:02.190 --> 09:09.660
-I've updated and created a sample system that has some of those problems solved a bit, maybe not at
+Ich habe aktualisiert und ein Beispielsystem erstellt, das einige dieser Probleme ein wenig gelöst hat, vielleicht nicht ganz
 
 09:09.660 --> 09:10.920
-100% pure.
+100% rein.
 
 09:10.920 --> 09:12.750
-And I looked at different ways.
+Und ich habe mir verschiedene Möglichkeiten angesehen.
 
 09:12.750 --> 09:21.000
-So I created one test to simulate or give an example of some different types of test doubles that are
+Ich habe also einen Test erstellt, um verschiedene Arten von Testdoppelungen zu simulieren bzw. ein Beispiel dafür zu geben, wie sie aussehen
 
 09:21.000 --> 09:21.840
-being used.
+verwendet werden.
 
 09:21.870 --> 09:26.670
-First we have the standard one which is without any test doubles.
+Zuerst haben wir die Standardvariante, die ohne Testdoppelungen auskommt.
 
 09:26.670 --> 09:29.730
-So that's just the kind of before picture.
+Das ist sozusagen das Vorher-Bild.
 
 09:29.760 --> 09:32.760
-Then we use a dummy here.
+Dann verwenden wir hier einen Dummy.
 
 09:32.790 --> 09:35.610
-Then we use a stub here.
+Dann verwenden wir hier einen Stummel.
 
 09:36.690 --> 09:38.610
-We use a spy here.
+Wir verwenden hier einen Spion.
 
 09:40.310 --> 09:41.870
-We use a mock here.
+Wir verwenden hier eine Attrappe.
 
 09:43.050 --> 09:45.270
-And finally we use a fake here.
+Und schließlich verwenden wir hier eine Fälschung.
 
 09:45.360 --> 09:47.670
-I put them in an order here.
+Ich stelle sie hier in einer Reihenfolge auf.
 
 09:47.790 --> 09:51.930
-Same from the theory we saw before in that table of the different test doubles.
+Dasselbe wie bei der Theorie, die wir zuvor in der Tabelle der verschiedenen Testdoppel gesehen haben.
 
 09:51.930 --> 09:56.280
-And it's ordered not in best to worst necessarily or something like that.
+Und die Reihenfolge ist nicht unbedingt von der besten zur schlechtesten oder so ähnlich.
 
 09:56.280 --> 10:01.890
-It's more from the least powerful test double that is kind of cheapest and easiest to implement to the
+Es ist eher von dem am wenigsten leistungsfähigen Testdoppel, das am billigsten und einfachsten zu implementieren ist, bis zu dem
 
 10:01.890 --> 10:06.920
-most powerful test double that could be the most time consuming to create.
+leistungsstärksten Testdoppelgänger, der am zeitaufwändigsten zu erstellen sein könnte.
 
 10:06.930 --> 10:13.230
-Also does the most stuff, and you're going to find that in some cases, having one of those is better
+Erledigt auch die meisten Aufgaben, und in manchen Fällen ist es besser, einen dieser Tests zu haben
 
 10:13.230 --> 10:13.800
-than another.
+als eine andere.
 
 10:13.830 --> 10:19.740
-Given your particular situation, you don't necessarily want to always use the fake or always use the
+In Ihrer speziellen Situation sollten Sie nicht unbedingt immer die falsche oder immer die
 
 10:19.740 --> 10:20.190
-mock.
+nachahmen.
 
 10:20.220 --> 10:24.210
-These are a bunch of different tools that you have in your tool belt and you can use them.
+Dies sind verschiedene Werkzeuge, die du in deinem Werkzeuggürtel hast und die du benutzen kannst.
 
 10:24.210 --> 10:26.880
-So let's step through them all, starting with the standard.
+Gehen wir sie also alle durch, beginnend mit dem Standard.
 
 10:26.880 --> 10:28.860
-So here is the standard example.
+Hier ist also das Standardbeispiel.
 
 10:28.860 --> 10:31.590
-This one does not yet have any test doubles added.
+In diesem Beispiel sind noch keine Testdoppel enthalten.
 
 10:31.590 --> 10:37.350
-And it should look familiar because it's basically what we did for the original non pure example.
+Und das sollte Ihnen bekannt vorkommen, denn es ist im Grunde das, was wir für das ursprüngliche, nicht reine Beispiel gemacht haben.
 
 10:37.500 --> 10:40.980
-And that is we say convert value.
+Und das heißt, wir konvertieren den Wert.
 
 10:41.010 --> 10:44.340
-The result will be 40 when the input is four.
+Das Ergebnis wird 40 sein, wenn die Eingabe vier ist.
 
 10:44.370 --> 10:47.100
-And here we set up the arrange.
+Und hier stellen wir die Anordnung ein.
 
 10:47.310 --> 10:49.950
-We pass in the multiplier here.
+Wir geben hier den Multiplikator ein.
 
 10:51.050 --> 10:53.060
-Then we pass in the converter here.
+Dann geben wir hier den Konverter ein.
 
 10:53.730 --> 10:56.880
-And our one line here is passing in value.
+Und unsere eine Zeile hier gibt den Wert ein.
 
 10:56.880 --> 11:02.280
-But remember we're also multiplying value by multiplier.
+Aber denk daran, dass wir auch den Wert mit dem Multiplikator multiplizieren.
 
 11:02.280 --> 11:04.980
-So we've got a little bit of old info here.
+Wir haben hier also ein paar alte Informationen.
 
 11:05.610 --> 11:07.280
-Just to play with this a little bit.
+Um ein wenig damit zu spielen.
 
 11:07.290 --> 11:14.820
-If we remember the original pure implementation took all of the inputs here directly and that would
+Wenn wir uns daran erinnern, dass die ursprüngliche reine Implementierung alle Eingaben hier direkt übernommen hat und das würde
 
 11:14.820 --> 11:16.220
-be more pure.
+reiner sein.
 
 11:16.230 --> 11:21.600
-But for the purpose of our learning, I've created something that is less pure so that we can discuss
+Aber zum Zweck des Lernens habe ich etwas geschaffen, das weniger rein ist, damit wir diskutieren können
 
 11:21.600 --> 11:23.640
-it so that one works great.
+damit es gut funktioniert.
 
 11:23.640 --> 11:26.640
-And that is kind of before we explore any test doubles.
+Und das ist sozusagen bevor wir irgendwelche Test-Doubles untersuchen.
 
 11:26.640 --> 11:32.490
-So each of these we're going to go through, we're going to see kind of adding more and more powerful
+Bei jedem dieser Tests werden wir sehen, wie wir mehr und mehr leistungsstarke Funktionen hinzufügen.
 
 11:32.490 --> 11:33.290
-test doubles.
+Test-Doubles.
 
 11:33.300 --> 11:39.390
-Now, I admit, when coming up with this example that it makes the most sense kind of for the later
+Ich gebe zu, dass es bei diesem Beispiel am meisten Sinn macht, wenn man die späteren
 
 11:39.390 --> 11:43.620
-examples, the later test doubles mock and fake and spy and stuff.
+Beispiele, der spätere Test verdoppelt Mock und Fake und Spionage und so.
 
 11:43.650 --> 11:48.930
-The dummy ones are not as great, but I wanted to really use the same production code across all of
+Die Dummy-Beispiele sind nicht so toll, aber ich wollte wirklich den gleichen Produktionscode für alle verwenden
 
 11:48.930 --> 11:49.140
-them.
+sie.
 
 11:49.140 --> 11:55.380
-So pardon me that the dummy and maybe the one after it are not the best example here, but I hope that
+Entschuldigen Sie also, dass der Dummy und vielleicht auch der danach nicht das beste Beispiel sind, aber ich hoffe, dass
 
 11:55.380 --> 11:56.810
-they're helpful for you learning them.
+sie hilfreich für euch sind, um sie zu lernen.
 
 11:56.820 --> 11:57.930
-So here's the dummy.
+Hier ist also der Dummy.
 
 11:57.960 --> 12:02.220
-What we're doing here is we're saying it returns negative one by default.
+Was wir hier tun, ist, dass wir sagen, dass es standardmäßig einen negativen Wert liefert.
 
 12:02.220 --> 12:08.670
-So if I pass in a null value two that's the dummy value here for the converter.
+Wenn ich also einen Nullwert zwei eingebe, ist das hier der Dummy-Wert für den Konverter.
 
 12:09.330 --> 12:12.480
-Now you can imagine maybe the class is going to break.
+Jetzt kannst du dir vorstellen, dass die Klasse vielleicht kaputt geht.
 
 12:12.480 --> 12:13.920
-If we pass a null value.
+Wenn wir einen Nullwert übergeben.
 
 12:13.920 --> 12:17.880
-That means the class is more hard in its dependency.
+Das bedeutet, dass die Klasse in ihrer Abhängigkeit härter ist.
 
 12:17.880 --> 12:21.180
-To that you would probably think, hey, it doesn't.
+Darauf würden Sie wahrscheinlich denken: Hey, das tut es nicht.
 
 12:21.180 --> 12:24.090
-Every class you pass in need to be non null.
+Jede Klasse, die Sie übergeben, muss ungleich Null sein.
 
 12:24.270 --> 12:27.090
-Yeah, probably in a lot of cases, yes.
+Ja, wahrscheinlich in vielen Fällen, ja.
 
 12:27.090 --> 12:30.210
-But here I've given you an example and you can look at the source code.
+Aber hier habe ich Ihnen ein Beispiel gegeben und Sie können sich den Quellcode ansehen.
 
 12:30.240 --> 12:32.730
-The class will take in this null value.
+Die Klasse wird diesen Nullwert aufnehmen.
 
 12:32.730 --> 12:33.180
-Fine.
+Gut.
 
 12:33.180 --> 12:40.260
-And there's lots of situations where putting in null or the very dumbest possible object will indeed
+Und es gibt viele Situationen, in denen die Eingabe von null oder des dümmstmöglichen Objekts tatsächlich
 
 12:40.260 --> 12:41.010
-work.
+funktioniert.
 
 12:41.040 --> 12:49.650
-Now probably if the converter was used in the method under test, this would throw a null ref.
+Wenn der Konverter in der zu prüfenden Methode verwendet würde, würde dies wahrscheinlich eine Null-Referenz auslösen.
 
 12:49.650 --> 12:52.110
-But purposely here the.
+Aber hier wird absichtlich die.
 
 12:52.140 --> 12:57.240
-What we're testing is that last result is going to have a particular value.
+Was wir testen, ist, dass das letzte Ergebnis einen bestimmten Wert hat.
 
 12:57.240 --> 13:01.920
-If I was testing the convert here, that one I know uses the converter.
+Wenn ich hier die Konvertierung testen würde, wüsste ich, dass sie den Konverter verwendet.
 
 13:01.920 --> 13:06.270
-So you have to think can I dummy my way through everything?
+Man muss sich also überlegen, kann ich mir den Weg durch alles erschwindeln?
 
 13:06.270 --> 13:07.380
-Probably not.
+Wahrscheinlich nicht.
 
 13:07.380 --> 13:13.080
-Probably that what you're passing in is going to be used somewhere for some shared state.
+Wahrscheinlich wird das, was Sie übergeben, irgendwo für einen gemeinsamen Zustand verwendet.
 
 13:13.080 --> 13:15.930
-But we do indeed see that this passes with green check mark.
+Aber wir sehen tatsächlich, dass dies mit einem grünen Häkchen passiert.
 
 13:15.930 --> 13:16.920
-So we know it works.
+Wir wissen also, dass es funktioniert.
 
 13:16.920 --> 13:22.230
-And what we're doing is the important part for the dummy is that sometimes when when you're testing
+Und was wir tun, ist der wichtige Teil für den Dummy, dass manchmal, wenn man testet
 
 13:22.230 --> 13:27.150
-something, it can be based on a cheap and easy dependency passed in.
+etwas testet, kann es auf einer billigen und einfachen Abhängigkeit basieren, die übergeben wird.
 
 13:27.750 --> 13:28.770
-So that's good.
+Also ist das gut.
 
 13:29.900 --> 13:34.310
-Another thing that just to look at this, we could say without looking at the source code, we could
+Eine weitere Sache, die wir ohne einen Blick in den Quellcode zu werfen, sagen könnten
 
 13:34.310 --> 13:42.230
-probably assume that if this works well, then it probably does not depend on what we're passing in
+wahrscheinlich annehmen, dass, wenn es gut funktioniert, es wahrscheinlich nicht davon abhängt, was wir in
 
 13:42.230 --> 13:42.900
-as null.
+als Null.
 
 13:42.920 --> 13:50.960
-So it's a little hint that while the creation of this class requires something to be passed in, that's
+Es ist also ein kleiner Hinweis darauf, dass die Erstellung dieser Klasse zwar die Übergabe von etwas erfordert, das aber
 
 13:50.960 --> 13:51.500
-something.
+etwas.
 
 13:51.500 --> 13:54.530
-Since we're giving it null probably isn't used here.
+Da wir es null geben, wird es hier wahrscheinlich nicht verwendet.
 
 13:54.560 --> 13:56.240
-Otherwise it would fail with a null ref.
+Sonst würde es mit einer Null-Referenz fehlschlagen.
 
 13:56.480 --> 13:58.070
-Let's take a look at the source code.
+Werfen wir einen Blick auf den Quellcode.
 
 13:58.070 --> 14:01.940
-So here's an example of the source code that's used for all the rest of the tests we're going to look
+Hier ist ein Beispiel für den Quellcode, der für alle anderen Tests verwendet wird, die wir uns ansehen werden
 
 14:01.940 --> 14:02.640
-at here.
+hier ansehen.
 
 14:02.660 --> 14:05.270
-I pass in that converter and I store it.
+Ich gebe den Konverter ein und speichere ihn.
 
 14:05.540 --> 14:08.750
-I also set the last result to be negative one.
+Ich setze auch das letzte Ergebnis auf ein negatives Ergebnis.
 
 14:08.780 --> 14:14.180
-Negative one is often used as a this hasn't been set yet type value.
+Negative Eins wird oft als Wert vom Typ Dies wurde noch nicht festgelegt verwendet.
 
 14:14.180 --> 14:15.560
-So that's why I chose it here.
+Deshalb habe ich ihn hier gewählt.
 
 14:15.560 --> 14:16.850
-But it could be zero.
+Aber es könnte auch Null sein.
 
 14:16.850 --> 14:18.620
-It could be any value that you want.
+Es kann jeder beliebige Wert sein.
 
 14:18.620 --> 14:25.970
-And I just assume that when the object is created here, I set that as the kind of unset value.
+Und ich nehme einfach an, wenn das Objekt hier erstellt wird, setze ich das als eine Art von nicht gesetztem Wert.
 
 14:26.150 --> 14:30.650
-Then down here, if I do call convert value, I properly update it.
+Wenn ich dann hier unten den Wert umwandle, aktualisiere ich ihn richtig.
 
 14:30.650 --> 14:33.860
-So you can think of this as the initialized value.
+Man kann sich das also als den initialisierten Wert vorstellen.
 
 14:33.860 --> 14:35.810
-And this is being updated here.
+Und dies wird hier aktualisiert.
 
 14:35.900 --> 14:40.190
-Now all I'm doing in the test is passing in null for the I converter.
+Alles, was ich im Test mache, ist die Übergabe von Null für den I-Konverter.
 
 14:40.190 --> 14:42.860
-And then I'm checking only the last result.
+Und dann prüfe ich nur das letzte Ergebnis.
 
 14:42.860 --> 14:45.440
-I'm not yet doing a test on this part here.
+Ich mache noch keinen Test für diesen Teil hier.
 
 14:46.580 --> 14:52.710
-And we can see that last result because it doesn't depend on the converter at all.
+Und wir können das letzte Ergebnis sehen, weil es überhaupt nicht vom Konverter abhängt.
 
 14:52.730 --> 14:57.590
-It doesn't, for example, say, you know, return.
+Es sagt nicht, zum Beispiel, du weißt schon, zurück.
 
 14:59.020 --> 15:00.940
-Converter dot something.
+Konverter Punkt etwas.
 
 15:00.940 --> 15:06.340
-You know this line does not use it at all, that it's probably going to operate well, even if the converter
+Sie wissen, dass diese Zeile überhaupt nicht benutzt wird, dass sie wahrscheinlich gut funktionieren wird, auch wenn der Konverter
 
 15:06.340 --> 15:07.030
-is null.
+Null ist.
 
 15:07.210 --> 15:14.260
-So as you're exploring your classes, you can just try this out and see what happens if I pass a null
+Wenn Sie also Ihre Klassen erforschen, können Sie dies einfach ausprobieren und sehen, was passiert, wenn ich eine Null
 
 15:14.260 --> 15:15.830
-in for one of my dependencies.
+für eine meiner Abhängigkeiten eingebe.
 
 15:15.850 --> 15:17.590
-Does it just not compile?
+Wird es einfach nicht kompiliert?
 
 15:17.590 --> 15:24.100
-Or does it throw a null ref value, or have some other kind of operation error that shows you that you
+Oder wirft es einen Null-Ref-Wert aus, oder hat es eine andere Art von Operationsfehler, der Ihnen zeigt, dass Sie
 
 15:24.100 --> 15:26.920
-have a stronger dependency to what you're passing in?
+eine stärkere Abhängigkeit von dem, was Sie übergeben, haben?
 
 15:26.920 --> 15:31.870
-And that might be fine, but it's something to play with here as you're learning about the differences
+Und das mag in Ordnung sein, aber es ist etwas, mit dem man spielen kann, wenn man die Unterschiede kennenlernt
 
 15:31.870 --> 15:33.880
-with your dependencies.
+mit Ihren Abhängigkeiten.
 
 15:35.500 --> 15:38.140
-So back here in the test we see it would pass.
+Hier im Test sehen wir, dass der Test bestanden wird.
 
 15:38.140 --> 15:39.280
-And it works negative one.
+Und es funktioniert negativ.
 
 15:39.280 --> 15:40.870
-So that's an example of a dummy.
+Das ist also ein Beispiel für einen Dummy.
 
 15:40.870 --> 15:46.630
-And as I admitted earlier it's not the best example in these first couple ones I really wanted to focus
+Und wie ich vorhin zugegeben habe, ist es nicht das beste Beispiel für die ersten beiden, auf die ich mich wirklich konzentrieren wollte
 
 15:46.630 --> 15:47.770
-on the later examples.
+auf die späteren Beispiele konzentrieren.
 
 15:47.770 --> 15:48.850
-Here's the second one.
+Hier ist das zweite Beispiel.
 
 15:48.850 --> 15:54.640
-As we see in the comment, the test double we're doing here is a stub, and a stub is a test double
+Wie wir im Kommentar sehen, ist das Test-Double, das wir hier machen, ein Stub, und ein Stub ist ein Test-Double
 
 15:54.640 --> 15:57.490
-that is configured to return a specific value.
+der so konfiguriert ist, dass er einen bestimmten Wert zurückgibt.
 
 15:57.490 --> 15:59.740
-So this example here is imperfect.
+Dieses Beispiel hier ist also unvollkommen.
 
 15:59.740 --> 16:06.130
-I will admit that I'm passing in a null, which feels a little bit more like a dummy than before.
+Ich gebe zu, dass ich eine Null übergebe, was sich ein bisschen mehr wie ein Dummy anfühlt als vorher.
 
 16:06.130 --> 16:13.600
-But because the dummy value passed in does indeed affect the test.
+Aber weil der übergebene Dummy-Wert tatsächlich den Test beeinflusst.
 
 16:14.250 --> 16:16.350
-Because I'm calling convert value here.
+Weil ich hier den Wert umwandeln aufrufe.
 
 16:17.040 --> 16:18.930
-I would consider it to be a stub.
+Ich würde es als Stub betrachten.
 
 16:19.230 --> 16:26.010
-You could also have something like a new, you know, temp converter.
+Sie könnten auch so etwas wie einen neuen, Sie wissen schon, temporären Konverter haben.
 
 16:28.550 --> 16:31.040
-And maybe that passes in the value.
+Und vielleicht wird dann der Wert übergeben.
 
 16:31.090 --> 16:35.360
-You could imagine there's different ways you could sub in something kind of temporary there.
+Sie können sich vorstellen, dass es verschiedene Möglichkeiten gibt, etwas Temporäres einzufügen.
 
 16:35.360 --> 16:41.300
-But for me, in this particular example, passing in a null that is indeed part of the call to testing
+Aber für mich, in diesem speziellen Beispiel, ist die Übergabe einer Null in der Tat Teil des Aufrufs zum Testen
 
 16:41.300 --> 16:42.110
-structure.
+Struktur.
 
 16:42.900 --> 16:43.800
-Means it's a sub.
+Bedeutet, dass es ein Sub ist.
 
 16:44.190 --> 16:46.280
-So this will throw an error.
+Dies wird also einen Fehler auslösen.
 
 16:46.290 --> 16:47.490
-Now why does it throw an error?
+Warum wird nun ein Fehler ausgegeben?
 
 16:47.520 --> 16:49.320
-Let's take a look at the source code again.
+Schauen wir uns noch einmal den Quellcode an.
 
 16:49.770 --> 16:54.990
-Because if I pass in null for converter and I store converter as null.
+Wenn ich nämlich null für converter eingebe und converter als null speichere.
 
 16:55.020 --> 17:01.830
-Then down here when I call something on null, it's going to freak out and throw a null ref or some
+Dann wird es hier unten, wenn ich etwas mit null aufrufe, ausflippen und eine null ref oder irgendetwas anderes werfen
 
 17:01.830 --> 17:03.150
-other type of exception.
+andere Art von Ausnahme.
 
 17:03.360 --> 17:07.140
-And here I'm checking to make sure that it does indeed throw.
+Und hier überprüfe ich, um sicherzustellen, dass sie tatsächlich ausgelöst wird.
 
 17:07.410 --> 17:11.270
-I don't love this particular example, but I hope it's helpful for learning.
+Ich mag dieses spezielle Beispiel nicht, aber ich hoffe, es ist hilfreich zum Lernen.
 
 17:11.280 --> 17:13.500
-Next let's look at the SPI concept.
+Als Nächstes wollen wir uns das SPI-Konzept ansehen.
 
 17:13.500 --> 17:15.900
-So the definition here is a SPI test.
+Die Definition hier ist also ein SPI-Test.
 
 17:15.900 --> 17:20.120
-Double is a test double that confirms that a method was called.
+Double ist ein Testdouble, das bestätigt, dass eine Methode aufgerufen wurde.
 
 17:20.130 --> 17:23.670
-We're not concerned with what is returned from the method.
+Wir sind nicht daran interessiert, was von der Methode zurückgegeben wird.
 
 17:23.670 --> 17:25.640
-We just want to know that it was called.
+Wir wollen nur wissen, dass sie aufgerufen wurde.
 
 17:25.650 --> 17:32.430
-So we're going from less information less powerful in the dummy example and the sub example.
+Wir gehen also von weniger Informationen aus, die im Dummy-Beispiel und im Sub-Beispiel weniger mächtig sind.
 
 17:32.430 --> 17:35.390
-Here's a little bit more powerful kind of medium strength.
+Hier ist eine etwas stärkere Art von mittlerer Stärke.
 
 17:35.400 --> 17:37.280
-We know that something was called.
+Wir wissen, dass etwas aufgerufen wurde.
 
 17:37.290 --> 17:39.020
-So here's how it works.
+Und so funktioniert es.
 
 17:39.030 --> 17:43.700
-We use the n substitute library and we create a substitution for the interface.
+Wir benutzen die n substitute Bibliothek und erstellen eine Substitution für die Schnittstelle.
 
 17:43.710 --> 17:48.660
-Now remember when I was going through the examples here of talking about how to update and refactor
+Erinnern Sie sich, als ich die Beispiele durchging und darüber sprach, wie man aktualisiert und refaktorisiert
 
 17:48.690 --> 17:51.360
-your production code to make it more testable?
+Ihren Produktionscode zu aktualisieren und zu refaktorisieren, um ihn besser testen zu können?
 
 17:51.360 --> 17:55.560
-One of the things that I did was use an interface in the refactor.
+Eines der Dinge, die ich getan habe, war die Verwendung einer Schnittstelle bei der Umstrukturierung.
 
 17:55.680 --> 18:03.870
-Interfaces are very useful in your code in general to give you a flexible, less hard coded coupling.
+Schnittstellen sind in Ihrem Code im Allgemeinen sehr nützlich, um Ihnen eine flexible, weniger hart kodierte Kopplung zu ermöglichen.
 
 18:03.990 --> 18:09.030
-So it's good in production, but also specifically for this library here that does the mocking.
+Es ist also gut für die Produktion, aber auch speziell für diese Bibliothek hier, die das Mocking durchführt.
 
 18:09.760 --> 18:11.590
-And creates the spy for us.
+Und den Spion für uns erstellt.
 
 18:11.620 --> 18:22.210
-It will create on the fly in this one line a new implementation for converter based on AI converter.
+Es wird on the fly in dieser einen Zeile eine neue Implementierung für den Konverter auf der Basis des AI-Konverters erstellt.
 
 18:22.210 --> 18:24.640
-So we don't have to go and create our own dummy class.
+Wir müssen also nicht unsere eigene Dummy-Klasse erstellen.
 
 18:24.640 --> 18:26.680
-We don't have to create our own example class.
+Wir müssen nicht unsere eigene Beispielklasse erstellen.
 
 18:26.710 --> 18:28.120
-This does it for us here.
+Das hier tut es für uns.
 
 18:28.120 --> 18:29.440
-And we pass that in.
+Und wir geben das ein.
 
 18:29.530 --> 18:32.500
-Then we when we pass in null.
+Dann geben wir null ein.
 
 18:32.530 --> 18:36.460
-Before we weren't able to call convert value, but here we can we can call it.
+Vorher konnten wir den Wert nicht umwandeln, aber hier können wir ihn aufrufen.
 
 18:36.580 --> 18:39.610
-We're not concerned with what is returned here.
+Es interessiert uns nicht, was hier zurückgegeben wird.
 
 18:39.610 --> 18:42.610
-Sometimes you might be the needs of your test and we'll see.
+Manchmal kann es sein, dass du die Bedürfnisse deines Tests bist und wir werden sehen.
 
 18:42.610 --> 18:45.970
-In the next example you are concerned with what the return value is.
+Im nächsten Beispiel geht es darum, was der Rückgabewert ist.
 
 18:45.970 --> 18:49.360
-But here we just want to know was something called.
+Aber hier wollen wir nur wissen, ob etwas aufgerufen wurde.
 
 18:49.360 --> 18:57.070
-So we're making a unit test that assumes some structure inside the the system under test.
+Wir machen also einen Einheitstest, der eine gewisse Struktur innerhalb des zu testenden Systems voraussetzt.
 
 18:57.070 --> 18:58.240
-So we call that.
+Also rufen wir das auf.
 
 18:58.240 --> 18:59.890
-And then here's the assertion.
+Und dann ist hier die Behauptung.
 
 19:00.070 --> 19:04.030
-And notice the language here is part of the end substitute library.
+Und beachten Sie, dass die Sprache hier Teil der End Substitute Library ist.
 
 19:04.060 --> 19:06.250
-We're saying that the converter.
+Wir sagen, dass der Konverter.
 
 19:06.980 --> 19:09.590
-We'll have received one call.
+Wir werden einen Anruf erhalten haben.
 
 19:10.010 --> 19:15.110
-Not the value one, but one call to the convert value.
+Nicht den Wert eins, sondern einen Aufruf an den Konvertierungswert.
 
 19:15.740 --> 19:17.100
-Which makes sense.
+Das macht Sinn.
 
 19:17.120 --> 19:19.220
-If I did this here.
+Wenn ich das hier machen würde.
 
 19:20.980 --> 19:24.760
-I could assume that it has been called twice.
+Ich könnte annehmen, dass es zweimal aufgerufen wurde.
 
 19:25.680 --> 19:27.420
-Or inside.
+Oder innen.
 
 19:27.420 --> 19:33.480
-Perhaps I have converted value and I would assume one.
+Vielleicht habe ich einen Wert umgewandelt und ich würde einen annehmen.
 
 19:35.860 --> 19:43.060
-And then maybe I know because I authored this system that it actually calls something called internal.
+Und dann weiß ich vielleicht, weil ich dieses System verfasst habe, dass es tatsächlich etwas namens intern aufruft.
 
 19:45.940 --> 19:48.490
-Or prep.
+Oder Vorbereitung.
 
 19:49.120 --> 19:50.500
 System.
 
 19:51.070 --> 19:57.430
-I could put all the different sub methods that I know probably happen when I call system convert value.
+Ich könnte all die verschiedenen Untermethoden angeben, von denen ich weiß, dass sie wahrscheinlich passieren, wenn ich system convert value aufrufe.
 
 19:57.640 --> 20:02.020
-Now this is a pretty lean system, so the only assumption I know to do is this one here.
+Dies ist ein ziemlich schlankes System, also ist die einzige Annahme, die ich kenne, diese hier.
 
 20:02.020 --> 20:04.270
-And let's see why we can assume that.
+Und sehen wir mal, warum wir das annehmen können.
 
 20:04.270 --> 20:06.460
-Well, if we look at the source code.
+Nun, wenn wir uns den Quellcode ansehen.
 
 20:07.350 --> 20:10.230
-Whenever I call system convert value.
+Immer wenn ich system convert value aufrufe.
 
 20:10.230 --> 20:16.620
-So here we can see that the convert value does indeed call converter dot convert value.
+Hier können wir also sehen, dass convert value tatsächlich convert dot convert value aufruft.
 
 20:16.620 --> 20:18.060
-And it calls it exactly.
+Und er ruft ihn genau auf.
 
 20:18.060 --> 20:25.440
-Once again, if I had had more than one call, I would have had to assert that convert value was called
+Noch einmal: Wenn ich mehr als einen Aufruf gehabt hätte, hätte ich behaupten müssen, dass convert value aufgerufen wurde
 
 20:25.440 --> 20:27.780
-twice each time I test the system.
+jedes Mal, wenn ich das System teste, zweimal aufgerufen wurde.
 
 20:27.780 --> 20:29.310
-But we only test once.
+Aber wir testen nur einmal.
 
 20:29.340 --> 20:34.800
-Now you can imagine you might have many, many, many more lines of code here, calling several different
+Jetzt können Sie sich vorstellen, dass Sie hier viele, viele, viele weitere Codezeilen haben, die mehrere verschiedene
 
 20:35.190 --> 20:37.080
-areas of their dependencies.
+Bereiche ihrer Abhängigkeiten aufrufen.
 
 20:37.080 --> 20:42.510
-And you can go back here in the test and you could test them all by adding more here.
+Und Sie können hier im Test zurückgehen und sie alle testen, indem Sie hier mehr hinzufügen.
 
 20:42.750 --> 20:49.800
-So when I first learned about the SPI, I thought, well, isn't this too weak of a test?
+Als ich das erste Mal vom SPI erfuhr, dachte ich, dass dieser Test zu schwach sei.
 
 20:49.830 --> 20:55.890
-Wouldn't I want to know not just that that it was called, but something specific was returned from
+Würde ich nicht wissen wollen, dass er nicht nur aufgerufen wurde, sondern dass etwas Bestimmtes zurückgegeben wurde von
 
 20:55.890 --> 20:56.610
-the call.
+dem Aufruf.
 
 20:57.370 --> 21:00.350
-And you can do that in the next example, but this is a good way.
+Und das kann man im nächsten Beispiel machen, aber das ist ein guter Weg.
 
 21:00.370 --> 21:04.480
-Again, we're looking from the least powerful symbols to most powerful test symbols.
+Auch hier gehen wir von den am wenigsten starken Symbolen zu den stärksten Testsymbolen.
 
 21:04.510 --> 21:04.780
 Okay.
 
 21:04.810 --> 21:07.780
-As I just hinted at, the next one here is mocking.
+Wie ich gerade angedeutet habe, ist das nächste Symbol Spott.
 
 21:07.780 --> 21:12.620
-And mocking is not just if a method was called, but what does it return?
+Und beim Mocking geht es nicht nur darum, ob eine Methode aufgerufen wurde, sondern auch darum, was sie zurückgibt.
 
 21:12.640 --> 21:15.390
-So this is the example we saw on the theory here.
+Dies ist also das Beispiel, das wir in der Theorie gesehen haben.
 
 21:15.400 --> 21:22.810
-What I've done in this one is I use the n substitute library to create on the fly a substitute test
+In diesem Beispiel habe ich die n substitute Bibliothek benutzt, um einen Ersatztest zu erstellen
 
 21:22.810 --> 21:25.450
-double for I converter, just like last time.
+doppelt für I-Konverter, genau wie beim letzten Mal.
 
 21:25.450 --> 21:30.600
-But here I'm on the fly adding some of the implementation details.
+Aber hier füge ich spontan einige Details der Implementierung hinzu.
 
 21:30.610 --> 21:37.870
-I'm saying that converter dot convert value should be able to take in any int, and be able to return
+Ich sage, dass der Konverter "dot convert value" in der Lage sein sollte, einen beliebigen int-Wert aufzunehmen und Folgendes zurückzugeben
 
 21:37.870 --> 21:43.300
-the value times the multiplier in the theory section in the slides we saw this exact example.
+den Wert mal den Multiplikator im Theorieteil der Folien haben wir genau dieses Beispiel gesehen.
 
 21:43.300 --> 21:47.800
-And then down here I know because value times multiplier.
+Und hier unten weiß ich es, weil Wert mal Multiplikator.
 
 21:47.800 --> 21:52.570
-If value is three and multiplier is ten would equal 30.
+Wenn der Wert drei und der Multiplikator zehn ist, ergibt das 30.
 
 21:52.690 --> 21:57.730
-So you can see that what this is really testing is this here.
+Sie können also sehen, dass dies hier der eigentliche Test ist.
 
 21:57.730 --> 22:04.600
-But I am making an assumption which is what's under test that if I call system convert value that what
+Aber ich gehe von der Annahme aus, die hier getestet wird, dass, wenn ich den Systemkonvertierungswert aufrufe, das was
 
 22:04.600 --> 22:09.160
-it returns is the same as converter dot convert value.
+dass es das Gleiche zurückgibt wie convert dot convert value.
 
 22:10.100 --> 22:14.810
-Now, there's a lot of words here and a lot of kind of confusing reused terminology.
+Es gibt hier eine Menge Wörter und eine Menge verwirrender, wiederverwendeter Terminologie.
 
 22:14.810 --> 22:17.690
-So it is important to dig in and look at the example here.
+Es ist also wichtig, sich mit dem Beispiel hier zu beschäftigen.
 
 22:17.690 --> 22:21.560
-But let's see if I'd actually had a plus one here.
+Aber schauen wir mal, ob ich hier tatsächlich ein Plus gehabt hätte.
 
 22:21.590 --> 22:29.900
-Our test would fail because my test assumes that the systems convert value is exactly the same as the
+Unser Test würde scheitern, weil mein Test davon ausgeht, dass der vom System umgerechnete Wert genau der gleiche ist wie der
 
 22:29.900 --> 22:31.760
-converter convert value.
+Konverter-Konvertierungswert.
 
 22:31.760 --> 22:37.640
-But if I had something here, this would be considered something of a indirect input.
+Aber wenn ich hier etwas hätte, würde dies als eine Art indirekte Eingabe betrachtet werden.
 
 22:37.640 --> 22:40.160
-So we're confirming that there's no indirect input.
+Wir bestätigen also, dass es keinen indirekten Input gibt.
 
 22:40.160 --> 22:42.200
-And the test again passes.
+Und der Test ist wieder erfolgreich.
 
 22:42.200 --> 22:43.790
-So that is the mock.
+Das ist also die Attrappe.
 
 22:43.790 --> 22:48.680
-And a mock is the test double that is configured to return specific values.
+Und ein Mock ist ein Testdouble, das so konfiguriert ist, dass es bestimmte Werte zurückgibt.
 
 22:48.710 --> 22:55.040
-Now you can look at the substitute documentation which I've included in the links portion of the course.
+Jetzt können Sie sich die Ersatzdokumentation ansehen, die ich in den Link-Teil des Kurses aufgenommen habe.
 
 22:55.040 --> 22:57.380
-You'd be able to do other things here.
+Sie könnten hier andere Dinge tun.
 
 22:57.380 --> 23:02.750
-Perhaps you want to say something like, I'll just mock it up that if you pass in the value of ten,
+Vielleicht möchten Sie etwas sagen wie: Ich werde es einfach nachmachen, wenn Sie den Wert von zehn eingeben,
 
 23:02.780 --> 23:04.220
-it would return this.
+dies zurückgeben würde.
 
 23:04.220 --> 23:12.770
-But if you pass, if you took in the word 15, it might do, you know, times a thousand or whatever.
+Aber wenn du das Wort 15 eingibst, könnte es auch tausendmal oder so etwas sein.
 
 23:12.800 --> 23:20.330
-There might be different circumstances where the arguments passed in change how the the output happens.
+Es kann verschiedene Umstände geben, unter denen die übergebenen Argumente die Ausgabe verändern.
 
 23:21.590 --> 23:27.890
-But this language here arguments any int is specific to the end substitute library.
+Aber diese Sprache hier Argumente jeder int ist spezifisch für die End-Ersatz-Bibliothek.
 
 23:27.890 --> 23:33.320
-And it says okay, no matter what we pass into the convert value here's going to be the value coming
+Und es sagt, okay, egal, was wir in den Konvertierungswert übergeben, hier wird der Wert sein, der kommt
 
 23:33.320 --> 23:33.680
-out.
+heraus.
 
 23:33.680 --> 23:38.510
-And finally our last one our most powerful type of test double is the fake.
+Und schließlich unser letzter, unser mächtigster Typ von Testdoppel ist der Fake.
 
 23:38.510 --> 23:40.050
-So how does the fake work.
+Wie funktioniert also der Fake?
 
 23:40.070 --> 23:42.920
-Well I'm not using any substitute here.
+Nun, ich benutze hier keinen Ersatz.
 
 23:42.920 --> 23:45.560
-In fact, I'm not using it at all in this test.
+Tatsächlich verwende ich ihn in diesem Test überhaupt nicht.
 
 23:45.590 --> 23:51.410
-What I do instead, and to be honest, before I learned a lot about test doubles, this was really a
+Was ich stattdessen mache, und um ehrlich zu sein, bevor ich viel über Doppeltests gelernt habe, war das wirklich ein
 
 23:51.410 --> 23:52.400
-common tool for me.
+übliches Werkzeug für mich.
 
 23:52.400 --> 23:53.900
-I didn't know it was called fake.
+Ich wusste nicht, dass es Fake genannt wird.
 
 23:53.930 --> 23:59.750
-Years ago when I started my unit testing journey, I would just think, oh, I can't use the production
+Vor Jahren, als ich mit dem Unit-Testing anfing, dachte ich nur, oh, ich kann die Produktion nicht benutzen.
 
 23:59.750 --> 24:01.640
-class for some reason.
+Klasse aus irgendeinem Grund nicht benutzen.
 
 24:01.820 --> 24:08.960
-So instead I'll create a lot of temporary testing only versions of certain dependencies.
+Also erstelle ich stattdessen eine Menge temporärer Versionen bestimmter Abhängigkeiten, die nur zum Testen dienen.
 
 24:08.960 --> 24:13.130
-So in the world of test doubles, those are called fake classes.
+In der Welt der Test-Doubles nennt man das dann Fake-Klassen.
 
 24:13.490 --> 24:15.130
-So how do I create that?
+Wie erstelle ich so etwas also?
 
 24:15.140 --> 24:21.620
-Well, in a different class you create your own implementation of fake converter or the way I choose
+Nun, in einer anderen Klasse erstellen Sie Ihre eigene Implementierung des gefälschten Konverters oder wie ich es mache
 
 24:21.620 --> 24:22.580
-to organize it.
+zu organisieren.
 
 24:22.580 --> 24:26.210
-My art will approach that right above the test itself.
+Meine Kunst wird das direkt über dem Test selbst angehen.
 
 24:26.210 --> 24:29.870
-I create the fake implementation of whatever is needed.
+Ich erstelle die Scheinimplementierung von allem, was benötigt wird.
 
 24:29.870 --> 24:34.790
-So here I create a brand new class that is used only in the case of the testing.
+Hier erstelle ich also eine brandneue Klasse, die nur für den Fall des Tests verwendet wird.
 
 24:34.790 --> 24:40.910
-I don't want to accidentally use this in production, so I give it a title like fake or test or sample
+Ich möchte sie nicht versehentlich in der Produktion verwenden, also gebe ich ihr einen Titel wie fake oder test oder sample
 
 24:40.910 --> 24:43.220
-or example converter, something like that.
+oder Beispielkonverter, so etwas in der Art.
 
 24:43.220 --> 24:49.430
-But following the language here, fake converter and I implement just enough of its functionality for
+Aber wenn man der Sprache hier folgt, ist der Fake-Konverter und ich implementiere gerade genug von seiner Funktionalität für
 
 24:49.430 --> 24:50.180
-the test.
+den Test.
 
 24:50.210 --> 24:57.080
-Now I see some unit test developers would create this fake converter and use it in many tests in the
+Nun sehe ich, dass einige Entwickler von Unit-Tests diesen falschen Konverter erstellen und ihn in vielen Tests in der
 
 24:57.080 --> 24:58.070
-same class.
+derselben Klasse verwenden.
 
 24:58.100 --> 24:59.420
-There's no problem with that.
+Damit gibt es kein Problem.
 
 24:59.420 --> 25:03.740
-You don't necessarily have to create one for every single test individually.
+Man muss nicht unbedingt für jeden einzelnen Test eine eigene erstellen.
 
 25:03.740 --> 25:08.780
-But the nice thing here is that I know I need to implement just enough to make my test pass.
+Aber das Schöne daran ist, dass ich weiß, dass ich gerade genug implementieren muss, damit mein Test erfolgreich ist.
 
 25:08.780 --> 25:11.870
-So it gives me a very simple goal to go after.
+Das gibt mir ein sehr einfaches Ziel, das ich anstreben kann.
 
 25:12.680 --> 25:20.750
-So here what I'm playing with is that I know that the last result is going to be the value times ten,
+Ich spiele also damit, dass ich weiß, dass das letzte Ergebnis der Wert mal zehn sein wird,
 
 25:20.750 --> 25:23.960
-which I'm just making up my own implementation for the fun of it.
+Ich erfinde meine eigene Implementierung nur, um Spaß zu haben.
 
 25:23.960 --> 25:28.550
-So if I pass in a value of four, I would expect the result to be 40.
+Wenn ich also einen Wert von vier eingebe, würde ich erwarten, dass das Ergebnis 40 ist.
 
 25:28.880 --> 25:37.640
-If I wanted to play around with this and say 15 here, then I could update this to 45 because 15 times,
+Wenn ich damit herumspielen möchte und hier 15 sage, dann könnte ich das Ergebnis auf 45 aktualisieren, weil 15 mal,
 
 25:37.640 --> 25:42.430
-oh, I'm sorry, I could update it to 60 because 15 times four would be 60.
+Oh, tut mir leid, ich könnte es auf 60 aktualisieren, denn 15 mal vier wäre 60.
 
 25:42.470 --> 25:44.450
-But let's go back to our original example.
+Aber kehren wir zu unserem ursprünglichen Beispiel zurück.
 
 25:46.040 --> 25:46.640
-There we go.
+Da haben wir's.
 
 25:46.790 --> 25:53.900
-So something of note here is that when I pass in the fake converter, our production class doesn't necessarily
+Bemerkenswert ist hier, dass unsere Produktionsklasse nicht zwangsläufig die folgenden Werte annimmt, wenn ich den gefälschten Konverter eingebe
 
 25:53.900 --> 25:59.980
-know fake converter versus a mock created by the substitute library versus a dummy.
+den gefälschten Konverter im Gegensatz zu einer Attrappe, die von der Ersatzbibliothek erstellt wurde, oder einem Dummy kennen.
 
 25:59.990 --> 26:03.740
-The production code does not know and does not need to know.
+Der Produktionscode weiß es nicht und braucht es auch nicht zu wissen.
 
 26:03.770 --> 26:06.500
-It only needs an I converter.
+Er braucht nur einen I-Konverter.
 
 26:06.500 --> 26:13.370
-And that gives us the flexibility to be able to implement classes and use the substitution library to
+Und das gibt uns die Flexibilität, Klassen zu implementieren und die Substitutionsbibliothek zu verwenden, um
 
 26:13.370 --> 26:14.840
-meet our testing needs.
+unsere Testanforderungen zu erfüllen.
 
 26:14.840 --> 26:19.930
-If we didn't use an interface in our production code, we would be severely limited.
+Wenn wir in unserem Produktionscode keine Schnittstelle verwenden würden, wären wir stark eingeschränkt.
 
 26:19.940 --> 26:22.850
-So let me reflect a little bit on what we've covered here.
+Lassen Sie mich also ein wenig darüber nachdenken, was wir hier behandelt haben.
 
 26:22.880 --> 26:28.100
-We saw a pure system that has a pure function, and we saw the benefits there for testability.
+Wir haben ein reines System gesehen, das eine reine Funktion hat, und wir haben die Vorteile für die Testbarkeit gesehen.
 
 26:28.190 --> 26:32.240
-Then we saw we just played with the idea of an impure version of that system.
+Dann haben wir gesehen, dass wir einfach mit der Idee einer unreinen Version dieses Systems gespielt haben.
 
 26:32.240 --> 26:37.430
-And what are some of the problems with perhaps indirect input and indirect output that can come?
+Und was sind einige der Probleme, die vielleicht mit indirektem Input und indirektem Output auftreten können?
 
 26:37.430 --> 26:43.130
-And then here in the advanced version, we've played with all the different ways we could work around
+Und dann haben wir hier in der fortgeschrittenen Version mit all den verschiedenen Möglichkeiten gespielt, die wir umgehen können
 
 26:43.130 --> 26:47.030
-or massage the challenges introduced by having impure systems.
+oder die Herausforderungen, die durch unreine Systeme entstehen, zu bewältigen.
 
 26:47.030 --> 26:50.930
-We've moved through dummy stub all the way up to fake.
+Wir haben uns über Dummy-Stub bis hin zu Fake bewegt.
 
 26:50.930 --> 26:58.190
-Seeing that we can have light implementations of a test double up to hear the fake version is a complete
+Zu sehen, dass wir leichte Implementierungen eines Tests verdoppeln können, um die gefälschte Version zu hören, ist eine komplette
 
 26:58.220 --> 27:06.050
-fake class that we're using for test only needs the beauty here by using the interface is that our production
+Fake-Klasse, die wir für den Test verwenden, braucht nur die Schönheit hier durch die Verwendung der Schnittstelle ist, dass unsere Produktion
 
 27:06.050 --> 27:13.940
-class doesn't need to know is it in test mode, or which version of a test double is being passed in
+Klasse nicht wissen muss, ob sie im Testmodus ist, oder welche Version eines Testdoubles übergeben wird
 
 27:13.970 --> 27:20.210
-the production code just works elegantly decoupled from the complexity of which type of I converter
+der Produktionscode funktioniert einfach elegant und entkoppelt von der Komplexität, welcher Typ von I-Konverter
 
 27:20.210 --> 27:20.570
-is.
+ist.
 
 27:20.600 --> 27:23.210
-Gives us lots of different examples to play with.
+Das gibt uns viele verschiedene Beispiele, mit denen wir spielen können.
 
 27:23.210 --> 27:29.240
-So overall, I hope you've enjoyed learning about pure functions and test doubles and seeing the code
+Alles in allem hoffe ich, dass es Ihnen Spaß gemacht hat, etwas über reine Funktionen und Testdoppel zu lernen und den Code zu sehen
 
 27:29.240 --> 27:35.840
-here that we've got in production, as well as in our tests that massage and let us learn for all the
+hier zu sehen, den wir in der Produktion haben, sowie in unseren Tests, die massieren und uns lernen lassen für alle
 
 27:35.840 --> 27:43.670
-different ways we can help get our tests to be more pure and help get our production code to be more
+verschiedene Wege, wie wir unsere Tests reiner machen können und unseren Produktionscode besser machen können
 
 27:43.670 --> 27:49.910
-reusable with less side effects and less of those shared state issues that can pop up.
+wiederverwendbar zu machen, mit weniger Seiteneffekten und weniger Problemen mit gemeinsam genutzten Zuständen, die auftauchen können.
 
 27:49.910 --> 27:50.840
-Thanks.
+Danke!

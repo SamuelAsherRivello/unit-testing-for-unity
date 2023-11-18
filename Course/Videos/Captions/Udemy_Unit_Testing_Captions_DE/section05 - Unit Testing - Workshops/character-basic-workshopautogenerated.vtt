@@ -1,370 +1,370 @@
 WEBVTT
 
 00:00.080 --> 00:03.050
-Hello and welcome to Unit testing for unity.
+Hallo und willkommen zu Unit Testing für Unity.
 
 00:03.080 --> 00:04.310
-We're in the workshop here.
+Wir sind hier im Workshop.
 
 00:04.310 --> 00:08.450
-And in this one we're going to take a look at the character in a basic form.
+Und in diesem werden wir uns den Charakter in einer Grundform ansehen.
 
 00:08.450 --> 00:10.700
-We're going to have a few different ones we're going to look at.
+Wir werden uns ein paar verschiedene ansehen.
 
 00:10.730 --> 00:13.400
-We'll start with the basics and move on to something more advanced.
+Wir beginnen mit den Grundlagen und gehen dann zu etwas Fortgeschrittenem über.
 
 00:13.400 --> 00:15.080
-Let's take a look at this demo in action.
+Schauen wir uns diese Demo in Aktion an.
 
 00:15.080 --> 00:16.520
-Inside the unity editor.
+Innerhalb des Unity-Editors.
 
 00:16.520 --> 00:19.430
-We're going to open up unity, open up our sample project.
+Wir werden Unity öffnen und unser Beispielprojekt öffnen.
 
 00:19.430 --> 00:23.360
-And then we're going to play one or more scenes related to the topic here.
+Und dann spielen wir eine oder mehrere Szenen ab, die mit dem Thema hier zu tun haben.
 
 00:23.360 --> 00:29.270
-The scene is going to be the character basic, and I'm going to be talking about Monobehaviour as something
+Die Szene wird der Grundcharakter sein, und ich werde über Monobehaviour als etwas sprechen
 
 00:29.270 --> 00:34.760
-that can or can't be tested, as well as play mode versus edit mode, something that I've mentioned
+das getestet werden kann oder nicht, sowie über den Spielmodus gegenüber dem Bearbeitungsmodus, etwas, das ich bereits erwähnt habe
 
 00:34.760 --> 00:36.020
-earlier in the course.
+früher in diesem Kurs erwähnt habe.
 
 00:36.050 --> 00:37.640
-We'll bring it back here and talk about it.
+Wir werden es hierher zurückbringen und darüber sprechen.
 
 00:37.640 --> 00:39.980
-Here we are in the project looking at the character basic.
+Hier sind wir im Projekt und sehen uns das Grundzeichen an.
 
 00:39.980 --> 00:41.390
-Let's go ahead and run the scene.
+Laßt uns fortfahren und die Szene starten.
 
 00:46.760 --> 00:53.600
-So while most of our workshops we've done already had a pretty boring scene where absolutely nothing
+Während also die meisten unserer Workshops, die wir gemacht haben, eine ziemlich langweilige Szene hatten, in der absolut nichts
 
 00:53.630 --> 00:56.420
-of interest is happening here, we have a little bit more.
+von Interesse passiert, haben wir hier ein bisschen mehr.
 
 00:56.450 --> 01:02.080
-When we hit play there, we see a cube white cube that gets made created in the center of the screen.
+Wenn wir hier auf Play drücken, sehen wir einen weißen Würfel, der in der Mitte des Bildschirms erzeugt wird.
 
 01:02.090 --> 01:04.640
-I can use my arrow keys and move around.
+Ich kann meine Pfeiltasten benutzen und mich bewegen.
 
 01:04.640 --> 01:11.540
-So while admittedly a very simple example here, this is meant to talk about some of the more complex
+Dies ist zugegebenermaßen ein sehr einfaches Beispiel, aber es soll einige der komplexeren Möglichkeiten aufzeigen
 
 01:11.540 --> 01:14.200
-aspects of testing inside unity.
+Aspekte des Testens in Unity.
 
 01:14.210 --> 01:19.340
-In the previous scenes, we weren't worried about rendering graphics or taking input.
+In den vorherigen Szenen haben wir uns nicht um das Rendern von Grafiken oder die Eingabe von Daten gekümmert.
 
 01:19.580 --> 01:26.450
-We did talk in the last workshop about the difference between testing several different dependencies
+Wir haben im letzten Workshop über den Unterschied zwischen dem Testen verschiedener Abhängigkeiten gesprochen
 
 01:26.450 --> 01:27.200
-together.
+zusammen.
 
 01:27.200 --> 01:32.390
-For example, a method that inside calls a second method that inside calls the third.
+Zum Beispiel eine Methode, die innen eine zweite Methode aufruft, die innen die dritte aufruft.
 
 01:32.420 --> 01:34.100
-Those are dependencies.
+Das sind Abhängigkeiten.
 
 01:34.130 --> 01:40.400
-Here we're talking about a similar aspect, except every time I want to move my character, I first
+Hier geht es um einen ähnlichen Aspekt, nur dass ich jedes Mal, wenn ich meine Figur bewegen will, zuerst
 
 01:40.400 --> 01:47.360
-ask to listen to Unity's input system, then use Unity's Monobehaviour transform movement.
+das Eingabesystem von Unity abfragen und dann Unity's Monobehaviour transform movement benutzen.
 
 01:47.360 --> 01:47.770
-Right.
+Richtig.
 
 01:47.780 --> 01:52.460
-So we're we're using several different dependencies there or different classes.
+Wir benutzen also verschiedene Abhängigkeiten oder verschiedene Klassen.
 
 01:54.970 --> 01:58.240
-So here I'm able to use the arrow keys to move around.
+Hier kann ich also die Pfeiltasten benutzen, um mich zu bewegen.
 
 01:59.360 --> 02:00.800
-And that's pretty much it.
+Und das war's auch schon.
 
 02:02.750 --> 02:05.690
-But the idea is we're doing a bit more than before.
+Aber die Idee ist, dass wir ein bisschen mehr machen als vorher.
 
 02:05.780 --> 02:08.250
-Let's talk about the implications of testing that.
+Lassen Sie uns über die Auswirkungen der Tests sprechen.
 
 02:08.270 --> 02:14.780
-So up here in the test runner, I have the category set to our character basic, which is great.
+Hier oben im Test-Runner habe ich die Kategorie auf unser Basiszeichen gesetzt, was großartig ist.
 
 02:14.810 --> 02:20.420
-Then I can toggle on to see the play mode tests as well as the edit mode tests.
+Dann kann ich die Tests für den Spielmodus und den Bearbeitungsmodus anzeigen lassen.
 
 02:20.450 --> 02:26.720
-We can see that we've got some of both, but because there's a monobehaviour involved, I'm going to
+Wir können sehen, dass wir etwas von beidem haben, aber da es sich um ein Monobehaviour handelt, werde ich
 
 02:26.720 --> 02:28.190
-focus more on the play mode.
+mehr auf den Spielmodus konzentrieren.
 
 02:28.220 --> 02:34.820
-Now, in each of the workshops, I've included at least one edit mode test and at least one play mode
+In jedem der Workshops habe ich mindestens einen Test im Bearbeitungsmodus und mindestens einen im Spielmodus durchgeführt
 
 02:34.850 --> 02:37.020
-test for the scene at hand.
+Test für die jeweilige Szene.
 
 02:37.040 --> 02:42.620
-I've done that again here, but depending on what you're actually testing, you want to think, is this
+Ich habe das hier noch einmal gemacht, aber je nachdem, was man gerade testet, sollte man überlegen, ob das
 
 02:42.620 --> 02:47.060
-more appropriate for edit mode or is it more appropriate for play mode?
+eher für den Bearbeitungsmodus oder eher für den Spielmodus geeignet?
 
 02:47.090 --> 02:52.130
-There's an art and a science to how you'd approach that, and how you would design your code to be more
+Es ist eine Kunst und eine Wissenschaft, wie man das angeht, und wie man seinen Code so gestaltet, dass er mehr
 
 02:52.130 --> 02:52.760
-testable.
+testbar ist.
 
 02:52.790 --> 02:59.600
-But a general way to look at it that's relevant for here is that if you're using Monobehaviour functionality,
+Aber eine allgemeine Betrachtungsweise, die hier relevant ist, ist, dass wenn Sie Monobehaviour-Funktionalität verwenden,
 
 02:59.600 --> 03:02.270
-that sounds more like a play mode test.
+Das klingt eher nach einem Spielmodus-Test.
 
 03:02.300 --> 03:08.540
-The more unity libraries, particularly at runtime, you're using in your production, you want to think
+Je mehr Unity-Bibliotheken, insbesondere zur Laufzeit, Sie in Ihrer Produktion verwenden, desto mehr sollten Sie darüber nachdenken
 
 03:08.540 --> 03:10.460
-about those being play mode tests.
+darüber nachdenken, ob diese im Spielmodus getestet werden sollen.
 
 03:10.490 --> 03:13.970
-It's not a hard rule, but that's a good way to start thinking about it.
+Es ist keine feste Regel, aber das ist ein guter Weg, um darüber nachzudenken.
 
 03:14.240 --> 03:16.110
-So let's run our tests here.
+Führen wir also unsere Tests durch.
 
 03:16.130 --> 03:18.890
-I have the play mode and I will run all.
+Ich habe den Wiedergabemodus und werde alle ausführen.
 
 03:22.470 --> 03:22.800
-Okay.
+OK.
 
 03:22.830 --> 03:25.650
-It took a couple seconds to run there, but we've got them all.
+Es hat ein paar Sekunden gedauert, aber wir haben sie alle.
 
 03:25.680 --> 03:31.650
-What actually happens when you're running a play mode test is it creates a brand new empty scene and
+Wenn man einen Test im Wiedergabemodus durchführt, wird eine brandneue leere Szene erstellt und
 
 03:31.650 --> 03:35.430
-runs just one test inside of it, and it destroys that.
+führt nur einen Test darin aus und zerstört diesen.
 
 03:35.430 --> 03:42.630
-And it creates a brand new scene guaranteeing that we have the world space provided by a scene.
+Und es wird eine brandneue Szene erstellt, die garantiert, dass wir den Weltraum haben, der durch eine Szene bereitgestellt wird.
 
 03:42.630 --> 03:49.590
-But the freshness of a new scene that doesn't have any dependencies or stale info that might influence
+Aber die Frische einer neuen Szene, die keine Abhängigkeiten oder veraltete Informationen hat, die die
 
 03:49.590 --> 03:50.220
-the test.
+den Test.
 
 03:50.220 --> 03:51.820
-So we like how that's set up.
+Das gefällt uns also.
 
 03:51.840 --> 03:58.620
-Now, the things that I'm doing are moving, moving by key code and moving to a particular place.
+Die Dinge, die ich jetzt tue, sind das Bewegen, das Bewegen nach Schlüsselcode und das Bewegen zu einem bestimmten Ort.
 
 03:58.620 --> 04:01.260
-So let's take a look at this move to test.
+Schauen wir uns also diese Verschiebung zum Test an.
 
 04:03.240 --> 04:05.580
-Actually, let's take a look at the production code first.
+Werfen wir zuerst einen Blick auf den Produktionscode.
 
 04:05.580 --> 04:08.550
-So if I go here and I look at the basic example.
+Wenn ich also hierher gehe und mir das Basisbeispiel ansehe.
 
 04:10.370 --> 04:12.140
-This is the production code.
+Dies ist der Produktionscode.
 
 04:12.140 --> 04:14.330
-Let's look at that before I go into the tests.
+Schauen wir uns das an, bevor ich zu den Tests komme.
 
 04:14.330 --> 04:17.570
-So here all I do is I create a primitive.
+Hier erstelle ich also nur ein Primitiv.
 
 04:17.600 --> 04:22.610
-You could imagine also loading a prefab here if you wanted to do that.
+Man könnte sich vorstellen, dass man hier auch ein Prefab lädt, wenn man das möchte.
 
 04:22.610 --> 04:27.620
-But I wanted to slowly get us into all the complexities of runtime and unity.
+Aber ich wollte uns langsam in die ganzen Komplexitäten von Runtime und Unity einführen.
 
 04:27.620 --> 04:29.750
-So I'm not using a prefab here.
+Ich verwende hier also keine Vorabversion.
 
 04:29.750 --> 04:33.740
-I just create a brand new cube from scratch with a line of code.
+Ich erstelle einfach einen brandneuen Würfel von Grund auf mit einer Zeile Code.
 
 04:33.740 --> 04:40.430
-I give it a name there just for organization sake, and then I add the component of the monobehaviour
+Ich gebe ihm einen Namen, nur um ihn zu organisieren, und dann füge ich die Komponente des Monobehaviour hinzu
 
 04:40.430 --> 04:42.230
-that I want to actually test.
+die ich tatsächlich testen möchte.
 
 04:42.230 --> 04:48.350
-Then one of the things that I'm doing is just moving it to the point of 000, and then showing that
+Dann verschiebe ich es unter anderem zum Punkt 000 und zeige dann, dass
 
 04:48.350 --> 04:49.910
-value out on the screen.
+Wert auf dem Bildschirm.
 
 04:49.910 --> 04:52.490
-So let's take a look at the source code here.
+Schauen wir uns also den Quellcode hier an.
 
 04:55.160 --> 04:56.540
-Here's character basic.
+Hier ist das Grundzeichen.
 
 04:56.570 --> 04:58.370
-This extends Monobehaviour.
+Dies erweitert das Monobehaviour.
 
 04:58.400 --> 05:06.330
-Now, if you're familiar with unity, you probably use Monobehaviours all the time as a good best practice.
+Wenn du mit Unity vertraut bist, verwendest du wahrscheinlich ständig Monobehaviours als eine gute Best Practice.
 
 05:06.350 --> 05:09.200
-You want to start thinking conscientiously.
+Sie wollen anfangen, gewissenhaft zu denken.
 
 05:09.200 --> 05:14.260
-When is it appropriate to use a monobehaviour and when can I use something different?
+Wann ist es angebracht, ein Monoverhalten zu verwenden und wann kann ich etwas anderes verwenden?
 
 05:14.270 --> 05:20.180
-As beginning developers, we create everything as a child of monobehaviour, but with time and experience
+Als angehende Entwickler erstellen wir alles als ein Kind eines Monobehaviour, aber mit der Zeit und Erfahrung
 
 05:20.180 --> 05:23.510
-you realize there's pros and cons of using monobehaviours.
+merkt man, dass die Verwendung von Monobehaviours Vor- und Nachteile hat.
 
 05:23.510 --> 05:28.220
-One of the cons is historically, it was more difficult to test along the way.
+Einer der Nachteile ist, dass es in der Vergangenheit schwieriger war, den Weg zu testen.
 
 05:28.220 --> 05:30.170
-Unity provided these playmode tests.
+Unity hat diese Tests für den Spielmodus bereitgestellt.
 
 05:30.170 --> 05:34.550
-So now we can certainly test Playmode and we can test Monobehaviours.
+Jetzt können wir also sicher Playmode und Monobehaviours testen.
 
 05:34.550 --> 05:37.230
-So that's great, but there's still some drawbacks.
+Das ist großartig, aber es gibt immer noch einige Nachteile.
 
 05:37.250 --> 05:41.930
-Again, Monobehaviour is going to rely on more systems of unity under the hood.
+Wiederum wird Monobehaviour auf mehr Einheitssysteme unter der Haube angewiesen sein.
 
 05:41.930 --> 05:47.300
-And when we're trying to test our custom code, we might not be sure where a problem might lie.
+Und wenn wir versuchen, unseren benutzerdefinierten Code zu testen, sind wir vielleicht nicht sicher, wo ein Problem liegen könnte.
 
 05:47.330 --> 05:49.320
-Is it our code or is it Unity's code?
+Ist es unser Code oder ist es der Code von Unity?
 
 05:49.340 --> 05:51.710
-So again, there's a few dependencies there.
+Also gibt es auch hier ein paar Abhängigkeiten.
 
 05:51.740 --> 05:55.880
-This is all okay, but it's something you want to think about as you're designing your classes and as
+Das ist alles in Ordnung, aber es ist etwas, worüber man nachdenken sollte, wenn man seine Klassen entwirft und als
 
 05:55.880 --> 05:57.290
-you're designing your tests.
+Sie Ihre Tests entwerfen.
 
 05:57.710 --> 06:00.680
-So we've got a movement speed.
+Wir haben also eine Bewegungsgeschwindigkeit.
 
 06:00.710 --> 06:02.060
-We've got a movement type.
+Wir haben eine Bewegungsart.
 
 06:02.060 --> 06:04.970
-This is just the direction of the arrow key that I'm pressing.
+Das ist nur die Richtung der Pfeiltaste, die ich drücke.
 
 06:04.970 --> 06:07.280
-Then we use the Unity's update.
+Dann verwenden wir das Update von Unity.
 
 06:07.310 --> 06:10.160
-Now really let me double check here.
+Jetzt möchte ich das Ganze noch einmal überprüfen.
 
 06:12.330 --> 06:12.810
-Really.
+Wirklich.
 
 06:12.810 --> 06:18.540
-The update loop here is the only major monobehaviour functionality that I'm using.
+Die Aktualisierungsschleife hier ist die einzige größere Monobehaviour-Funktionalität, die ich verwende.
 
 06:18.570 --> 06:22.740
-The rest of this code doesn't necessarily have to be in a monobehaviour.
+Der Rest des Codes muss nicht unbedingt in einem Monobehaviour enthalten sein.
 
 06:22.770 --> 06:27.170
-I am also using Unity's input system, so that's a second dependency.
+Ich benutze auch das Eingabesystem von Unity, das ist also eine zweite Abhängigkeit.
 
 06:27.180 --> 06:30.370
-So let's see what I do every frame of update.
+Schauen wir mal, was ich in jedem Frame der Aktualisierung mache.
 
 06:30.390 --> 06:32.940
-I call this method here move by input.
+Ich rufe diese Methode hier move by input auf.
 
 06:32.970 --> 06:37.920
-I check to see is the user hitting a particular key or keys on the keyboard.
+Ich prüfe, ob der Benutzer eine bestimmte Taste oder Tasten auf der Tastatur drückt.
 
 06:37.920 --> 06:41.970
-And then I call move by key code down here.
+Und dann rufe ich die Bewegung nach dem Tastencode hier unten auf.
 
 06:43.280 --> 06:49.820
-All we do is say, if we're currently moving left, then let's move in a vector for the left direction.
+Alles, was wir tun, ist zu sagen, wenn wir uns gerade nach links bewegen, dann bewegen wir uns in einem Vektor in die linke Richtung.
 
 06:49.820 --> 06:53.420
-If we're currently moving right and etcetera for up and down.
+Wenn wir uns gerade nach rechts bewegen und so weiter für oben und unten.
 
 06:53.420 --> 06:58.460
-So this would allow you to move in all four of the directions using the four arrow keys.
+So kann man sich also mit den vier Pfeiltasten in alle vier Richtungen bewegen.
 
 06:58.460 --> 07:00.020
-So pretty straightforward code.
+Also ein ziemlich einfacher Code.
 
 07:00.020 --> 07:04.040
-And if you've created your own custom character before you'd be familiar with setting something like
+Wenn du schon einmal eine eigene Spielfigur erstellt hast, kennst du dich mit folgenden Einstellungen aus
 
 07:04.040 --> 07:04.610
-this up.
+dies einzustellen.
 
 07:07.590 --> 07:09.480
-Down here, we've got two methods.
+Hier unten haben wir zwei Methoden.
 
 07:09.480 --> 07:14.850
-One that lets us move to a particular point and one that lets us move by a unit.
+Eine, mit der wir uns zu einem bestimmten Punkt bewegen können, und eine, mit der wir uns um eine Einheit bewegen können.
 
 07:14.850 --> 07:17.700
-So let's say I wanted to move to the right one unit.
+Nehmen wir also an, ich möchte mich um eine Einheit nach rechts bewegen.
 
 07:17.700 --> 07:22.110
-I could pass in by one unit by one unit by one unit.
+Ich könnte mich um eine Einheit um eine Einheit um eine Einheit nach innen bewegen.
 
 07:22.110 --> 07:27.350
-If I want to move directly to a particular point in space, that would be the move to.
+Wenn ich mich direkt zu einem bestimmten Punkt im Raum bewegen möchte, wäre das die Bewegung nach.
 
 07:27.360 --> 07:33.390
-So these are not necessarily the only methods you would need in a custom character class, but there's
+Dies sind also nicht unbedingt die einzigen Methoden, die man in einer benutzerdefinierten Zeichenklasse braucht, aber es gibt
 
 07:33.390 --> 07:34.710
-some pretty common ones.
+einige sehr gebräuchliche Methoden.
 
 07:34.710 --> 07:41.460
-So we'll end this lesson here with just this as a basic, appropriate working way to test some functionality.
+Wir beenden diese Lektion mit dieser einfachen, funktionierenden Methode, um einige Funktionen zu testen.
 
 07:41.460 --> 07:46.920
-If you want to take a look at the edit mode or the other tests that are here in the play mode, go ahead
+Wenn Sie sich den Bearbeitungsmodus oder die anderen Tests im Spielmodus ansehen wollen, nur zu
 
 07:46.920 --> 07:47.820
-and do that.
+und tun Sie das.
 
 07:47.850 --> 07:49.440
-I'll move on to the next video.
+Ich fahre mit dem nächsten Video fort.
 
 07:49.440 --> 07:50.190
-Thanks.
+Danke!

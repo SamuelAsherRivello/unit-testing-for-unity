@@ -1,496 +1,496 @@
 WEBVTT
 
 00:00.290 --> 00:04.310
-Hello and welcome to the unit Testing for Unity Workshop Series.
+Hallo und herzlich willkommen zur Unit Testing for Unity Workshop Serie.
 
 00:04.460 --> 00:06.770
-Here we're going to be looking at prefabs.
+Hier werden wir uns die Prefabs anschauen.
 
 00:06.800 --> 00:10.940
-Now up until this moment in the course we have not tested prefabs.
+Bis zu diesem Moment im Kurs haben wir keine Prefabs getestet.
 
 00:10.970 --> 00:16.460
-In the moments where I did want to test some monobehaviours, I created them from scratch using code
+In den Momenten, in denen ich einige Monobehaviours testen wollte, habe ich sie von Grund auf mit Code erstellt
 
 00:16.460 --> 00:18.080
-as shown in the previous videos.
+wie in den vorherigen Videos gezeigt.
 
 00:18.080 --> 00:24.440
-But of course, a major fundamental building block in unity game development is the prefab.
+Aber natürlich ist ein wichtiger Grundbaustein in der Unity-Spielentwicklung die Prefab.
 
 00:24.680 --> 00:32.300
-Prefabs allow you to gather together various assets and functionality, put them in your project, and
+Prefabs erlauben es dir, verschiedene Assets und Funktionen zu sammeln, sie in dein Projekt zu integrieren und
 
 00:32.300 --> 00:38.020
-easily reuse them either by dragging them into the scene so you save them in the scene and they're there,
+sie einfach wiederzuverwenden, indem man sie in die Szene zieht, so dass man sie in der Szene speichert und sie da sind,
 
 00:38.030 --> 00:40.690
-or by dynamically creating them with code.
+oder indem man sie dynamisch mit Code erstellt.
 
 00:40.700 --> 00:43.040
-Now, why would we want to test these prefabs?
+Warum sollten wir diese vorgefertigten Elemente testen wollen?
 
 00:43.040 --> 00:48.800
-Well, in a very light form, imagine that your game uses a character prefab in an enemy prefab, perhaps
+Nun, in einer sehr einfachen Form, stell dir vor, dass dein Spiel eine Charakter Prefab in einer Feind Prefab benutzt, vielleicht
 
 00:48.800 --> 00:49.900
-multiple of each.
+mehrere von beiden.
 
 00:49.910 --> 00:58.280
-You can have a unit test that creates just the player and validates that it doesn't throw any exceptions,
+Man kann einen Unit-Test haben, der nur den Spieler erstellt und überprüft, dass er keine Ausnahmen auslöst,
 
 00:58.400 --> 01:04.970
-just that alone gives you a little bit more confidence that the asset works well over time.
+Das allein gibt Ihnen schon ein wenig mehr Vertrauen, dass das Asset über die Zeit gut funktioniert.
 
 01:04.970 --> 01:10.670
-And as you're collaborating with different non-programming talent, including level designers and artists,
+Und wenn man mit anderen Talenten zusammenarbeitet, die keine Programmierer sind, z. B. Leveldesigner und Künstler,
 
 01:10.700 --> 01:14.030
-you know that those prefabs have not accidentally been broken.
+wissen Sie, dass diese Prefabs nicht aus Versehen kaputt gegangen sind.
 
 01:14.030 --> 01:17.870
-You can make some assumptions on the structure by using a test.
+Man kann einige Annahmen über die Struktur machen, indem man einen Test macht.
 
 01:17.870 --> 01:22.760
-You can make assumptions on the serialized fields and check that they're properly populated, and you
+Sie können Annahmen über die serialisierten Felder machen und überprüfen, ob sie richtig ausgefüllt sind, und Sie
 
 01:22.760 --> 01:25.400
-can make assumptions on behavior of course, as well.
+können natürlich auch Annahmen über das Verhalten machen.
 
 01:25.400 --> 01:31.160
-In the earlier character example, which did not use prefabs, I had a character script and I would
+In dem früheren Beispiel, in dem keine Prefabs verwendet wurden, hatte ich ein Charakterskript und ich würde
 
 01:31.160 --> 01:36.770
-check to make sure that it could move properly around the world when I call it move by or move to functionality.
+um sicherzustellen, dass sie sich richtig in der Welt bewegen kann, wenn ich die Funktion move by oder move to aufrufe.
 
 01:36.770 --> 01:43.730
-As you create complex prefabs with dependencies, you'd be able to call functionality on those prefabs
+Wenn man komplexe Prefabs mit Abhängigkeiten erstellt, kann man die Funktionalität auf diesen Prefabs aufrufen
 
 01:43.730 --> 01:44.300
-as well.
+auch aufrufen.
 
 01:44.300 --> 01:47.990
-Now, tests can cover a small unit of code.
+Jetzt können die Tests eine kleine Codeeinheit abdecken.
 
 01:48.140 --> 01:54.680
-In the ideal world you have few lines and maybe no dependencies all the way up to a more complex system,
+In der idealen Welt hat man wenige Zeilen und vielleicht keine Abhängigkeiten bis hin zu einem komplexeren System,
 
 01:54.680 --> 01:59.810
-which if you know what you're doing when you're doing your unit testing, you can faithfully have a
+Wenn man weiß, was man tut, wenn man seine Unit-Tests durchführt, kann man ein zuverlässiges
 
 01:59.810 --> 02:06.200
-test that executes over some dependencies as well, and gives you some assurance that those systems
+Test, der auch über einige Abhängigkeiten ausgeführt wird, und Ihnen eine gewisse Sicherheit gibt, dass diese Systeme
 
 02:06.200 --> 02:07.490
-are working well together.
+gut zusammenarbeiten.
 
 02:07.520 --> 02:14.120
-A prefab is indeed probably your more complex on the end of that spectrum, and you're going to be testing
+Ein Fertighaus ist in der Tat wahrscheinlich der komplexere Teil des Spektrums, und Sie werden testen müssen
 
 02:14.120 --> 02:14.270
-that.
+das.
 
 02:14.270 --> 02:21.560
-The prefab can make use of its own custom components as well as unity components like rigidbody.
+Das Prefab kann sowohl seine eigenen benutzerdefinierten Komponenten als auch Unity-Komponenten wie Rigidbody verwenden.
 
 02:21.560 --> 02:26.750
-So be aware as you're setting these tests up that you're not testing too large of a system.
+Achten Sie also beim Einrichten dieser Tests darauf, dass Sie nicht ein zu großes System testen.
 
 02:26.750 --> 02:34.160
-If, for example, your hero character is using rigid body and a custom flying component, you may want
+Wenn Ihr Held zum Beispiel einen starren Körper und eine benutzerdefinierte Flugkomponente verwendet, möchten Sie vielleicht
 
 02:34.160 --> 02:38.060
-to test the custom flying component separately in its own unit test.
+die benutzerdefinierte Flugkomponente separat in einem eigenen Unit-Test testen.
 
 02:38.060 --> 02:42.980
-Remember, there's always benefits to being able to break down and have less dependencies in your unit
+Denken Sie daran, dass es immer von Vorteil ist, wenn Sie weniger Abhängigkeiten in Ihrer Unit haben
 
 02:42.980 --> 02:43.460
-testing.
+Testen.
 
 02:43.460 --> 02:49.550
-But that said, we can indeed create a test that runs on an entire prefab, including its dependencies
+Dennoch können wir einen Test erstellen, der auf einer gesamten Voreinstellung läuft, einschließlich ihrer Abhängigkeiten
 
 02:49.550 --> 02:50.240
-if we see fit.
+wenn wir es für richtig halten.
 
 02:50.240 --> 02:52.370
-Let's take a look at an example of this in the code.
+Schauen wir uns ein Beispiel dafür im Code an.
 
 02:52.940 --> 02:54.640
-Here we are inside unity.
+Hier sind wir innerhalb von unity.
 
 02:54.650 --> 02:59.720
-If I look at the test runner window here in the category, I have it set already to prefab.
+Wenn ich mir das Test-Runner-Fenster hier in der Kategorie ansehe, habe ich es bereits auf Prefab eingestellt.
 
 02:59.720 --> 03:05.510
-And down here in this folder we're able to see that there's a prefab example.
+Und hier unten in diesem Ordner können wir sehen, dass es ein vorgefertigtes Beispiel gibt.
 
 03:05.510 --> 03:10.520
-Let's go ahead and open up the scene and just take a look at that scene running I'll go ahead and run
+Lasst uns die Szene öffnen und einen Blick auf die Szene werfen, die ich jetzt ausführe
 
 03:10.520 --> 03:10.850
-it.
+es.
 
 03:13.540 --> 03:18.130
-So when I run that scene, a ball falls down with physics and slides along the floor.
+Wenn ich diese Szene ausführe, fällt ein Ball mit Hilfe der Physik herunter und rutscht über den Boden.
 
 03:18.160 --> 03:21.420
-It's not that particular behavior that we're interested in.
+Es ist nicht dieses spezielle Verhalten, das uns interessiert.
 
 03:21.430 --> 03:27.760
-I just wanted to put an enemy prefab in the scene, see it exist in the production code here.
+Ich wollte nur eine feindliche Voreinstellung in die Szene einfügen, um zu sehen, dass sie hier im Produktionscode existiert.
 
 03:27.760 --> 03:34.750
-Simulating this would be your larger game menu, settings, scene, whatever it is, and having some
+Dies zu simulieren wäre dein größeres Spielmenü, Einstellungen, Szene, was auch immer es ist, und mit einigen
 
 03:34.750 --> 03:39.730
-dependency on one or more mono behaviors on a on a prefab.
+Abhängigkeit von einem oder mehreren Mono Behaviors in einer Prefab.
 
 03:39.940 --> 03:43.340
-So with that set up, let's take a look at how we would go about testing it.
+So, und jetzt schauen wir uns mal an, wie wir das testen können.
 
 03:43.360 --> 03:49.480
-Now in this scene I have a editor test and also a runtime test.
+In dieser Szene habe ich einen Editor-Test und einen Laufzeit-Test.
 
 03:49.480 --> 03:55.450
-But since this is testing more unity behavior and we've seen that mono behaviors, for example, are
+Aber da dies mehr Unity-Verhalten testet und wir gesehen haben, dass Mono-Verhaltensweisen zum Beispiel
 
 03:55.450 --> 03:57.400
-something you want to test only at runtime.
+etwas, das man nur zur Laufzeit testen sollte.
 
 03:57.400 --> 03:59.470
-Let's focus just on the play mode test here.
+Konzentrieren wir uns hier nur auf den Test des Spielmodus.
 
 03:59.470 --> 04:00.820
-So I'm going to uncheck that one.
+Also werde ich diese Option deaktivieren.
 
 04:01.600 --> 04:06.820
-And here I've got a few different things we can do when this play mode test run, I check that the enemy
+Und hier habe ich ein paar verschiedene Dinge, die wir tun können, wenn dieser Spielmodustest läuft, ich checke, dass der Feind
 
 04:06.820 --> 04:08.380
-itself is not null.
+selbst nicht null ist.
 
 04:08.410 --> 04:10.420
-That's the amount of behavior script.
+Das ist die Menge des Verhaltensskripts.
 
 04:10.450 --> 04:16.330
-Then I test that the game object it's sitting on is not null, and we would generally assume that if
+Dann teste ich, dass das Spielobjekt, auf dem es sitzt, nicht null ist, und wir würden im Allgemeinen annehmen, dass wenn
 
 04:16.330 --> 04:18.460
-the enemy exists, the game object does as well.
+der Feind existiert, auch das Spielobjekt existiert.
 
 04:18.460 --> 04:20.740
-But this is just a further test on that.
+Aber dies ist nur ein weiterer Test dafür.
 
 04:20.740 --> 04:23.410
-And then finally we can check that the rigid body is not null.
+Und schließlich können wir prüfen, ob der Rigid Body nicht Null ist.
 
 04:23.410 --> 04:27.670
-So here we're checking mostly the structure of what we've got there.
+Hier überprüfen wir also hauptsächlich die Struktur dessen, was wir hier haben.
 
 04:27.670 --> 04:33.940
-But you could also check serialized fields, initialized public values, some of the behavior functionality
+Aber man könnte auch serialisierte Felder, initialisierte öffentliche Werte, einige der Verhaltensfunktionalitäten überprüfen
 
 04:33.940 --> 04:35.230
-by calling methods on it.
+indem man Methoden aufruft.
 
 04:35.230 --> 04:36.430
-You can do that on your own.
+Das können Sie selbst tun.
 
 04:36.430 --> 04:41.350
-Expand what you see here and add your own testing functionality on top of new production code.
+Erweitern Sie das, was Sie hier sehen, und fügen Sie Ihre eigene Testfunktionalität zu dem neuen Produktionscode hinzu.
 
 04:41.380 --> 04:44.200
-Get your feet wet with that and see how it goes for you.
+Machen Sie sich damit die Füße nass und sehen Sie, wie es für Sie läuft.
 
 04:44.230 --> 04:46.120
-Let's take a look at the source code here.
+Werfen wir einen Blick auf den Quellcode hier.
 
 04:46.270 --> 04:47.620
-Here's the play mode test.
+Hier ist der Test im Spielmodus.
 
 04:47.620 --> 04:52.090
-I'll take a look at those three tests, and then talk about the setup that's needed specifically for
+Ich werde einen Blick auf diese drei Tests werfen, und dann über die Einrichtung sprechen, die speziell für
 
 04:52.090 --> 04:52.900
-prefabs.
+Voreinstellungen.
 
 04:52.900 --> 04:55.270
-So here we've got a very simple test.
+Hier haben wir also einen sehr einfachen Test.
 
 04:55.300 --> 04:58.960
-We have the arrange, act and assert paradigm that we're used to seeing.
+Wir haben das "arrange, act and assert"-Paradigma, das wir gewohnt sind zu sehen.
 
 04:58.960 --> 05:03.070
-Notice that the arrange and act are suspiciously missing here.
+Man beachte, dass hier arrange und act verdächtig fehlen.
 
 05:03.070 --> 05:06.820
-And all I'm doing is checking that the enemy is not null.
+Und alles, was ich tue, ist zu überprüfen, dass der Feind nicht Null ist.
 
 05:06.820 --> 05:10.210
-In the next test that enemy game object is not null.
+Im nächsten Test ist das feindliche Spielobjekt nicht null.
 
 05:10.210 --> 05:13.240
-And finally, that enemy rigidbody is not null.
+Und schließlich ist der gegnerische Rigidbody nicht null.
 
 05:13.270 --> 05:14.620
-In the case of the rigid body.
+Im Fall des Starrkörpers.
 
 05:14.620 --> 05:20.830
-That's a public field that I've created and it's serialized, and I assume a properly set up prefab
+Das ist ein öffentliches Feld, das ich erstellt habe, und es ist serialisiert, und ich nehme an, dass eine richtig eingerichtete Prefab
 
 05:20.830 --> 05:25.150
-of that would already have that serialized field declared and populated.
+würde dieses serialisierte Feld bereits deklariert und ausgefüllt haben.
 
 05:25.150 --> 05:26.560
-So it all passes.
+Es passt also alles.
 
 05:26.560 --> 05:27.760
-So everything's going good.
+Es läuft also alles gut.
 
 05:27.760 --> 05:29.800
-Now, how do we get the prefab here?
+Wie kommen wir jetzt an das Prefab hier?
 
 05:29.800 --> 05:31.900
-Notice that we're using play mode testing.
+Beachten Sie, dass wir den Test im Spielmodus verwenden.
 
 05:31.900 --> 05:37.840
-As we've seen a play mode test runs in its own dynamically created empty scene.
+Wie wir gesehen haben, läuft ein Spielmodus-Test in seiner eigenen dynamisch erstellten leeren Szene.
 
 05:37.840 --> 05:41.680
-So anything that we want to do on that, we have to manually set up ourselves.
+Alles, was wir in dieser Szene tun wollen, müssen wir also manuell einrichten.
 
 05:41.680 --> 05:46.000
-So we're going to take advantage of the text fixture and some of the things we can do with the test
+Wir werden also die Textvorrichtungen und einige der Dinge nutzen, die wir mit dem Test machen können
 
 05:46.000 --> 05:46.300
-fixture.
+Halterung.
 
 05:46.300 --> 05:53.230
-So one of the things we can do up here is we're going to set up a reference to how long to delay allowing
+Eines der Dinge, die wir hier oben machen können, ist, dass wir einen Verweis darauf setzen, wie lange wir verzögern wollen.
 
 05:53.230 --> 05:57.340
-the prefab to be instantiated, the path to the enemy prefab itself.
+die Prefab instanziiert werden soll, den Pfad zur feindlichen Prefab selbst.
 
 05:57.340 --> 05:59.710
-Notice the path there begins with assets.
+Beachten Sie, dass der Pfad dort mit assets beginnt.
 
 05:59.710 --> 06:01.300
-That's going to be important in a second.
+Das wird in einer Sekunde wichtig sein.
 
 06:01.300 --> 06:03.520
-And then I have a reference to the private enemy.
+Und dann habe ich einen Hinweis auf den privaten Feind.
 
 06:03.550 --> 06:09.010
-Now, in addition to the test attribute that we've used quite a bit, there's a setup attribute that
+Zusätzlich zum Test-Attribut, das wir schon oft benutzt haben, gibt es ein Setup-Attribut, das
 
 06:09.010 --> 06:11.860
-will run once before every test method.
+einmal vor jeder Testmethode ausgeführt wird.
 
 06:11.860 --> 06:19.570
-So here what we want to do before every test method is we simply load that asset at the path we.
+Was wir hier also vor jeder Testmethode machen wollen, ist, dass wir das Asset einfach in den Pfad laden.
 
 06:20.380 --> 06:26.560
-Get a reference to the enemy sitting on that game object once we instantiate it, and then we wait a
+Wir erhalten eine Referenz auf den Feind, der auf dem Spielobjekt sitzt, sobald wir es instanziieren, und dann warten wir ein
 
 06:26.590 --> 06:31.450
-three seconds or some arbitrary amount of time, actually realize that it doesn't need three seconds.
+drei Sekunden oder eine beliebige Zeitspanne, um zu erkennen, dass es keine drei Sekunden braucht.
 
 06:31.450 --> 06:33.250
-It probably needs one frame.
+Es braucht wahrscheinlich ein Bild.
 
 06:33.250 --> 06:35.590
-So you could experiment with what you do there.
+Du kannst also damit experimentieren, was du da machst.
 
 06:35.890 --> 06:38.800
-I just wait up to, I think, a half a second here.
+Ich warte hier nur bis zu einer halben Sekunde, glaube ich.
 
 06:38.830 --> 06:44.260
-The reason we need that is that I've seen that when you do game object dot instantiate, you need to
+Der Grund, warum wir das brauchen, ist, dass ich gesehen habe, dass man, wenn man game object dot instantiate macht, muss man
 
 06:44.260 --> 06:50.080
-wait an entire frame for the awake to be called and the start to be called on that game object.
+einen ganzen Frame warten muss, bis der awake und der start für dieses Spielobjekt aufgerufen werden.
 
 06:50.080 --> 06:55.420
-So depending what you're doing in that awake and that start in your monobehaviour, you may need to
+Je nachdem, was du in diesem Awake und dem Start in deinem Monobehaviour machst, musst du vielleicht
 
 06:55.420 --> 06:56.800
-wait a little bit longer.
+ein bisschen länger warten.
 
 06:56.800 --> 07:03.550
-I would guess waiting 2 or 3 frames across all the board on all your situations would probably be enough.
+Ich würde vermuten, dass es ausreicht, in allen Situationen 2 oder 3 Frames zu warten.
 
 07:03.550 --> 07:08.230
-But here I'm just doing a half a second and you can fool around with that and see if it meets your needs.
+Aber hier nehme ich nur eine halbe Sekunde und du kannst damit herumspielen und sehen, ob es deinen Bedürfnissen entspricht.
 
 07:08.230 --> 07:10.300
-Then down here I use the Teradyne attribute.
+Hier unten verwende ich dann das Teradyne-Attribut.
 
 07:10.300 --> 07:13.840
-This is called once after each of the test methods.
+Dies wird einmal nach jeder der Testmethoden aufgerufen.
 
 07:13.840 --> 07:15.970
-So in the setup we create the prefab.
+Im Setup erstellen wir also die Prefab.
 
 07:16.000 --> 07:17.200
-Then the test gets run.
+Dann wird der Test ausgeführt.
 
 07:17.200 --> 07:19.630
-And in the teardown what I do is clean it up.
+Und im Teardown bereinige ich ihn.
 
 07:19.630 --> 07:26.470
-Now you could also as an alternative you could do the setup and the teardown equivalents within every
+Nun könnte man alternativ auch das Setup und den Teardown in jedem
 
 07:26.470 --> 07:27.400
-single test.
+einzelnen Test durchführen.
 
 07:27.400 --> 07:29.050
-If you wanted to do that, you could.
+Wenn Sie das wollen, können Sie das tun.
 
 07:29.080 --> 07:33.190
-But I'm taking advantage of being able to reuse some existing methods here.
+Aber ich nutze den Vorteil, dass ich hier einige bestehende Methoden wiederverwenden kann.
 
 07:33.190 --> 07:36.520
-So I only declare the setup once and the teardown once.
+Ich deklariere also nur einmal den Aufbau und einmal den Abriss.
 
 07:36.520 --> 07:40.270
-And I know dependably those are going to be called before and after every test method.
+Und ich weiß, dass diese Methoden zuverlässig vor und nach jeder Testmethode aufgerufen werden.
 
 07:40.270 --> 07:41.320
-So that's it.
+Das war's also.
 
 07:41.320 --> 07:45.190
-Let's take a look at the enemy script itself just to see how that's set up.
+Werfen wir einen Blick auf das feindliche Skript selbst, um zu sehen, wie es aufgebaut ist.
 
 07:45.190 --> 07:47.590
-So the enemy is a very simple monobehaviour.
+Der Feind ist also ein sehr einfaches Monobehaviour.
 
 07:47.590 --> 07:52.390
-I don't really need to do anything to make it testable, but just to have something exciting here to
+Ich muss nicht wirklich etwas tun, um es testbar zu machen, sondern nur, um hier etwas Spannendes zu haben
 
 07:52.390 --> 07:53.290
-be able to test.
+testen zu können.
 
 07:53.290 --> 07:57.940
-I have a serialized field of rigidbody, and then I have a test that assumes it's populated.
+Ich habe ein serialisiertes Feld von rigidbody, und dann habe ich einen Test, der annimmt, dass es ausgefüllt ist.
 
 07:57.940 --> 08:01.960
-Now, looking at the code, you can see that there's nothing that actually populates it.
+Wenn man sich den Code anschaut, kann man sehen, dass es nichts gibt, was das Feld tatsächlich ausfüllt.
 
 08:01.960 --> 08:08.320
-But if we go look in unity and click on the prefab, we'll see that the prefab is what makes that association.
+Aber wenn wir in Unity auf das Prefab klicken, werden wir sehen, dass das Prefab diese Assoziation herstellt.
 
 08:08.320 --> 08:09.400
-So let's check that now.
+Also lass uns das jetzt überprüfen.
 
 08:09.400 --> 08:11.740
-So back here in unity we go down.
+Zurück in Unity gehen wir also nach unten.
 
 08:11.740 --> 08:13.570
-We look at the enemy prefab.
+Wir schauen uns die feindliche Prefab an.
 
 08:13.570 --> 08:17.860
-And we can see here on the right the prefab has an enemy script.
+Und wir können hier auf der rechten Seite sehen, dass die Vorabversion ein Feind-Skript hat.
 
 08:17.860 --> 08:20.380
-And it already has the rigid body declared.
+Und es hat bereits den Starrkörper deklariert.
 
 08:20.410 --> 08:23.110
-If somehow I was to forget that.
+Wenn ich das irgendwie vergessen würde.
 
 08:23.110 --> 08:29.140
-Or perhaps someone on your team breaks this aspect of the prefab, then let's run those tests again.
+Oder vielleicht macht jemand in Ihrem Team diesen Aspekt des Prefab kaputt, dann lassen Sie uns diese Tests noch einmal durchführen.
 
 08:32.310 --> 08:35.310
-And we can see that the rigid body is null has failed.
+Und wir können sehen, dass der Rigid Body Null ist und nicht funktioniert.
 
 08:35.310 --> 08:41.680
-So that's a very simple example of a system that you've got that functions and then it breaks.
+Das ist also ein sehr einfaches Beispiel für ein System, das funktioniert und dann versagt.
 
 08:41.700 --> 08:47.370
-Now if you're a unity game developer and you've worked on teams before, I'm sure you've had the experience
+Wenn du ein Unity-Spielentwickler bist und schon einmal in einem Team gearbeitet hast, dann hast du sicher die Erfahrung gemacht
 
 08:47.370 --> 08:51.810
-that you or someone that you work with has accidentally broken a prefab.
+dass du oder jemand, mit dem du zusammenarbeitest, versehentlich eine Vorabversion kaputt gemacht hat.
 
 08:51.840 --> 08:53.320
-It's a very common workflow.
+Das ist ein sehr häufiger Arbeitsablauf.
 
 08:53.340 --> 08:56.460
-You might not see any errors in the unity editor.
+Im Unity-Editor siehst du vielleicht keine Fehler.
 
 08:56.460 --> 09:01.200
-You might even be able to play the game, and in certain circumstances, you don't see the effect of
+Du kannst das Spiel vielleicht sogar spielen, und unter bestimmten Umständen siehst du nicht den Effekt von
 
 09:01.230 --> 09:06.990
-that until the final moment when that particular rigid body is being used or the functionality that's
+bis zum letzten Moment, wenn dieser bestimmte starre Körper benutzt wird oder die Funktionalität, die
 
 09:06.990 --> 09:08.130
-missing is being called.
+fehlt, aufgerufen wird.
 
 09:08.130 --> 09:13.110
-So this is a wonderful way that you can have everyone on your team follow the following workflow.
+Dies ist also eine wunderbare Möglichkeit, wie jeder in Ihrem Team dem folgenden Arbeitsablauf folgen kann.
 
 09:13.200 --> 09:19.650
-Hey, any time you're going to pull from git and do some changes to the assets level, design, etcetera,
+Hey, jedes Mal, wenn du etwas aus Git ziehst und Änderungen an den Assets, dem Design usw. vornimmst,
 
 09:19.680 --> 09:26.940
-make sure you open the test runner window and simply hit run selected or run all and execute them all.
+stellen Sie sicher, dass Sie das Test-Runner-Fenster öffnen und einfach auf "run selected" oder "run all" klicken und alle Tests ausführen.
 
 09:26.970 --> 09:28.620
-You'll see everything pass well.
+Sie werden sehen, dass alles gut läuft.
 
 09:28.620 --> 09:34.800
-Then before you commit your work again, do it again and if and when you've noticed that someone commits
+Bevor du deine Arbeit wieder festlegst, mach es noch einmal und wenn du merkst, dass jemand festlegt
 
 09:34.800 --> 09:40.710
-something that passed the tests but broke something, you want to add a new unit test that perhaps tests
+etwas, das die Tests bestanden hat, aber etwas kaputt gemacht hat, wollen Sie einen neuen Unit-Test hinzufügen, der vielleicht testet
 
 09:40.710 --> 09:47.760
-for the enemies flying script existing or whatever is the offending part, and then you now have a legacy
+für das Skript der fliegenden Feinde testet, oder was auch immer der fehlerhafte Teil ist, und dann haben Sie jetzt ein Legacy
 
 09:47.760 --> 09:52.320
-of a little more testing that makes sure that particular instance doesn't happen again.
+von ein paar weiteren Tests, die sicherstellen, dass dieser spezielle Fall nicht mehr auftritt.
 
 09:52.320 --> 09:56.760
-You don't necessarily have to test for every single thing of the prefab up front.
+Man muss nicht unbedingt jedes einzelne Element der Voreinstellung im Voraus testen.
 
 09:56.760 --> 10:01.470
-You want to look at your team's workflows and identify some low hanging fruit for things that could
+Schauen Sie sich die Arbeitsabläufe Ihres Teams an und suchen Sie nach Dingen, die leicht zu finden sind.
 
 10:01.470 --> 10:03.120
-be fixed most easily.
+am einfachsten behoben werden können.
 
 10:03.120 --> 10:04.950
-Then add some light tests for that.
+Dann fügen Sie einige leichte Tests dafür hinzu.
 
 10:04.980 --> 10:10.950
-It's very easy once you have this test here for one particular prefab to run it on a bunch of prefabs,
+Es ist sehr einfach, diesen Test für ein bestimmtes Prefab auf mehrere Prefabs anzuwenden,
 
 10:10.950 --> 10:16.650
-you could, in theory have one testing script that tests a large number of different prefabs, doing
+Man könnte theoretisch ein Testskript haben, das eine große Anzahl verschiedener Prefabs testet und dabei
 
 10:16.650 --> 10:22.200
-the little bit of just making sure no null refs are happening, no exceptions are thrown.
+um sicherzustellen, dass keine Null-Refs auftreten und keine Ausnahmen geworfen werden.
 
 10:22.440 --> 10:26.340
-The game objects exist, the prefab can be found.
+Die Spielobjekte existieren, die Prefab kann gefunden werden.
 
 10:26.340 --> 10:28.920
-You could do that all within one if you wanted to.
+Man könnte das alles in einem machen, wenn man wollte.
 
 10:28.950 --> 10:34.530
-What I'm showing here is one particular script for one particular prefab, and you can decide how to
+Was ich hier zeige, ist ein bestimmtes Skript für ein bestimmtes Prefab, und Sie können entscheiden, wie Sie
 
 10:34.530 --> 10:35.400
-scale that up.
+skalieren.
 
 10:35.670 --> 10:36.870
-That's it for this.
+Das war's für diesen Fall.
 
 10:36.870 --> 10:40.410
-Talk about using prefabs and unit testing together.
+Sprechen Sie über den gemeinsamen Einsatz von Prefabs und Unit-Tests.
 
 10:40.410 --> 10:41.190
-Thanks.
+Danke!

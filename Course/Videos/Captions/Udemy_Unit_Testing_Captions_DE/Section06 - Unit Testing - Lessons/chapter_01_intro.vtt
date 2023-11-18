@@ -1,106 +1,106 @@
 WEBVTT
 
 00:00.140 --> 00:03.080
-Hello and welcome to Unit Testing for unity.
+Hallo und willkommen zu Unit Testing für Unity.
 
 00:03.110 --> 00:04.010
-Lessons.
+Lektionen.
 
 00:04.040 --> 00:07.800
-Unit testing is both an art and a science.
+Unit Testing ist sowohl eine Kunst als auch eine Wissenschaft.
 
 00:07.820 --> 00:14.150
-When we describe something being an art, it's where each person leaves their own fingerprint on the
+Wenn wir etwas als Kunst bezeichnen, dann hinterlässt jeder Mensch seinen eigenen Fingerabdruck auf dem
 
 00:14.150 --> 00:15.040
-process.
+Prozess.
 
 00:15.050 --> 00:21.740
-Whereas when we think of science, we think of something objective, something that can be universal,
+Wenn wir hingegen an Wissenschaft denken, denken wir an etwas Objektives, etwas, das universell sein kann,
 
 00:21.770 --> 00:25.310
-eternal, and applied consistently over a process.
+ewig ist und konsistent in einem Prozess angewendet wird.
 
 00:25.340 --> 00:32.180
-This lesson section will help you to learn the science of unit testing, as well as ideas on how you
+In dieser Lektion lernen Sie die Wissenschaft des Unit-Testens kennen und erhalten Ideen, wie Sie
 
 00:32.180 --> 00:35.120
-can put your own artistic fingerprint of your own now.
+Ihren eigenen künstlerischen Fingerabdruck hinterlassen können.
 
 00:35.150 --> 00:39.990
-Typically, we think of software development or computer science as a science.
+Normalerweise betrachten wir die Softwareentwicklung oder die Informatik als eine Wissenschaft.
 
 00:40.010 --> 00:46.040
-We think of the rules of mathematics and physics that come into game development as being universally
+Wir denken, dass die Regeln der Mathematik und der Physik, die in die Entwicklung von Spielen einfließen, universell sind
 
 00:46.040 --> 00:46.820
-applied.
+angewendet werden.
 
 00:47.180 --> 00:54.380
-However, I would say, particularly in game development, as a subgenre of software development, the
+Ich würde jedoch sagen, dass besonders in der Spieleentwicklung, als einem Untergenre der Softwareentwicklung, die
 
 00:54.380 --> 01:02.060
-process of what the user experience is and the dynamic changes that we expect when we blend different
+Prozess der Benutzererfahrung und die dynamischen Veränderungen, die wir erwarten, wenn wir verschiedene
 
 01:02.060 --> 01:07.280
-game genres, we're surprising and subverting user expectations.
+Spielgenres mischen, überraschen und unterlaufen wir die Erwartungen der Nutzer.
 
 01:07.310 --> 01:13.310
-That creative and organic process also applies to the software development process of creating those
+Dieser kreative und organische Prozess gilt auch für den Softwareentwicklungsprozess zur Erstellung dieser
 
 01:13.310 --> 01:14.150
-games.
+Spiele.
 
 01:14.180 --> 01:22.340
-Now, overall, I consider computer science to be more of a science, more of these objective processes
+Insgesamt betrachte ich die Informatik eher als eine Wissenschaft, als einen objektiven Prozess
 
 01:22.340 --> 01:24.670
-than necessarily a creative one.
+als notwendigerweise eine kreative Wissenschaft.
 
 01:24.680 --> 01:29.780
-But there's different areas and different ways that we can look at the subsystems and the tasks that
+Aber es gibt verschiedene Bereiche und verschiedene Arten, wie wir die Subsysteme und die Aufgaben betrachten können, die
 
 01:29.780 --> 01:32.150
-we have within unit testing.
+wir innerhalb der Einheitstests haben.
 
 01:32.150 --> 01:37.850
-I want to be playful with the idea that there are definitely best practices or the science that we can
+Ich möchte spielerisch mit der Idee umgehen, dass es definitiv beste Praktiken oder die Wissenschaft gibt, die wir
 
 01:37.850 --> 01:45.080
-learn here, but there's also so many different ways that you can design your systems that you can meet
+lernen können, aber es gibt auch so viele verschiedene Möglichkeiten, wie man seine Systeme gestalten kann, um die
 
 01:45.080 --> 01:46.970
-the user's expectations.
+die Erwartungen der Benutzer zu erfüllen.
 
 01:46.970 --> 01:53.210
-You may be blending different techniques for a end user experience and blending different techniques
+Sie können verschiedene Techniken kombinieren, um dem Endbenutzer ein optimales Erlebnis zu bieten und verschiedene Techniken zu kombinieren
 
 01:53.210 --> 01:55.210
-for how you create the systems.
+wie man die Systeme erstellt.
 
 01:55.220 --> 02:01.610
-Also, we're all imperfect as game developers, so we know we're going to be growing along the way.
+Außerdem sind wir als Spieleentwickler alle unvollkommen, also wissen wir, dass wir auf dem Weg dahin noch wachsen werden.
 
 02:01.610 --> 02:08.840
-And I think noticing that we can be subjective, we can make playful decisions along the way and learn
+Und ich denke, wenn wir bemerken, dass wir subjektiv sein können, können wir auf dem Weg spielerische Entscheidungen treffen und lernen
 
 02:08.840 --> 02:09.650
-from it.
+daraus lernen.
 
 02:09.980 --> 02:16.520
-That artful style, I hope, makes you a bit more comfortable to stick your toe into these waters and
+Ich hoffe, dass dieser kunstvolle Stil es Ihnen etwas leichter macht, Ihren Zeh in diese Gewässer zu stecken und
 
 02:16.520 --> 02:18.140
-to learn more unit testing.
+mehr Unit-Tests zu lernen.
 
 02:18.140 --> 02:24.620
-So as you go through this course and you look at these lessons, I'll be adding more content over time
+Wenn Sie also diesen Kurs durchlaufen und sich die Lektionen ansehen, werde ich mit der Zeit weitere Inhalte hinzufügen
 
 02:24.620 --> 02:32.450
-and revisiting this balancing act between the art side and the creative side, as well as the more technical
+und diesen Spagat zwischen der künstlerischen und kreativen Seite und der eher technischen Seite wiederholen
 
 02:32.450 --> 02:33.590
-scientific side.
+wissenschaftlichen Seite.
 
 02:33.590 --> 02:35.690
-Now let's get started with the lessons.
+Beginnen wir nun mit dem Unterricht.

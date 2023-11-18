@@ -1,379 +1,379 @@
 WEBVTT
 
 00:00.380 --> 00:02.620
-Pure functions and overview.
+Reine Funktionen und Übersicht.
 
 00:02.630 --> 00:06.290
-So what is a pure function also known as a pure method.
+Was ist also eine reine Funktion, auch bekannt als reine Methode.
 
 00:06.290 --> 00:10.250
-And why is it relevant here to the unit testing process?
+Und warum ist sie hier für den Unit-Test-Prozess relevant?
 
 00:10.280 --> 00:18.320
-A pure function can be thought of one that has less effect and dependencies on other unrelated systems.
+Eine reine Funktion kann als eine Funktion betrachtet werden, die weniger Auswirkungen und Abhängigkeiten von anderen, nicht verwandten Systemen hat.
 
 00:18.440 --> 00:24.020
-By unrelated, I mean not directly related to the code in the body of the function itself.
+Mit unverbunden meine ich, dass sie nicht direkt mit dem Code im Körper der Funktion selbst verbunden ist.
 
 00:24.440 --> 00:31.580
-A way we can look at it here as I'm reading the screen, that return values are identical for identical
+Eine Möglichkeit, wie wir es hier beim Lesen des Bildschirms sehen können, ist, dass die Rückgabewerte für identische
 
 00:31.580 --> 00:37.850
-arguments, meaning if you pass in a value as one of the arguments, you're going to always get the
+Argumente identisch sind, d.h. wenn Sie einen Wert als eines der Argumente übergeben, erhalten Sie immer den
 
 00:37.850 --> 00:41.650
-same result, and secondly, that it has no side effects.
+dasselbe Ergebnis, und zweitens, dass es keine Nebenwirkungen hat.
 
 00:41.660 --> 00:50.030
-Side effects are indirect outputs or other systems that get affected during the execution of a given
+Nebeneffekte sind indirekte Ausgaben oder andere Systeme, die bei der Ausführung eines bestimmten Programms beeinflusst werden
 
 00:50.030 --> 00:50.770
-method.
+Methode beeinflusst werden.
 
 00:50.780 --> 00:57.800
-So the more pure a function is, the more isolated and independently it runs.
+Je reiner also eine Funktion ist, desto isolierter und unabhängiger läuft sie.
 
 00:57.800 --> 01:03.200
-So in the included sample code for the sample project, you'll see something similar to this in the
+Im mitgelieferten Beispielcode für das Beispielprojekt sehen Sie etwas Ähnliches wie das hier in der
 
 01:03.230 --> 01:04.490
-C-sharp code base.
+C-sharp Code-Basis.
 
 01:04.850 --> 01:07.640
-Here I've put a couple of colors to it just so we can look at it.
+Hier habe ich ein paar Farben eingefügt, damit wir es uns ansehen können.
 
 01:07.640 --> 01:15.650
-So imagine we've got a custom class here that is called My System, and one method inside of it is called
+Stellen Sie sich vor, wir haben hier eine benutzerdefinierte Klasse, die My System heißt, und eine Methode darin heißt
 
 01:15.650 --> 01:16.910
-Convert value.
+Wert umwandeln.
 
 01:16.940 --> 01:23.810
-Notice that there's two arguments that I pass in and those two values, and only those two values are
+Beachten Sie, dass es zwei Argumente gibt, die ich übergebe, und diese zwei Werte, und nur diese zwei Werte sind
 
 01:23.810 --> 01:26.630
-the direct inputs that affect the operation.
+die direkten Eingaben, die die Operation beeinflussen.
 
 01:26.660 --> 01:34.670
-There's no third public static private static unrelated system that we see in the blue there.
+Es gibt kein drittes öffentliches, statisches, privates, statisches, unverbundenes System, das wir dort in Blau sehen.
 
 01:34.670 --> 01:36.140
-It's very simple.
+Es ist sehr einfach.
 
 01:36.140 --> 01:38.960
-Now you could have many more lines of code here.
+Jetzt könnte man hier noch viel mehr Zeilen Code haben.
 
 01:38.960 --> 01:41.840
-It's not just that this is brief, that makes it pure.
+Es ist nicht nur, dass dies kurz ist, das macht es rein.
 
 01:41.840 --> 01:48.860
-It's that we see that the result depends on the arguments and only on those arguments.
+Es geht darum, dass wir sehen, dass das Ergebnis von den Argumenten abhängt und nur von diesen Argumenten.
 
 01:48.860 --> 01:56.930
-So it's highly pure when we talk about the outputs or the side effects here we can see that no other
+Es ist also sehr rein, wenn wir über die Ergebnisse oder die Nebenwirkungen sprechen, können wir sehen, dass keine anderen
 
 01:56.930 --> 01:58.610
-values are set here.
+Werte hier gesetzt sind.
 
 01:58.880 --> 02:02.840
-If we set any temporary values that's okay in a pure function.
+Wenn wir irgendwelche temporären Werte setzen, ist das in einer reinen Funktion in Ordnung.
 
 02:02.840 --> 02:09.620
-But if we were to be setting values within the blue here on unrelated systems or on static variables
+Aber wenn wir Werte innerhalb des Blauen hier auf nicht verwandte Systeme oder auf statische Variablen setzen würden
 
 02:09.620 --> 02:15.620
-that have a lifespan beyond this method, those would be things that would make it less pure.
+die eine Lebensdauer haben, die über diese Methode hinausgeht, wären das Dinge, die sie weniger rein machen würden.
 
 02:15.620 --> 02:20.840
-Now we're going to be looking at some more slides here, getting some theory as well as jumping into
+Jetzt werden wir uns noch ein paar weitere Folien ansehen, ein bisschen Theorie und einen Sprung in die
 
 02:20.840 --> 02:21.440
-the code.
+den Code.
 
 02:21.440 --> 02:27.470
-So as I'm introducing and reinforcing these concepts, we'll all learn a bit more of the appreciation
+Während ich also diese Konzepte einführe und verstärke, werden wir alle ein bisschen mehr über die Wertschätzung lernen
 
 02:27.470 --> 02:29.330
-for what it means to be a pure function.
+was es bedeutet, eine reine Funktion zu sein.
 
 02:29.330 --> 02:33.140
-So here we see an even more in-depth explanation.
+Hier sehen wir also eine noch tiefer gehende Erklärung.
 
 02:33.140 --> 02:34.310
-I'll read it aloud.
+Ich lese sie laut vor.
 
 02:34.400 --> 02:41.450
-A pure function is generally easier to debug, maintain, and unit test because of the following factors
+Eine reine Funktion ist im Allgemeinen einfacher zu debuggen, zu warten und zu testen, und zwar aus folgenden Gründen
 
 02:41.450 --> 02:41.930
-one.
+erstens.
 
 02:41.930 --> 02:43.670
-It doesn't have any side effects.
+Es hat keine Seiteneffekte.
 
 02:43.670 --> 02:49.010
-That means the behavior is predictable and consistent solely based on that input.
+Das bedeutet, dass das Verhalten vorhersehbar und konsistent ist und nur auf dieser Eingabe basiert.
 
 02:49.010 --> 02:52.640
-Just like we saw in the example, it is deterministic.
+Wie wir im Beispiel gesehen haben, ist es deterministisch.
 
 02:52.640 --> 02:57.140
-That means given certain input, we always produce the same output.
+Das bedeutet, dass wir bei einer bestimmten Eingabe immer die gleiche Ausgabe erzeugen.
 
 02:57.170 --> 03:00.250
-It means there's no other values that are unrelated.
+Das bedeutet, dass es keine anderen Werte gibt, die nicht miteinander verbunden sind.
 
 03:00.260 --> 03:02.060
-There's no randomness to it.
+Es gibt keine Zufälligkeit.
 
 03:02.060 --> 03:07.400
-If we if we pass in the values three and ten, we would always get the value 30.
+Wenn wir die Werte drei und zehn eingeben, würden wir immer den Wert 30 erhalten.
 
 03:07.430 --> 03:13.610
-In the previous example, a pure function also runs in isolation, so there's no need to set up and
+Im vorigen Beispiel läuft eine reine Funktion auch isoliert ab, so dass es nicht notwendig ist, und
 
 03:13.610 --> 03:15.620
-manage external dependencies.
+externe Abhängigkeiten zu verwalten.
 
 03:15.620 --> 03:19.790
-This could be lots of different examples, but a few here are databases.
+Es könnte viele verschiedene Beispiele geben, aber ein paar davon sind Datenbanken.
 
 03:19.790 --> 03:27.080
-File system network resources, other classes that are created used by the system as well.
+Dateisystem, Netzwerkressourcen, andere Klassen, die erstellt werden und die das System ebenfalls nutzt.
 
 03:27.080 --> 03:32.600
-And another reason that it's so easy to debug and maintain in unit testing is because there's just simpler
+Und ein weiterer Grund, warum es so einfach ist, Unit-Tests zu debuggen und zu warten, ist, weil es einfach einfacher ist
 
 03:32.600 --> 03:33.530
-unit tests.
+Einheitstests gibt.
 
 03:33.530 --> 03:37.610
-You are able to provide the inputs and assert the specific outputs.
+Man kann die Eingaben bereitstellen und die spezifischen Ausgaben bestätigen.
 
 03:37.610 --> 03:42.560
-There's less boilerplate of creation of things around the test itself.
+Es gibt weniger Boilerplate für die Erstellung von Dingen rund um den Test selbst.
 
 03:42.560 --> 03:45.080
-And finally it's modular and reusable.
+Und schließlich ist es modular und wiederverwendbar.
 
 03:45.080 --> 03:51.950
-So code that is a pure function and based on pure functions tends to be more self-contained, portable,
+Code, der eine reine Funktion ist und auf reinen Funktionen basiert, ist in der Regel in sich geschlossener und portabel,
 
 03:51.950 --> 03:56.170
-and making it easier to reuse the same functionality in different contexts.
+und macht es einfacher, die gleiche Funktionalität in verschiedenen Kontexten wiederzuverwenden.
 
 03:56.180 --> 04:01.910
-Now as we go through and we talk about pure functions, much like the theme of the course as a whole,
+Wenn wir nun weitergehen und über reine Funktionen sprechen, so ist das Thema des Kurses insgesamt,
 
 04:01.910 --> 04:08.690
-I would say when your code is more easily testable, that is good for the testing process, but more
+Ich würde sagen, wenn Ihr Code leichter testbar ist, ist das gut für den Testprozess, aber mehr
 
 04:08.690 --> 04:12.890
-largely it hints that the code is just better designed.
+im Großen und Ganzen deutet es darauf hin, dass der Code einfach besser gestaltet ist.
 
 04:12.890 --> 04:20.450
-So even if we weren't to test our code, if our code has no side effect, is more deterministic, is
+Also selbst wenn wir unseren Code nicht testen würden, wenn unser Code keine Nebenwirkung hat, deterministischer ist, ist
 
 04:20.450 --> 04:28.010
-more isolated and modular and reusable, that is beneficial to the production code itself.
+isolierter, modularer und wiederverwendbar ist, ist das für den Produktionscode selbst von Vorteil.
 
 04:28.010 --> 04:36.110
-So we see a ebb and flow between the benefits of something being unit testable, as well as the benefits
+Wir sehen also ein Auf und Ab zwischen den Vorteilen, die sich daraus ergeben, dass etwas unit-testbar ist, und den Vorteilen, die sich daraus ergeben
 
 04:36.110 --> 04:37.370
-of it being production code.
+wenn es sich um Produktionscode handelt.
 
 04:37.370 --> 04:41.120
-So if that's what a pure function is, then what is a non pure function?
+Wenn das also eine reine Funktion ist, was ist dann eine nicht reine Funktion?
 
 04:41.120 --> 04:44.410
-Well, it's simply a function that is not so pure.
+Nun, es ist einfach eine Funktion, die nicht so rein ist.
 
 04:44.420 --> 04:49.190
-Also this isn't 100% pure, 100% not pure.
+Auch das ist nicht 100% rein, 100% nicht rein.
 
 04:49.190 --> 04:53.780
-When we're talking about a given function we can assess its level of purity.
+Wenn wir über eine bestimmte Funktion sprechen, können wir ihren Reinheitsgrad beurteilen.
 
 04:53.780 --> 04:55.520
-That might be somewhere in the middle.
+Das könnte irgendwo in der Mitte liegen.
 
 04:55.520 --> 04:59.660
-Some of the key criteria of a non pure function is that it has.
+Einige der Hauptkriterien einer nicht reinen Funktion sind, dass sie.
 
 04:59.820 --> 05:03.450
-Indirect inputs, meaning there's some sort of shared state.
+Indirekte Eingaben, d.h. es gibt eine Art gemeinsamen Zustand.
 
 05:03.570 --> 05:10.740
-Maybe we pass a value in and it operates on that value, plus using some other dependencies that's impure
+Vielleicht geben wir einen Wert ein und es wird auf diesem Wert operiert, plus einige andere Abhängigkeiten, die unrein sind
 
 05:10.740 --> 05:13.140
-and also having indirect outputs.
+und hat auch indirekte Ausgaben.
 
 05:13.170 --> 05:14.700
-Remember our simple example.
+Erinnern Sie sich an unser einfaches Beispiel.
 
 05:14.700 --> 05:16.200
-We'll look at another one soon.
+Wir werden uns bald ein anderes Beispiel ansehen.
 
 05:16.200 --> 05:18.940
-It would just multiply two numbers and return it.
+Es würde einfach zwei Zahlen multiplizieren und das Ergebnis zurückgeben.
 
 05:18.960 --> 05:26.460
-It wasn't setting any unrelated system values that would sit around stagnant as some sort of shared
+Es wurden keine unverbundenen Systemwerte gesetzt, die als eine Art gemeinsamer Wert herumstehen würden
 
 05:26.460 --> 05:26.820
-state.
+Zustand.
 
 05:27.030 --> 05:33.930
-But here, in the case of a non pure function, it may have one or both of the idea of indirect inputs
+Aber hier, im Fall einer nicht reinen Funktion, kann sie eine oder beide der Ideen von indirekten Eingaben haben
 
 05:33.960 --> 05:35.040
-indirect outputs.
+indirekte Ausgänge.
 
 05:35.040 --> 05:36.690
-So here's a very simple example.
+Hier ist also ein sehr einfaches Beispiel.
 
 05:36.690 --> 05:38.430
-This is also in the sample project.
+Dies ist auch im Beispielprojekt enthalten.
 
 05:38.430 --> 05:41.670
-And this is an example of a system that is non pure.
+Und dies ist ein Beispiel für ein System, das nicht rein ist.
 
 05:41.760 --> 05:43.800
-So it's a little bit different.
+Es ist also ein bisschen anders.
 
 05:43.830 --> 05:47.460
-We're kind of doing the same multiplication operation here.
+Wir führen hier sozusagen die gleiche Multiplikationsoperation durch.
 
 05:47.460 --> 05:50.490
-But notice here the convert value method.
+Aber beachte hier die Methode der Wertumwandlung.
 
 05:50.490 --> 05:53.910
-It doesn't take all the arguments that it needs.
+Sie nimmt nicht alle Argumente an, die sie braucht.
 
 05:53.910 --> 05:59.180
-It takes one value and it multiplies it by some existing system value.
+Sie nimmt einen Wert und multipliziert ihn mit einem vorhandenen Systemwert.
 
 05:59.190 --> 06:03.000
-So this is an example of indirect input.
+Dies ist also ein Beispiel für eine indirekte Eingabe.
 
 06:03.030 --> 06:09.210
-The multiplier exists before the convert value method is called.
+Der Multiplikator existiert, bevor die Methode convert value aufgerufen wird.
 
 06:09.210 --> 06:13.890
-So that's the indirect input part of an impure function.
+Das ist also der Teil der indirekten Eingabe einer unreinen Funktion.
 
 06:13.920 --> 06:18.840
-Now the other part we talked about is is having some indirect output here.
+Der andere Teil, über den wir gesprochen haben, ist die indirekte Ausgabe hier.
 
 06:18.840 --> 06:20.760
-We don't see an example of that.
+Wir sehen kein Beispiel dafür.
 
 06:20.790 --> 06:24.270
-There's no state that has changed that persists.
+Es gibt keinen Zustand, der sich geändert hat, der bestehen bleibt.
 
 06:24.300 --> 06:26.310
-We just return a simple value.
+Wir geben nur einen einfachen Wert zurück.
 
 06:26.310 --> 06:29.100
-And returning a value does not count against it.
+Und die Rückgabe eines Wertes zählt nicht dagegen.
 
 06:29.100 --> 06:32.640
-So we have indirect input but no indirect output.
+Wir haben also eine indirekte Eingabe, aber keine indirekte Ausgabe.
 
 06:32.640 --> 06:35.880
-But still having one of those here makes it impure.
+Aber wenn wir einen dieser Werte hier haben, ist er trotzdem unrein.
 
 06:35.880 --> 06:38.610
-So what do we do with these non pure functions.
+Was machen wir also mit diesen nicht reinen Funktionen.
 
 06:38.610 --> 06:44.250
-We've hinted that pure functions are easier to test and have a lot of benefits in their production code
+Wir haben angedeutet, dass reine Funktionen einfacher zu testen sind und viele Vorteile in ihrem Produktionscode haben
 
 06:44.250 --> 06:45.360
-usage as well.
+Verwendung haben.
 
 06:45.360 --> 06:50.330
-Well, if we don't have a pure function what can we do about that.
+Nun, wenn wir keine reine Funktion haben, was können wir dann tun?
 
 06:50.340 --> 06:56.010
-Well some of the things we could do, we could certainly leave it alone, leaving it as impure.
+Nun, einige der Dinge, die wir tun könnten, wir könnten sie sicherlich in Ruhe lassen, sie als unrein belassen.
 
 06:56.010 --> 06:57.720
-And often we're going to do that.
+Und oft werden wir das auch tun.
 
 06:57.720 --> 07:03.570
-But sometimes when we're taking a look at doing the unit testing of something, we might be encouraged
+Aber manchmal, wenn wir einen Blick auf die Unit-Tests von etwas werfen, könnten wir ermutigt werden
 
 07:03.570 --> 07:07.800
-to do a bit of refactoring to help that system become a bit more pure.
+ein bisschen Refactoring zu betreiben, um das System ein bisschen reiner zu machen.
 
 07:07.800 --> 07:13.380
-Maybe we can't get it 100% there, but it's this is again talking about the art.
+Vielleicht bekommen wir es nicht zu 100% hin, aber es geht hier wieder um die Kunst.
 
 07:13.410 --> 07:18.150
-It's up to you to decide how pure and how impure you want your code to sit.
+Es liegt an Ihnen zu entscheiden, wie rein und wie unrein Sie Ihren Code haben wollen.
 
 07:18.180 --> 07:23.580
-Now, some developers might theoretically approach it where they want everything to be pure all the
+Nun, einige Entwickler könnten theoretisch so vorgehen, dass sie alles immer rein haben wollen
 
 07:23.580 --> 07:24.210
-time.
+Zeit.
 
 07:24.510 --> 07:25.620
-That's one approach.
+Das ist ein Ansatz.
 
 07:25.650 --> 07:29.250
-Another one is just to create code as you used to create it.
+Eine andere ist, den Code so zu erstellen, wie Sie ihn früher erstellt haben.
 
 07:29.250 --> 07:32.550
-And if that happened to be impure, you just leave it impure.
+Und wenn der zufällig unsauber ist, lässt man ihn einfach unsauber.
 
 07:32.550 --> 07:38.010
-What I want to invite you to do is massage the ideas a little bit, and be comfortable to play with
+Ich möchte Sie dazu einladen, die Ideen ein wenig zu massieren und mit ihnen zu spielen.
 
 07:38.010 --> 07:42.810
-somewhere in the middle where you can take something non pure and make it a bit more pure.
+irgendwo in der Mitte, wo man etwas Unreines ein bisschen reiner machen kann.
 
 07:42.810 --> 07:47.580
-Recognizing the benefits to your unit testing as well as the benefits to your production code.
+Erkennen der Vorteile für die Unit-Tests und die Vorteile für den Produktionscode.
 
 07:47.580 --> 07:49.290
-So let's see what we can do here.
+Schauen wir also, was wir hier tun können.
 
 07:49.290 --> 07:51.990
-We could eliminate some of the side effects.
+Wir könnten einige der Seiteneffekte eliminieren.
 
 07:52.110 --> 07:56.700
-We could eliminate the shared state similar to side effects.
+Wir könnten den gemeinsamen Zustand ähnlich wie bei den Nebeneffekten eliminieren.
 
 07:56.730 --> 07:59.580
-We could eliminate dependencies that are used.
+Wir könnten Abhängigkeiten, die verwendet werden, eliminieren.
 
 07:59.730 --> 08:04.350
-And we can invite ourselves to have one assertion per test.
+Und wir können uns einladen, eine Behauptung pro Test zu haben.
 
 08:04.380 --> 08:12.270
-Now that is going to help us understand that if a test asserts just one thing, then our code has to
+Das wird uns helfen zu verstehen, dass, wenn ein Test nur eine Sache behauptet, unser Code Folgendes tun muss
 
 08:12.270 --> 08:15.270
-be pretty simple in order to meet that assertion.
+ziemlich einfach sein, um diese Behauptung zu erfüllen.
 
 08:15.360 --> 08:17.640
-So we'll play with that a little bit when we look at the code.
+Wir werden also ein wenig damit spielen, wenn wir uns den Code ansehen.
 
 08:17.640 --> 08:19.050
-So how can we go about this?
+Wie können wir also vorgehen?
 
 08:19.050 --> 08:23.700
-Well, we can do some of the refactoring of the production code, doing the steps that we saw in the
+Nun, wir können einen Teil des Refactorings des Produktionscodes durchführen, indem wir die Schritte ausführen, die wir im
 
 08:23.700 --> 08:24.630
-previous slide.
+vorherigen Folie gesehen haben.
 
 08:24.630 --> 08:29.730
-And another one is I want to introduce a new concept of test doubles in the next section.
+Im nächsten Abschnitt möchte ich ein neues Konzept der Testdoppel einführen.
 
 08:29.760 --> 08:30.570
-Thanks.
+Vielen Dank.

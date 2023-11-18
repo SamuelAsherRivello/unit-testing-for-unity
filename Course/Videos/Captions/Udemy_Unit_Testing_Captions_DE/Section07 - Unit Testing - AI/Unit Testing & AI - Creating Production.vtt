@@ -1,484 +1,484 @@
 WEBVTT
 
 00:00.110 --> 00:06.330
-Hello and welcome to Artificial Intelligence for Production Code incorporating AI into unity.
+Hallo und willkommen zu Artificial Intelligence for Production Code, der KI in Unity integriert.
 
 00:06.350 --> 00:09.350
-Game development can streamline development and testing.
+Spieleentwicklung kann die Entwicklung und das Testen rationalisieren.
 
 00:09.350 --> 00:11.180
-Some of the benefits are listed here.
+Einige der Vorteile sind hier aufgelistet.
 
 00:11.180 --> 00:15.710
-And what we're going to be talking about in this particular video is code generation.
+In diesem Video werden wir uns mit der Codegenerierung befassen.
 
 00:15.740 --> 00:22.430
-Being able to analyze and suggest design for new systems optimizations make your code more efficient,
+Wenn man in der Lage ist, den Code zu analysieren und Designvorschläge für neue Systemoptimierungen zu machen, wird der Code effizienter,
 
 00:22.430 --> 00:25.430
-better performance, and save development time.
+bessere Leistung und spart Entwicklungszeit.
 
 00:25.430 --> 00:27.550
-There's many tools you can use for this step.
+Es gibt viele Werkzeuge, die Sie für diesen Schritt verwenden können.
 
 00:27.560 --> 00:32.330
-The two that I'm going to be showing are ChatGPT and GitHub Copilot.
+Die beiden, die ich hier vorstellen werde, sind ChatGPT und GitHub Copilot.
 
 00:32.540 --> 00:40.520
-I generally use ChatGPT to ask larger questions, give me more bulk of code samples and response, whereas
+Ich verwende ChatGPT im Allgemeinen, um größere Fragen zu stellen, um mehr Codebeispiele und Antworten zu erhalten, während
 
 00:40.520 --> 00:47.450
-I use GitHub copilot when I need one line, one method, something smaller within the context of a given
+ich GitHub Copilot benutze, wenn ich eine Zeile, eine Methode, etwas Kleineres im Kontext einer bestimmten
 
 00:47.450 --> 00:48.470
-page of code.
+Seite des Codes brauche.
 
 00:48.860 --> 00:51.380
-I'm continuing to evolve my own practice.
+Ich entwickle meine eigene Praxis weiter.
 
 00:51.380 --> 00:55.970
-I'll show a little bit about how they both work, and you can decide for yourself what workflow makes
+Ich werde ein wenig zeigen, wie beide funktionieren, und Sie können selbst entscheiden, welcher Arbeitsablauf am besten zu Ihnen passt.
 
 00:55.970 --> 00:56.780
-sense for you.
+für Sie Sinn macht.
 
 00:56.810 --> 00:59.360
-One of the tools that we can use is OpenAI.
+Eines der Werkzeuge, die wir verwenden können, ist OpenAI.
 
 00:59.390 --> 01:05.240
-As I mentioned, and you can click the try ChatGPT button on the website here and we'll open up the
+Wie ich bereits erwähnt habe, können Sie hier auf der Website auf die Schaltfläche "ChatGPT ausprobieren" klicken und wir öffnen die
 
 01:05.240 --> 01:05.510
-chat.
+Chat.
 
 01:05.510 --> 01:13.550
-GPT I am a paying user, and that is a monthly subscription fee to get ChatGPT plus, some of the features
+GPT Ich bin ein zahlender Benutzer, und das ist eine monatliche Abonnementgebühr, um ChatGPT plus, einige der Funktionen zu erhalten
 
 01:13.550 --> 01:19.430
-you might see are not used in the free version, but you can certainly follow along using the free version
+die Sie vielleicht sehen, werden in der kostenlosen Version nicht verwendet, aber Sie können natürlich auch mit der kostenlosen Version weiterarbeiten
 
 01:19.430 --> 01:20.300
-and check it out.
+und es ausprobieren.
 
 01:20.300 --> 01:23.330
-The other tool I'll show is GitHub Copilot.
+Das andere Tool, das ich zeigen werde, ist GitHub Copilot.
 
 01:23.330 --> 01:27.350
-This is typically enabled inside your code editor.
+Dies wird normalerweise in Ihrem Code-Editor aktiviert.
 
 01:27.350 --> 01:33.110
-I use writer, but you can use Visual Studio, Visual Studio Code or other tools, and it knows about
+Ich verwende Writer, aber Sie können Visual Studio, Visual Studio Code oder andere Tools verwenden, und es weiß über
 
 01:33.110 --> 01:36.740
-the page of code you're sitting in and can give you better contextual answers.
+die Seite des Codes, in der Sie sich befinden, und kann Ihnen bessere kontextbezogene Antworten geben.
 
 01:36.740 --> 01:41.390
-I'd suggest doing a trial of one or both of these softwares to see if you like the flow.
+Ich würde vorschlagen, eine oder beide dieser Softwareprogramme auszuprobieren, um zu sehen, ob Ihnen der Ablauf gefällt.
 
 01:41.420 --> 01:47.510
-I think over time these tools will be maturing, maturing rapidly, and also the price will come down
+Ich denke, dass diese Tools mit der Zeit immer ausgereifter werden, und auch der Preis wird sinken
 
 01:47.510 --> 01:50.870
-or a free tier will be introduced for most of these products.
+oder es wird eine kostenlose Stufe für die meisten dieser Produkte eingeführt werden.
 
 01:50.870 --> 01:51.620
-Eventually.
+Eventuell.
 
 01:51.620 --> 01:58.160
-When I open ChatGPT up in the browser, I get this experience here and I can begin starting the conversation
+Wenn ich ChatGPT im Browser öffne, erhalte ich dieses Bild, und ich kann mit dem Gespräch beginnen
 
 01:58.160 --> 01:59.210
-with an AI.
+mit einer KI.
 
 01:59.210 --> 02:03.680
-If I want to have a completely separate conversation, I open up a different chat.
+Wenn ich ein ganz anderes Gespräch führen möchte, öffne ich einen anderen Chat.
 
 02:03.710 --> 02:07.910
-ChatGPT only knows about the conversation you're having in a given chat.
+ChatGPT weiß nur über die Unterhaltung Bescheid, die man in einem bestimmten Chat führt.
 
 02:07.910 --> 02:13.370
-So if here I introduce a few concepts and then I open up a separate chat, it won't know any of the
+Wenn ich also hier ein paar Begriffe einführe und dann einen separaten Chat öffne, weiß es nichts von der
 
 02:13.370 --> 02:14.660
-concepts I've talked about.
+Konzepte, über die ich gesprochen habe.
 
 02:14.660 --> 02:18.410
-So generally I'll leave a chat open for each of the major areas.
+Im Allgemeinen lasse ich also für jeden der Hauptbereiche einen Chat offen.
 
 02:18.410 --> 02:22.310
-What we want to do is start with a prompt that says something like this.
+Wir wollen mit einer Eingabeaufforderung beginnen, die etwa so lautet.
 
 02:22.490 --> 02:28.340
-I'll say, act like a unity game development expert and tell me this or that.
+Ich werde sagen, verhalte dich wie ein Unity-Spieleentwicklungsexperte und sag mir dies oder das.
 
 02:28.760 --> 02:34.760
-So I've decided to say create a class called Product Manager that allows for add product, remove product
+Also habe ich beschlossen, eine Klasse namens Product Manager zu erstellen, die es erlaubt, ein Produkt hinzuzufügen, ein Produkt zu entfernen
 
 02:34.760 --> 02:36.020
-and get products.
+und Produkte abrufen.
 
 02:36.020 --> 02:39.290
-Use a list or dictionary to manage the list of products.
+Verwende eine Liste oder ein Wörterbuch, um die Liste der Produkte zu verwalten.
 
 02:39.290 --> 02:44.750
-This list will start empty, so you can give it just that bit of info and it knows it's going to be
+Diese Liste fängt leer an, so dass du ihr nur diese Information geben kannst und sie weiß, dass es sich um
 
 02:44.750 --> 02:46.670
-a unity game development expert.
+ein Experte für Unity-Spieleentwicklung.
 
 02:46.700 --> 02:50.240
-It will infer that it needs to give you C-sharp information.
+Es wird daraus schließen, dass es dir C-sharp Informationen geben muss.
 
 02:50.240 --> 02:51.950
-So let's go ahead and see the result.
+Schauen wir uns also das Ergebnis an.
 
 02:51.950 --> 02:53.120
-We've gotten two full response.
+Wir haben zwei vollständige Antworten erhalten.
 
 02:53.120 --> 02:54.500
-Let's take a look at what we got here.
+Schauen wir uns an, was wir hier haben.
 
 02:54.800 --> 02:59.420
-GPT says certainly in unity you would typically use C-sharp to create such a class.
+GPT sagt, dass man in Unity normalerweise C-sharp verwenden würde, um eine solche Klasse zu erstellen.
 
 02:59.420 --> 02:59.810
-Great.
+Sehr gut.
 
 02:59.810 --> 03:00.940
-It's on the right path.
+Es ist auf dem richtigen Weg.
 
 03:00.950 --> 03:06.500
-Here's an example of how you might implement a product manager using a list to manage the products.
+Hier ist ein Beispiel für die Implementierung eines Produktmanagers, der eine Liste zur Verwaltung der Produkte verwendet.
 
 03:06.770 --> 03:10.010
-This assumes that you have a product class defined elsewhere.
+Dies setzt voraus, dass Sie eine Produktklasse an anderer Stelle definiert haben.
 
 03:10.010 --> 03:14.180
-It added that I didn't necessarily want or need that, but I love the suggestion.
+Es fügte hinzu, dass ich das nicht unbedingt wollte oder brauchte, aber ich liebe den Vorschlag.
 
 03:14.180 --> 03:21.680
-So first it defines what a product is so it knows about the word product and general software application
+Zuerst wird also definiert, was ein Produkt ist, damit es das Wort Produkt und die allgemeine Softwareanwendung kennt
 
 03:21.680 --> 03:22.970
-uses of a product.
+Verwendungen eines Produkts.
 
 03:22.970 --> 03:29.690
-It might have a name or an ID, and as it hints at other properties there, then it has the constructor
+Es könnte einen Namen oder eine ID haben, und da es auf andere Eigenschaften hinweist, hat es den Konstruktor
 
 03:29.690 --> 03:32.240
-set up and we could even add more things to it.
+eingerichtet und wir könnten sogar noch weitere Dinge hinzufügen.
 
 03:32.270 --> 03:35.930
-Now I can copy and paste this into unity and we can get started.
+Jetzt kann ich das in Unity kopieren und einfügen und wir können loslegen.
 
 03:35.930 --> 03:37.970
-Next let's see what other code it gives us.
+Als Nächstes wollen wir sehen, welchen anderen Code es uns gibt.
 
 03:37.970 --> 03:41.120
-Here's the product manager which will have a list of the products.
+Hier ist der Produktmanager, der eine Liste der Produkte enthält.
 
 03:41.150 --> 03:45.830
-It knows the difference between private and public, and how we probably want to manage that.
+Er kennt den Unterschied zwischen privat und öffentlich und weiß, wie wir das wahrscheinlich verwalten wollen.
 
 03:45.830 --> 03:53.030
-And generally at this point of using this ChatGPT for code about a year into the technology, I assume
+Und im Allgemeinen gehe ich davon aus, dass wir an diesem Punkt, an dem wir ChatGPT für Code verwenden, etwa ein Jahr nach Einführung der Technologie
 
 03:53.030 --> 03:55.910
-generally the code is going to compile right off the bat.
+dass der Code im Allgemeinen auf Anhieb kompiliert werden kann.
 
 03:55.910 --> 03:57.830
-Occasionally there'll be an issue with that.
+Gelegentlich gibt es ein Problem damit.
 
 03:57.830 --> 04:03.260
-Particularly it might get something correct in the C-sharp, but not know about unity or something like
+Insbesondere kann es etwas in Cis richtig machen, aber es weiß nichts über die Einheit oder so etwas wie
 
 04:03.260 --> 04:03.650
-that.
+das.
 
 04:03.650 --> 04:08.420
-But if you know what you're looking for and you always paste it into unity and give it a try, you'll
+Aber wenn du weißt, wonach du suchst, und es immer in Unity einfügst und es ausprobierst, wirst du
 
 04:08.420 --> 04:13.160
-pretty quickly get a feel for it's about 9,599% right.
+ziemlich schnell ein Gefühl dafür bekommen, dass es ungefähr 9,599% richtig ist.
 
 04:14.110 --> 04:17.210
-Here we have the add product, remove product, etcetera.
+Hier haben wir das Produkt hinzufügen, Produkt entfernen, usw.
 
 04:17.230 --> 04:20.030
-Let's take a look at our unity setup and then we'll paste this in.
+Schauen wir uns unser Unity-Setup an, und dann fügen wir das hier ein.
 
 04:20.050 --> 04:25.420
-So here we are inside unity I've already got a nice folder set up where I can do my work.
+Hier sind wir also in Unity und ich habe bereits einen schönen Ordner eingerichtet, in dem ich meine Arbeit machen kann.
 
 04:25.420 --> 04:29.500
-So inside the workshops I've got an I folder here.
+In den Workshops habe ich hier einen I-Ordner.
 
 04:29.500 --> 04:33.070
-And inside I've got some pretty empty classes already.
+Und darin habe ich schon ein paar ziemlich leere Klassen.
 
 04:33.100 --> 04:37.120
-For our AI example, the AI example script is here.
+Für unser KI-Beispiel, das KI-Beispielskript ist hier.
 
 04:37.120 --> 04:38.950
-Let's take a look at the source code for that.
+Schauen wir uns den Quellcode dafür an.
 
 04:38.980 --> 04:40.540
-Here's the AI example.
+Hier ist das KI-Beispiel.
 
 04:40.540 --> 04:45.250
-And as the comment says, it's ready for a product manager to be thrown in here.
+Und wie der Kommentar schon sagt, ist es bereit für einen Produktmanager, der hier hineingeworfen wird.
 
 04:45.250 --> 04:47.410
-But it's got a pretty empty setup.
+Aber es hat eine ziemlich leere Einrichtung.
 
 04:48.580 --> 04:55.420
-Then I've got the test runner here showing the category of AI, and we've got some different AI tests
+Dann habe ich hier den Test Runner, der die Kategorie AI anzeigt, und wir haben einige verschiedene AI-Tests
 
 04:55.420 --> 04:55.870
-here.
+hier.
 
 04:55.900 --> 04:57.480
-Just set up an empty.
+Einfach einen leeren Test einrichten.
 
 04:57.490 --> 05:02.500
-If we took a look at the source code for the AI test, it is pretty empty.
+Wenn wir uns den Quellcode für den AI-Test ansehen, ist er ziemlich leer.
 
 05:02.500 --> 05:03.550
-Looks like that.
+Sieht so aus.
 
 05:07.570 --> 05:11.170
-And if we look at the I play mode test, it's pretty empty as well.
+Und wenn wir uns den Test für den Spielmodus I ansehen, ist er auch ziemlich leer.
 
 05:11.500 --> 05:15.380
-And finally, we have a product manager class here which is ready for the code coming in.
+Und schließlich haben wir hier eine Produktmanager-Klasse, die bereit für den Code ist, der hereinkommt.
 
 05:15.400 --> 05:21.130
-Now I'm giving a somewhat contrived example here where I already know I want a product manager, but
+Ich gebe hier ein etwas konstruiertes Beispiel, bei dem ich bereits weiß, dass ich einen Produktmanager will, aber
 
 05:21.130 --> 05:24.520
-I don't have much else that it depends on or needs to talk to.
+Ich habe nicht viel anderes, von dem es abhängt oder mit dem es sprechen muss.
 
 05:24.550 --> 05:27.010
-So it's going to be easy for us to integrate.
+Es wird also einfach für uns sein, es zu integrieren.
 
 05:27.040 --> 05:31.690
-You could imagine here you've got an existing game with hundreds of existing classes, and you want
+Man könnte sich vorstellen, dass man ein bestehendes Spiel mit hunderten von Klassen hat und man möchte
 
 05:31.690 --> 05:32.920
-to add one new system.
+ein neues System hinzufügen.
 
 05:32.920 --> 05:36.610
-It's not going to know all about your existing project, so you're going to have to explain that to
+Es wird nicht alles über Ihr bestehendes Projekt wissen, also werden Sie es erklären müssen, um
 
 05:36.610 --> 05:36.890
-it.
+es.
 
 05:36.910 --> 05:40.740
-So it's admittedly a simpler example here starting from zero.
+Es ist also zugegebenermaßen ein einfacheres Beispiel, wenn man bei Null anfängt.
 
 05:40.750 --> 05:45.640
-But one thing I want to mention is I've got something like the namespace here.
+Aber eine Sache, die ich erwähnen möchte, ist, dass ich hier so etwas wie den Namensraum habe.
 
 05:45.640 --> 05:52.090
-And probably as I interact with ChatGPT, I'm going to paste from ChatGPT into unity.
+Und wenn ich mit ChatGPT interagiere, werde ich wahrscheinlich von ChatGPT in Unity einfügen.
 
 05:52.120 --> 05:53.260
-Use it a little bit.
+Benutze es ein bisschen.
 
 05:53.260 --> 05:58.510
-I might tweak the code here, and then I'll want to copy and paste back to ChatGPT again.
+Vielleicht ändere ich den Code hier, und dann kopiere ich ihn und füge ihn wieder in ChatGPT ein.
 
 05:58.510 --> 06:04.180
-ChatGPT doesn't know about my code here, so I always have to keep that chat going on in this separate
+ChatGPT weiß nichts von meinem Code hier, also muss ich den Chat immer in diesem separaten Bereich weiterlaufen lassen
 
 06:04.180 --> 06:05.080
-conversation.
+Unterhaltung.
 
 06:05.080 --> 06:11.830
-So one of the things I've learned is that I don't want to have to manually paste certain sections from
+Eines der Dinge, die ich gelernt habe, ist, dass ich bestimmte Abschnitte nicht von Hand einfügen möchte aus
 
 06:11.830 --> 06:14.860
-ChatGPT into my code and certain sections back.
+ChatGPT in meinen Code einfügen und bestimmte Abschnitte wieder zurück.
 
 06:14.860 --> 06:19.000
-So just for an example, I have this namespace already declared.
+Also nur als Beispiel, ich habe diesen Namensraum bereits deklariert.
 
 06:19.000 --> 06:19.630
-And here.
+Und hier.
 
 06:19.630 --> 06:24.460
-So I'm going to come back into ChatGPT and notice that it doesn't have any namespaces.
+Ich gehe also zurück in ChatGPT und stelle fest, dass es keine Namespaces hat.
 
 06:24.460 --> 06:27.370
-So I'm going to say great job.
+Also werde ich sagen, gute Arbeit.
 
 06:28.890 --> 06:34.170
-Please integrate this code into your sample.
+Bitte integrieren Sie diesen Code in Ihr Beispiel.
 
 06:35.240 --> 06:36.900
-And I'm just going to paste that there.
+Und ich werde das einfach dort einfügen.
 
 06:36.920 --> 06:38.600
-So let's see what it did here.
+Schauen wir mal, was es hier gemacht hat.
 
 06:38.600 --> 06:44.390
-It said certainly to integrate the product manager class in the provided namespace and structure.
+Es sagte, dass die Produktmanager-Klasse in den angegebenen Namespace und die Struktur integriert werden soll.
 
 06:44.390 --> 06:48.580
-So I can see that it's added this and it's added this.
+Ich kann also sehen, dass es dies und das hinzugefügt hat.
 
 06:48.590 --> 06:55.340
-It's just a little hack that I realize is useful, so that I don't have to manually re add that every
+Das ist nur ein kleiner Hack, den ich für nützlich halte, damit ich das nicht jedes Mal manuell neu hinzufügen muss
 
 06:55.340 --> 06:56.660
-time I ask a question.
+wenn ich eine Frage stelle.
 
 06:56.660 --> 06:59.210
-I think over the course of this exercise you'll see why.
+Ich denke, im Laufe dieser Übung werden Sie sehen, warum.
 
 06:59.240 --> 07:02.960
-So I'm going to copy the code completely and paste it into unity.
+Ich werde also den Code komplett kopieren und in Unity einfügen.
 
 07:03.080 --> 07:03.680
-There we go.
+Da haben wir's.
 
 07:03.680 --> 07:08.540
-It's pasted in and I don't see any errors coming from compilation.
+Es ist eingefügt und ich sehe keine Fehler bei der Kompilierung.
 
 07:08.540 --> 07:09.080
-Let's check in.
+Lass uns einchecken.
 
 07:09.080 --> 07:09.620
-Unity.
+Einigkeit.
 
 07:09.650 --> 07:11.270
-Unity has recompiled.
+Unity hat neu kompiliert.
 
 07:11.270 --> 07:12.440
-Everything looks good.
+Alles sieht gut aus.
 
 07:12.440 --> 07:19.220
-Now, before we do any testing, let's check out the I example here and have it run a simple example
+Nun, bevor wir irgendwelche Tests durchführen, lassen wir das I-Beispiel laufen und lassen es ein einfaches Beispiel ausführen
 
 07:19.220 --> 07:20.840
-of some of the functionality.
+für einige der Funktionen.
 
 07:20.840 --> 07:28.040
-So I'm going to copy this entire script and I'm going to say okay don't repeat that code.
+Ich werde also das gesamte Skript kopieren und sagen, okay, wiederhole diesen Code nicht.
 
 07:29.340 --> 07:33.930
-Create me a new page of code for a new class.
+Ich erstelle eine neue Seite mit Code für eine neue Klasse.
 
 07:34.080 --> 07:37.770
-Use this as inspiration.
+Verwenden Sie dies als Inspiration.
 
 07:37.920 --> 07:40.020
-Update the awake.
+Aktualisiere das Erwachen.
 
 07:40.640 --> 07:45.830
-With a simple demo of Product Manager.
+Mit einer einfachen Demo von Product Manager.
 
 07:45.830 --> 07:47.070
-Let's see the response here.
+Schauen wir uns die Antwort an.
 
 07:47.090 --> 07:52.100
-Certainly to create a new class that demonstrates the use of Product Manager in the awake.
+Sicherlich, um eine neue Klasse zu erstellen, die die Verwendung von Product Manager in der awake demonstriert.
 
 07:52.130 --> 07:53.390
-Here is the example.
+Hier ist das Beispiel.
 
 07:53.420 --> 07:55.150
-Let's take a look at the source code.
+Werfen wir einen Blick auf den Quellcode.
 
 07:55.160 --> 07:59.800
-We can see that it's kept the class name, the comment, the namespace that I like.
+Wir können sehen, dass der Klassenname, der Kommentar und der Namespace beibehalten wurden, was mir gefällt.
 
 07:59.810 --> 08:03.010
-It's kept this part here that I wanted to use.
+Der Teil hier, den ich verwenden wollte, wurde beibehalten.
 
 08:03.020 --> 08:07.550
-I put this attribute here just so that it doesn't get confused in the testing.
+Ich habe dieses Attribut hier eingefügt, damit es bei den Tests nicht durcheinander kommt.
 
 08:07.550 --> 08:09.980
-And then I run the awake here.
+Und dann führe ich das Erwachen hier aus.
 
 08:10.070 --> 08:10.810
-Looks good.
+Sieht gut aus.
 
 08:10.820 --> 08:14.820
-Now let's just copy that into our unity project and see how it works.
+Jetzt kopieren wir das einfach in unser Unity-Projekt und sehen, wie es funktioniert.
 
 08:14.840 --> 08:16.480
-Okay, I've pasted it in.
+Okay, ich habe es eingefügt.
 
 08:16.490 --> 08:17.900
-I don't see any errors here.
+Ich sehe hier keine Fehler.
 
 08:17.900 --> 08:18.440
-Let's check in.
+Prüfen wir das mal nach.
 
 08:18.440 --> 08:18.980
-Unity.
+Einigkeit.
 
 08:19.010 --> 08:19.460
-Unity.
+Einigkeit.
 
 08:19.460 --> 08:20.150
-Recompiled.
+Neu kompiliert.
 
 08:20.160 --> 08:21.650
-Looks like everything works well.
+Sieht aus, als ob alles gut funktioniert.
 
 08:21.650 --> 08:23.750
-Here's the example already in the scene.
+Hier ist das Beispiel bereits in der Szene.
 
 08:23.750 --> 08:24.830
-Let's go ahead and run.
+Lasst uns weitermachen und loslegen.
 
 08:24.860 --> 08:29.090
-My console shows product ID one, two and three.
+Meine Konsole zeigt die Produkt-ID eins, zwei und drei.
 
 08:29.120 --> 08:30.680
-Let's take a look at the source code.
+Werfen wir einen Blick auf den Quellcode.
 
 08:30.680 --> 08:32.860
-So let's review what we're doing here.
+Schauen wir uns also an, was wir hier tun.
 
 08:32.870 --> 08:36.190
-We've got a product manager that gets instantiated.
+Wir haben einen Produktmanager, der instanziiert wird.
 
 08:36.200 --> 08:37.700
-We add three products.
+Wir fügen drei Produkte hinzu.
 
 08:37.700 --> 08:39.320
-We call the get products.
+Wir rufen die Funktion get products auf.
 
 08:39.320 --> 08:40.730
-And then we spit them out.
+Und dann spucken wir sie aus.
 
 08:40.760 --> 08:46.910
-Now this is a simple example that's doing something in a pretty empty project.
+Dies ist ein einfaches Beispiel, das etwas in einem ziemlich leeren Projekt tut.
 
 08:46.910 --> 08:52.520
-So we agree that it's probably easier to integrate than something much later in a larger, more complex
+Wir sind uns also einig, dass es wahrscheinlich einfacher zu integrieren ist als etwas viel später in einem größeren, komplexeren Projekt
 
 08:52.520 --> 08:53.090
-product.
+Produkt.
 
 08:53.090 --> 08:55.190
-But look how amazing this is.
+Aber sehen Sie, wie erstaunlich das ist.
 
 08:55.220 --> 08:59.450
-It was able to give me the product manager and a demo example on top of it.
+Es konnte mir den Produktmanager und ein Demo-Beispiel dazu liefern.
 
 08:59.450 --> 09:06.320
-That's it for this demonstration of showing how artificial intelligence, particularly ChatGPT, can
+Das war's für diese Demonstration, die zeigt, wie künstliche Intelligenz, insbesondere ChatGPT,
 
 09:06.320 --> 09:12.140
-give us the ability to add new production code in a future video, we'll take a look at how AI can help
+In einem zukünftigen Video werden wir uns ansehen, wie künstliche Intelligenz helfen kann, neue Produktionscodes hinzuzufügen.
 
 09:12.140 --> 09:15.140
-us create unit tests on top of this production code.
+uns helfen kann, Unit-Tests auf diesem Produktionscode zu erstellen.
 
 09:15.710 --> 09:16.490
-Thanks.
+Vielen Dank!

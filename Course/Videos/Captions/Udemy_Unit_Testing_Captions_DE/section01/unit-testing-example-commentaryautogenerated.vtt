@@ -1,145 +1,145 @@
 WEBVTT
 
 00:02.920 --> 00:07.120
-So let's take a step back and just look quickly at a fundamental example here.
+Gehen wir also einen Schritt zurück und sehen wir uns kurz ein grundlegendes Beispiel an.
 
 00:07.120 --> 00:09.100
-So this is not a unit test here.
+Dies ist also kein Einheitstest.
 
 00:09.100 --> 00:16.270
-And this represents a unity class something that I would consider production code meaning not test code.
+Und dies stellt eine Einheitsklasse dar, etwas, das ich als Produktionscode betrachten würde, also nicht als Testcode.
 
 00:16.270 --> 00:19.990
-And this would be in your perhaps a math game.
+Und dies wäre in Ihrem vielleicht ein Mathematikspiel.
 
 00:19.990 --> 00:23.890
-It's a very simple my math system class that does two things.
+Es ist eine sehr einfache Mathe-System-Klasse, die zwei Dinge tut.
 
 00:23.890 --> 00:26.140
-It can add and it can subtract.
+Sie kann addieren und sie kann subtrahieren.
 
 00:26.140 --> 00:27.820
-So we have the add method.
+Wir haben also die Additionsmethode.
 
 00:27.820 --> 00:31.300
-Notice I'm passing in an int integer a and b.
+Beachten Sie, dass ich eine ganze Zahl a und b eingebe.
 
 00:31.300 --> 00:33.970
-I add those together and I return that value.
+Ich addiere sie zusammen und gebe den Wert zurück.
 
 00:33.970 --> 00:40.540
-Now if this was used in your game and you wanted to be sure it was working faithfully, you would just
+Wenn du das in deinem Spiel verwenden würdest und sicher sein wolltest, dass es zuverlässig funktioniert, würdest du einfach
 
 00:40.540 --> 00:48.640
-play your game and you would hope that a successful add operation implementation gives you on screen,
+Ihr Spiel spielen und hoffen, dass Sie eine erfolgreiche Add-Operation auf dem Bildschirm sehen,
 
 00:48.640 --> 00:50.500
-easy to judge results.
+einfach zu beurteilende Ergebnisse liefert.
 
 00:50.500 --> 00:52.210
-But that's not always the case.
+Aber das ist nicht immer der Fall.
 
 00:52.210 --> 00:59.470
-Maybe this is adding A and B and C by accident, and you might not notice that perhaps your score system
+Vielleicht werden hier A und B und C aus Versehen addiert, und Sie bemerken vielleicht nicht, dass Ihr Punktesystem vielleicht
 
 00:59.470 --> 01:05.470
-is increasing from one to 2 to 4 doing bad math, and you just don't happen to catch it.
+von 1 auf 2 auf 4 erhöht, weil es falsch gerechnet hat, und du hast es einfach nicht bemerkt.
 
 01:05.500 --> 01:11.920
-The nice thing about adding a unit test is you're able to test more situations than you may come across
+Das Schöne am Hinzufügen eines Einheitstests ist, dass man mehr Situationen testen kann, als man vielleicht vorfindet
 
 01:11.920 --> 01:15.370
-as the game player, and do it more systematically.
+als der Spieler, und zwar systematischer.
 
 01:15.370 --> 01:18.400
-Let's take a quick look at our very first unit test.
+Werfen wir einen kurzen Blick auf unseren allerersten Einheitstest.
 
 01:18.400 --> 01:21.850
-And it's going to be a unit test on top of this system here.
+Und es wird ein Unit-Test auf diesem System hier sein.
 
 01:22.870 --> 01:25.540
-So this is a separate class.
+Dies ist also eine separate Klasse.
 
 01:25.540 --> 01:31.060
-And by putting the the code base here, we're seeing in a certain spot in your project.
+Und indem wir die Codebasis hier einfügen, sehen wir an einer bestimmten Stelle in Ihrem Projekt.
 
 01:31.060 --> 01:36.600
-And by marking the method as the arrow shows with test, unity will treat it a little bit differently.
+Und indem wir die Methode, wie der Pfeil zeigt, mit test markieren, wird Unity sie ein wenig anders behandeln.
 
 01:36.610 --> 01:42.880
-This doesn't need to be called anywhere from inside your production code, but look how easy it is inside
+Dies muss nirgendwo in deinem Produktionscode aufgerufen werden, aber sieh dir an, wie einfach es darin ist
 
 01:42.880 --> 01:43.570
-in the body.
+im Körper.
 
 01:43.570 --> 01:49.960
-Here we see we're using the arrange, act and assert methodology, and we'll go deeper into that methodology
+Hier sehen wir, dass wir die Methodik arrange, act and assert verwenden, und wir werden diese Methodik noch weiter vertiefen
 
 01:49.960 --> 01:50.380
-there.
+hier.
 
 01:50.380 --> 01:53.950
-It's an optional approach that just helps you organize your thoughts.
+Es ist ein optionaler Ansatz, der Ihnen nur hilft, Ihre Gedanken zu organisieren.
 
 01:53.950 --> 01:56.380
-So first we create an instance of the class.
+Zuerst erstellen wir also eine Instanz der Klasse.
 
 01:56.380 --> 01:59.020
-Then we call a method on that class.
+Dann rufen wir eine Methode in dieser Klasse auf.
 
 01:59.020 --> 02:04.990
-And then we assert or we assume that this is going to be our expected result.
+Und dann behaupten wir oder nehmen wir an, dass dies unser erwartetes Ergebnis sein wird.
 
 02:05.020 --> 02:12.010
-Now this test will pass if the assertion is correct and it will fail if the assertion is incorrect.
+Dieser Test wird erfolgreich sein, wenn die Behauptung richtig ist, und er wird fehlschlagen, wenn die Behauptung falsch ist.
 
 02:12.040 --> 02:18.820
-Now, it may seem silly to pass five and ten and check that it turns 15, because again, our implementation
+Nun mag es albern erscheinen, fünf und zehn zu bestehen und zu prüfen, ob es 15 wird, denn auch hier gilt, dass unsere Implementierung
 
 02:18.820 --> 02:20.110
-code is so simple.
+Code so einfach ist.
 
 02:20.110 --> 02:26.080
-But these are the fundamental ideas that when we apply them to even larger classes, it's going to be
+Aber das sind die grundlegenden Ideen, die, wenn wir sie auf noch größere Klassen anwenden, es wird
 
 02:26.080 --> 02:26.800
-important.
+wichtig.
 
 02:26.920 --> 02:28.900
-So that's our course overview.
+Das ist also unser Kursüberblick.
 
 02:28.900 --> 02:31.240
-Let's just think about what we've learned here.
+Lasst uns darüber nachdenken, was wir hier gelernt haben.
 
 02:31.240 --> 02:35.980
-We've talked a bit about how and why unit testing is important to a project.
+Wir haben ein wenig darüber gesprochen, wie und warum Unit-Tests für ein Projekt wichtig sind.
 
 02:35.980 --> 02:39.640
-I've hinted a little bit about why it's quite rare in game development.
+Ich habe ein wenig angedeutet, warum es in der Spieleentwicklung ziemlich selten ist.
 
 02:39.670 --> 02:45.490
-One reason is that we as game developers, we love adding new features, and this feels a little bit
+Ein Grund ist, dass wir als Spieleentwickler es lieben, neue Features hinzuzufügen, und das fühlt sich ein bisschen
 
 02:45.490 --> 02:48.070
-more like slowing us down.
+eher wie eine Verlangsamung an.
 
 02:48.070 --> 02:53.500
-But when we looked at that 80 over 20 rule, we see, you know, we're quite surprised that actually
+Aber als wir uns die 80-zu-20-Regel angesehen haben, waren wir ziemlich überrascht, dass tatsächlich
 
 02:53.500 --> 02:59.800
-most of our life as game developers is spent on fixing and maintaining existing features, not in adding
+die meiste Zeit unseres Lebens als Spieleentwickler damit verbracht wird, bestehende Features zu reparieren und zu warten, und nicht damit, neue hinzuzufügen
 
 02:59.800 --> 03:00.490
-new ones.
+neue Funktionen hinzuzufügen.
 
 03:00.490 --> 03:07.420
-So recognizing that and seeing that unit testing will help us create those new features, as well as
+Das zu erkennen und zu sehen, dass Unit-Tests uns helfen werden, diese neuen Funktionen zu entwickeln, sowie
 
 03:07.420 --> 03:13.630
-give us much more code confidence in the 80% of the maintenance that we're spending in our project.
+gibt uns viel mehr Vertrauen in die 80% der Wartung, die wir für unser Projekt aufwenden.
 
 03:13.630 --> 03:19.210
-It is going to easily pay benefits to you as a game developer, and it's a wonderful skill to learn.
+Es wird sich für Sie als Spieleentwickler leicht auszahlen, und es ist eine wunderbare Fähigkeit, die man lernen kann.
 
 03:19.210 --> 03:20.500
-So let's get started.
+Fangen wir also an.

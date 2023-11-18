@@ -1,196 +1,196 @@
 WEBVTT
 
 00:00.140 --> 00:03.230
-Hello and welcome to Unit testing for unity.
+Hallo und willkommen zu Unit Testing für Unity.
 
 00:03.260 --> 00:09.230
-Here we're going to be talking about artificial intelligence and how it can be used for production code
+Hier werden wir über künstliche Intelligenz sprechen und wie sie für Produktionscode verwendet werden kann
 
 00:09.230 --> 00:10.730
-and for unit testing code.
+und für Unit-Testing-Code.
 
 00:11.000 --> 00:17.600
-AI is an especially hot topic, and as game developers, we're interested in how AI can help us build
+KI ist ein besonders heißes Thema, und als Spieleentwickler sind wir daran interessiert, wie KI uns helfen kann
 
 00:17.600 --> 00:21.080
-projects and be used at runtime for our projects.
+Projekte zu erstellen und zur Laufzeit für unsere Projekte zu nutzen.
 
 00:21.110 --> 00:24.500
-In this section, I'll give a brief introduction to the topic.
+In diesem Abschnitt werde ich eine kurze Einführung in das Thema geben.
 
 00:24.500 --> 00:31.010
-Then look at the specific subtopics of AI for production code and treat that separately.
+Dann werde ich die spezifischen Unterthemen von AI für Produktionscode betrachten und separat behandeln.
 
 00:31.010 --> 00:35.210
-Then AI for writing your unit tests about your production code.
+Dann AI für das Schreiben von Unit-Tests über den Produktionscode.
 
 00:35.570 --> 00:39.830
-There's also an opportunity for more topics and expanding after that.
+Es gibt auch die Möglichkeit, weitere Themen zu behandeln und danach zu erweitern.
 
 00:40.010 --> 00:44.660
-AI has been a part of game development since the beginning of game dev itself.
+KI ist ein Teil der Spieleentwicklung seit den Anfängen der Spieleentwicklung selbst.
 
 00:44.690 --> 00:51.530
-In the last year or so, we've seen an explosive growth in the topic in pop culture, social media,
+Im letzten Jahr hat das Thema in der Popkultur und in den sozialen Medien explosionsartig zugenommen,
 
 00:51.530 --> 00:53.980
-as well as in the game dev community itself.
+und auch in der Community der Spieleentwickler selbst.
 
 00:53.990 --> 00:56.810
-There's an awesome website that I like to check out called.
+Es gibt eine großartige Website, die ich mir gerne ansehe, sie heißt.
 
 00:56.810 --> 01:03.680
-There's an AI for that link below, and you can see how AI can enable all sorts of different industries,
+Unter diesem Link finden Sie eine KI, und Sie können sehen, wie KI alle möglichen verschiedenen Branchen unterstützen kann,
 
 01:03.680 --> 01:04.970
-including game dev.
+einschließlich Spieleentwicklung.
 
 01:05.000 --> 01:11.390
-As with all things software, game dev will be forever changed as this AI technology grows.
+Wie alles, was mit Software zu tun hat, wird auch die Entwicklung von Spielen durch die Weiterentwicklung der KI-Technologie für immer verändert werden.
 
 01:11.420 --> 01:17.540
-Game developers who embrace this technology and are able to use the tools well will continue to compete
+Spieleentwickler, die sich diese Technologie zu eigen machen und die Werkzeuge gut einsetzen können, werden weiterhin konkurrenzfähig sein
 
 01:17.540 --> 01:18.500
-in the workplace.
+am Arbeitsplatz.
 
 01:18.530 --> 01:19.520
-Let's read here.
+Lesen wir hier.
 
 01:19.550 --> 01:24.660
-A game developer is responsible for creating and designing video games for various platforms.
+Ein Spieleentwickler ist für die Erstellung und Gestaltung von Videospielen für verschiedene Plattformen verantwortlich.
 
 01:24.680 --> 01:30.200
-They work closely with different disciplines game developers using programming language and software
+Sie arbeiten eng mit verschiedenen Disziplinen der Spieleentwicklung zusammen und verwenden Programmiersprachen und Software
 
 01:30.200 --> 01:33.560
-to create engaging and interactive experiences for their players.
+um fesselnde und interaktive Erlebnisse für ihre Spieler zu schaffen.
 
 01:33.590 --> 01:36.050
-Now in all of this, we can use AI.
+Bei all dem können wir nun KI einsetzen.
 
 01:36.140 --> 01:41.750
-Let's see how incorporating AI into unity game development in particular, can streamline development
+Schauen wir uns an, wie die Einbindung von KI in die Entwicklung von Unity-Spielen die Entwicklung optimieren kann
 
 01:41.750 --> 01:42.590
-and testing.
+und das Testen.
 
 01:42.590 --> 01:48.440
-Some of the benefits include content generation, assist in creating the assets such as the textures
+Einige der Vorteile sind die Generierung von Inhalten, die Unterstützung bei der Erstellung von Assets, wie z.B. den Texturen
 
 01:48.440 --> 01:52.430
-and models, and speeding up the asset creation process overall.
+und Modelle, und die Beschleunigung des gesamten Erstellungsprozesses.
 
 01:53.000 --> 01:58.130
-There's cogeneration as well, analyzing, suggesting designs for new systems.
+Außerdem gibt es die Co-Generation, die Analyse und das Vorschlagen von Designs für neue Systeme.
 
 01:58.160 --> 02:04.550
-Optimizing, making your systems more efficient leads to better performance in your gameplay and reduce
+Die Optimierung, die Verbesserung der Effizienz Ihrer Systeme führt zu einer besseren Leistung in Ihrem Spiel und zu einer Verringerung der
 
 02:04.550 --> 02:05.450
-development time.
+Entwicklungszeit.
 
 02:05.450 --> 02:09.320
-And also of particular interest to this topic is automated testing.
+Von besonderem Interesse für dieses Thema ist auch das automatisierte Testen.
 
 02:09.530 --> 02:15.990
-I can rapidly identify and fix the bugs, and also reduce the time it takes to create those unit tests.
+Ich kann die Fehler schnell identifizieren und beheben und auch die Zeit für die Erstellung dieser Unit-Tests reduzieren.
 
 02:16.010 --> 02:20.330
-One of the amazing tools we've seen is OpenAI's ChatGPT.
+Eines der erstaunlichen Tools, die wir gesehen haben, ist ChatGPT von OpenAI.
 
 02:20.540 --> 02:25.550
-This feels like a text chat conversation with a friend, except it's an AI.
+Es fühlt sich an wie eine Text-Chat-Konversation mit einem Freund, nur dass es eine KI ist.
 
 02:25.580 --> 02:29.900
-You text chat, you get a response, and you can iterate on that conversation.
+Man chattet per SMS, bekommt eine Antwort und kann die Unterhaltung fortsetzen.
 
 02:29.930 --> 02:35.810
-The AI knows about all aspects of game development marketing, your game, coming up with game ideas,
+Die KI kennt alle Aspekte der Spielentwicklung, des Marketings, deines Spiels und der Entwicklung von Spielideen,
 
 02:35.810 --> 02:36.260
-and more.
+und mehr.
 
 02:36.260 --> 02:41.750
-When you're having that text conversation with the ChatGPT, you're giving it prompts or instructions,
+Wenn du diese Textkonversation mit dem ChatGPT führst, gibst du ihm Aufforderungen oder Anweisungen,
 
 02:41.750 --> 02:46.490
-and there's lots of different cheat sheets like what we see here for how to make effective prompts.
+und es gibt viele verschiedene Spickzettel, wie wir sie hier sehen, um effektive Prompts zu erstellen.
 
 02:46.490 --> 02:51.620
-You might want to start the conversation by saying act like a unity game development expert.
+Du könntest das Gespräch damit beginnen, dass du dich wie ein Experte für die Entwicklung von Unity-Spielen verhältst.
 
 02:51.650 --> 02:54.180
-Tell me about this or that in C-sharp.
+Erzählen Sie mir dies oder das in Cis.
 
 02:54.200 --> 02:57.120
-That allows the AI to know how to best explain it.
+So kann die KI wissen, wie man es am besten erklärt.
 
 02:57.140 --> 03:00.140
-Another fantastic tool is GitHub's copilot.
+Ein weiteres fantastisches Tool ist der Copilot von GitHub.
 
 03:00.170 --> 03:06.500
-This is trained specifically on programming language material, and it knows everything about C-sharp
+Es ist speziell auf Programmiersprachen ausgerichtet und weiß alles über C-Sharp.
 
 03:06.500 --> 03:08.040
-and Unity that you'd want to know.
+und Unity, was man wissen möchte.
 
 03:08.060 --> 03:13.850
-Also, code editors that you use to type the code instructions into unity know about the specific context
+Auch die Code-Editoren, mit denen du die Code-Anweisungen in Unity eintippst, kennen den spezifischen Kontext
 
 03:13.850 --> 03:19.160
-of the class that you're sitting in, so it can answer not just theoretical questions, but what would
+der Klasse, in der man sitzt, so dass er nicht nur theoretische Fragen beantworten kann, sondern auch, was man
 
 03:19.160 --> 03:21.720
-the next line of this page look like?
+die nächste Zeile auf dieser Seite aussehen?
 
 03:21.740 --> 03:26.570
-And then it can fill out more of your code page to learn more about unit testing for unity.
+Und dann kann es mehr von deiner Code-Seite ausfüllen, um mehr über Unit-Tests für Unity zu erfahren.
 
 03:26.600 --> 03:31.820
-You can check out this great course link below, and this video will also be part of the course itself,
+Du kannst dir diesen großartigen Kurslink unten ansehen, und dieses Video wird auch Teil des Kurses selbst sein,
 
 03:31.820 --> 03:34.730
-with expanded chapters beyond this video itself.
+mit erweiterten Kapiteln über dieses Video hinaus.
 
 03:34.730 --> 03:40.490
-In the course we look at why unit testing is amazing tool, why it is going to help your game development,
+Im Kurs schauen wir uns an, warum Unit-Tests ein großartiges Werkzeug sind und warum es bei der Entwicklung von Spielen helfen kann,
 
 03:40.520 --> 03:46.430
-why it's a fantastic career building tool specifically for people in the mid to late phase of their
+warum es ein fantastisches Werkzeug für die Karriere ist, speziell für Leute in der mittleren bis späten Phase ihrer
 
 03:46.430 --> 03:46.970
-career.
+Karriere.
 
 03:47.000 --> 03:50.050
-Really giving you a way to compete in the workplace.
+Es gibt Ihnen eine Möglichkeit, sich am Arbeitsplatz zu behaupten.
 
 03:50.060 --> 03:54.470
-Now, in the game development community, we have a variety of different peoples with different goals.
+In der Gemeinschaft der Spieleentwickler gibt es eine Vielzahl verschiedener Menschen mit unterschiedlichen Zielen.
 
 03:54.470 --> 03:58.880
-Some are hobbyists just looking to have fun and be creative on nights and weekends.
+Einige sind Hobbyisten, die einfach nur Spaß haben und an Abenden und Wochenenden kreativ sein wollen.
 
 03:58.910 --> 04:04.010
-Others want to make a career out of it, or get a group of friends together and create a real project
+Andere wollen Karriere machen oder eine Gruppe von Freunden zusammenbringen, um ein echtes Projekt zu realisieren
 
 04:04.010 --> 04:07.460
-for moneymaking, really, across all those different user profiles.
+um Geld zu verdienen, und zwar über all diese verschiedenen Nutzerprofile hinweg.
 
 04:07.490 --> 04:13.910
-Adding unit testing into your workflow is fantastic, and being able to take advantage of AI to help
+Das Hinzufügen von Unit-Tests in den Arbeitsablauf ist fantastisch, und die Möglichkeit, KI zu nutzen, um
 
 04:13.910 --> 04:16.880
-you along with that process is a time saver.
+bei diesem Prozess zu helfen, ist eine Zeitersparnis.
 
 04:16.880 --> 04:23.270
-It's a great learning tool and it will make you a more competitive coworker in your industry in the
+Es ist ein großartiges Lernwerkzeug und es wird Sie zu einem wettbewerbsfähigeren Mitarbeiter in Ihrer Branche machen
 
 04:23.270 --> 04:23.630
-course.
+Kurs.
 
 04:23.630 --> 04:29.180
-In the next videos, we'll take a look exactly how this works inside the unity editor using the AI tools.
+In den nächsten Videos schauen wir uns genau an, wie das im Unity-Editor mit den KI-Tools funktioniert.
 
 04:29.180 --> 04:30.110
-Thanks.
+Danke!
