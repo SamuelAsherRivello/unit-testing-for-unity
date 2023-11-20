@@ -1,15 +1,15 @@
 name: Unity Build and Test
 
-on:
-  release:
-    types: [created]
+on: [push]
 
 jobs:
   build-and-test:
+    name: Build and Test
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout Repository
+      uses: actions/checkout@v2
 
     - name: Cache Library
       uses: actions/cache@v2
@@ -17,14 +17,22 @@ jobs:
         path: Library
         key: Library-${{ hashFiles('**/Library') }}
 
-    - name: Setup Unity
+    - name: Run Unity Tests
       uses: game-ci/unity-test-runner@v4.0.0
       with:
-        unityVersion: '2022.3.13f1' # Specify your Unity version here
+        unityVersion: '2022.3.13f1' # Replace with your Unity version
+        targetPlatform: 'editmode'  # Use 'playmode' or 'editmode' as needed
 
-    - name: Build Project
-      run: unity -batchmode -nographics -quit -projectPath . -executeMethod BuildScript.PerformBuild -logFile build.log
+    - name: Build Unity Project
+      uses: game-ci/unity-builder@v4.0.1
+      with:
+        unityVersion: '2022.3.13f1' # Replace with your Unity version
+        targetPlatform: 'StandaloneWindows64' # Replace with your desired build platform
 
-    - name: Run Unit Tests
-      run: unity -batchmode -nographics -quit -projectPath . -runTests -testResults test-results.xml -logFile test.log
+    # Optional: Use this step to upload artifacts (builds and test results)
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: Build
+        path: build/ # Replace with your build output directory
 
