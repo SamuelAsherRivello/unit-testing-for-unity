@@ -1,6 +1,8 @@
 name: Unity Build and Test
 
-on: [release]
+on:
+  release:
+    types: [created]
 
 jobs:
   build-and-test:
