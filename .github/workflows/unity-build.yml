@@ -1,0 +1,28 @@
+name: Unity Build and Test
+
+on: [release]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Cache Library
+      uses: actions/cache@v2
+      with:
+        path: Library
+        key: Library-${{ hashFiles('**/Library') }}
+
+    - name: Setup Unity
+      uses: game-ci/unity-action@v2
+      with:
+        unityVersion: '2022.3.13f1' # Specify your Unity version here
+
+    - name: Build Project
+      run: unity -batchmode -nographics -quit -projectPath . -executeMethod BuildScript.PerformBuild -logFile build.log
+
+    - name: Run Unit Tests
+      run: unity -batchmode -nographics -quit -projectPath . -runTests -testResults test-results.xml -logFile test.log
+
