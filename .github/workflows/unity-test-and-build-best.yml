@@ -26,7 +26,6 @@ jobs:
         UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
       with:
         projectPath: Unity/
-        githubToken: ${{ secrets.GITHUB_TOKEN }}
         unityVersion: '2022.3.1f1' # Replace with your Unity version (2022.3.13f1 fails)
         targetPlatform: 'StandaloneWindows64' # Replace with your desired build platform
 
