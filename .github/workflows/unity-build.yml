@@ -1,6 +1,7 @@
 name: Unity Build and Test
 
-on: [push]
+on:
+  workflow_dispatch: {}
 
 jobs:
   build-and-test:
