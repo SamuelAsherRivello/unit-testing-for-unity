@@ -27,9 +27,8 @@ jobs:
       with:
         projectPath: Unity/
         githubToken: ${{ secrets.GITHUB_TOKEN }}
-        unityVersion: '2022.3.13f1' # Replace with your Unity version
+        unityVersion: '2022.3.1f1' # Replace with your Unity version (2022.3.13f1 fails)
         targetPlatform: 'editmode'  # Use 'playmode' or 'editmode' as needed
-
     - name: Build Unity Project
       uses: game-ci/unity-builder@v4.0.1
       env:
@@ -39,7 +38,7 @@ jobs:
       with:
         projectPath: Unity/
         githubToken: ${{ secrets.GITHUB_TOKEN }}
-        unityVersion: '2022.3.13f1' # Replace with your Unity version
+        unityVersion: '2022.3.1f1' # Replace with your Unity version (2022.3.13f1 fails)
         targetPlatform: 'StandaloneWindows64' # Replace with your desired build platform
 
     # Optional: Use this step to upload artifacts (builds and test results)
