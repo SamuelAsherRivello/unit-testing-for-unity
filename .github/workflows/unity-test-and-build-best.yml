@@ -1,4 +1,4 @@
-name: Unity Build and Test
+name: Unity Test and Build (Best)
 
 on:
   workflow_dispatch: {}
@@ -19,14 +19,22 @@ jobs:
         key: Library-${{ hashFiles('**/Library') }}
 
     - name: Run Unity Tests
-      uses: game-ci/unity-test-runner@v4.0.0
+      uses: game-ci/unity-test-runner@v4
+      env:
+        UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
       with:
+        projectPath: Unity/
+        githubToken: ${{ secrets.GITHUB_TOKEN }}
         unityVersion: '2022.3.13f1' # Replace with your Unity version
         targetPlatform: 'editmode'  # Use 'playmode' or 'editmode' as needed
 
     - name: Build Unity Project
       uses: game-ci/unity-builder@v4.0.1
+      env:
+        UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
       with:
+        projectPath: Unity/
+        githubToken: ${{ secrets.GITHUB_TOKEN }}
         unityVersion: '2022.3.13f1' # Replace with your Unity version
         targetPlatform: 'StandaloneWindows64' # Replace with your desired build platform
 
