@@ -26,7 +26,7 @@ jobs:
         UNITY_SERIAL: ${{ secrets.UNITY_SERIAL }}
       with:
         projectPath: Unity/
-        unityVersion: '2022.3.1f1' # Replace with your Unity version (2022.3.13f1 fails)
+        unityVersion: '2022.2.21f1' # Replace with your Unity version (2022.3.13f1, 2022.3.1f1 fails)
         targetPlatform: 'StandaloneWindows64' # Replace with your desired build platform
 
     # Optional: Use this step to upload artifacts (builds and test results)
