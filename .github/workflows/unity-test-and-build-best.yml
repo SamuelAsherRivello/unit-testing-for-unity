@@ -1,4 +1,4 @@
-name: Unity Test and Build (Best)
+name: Game CI - Unity Test and Build (Best)
 
 on:
   workflow_dispatch: {}
