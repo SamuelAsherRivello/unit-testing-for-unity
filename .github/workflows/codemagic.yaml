@@ -1,4 +1,4 @@
-name : CodeMagic - Build And Test\
+name : CodeMagic - Build And Test
 on:
   workflow_dispatch: {}
 jobs:
