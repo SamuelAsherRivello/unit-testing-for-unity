@@ -1,4 +1,4 @@
-name: Acquire activation file (Best)
+name: Game CI - Acquire Activation File (Best)
 on:
   workflow_dispatch: {}
 jobs:
