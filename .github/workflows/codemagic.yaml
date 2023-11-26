@@ -1,39 +1,3 @@
 name: Acquire activation file (Best)
 on:
   workflow_dispatch: {}
-workflows:
-  unity-windows-workflow:
-    name: Unity Windows Workflow
-    max_build_duration: 120
-    instance_type: windows_x2
-    environment:
-      groups:
-        - unity_credentials
-    scripts:
-      - name: Activate & Build Unity Using a Command Prompt
-        script: | 
-          cmd.exe /c "$env:UNITY_HOME\\Unity.exe" ^
-            -batchmode -quit -logFile ^
-            -projectPath . ^
-            -executeMethod BuildScript.BuildWindows ^
-            -nographics ^
-            -serial $env:UNITY_SERIAL ^
-            -username $env:UNITY_EMAIL ^
-            -password $env:UNITY_PASSWORD
-      - name: Export Unity
-        script: | 
-          cd windows
-          7z a -r release.zip ./*
-    artifacts:
-      - windows/*.zip
-    publishing:
-      scripts:
-        - name: Deactivate Unity License
-          script: | 
-            cmd.exe /c "$env:UNITY_HOME\\Unity.exe" -batchmode -quit -returnlicense -nographics
-      email:
-        recipients:
-            - srivello@hotmail.com
-          notify:
-            success: true
-            failure: false
