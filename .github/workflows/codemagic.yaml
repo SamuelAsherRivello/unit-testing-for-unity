@@ -1,4 +1,4 @@
-name : CodeMagic - Build And Test
+name: Acquire activation file (Best)
 on:
   workflow_dispatch: {}
 jobs:
