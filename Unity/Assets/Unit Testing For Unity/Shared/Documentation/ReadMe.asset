@@ -139,6 +139,42 @@ MonoBehaviour:
     TextBody: 
     LinkName: 
     LinkUrl: 
+    PingObjectName: Workshop_07_Prefabs
+    PingObjectGuid: 3ecf1b8d22fd61b4d9b898e9a700e7d2
+    MenuItemName: 
+    MenuItemPath: 
+  - TextHeading: 
+    TextSubheading: 
+    TextBody: 
+    LinkName: 
+    LinkUrl: 
+    PingObjectName: Workshop_08_Scenes
+    PingObjectGuid: bd97c6f07f8701c4a81fd22b1e83569c
+    MenuItemName: 
+    MenuItemPath: 
+  - TextHeading: 
+    TextSubheading: 
+    TextBody: 
+    LinkName: 
+    LinkUrl: 
+    PingObjectName: Workshop_09_Addressables
+    PingObjectGuid: 8793ec39b2e23cc40b1e6945d260a32e
+    MenuItemName: 
+    MenuItemPath: 
+  - TextHeading: 
+    TextSubheading: 
+    TextBody: 
+    LinkName: 
+    LinkUrl: 
+    PingObjectName: Workshop_10_AI
+    PingObjectGuid: e94e4329143212742b5ba48d7b664738
+    MenuItemName: 
+    MenuItemPath: 
+  - TextHeading: 
+    TextSubheading: 
+    TextBody: 
+    LinkName: 
+    LinkUrl: 
     PingObjectName: More...
     PingObjectGuid: c975dd42cc9225f41b7bcbae79daeebc
     MenuItemName: 
