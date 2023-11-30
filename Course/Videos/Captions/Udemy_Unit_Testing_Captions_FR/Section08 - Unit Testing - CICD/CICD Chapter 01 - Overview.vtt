@@ -1,601 +1,153 @@
 WEBVTT
 
 00:00.050 --> 00:02.970
-Hello and welcome to Continuous Integration with unity.
+Bonjour et bienvenue à l'intégration continue avec unity.
 
 00:02.990 --> 00:08.600
-This is part of learning about unit testing and the ways that unit testing can fit into your workflows.
+Ceci fait partie de l'apprentissage des tests unitaires et des façons dont les tests unitaires peuvent s'intégrer dans vos flux de travail.
 
 00:08.630 --> 00:14.510
-In this section, we'll do a brief introduction of the topic, and then we'll look at Unity Cloud build
+Dans cette section, nous ferons une brève introduction du sujet, puis nous nous pencherons sur Unity Cloud build.
 
 00:14.510 --> 00:21.530
-as one way that you can set up continuous integration and continuous deployment for your unity projects.
+comme un moyen de mettre en place une intégration et un déploiement continus pour vos projets Unity.
 
 00:21.560 --> 00:28.550
-As we've seen in the software development life cycle for creating games, unity is used most predominantly
+Comme nous l'avons vu dans le cycle de vie du développement logiciel pour la création de jeux, unity est utilisé de manière prédominante
 
 00:28.550 --> 00:31.970
-in the development, testing and deployment phases.
+dans les phases de développement, de test et de déploiement.
 
 00:32.000 --> 00:36.650
-When we talk about doing unit testing, we're adding that into steps five and six here.
+Lorsque nous parlons de tests unitaires, nous les ajoutons aux étapes cinq et six.
 
 00:36.650 --> 00:41.180
-And when we're talking about continuous integration and continuous deployment, we're really looking
+Et lorsque nous parlons d'intégration et de déploiement continus, nous cherchons vraiment à
 
 00:41.180 --> 00:47.770
-at all three of those steps in ways to automate our testing and folded into our production workflows.
+à ces trois étapes afin d'automatiser nos tests et de les intégrer à nos flux de production.
 
 00:47.780 --> 00:51.360
-So what is continuous integration and continuous deployment?
+Qu'est-ce que l'intégration et le déploiement continus ?
 
 00:51.380 --> 00:59.120
-CI CD as it's called, reduces code errors and defects, making it crucial to every DevOps workflow.
+L'intégration et le déploiement continus, comme on les appelle, réduisent les erreurs de code et les défauts, ce qui les rend essentiels à tout flux de travail DevOps.
 
 00:59.450 --> 01:06.530
-The developer operations is typically the final stage or stages where your project is being tested,
+Les opérations de développement sont généralement l'étape finale ou les étapes où votre projet est testé,
 
 01:06.560 --> 01:10.580
-going live, and having new updates added to the live experience.
+la mise en ligne et l'ajout de nouvelles mises à jour à l'expérience en direct.
 
 01:10.610 --> 01:17.510
-CI CD involves practices of frequently integrating your code changes, automatically integrating that
+Le CD CI implique des pratiques d'intégration fréquente de vos modifications de code, d'intégration automatique de ces modifications et de mise à jour du code.
 
 01:17.510 --> 01:20.930
-code, and then releasing builds to your end users.
+code, puis de mettre à disposition des utilisateurs finaux des builds.
 
 01:20.930 --> 01:25.730
-So if you're doing all of that together, you're doing the full CI CD process.
+Si vous faites tout cela ensemble, vous effectuez le processus complet de CI CD.
 
 01:25.730 --> 01:30.590
-But you can also do one or the other or focus on key areas of the workflow for yourself.
+Mais vous pouvez aussi faire l'un ou l'autre ou vous concentrer sur des domaines clés du flux de travail.
 
 01:30.590 --> 01:30.860
-Now.
+Maintenant.
 
 01:30.890 --> 01:37.940
-CI CD is not unique to unity, and during the years of Unity's professional development and being used
+CI CD n'est pas propre à Unity, et au cours des années de développement professionnel d'Unity et de son utilisation
 
 01:37.940 --> 01:45.650
-in the industry, more and more third parties have added tools to give you continuous integration and
+dans l'industrie, de plus en plus de tiers ont ajouté des outils pour vous donner l'intégration continue et le contrôle de la qualité.
 
 01:45.650 --> 01:47.960
-continuous deployment inside unity.
+déploiement continu au sein d'unity.
 
 01:47.990 --> 01:55.220
-Some of the technologies that are used are GitHub and GitLab to hold the code or to store the code where
+Certaines des technologies utilisées sont GitHub et GitLab pour conserver le code ou le stocker à l'endroit où il est stocké.
 
 01:55.220 --> 02:00.170
-you have it online, and version control, but there's other operations you can use as well for that.
+en ligne, et le contrôle de version, mais il y a d'autres opérations que l'on peut utiliser pour cela.
 
 02:00.170 --> 02:02.480
-But there's other technologies in there as well.
+Mais il y a aussi d'autres technologies.
 
 02:02.480 --> 02:11.480
-And then tools like circle CI or game CI, code Magic bamboo, Unity Cloud Build, Jenkins.
+Et puis des outils comme circle CI ou game CI, code Magic bamboo, Unity Cloud Build, Jenkins.
 
 02:11.510 --> 02:17.300
-These are technologies built on top of wherever your code is being version controlled, and being able
+Il s'agit de technologies qui s'appuient sur l'endroit où votre code est contrôlé par version, et qui sont capables de
 
 02:17.300 --> 02:21.590
-to plug in the right triggers to cause the right actions for the workflow.
+de brancher les bons déclencheurs pour provoquer les bonnes actions pour le flux de travail.
 
 02:21.620 --> 02:26.690
-That makes sense for you two that are most relevant to this video, because it's what I've used, is
+Les deux éléments les plus pertinents pour cette vidéo, parce que c'est ce que j'ai utilisé, sont les suivants
 
 02:26.720 --> 02:32.600
-GitHub to host the repo that we're going to build in Unity Cloud, build as the tool that will do the
+GitHub pour héberger le repo que nous allons construire dans Unity Cloud, construire comme l'outil qui va faire le
 
 02:32.600 --> 02:33.770
-building and the testing.
+la construction et les tests.
 
 02:33.770 --> 02:39.980
-So we've mentioned that CI CD combines the practices of continuous integration and continuous delivery.
+Nous avons donc mentionné que CI CD combine les pratiques d'intégration continue et de livraison continue.
 
 02:39.980 --> 02:44.810
-So the integration is about putting your new code into the production.
+L'intégration consiste donc à mettre votre nouveau code en production.
 
 02:44.810 --> 02:49.250
-That includes testing it, building it and getting it into the code.
+Il s'agit de le tester, de le construire et de l'intégrer dans le code.
 
 02:49.370 --> 02:54.740
-The continuous delivery or continuous deployment, as it's also called.
+La livraison continue ou le déploiement continu, comme on l'appelle aussi.
 
 02:54.740 --> 02:58.310
-This automates the delivery of that code to the build target.
+Cela automatise la livraison de ce code à la cible de construction.
 
 02:58.310 --> 02:59.380
-So this is different.
+Ceci est donc différent.
 
 02:59.390 --> 03:02.900
-This isn't just putting your code into the project, that's CI.
+Il ne s'agit pas simplement de mettre votre code dans le projet, c'est de l'IC.
 
 03:03.140 --> 03:05.990
-This is putting it into the hands of your end users.
+Il s'agit de le mettre entre les mains des utilisateurs finaux.
 
 03:05.990 --> 03:07.490
-So that is the CD.
+C'est donc le CD.
 
 03:07.550 --> 03:13.280
-Now up until this point in the course, we've seen that unit testing is incredibly useful to help shape
+Jusqu'à ce stade du cours, nous avons vu que les tests unitaires sont incroyablement utiles pour aider à façonner le produit.
 
 03:13.280 --> 03:18.290
-how our code matures and then certainly how we maintain and debug that code.
+la façon dont notre code mûrit et certainement la façon dont nous maintenons et déboguons ce code.
 
 03:18.290 --> 03:20.720
-And we've been manually doing the testing.
+Et nous avons effectué les tests manuellement.
 
 03:20.720 --> 03:26.450
-So that means even though we create some automated testing, we either play the runtime experience as
+Cela signifie que même si nous créons des tests automatisés, nous jouons l'expérience d'exécution comme suit
 
 03:26.450 --> 03:27.950
-a user and look for bugs.
+utilisateur et recherchons les bogues.
 
 03:27.950 --> 03:30.980
-That way there's one way to manually test.
+De cette façon, il n'y a qu'une seule façon de tester manuellement.
 
 03:30.980 --> 03:36.470
-And the other thing that we're doing is we're manually clicking the button in the Unity Test Runner
+Et l'autre chose que nous faisons, c'est de cliquer manuellement sur le bouton dans le Test Runner d'Unity.
 
 03:36.470 --> 03:38.330
-window to run those tests.
+pour exécuter ces tests.
 
 03:38.330 --> 03:40.850
-So let's take a look at some bullet points for manual.
+Jetons donc un coup d'œil à quelques points du manuel.
 
 03:40.880 --> 03:46.520
-First of all, we're not guaranteeing any automated process happens so we can't guarantee any results.
+Tout d'abord, nous ne garantissons aucun processus automatisé et nous ne pouvons donc garantir aucun résultat.
 
 03:46.550 --> 03:51.530
-It is more unreliable and error prone than an automated alternative.
+Il est moins fiable et plus sujet aux erreurs qu'une alternative automatisée.
 
-03:51.620 --> 03:57.530
-These repetitive tasks running them yourself every once in a while, remembering to do that, looking
-
-03:57.530 --> 03:59.840
-diligently at the results that all takes energy.
-
-03:59.840 --> 04:02.120
-And these repetitive tasks can be boring.
-
-04:02.120 --> 04:05.930
-And when things are boring, developers may skip them or do them less frequently.
-
-04:05.930 --> 04:11.690
-And lastly, if we forget to test, then we don't have any good updated status on how our project is
-
-04:11.690 --> 04:12.110
-doing.
-
-04:12.110 --> 04:18.350
-However, if we take all the best practices we have in setting up those tests, and we also automate
-
-04:18.350 --> 04:24.140
-the running of those tasks and even the delivery of our code to our end users, we can take advantage
-
-04:24.140 --> 04:25.430
-of more benefits.
-
-04:25.610 --> 04:29.150
-For example, we have a reliable repetitive process here.
-
-04:29.150 --> 04:35.990
-When we have automatic CI CD setup, we have quick and relevant feedback we can choose and we'll see
-
-04:36.020 --> 04:37.670
-what triggers each build.
-
-04:37.670 --> 04:43.670
-But if we want to do it for every commit to git repo, then every time we do a commit to a git repo,
-
-04:43.700 --> 04:48.620
-the test get run, the build gets verified and we get notified about that.
-
-04:48.620 --> 04:51.920
-So you could do it more or less frequently depending on what your needs are.
-
-04:51.950 --> 04:54.740
-It gives you more confidence in your code so there's less risk.
-
-04:54.740 --> 04:57.980
-So when you go into refactoring systems or adding new features.
-
-04:57.980 --> 04:59.780
-And lastly by having one.
-
-05:00.340 --> 05:04.630
-Builds available to everyone and then automating that on top.
-
-05:04.630 --> 05:10.870
-We have a foundation of this confidence and the security in our code base that allows us to more easily
-
-05:10.870 --> 05:12.360
-collaborate with others.
-
-05:12.370 --> 05:18.340
-We'll be able to know who's contributions continue to keep the project stable, which is an incredibly
-
-05:18.340 --> 05:22.060
-effective piece of info to have when you're working on a team.
-
-05:22.060 --> 05:29.800
-So stepping back here, looking at a visual way, the continuous integration is the code merges, the
-
-05:29.800 --> 05:31.240
-code gets built.
-
-05:31.270 --> 05:36.010
-Then in the continuous delivery we look to see that our tests have passed.
-
-05:36.040 --> 05:42.910
-Then we move it to a staging environment, which is somewhere that is not yet ready for the end users,
-
-05:42.910 --> 05:44.020
-but almost there.
-
-05:44.020 --> 05:48.400
-And we make sure that the process works really well before we deploy it out to the end users.
-
-05:48.430 --> 05:55.930
-Now, you can do automated testing and automated delivery of those testing results, regardless of having
-
-05:55.930 --> 06:01.750
-any particular flow to how you program your code in the version control.
-
-06:01.750 --> 06:08.920
-But just to talk about the potential alignment and connections here, this shows what could be different
-
-06:08.920 --> 06:10.690
-commits on different branches.
-
-06:10.690 --> 06:16.240
-In version control I'm using git, so let's just pretend I'm using git here and I have a main or a master
-
-06:16.240 --> 06:17.110
-branch there.
-
-06:17.110 --> 06:21.580
-And then I do all my development work on a second developer branch.
-
-06:21.580 --> 06:28.420
-And then each time I want to create a new feature, I would branch off of development, give it a name
-
-06:28.420 --> 06:35.420
-like let's say feature, main menu, quick button, and then I would go and add that main menu quit
-
-06:35.440 --> 06:41.770
-button and be sure that that branch only speaks to the changes required for that particular feature.
-
-06:41.890 --> 06:45.310
-So let's say I had feature number one there at the bottom.
-
-06:45.310 --> 06:46.510
-I'd finished it up.
-
-06:46.540 --> 06:52.570
-Here's some of the potential places that we could have the automated CI CD process run.
-
-06:52.570 --> 06:58.330
-First of all, starting at the bottom there, each time I commit to my development feature branch,
-
-06:58.330 --> 07:04.450
-I could kick off a automated build to make sure that all the tests run and that everything is working
-
-07:04.450 --> 07:05.560
-particularly well.
-
-07:05.560 --> 07:06.730
-That's number one.
-
-07:06.760 --> 07:13.210
-Then I might kick that back to a larger feature in step number two, and as I merge it back to that
-
-07:13.210 --> 07:18.940
-development branch, I want to do an automated build test, hitting potentially all the different target
-
-07:18.940 --> 07:19.750
-platforms.
-
-07:19.750 --> 07:26.290
-That means the automated test could be run inside the unity editor in iOS, in Android, on device,
-
-07:26.290 --> 07:27.040
-not on device.
-
-07:27.040 --> 07:28.780
-You've got lots of different options there.
-
-07:29.500 --> 07:35.350
-Then lastly, when that develop, branch is ready and has all of the latest features put to it, and
-
-07:35.350 --> 07:38.980
-we want to test out how that would work on the master branch.
-
-07:38.980 --> 07:46.480
-We have number three there where before I go to commit it into the the top line there the main or the
-
-07:46.480 --> 07:53.620
-master branch, what I could do is merge from the main branch back to develop, then make sure that
-
-07:53.620 --> 07:59.320
-everything works well on the development branch and then only if that works well, then I commit to
-
-07:59.320 --> 08:00.520
-the main or master branch.
-
-08:01.220 --> 08:07.160
-So you can see that you don't have to have these certain steps in any particular order, but you can
-
-08:07.160 --> 08:11.440
-have testing help as much or as little as you like along this workflow.
-
-08:11.450 --> 08:15.440
-Another high level recap just to see this information a few different ways.
-
-08:15.440 --> 08:21.350
-This is specifically to Unity Cloud build instructions here, but I think the steps given are high level
-
-08:21.350 --> 08:21.850
-enough.
-
-08:21.860 --> 08:24.290
-It's true of most competitors as well.
-
-08:24.320 --> 08:27.830
-The first thing you want to do is set up your build automation.
-
-08:27.830 --> 08:32.810
-So you point the build automation to the version control where your code is sitting.
-
-08:32.810 --> 08:38.090
-In my case, that would be connecting Unity Cloud build and connecting it into GitHub where I have a
-
-08:38.090 --> 08:39.440
-repo for the project.
-
-08:39.470 --> 08:42.080
-Then you decide on what trigger to have.
-
-08:42.110 --> 08:49.490
-This is perhaps committing a change to your project on a specific branch, or merging from one branch
-
-08:49.490 --> 08:53.240
-into another branch, or you can set up different rules you want.
-
-08:53.270 --> 08:59.990
-The idea here is to not be running it manually, but instead have some part of your development process
-
-08:59.990 --> 09:01.610
-automatically trigger.
-
-09:01.610 --> 09:03.140
-So that would be number two here.
-
-09:03.170 --> 09:09.260
-Then number three on some trigger when you release the code, when you commit the code, when you merge
-
-09:09.260 --> 09:13.100
-the code, whatever you decide, the build gets automatically created.
-
-09:13.100 --> 09:16.700
-And in step three is where the test would be run as well.
-
-09:16.700 --> 09:21.980
-And then finally the team gets notified when the project has been deployed.
-
-09:21.980 --> 09:29.660
-So in that example flow, we just saw at each of those moments, whoever wants to could subscribe to
-
-09:29.660 --> 09:34.490
-an email that says this feature branch was merged to this one.
-
-09:34.490 --> 09:39.020
-That's not really my area of expertise, so I'm not going to listen to any notifications there.
-
-09:39.020 --> 09:46.310
-But all developers perhaps would want to be notified through the system for anything merged to that
-
-09:46.310 --> 09:52.820
-final main or master branch, and having that CI CD system in there at those key steps is going to confirm
-
-09:52.820 --> 09:58.700
-that your unit tests all pass, that none of them fail, and all that works with success that your project
-
-09:58.700 --> 09:59.510
-builds.
-
-09:59.510 --> 10:04.940
-You can imagine there's scenarios even where the tests would all pass, that maybe the build doesn't
-
-10:04.940 --> 10:05.510
-work.
-
-10:05.510 --> 10:12.080
-Maybe there's some code that is broken or some asset that is broken that does not have test coverage
-
-10:12.080 --> 10:12.530
-yet.
-
-10:12.530 --> 10:18.470
-And just the fact that the project gives an error during the build process is a very solid piece of
-
-10:18.470 --> 10:19.910
-debugging info to have.
-
-10:19.940 --> 10:25.370
-You'll also know the time, date, and branch that caused the issue, so that helps you focus out where
-
-10:25.370 --> 10:27.320
-where to look to fix the problem.
-
-10:27.320 --> 10:29.900
-And then finally the project would deploy with success.
-
-10:29.900 --> 10:35.870
-So we've seen that the CI CD is important for us to be able to know that the project built, but it's
-
-10:35.870 --> 10:38.900
-especially powerful combining with unit testing.
-
-10:38.900 --> 10:44.570
-So not only did it build, but it built with all passing tests and a recap on unit testing, since that's
-
-10:44.570 --> 10:46.160
-the topic of the whole course.
-
-10:46.190 --> 10:52.370
-As your project grows with more scripts, classes and methods, it becomes difficult to ensure that
-
-10:52.370 --> 10:56.360
-a change in one part of your code doesn't break things somewhere else.
-
-10:56.390 --> 11:00.950
-Automated testing helps you check your code is functioning as expected.
-
-11:00.980 --> 11:07.130
-Testing saves you time by finding out when and where problems occur as soon as they are introduced,
-
-11:07.130 --> 11:14.240
-rather than waiting for manual testing users testing it becomes much more expensive the later you find
-
-11:14.240 --> 11:14.930
-these bugs.
-
-11:14.930 --> 11:16.460
-So having the system is quite good.
-
-11:16.460 --> 11:21.400
-And we remember something quite counterintuitive is the 8020 rule.
-
-11:21.410 --> 11:29.300
-It is that 80% of the time we're working on fixing bugs and maintaining our existing code base, and
-
-11:29.300 --> 11:33.740
-20% of time is where we're adding new features and new functionality.
-
-11:33.770 --> 11:38.900
-We often think that most of our day is spent adding new features, so that's where we want to place
-
-11:38.900 --> 11:40.370
-our mental energy.
-
-11:40.370 --> 11:49.250
-However, we see from research that having good test unit test practices, having good automated testing,
-
-11:49.280 --> 11:56.210
-having a CI CD system, it tremendously impacts and improves the efficiency of your 80%.
-
-11:56.210 --> 12:01.550
-So it's really looking at where you can make the most impact with changes to your workflow.
-
-12:01.550 --> 12:09.190
-So before we look at an example of doing the ci CD itself, let's recap the simplest type of class here.
-
-12:09.200 --> 12:14.180
-Imagine we have a my math system that does some addition and does some subtraction.
-
-12:16.120 --> 12:23.620
-Then here we have a unit test, which is a separate file and a separate class using the test attribute
-
-12:23.620 --> 12:24.070
-here.
-
-12:24.100 --> 12:30.640
-This will grab an instance of that last class we saw, create it test one particular unit or method
-
-12:30.640 --> 12:38.530
-of it, being wary of unintended inputs and unintended outputs to that system, and verifying that the
-
-12:38.530 --> 12:40.810
-asserted result is the one that we get.
-
-12:40.840 --> 12:45.550
-Now, in the case of Unity Cloud Build, when you've got tests like that set up in your project and
-
-12:45.550 --> 12:52.120
-you've got the project itself configured in the CI CD system, you can expect to be able to manually
-
-12:52.120 --> 12:57.700
-or automatically run those builds by visiting Unity Cloud Build in this case, which is a web based
-
-12:57.730 --> 12:58.420
-tool.
-
-12:58.450 --> 13:01.750
-See that the build built for the target platform?
-
-13:01.750 --> 13:04.780
-In this case, we're testing windows desktop 64 bit.
-
-13:04.810 --> 13:09.850
-We see that all the edit mode tests pass and all the play mode tests pass.
-
-13:09.880 --> 13:14.320
-All that happens for you automatically based on the trigger that you've decided.
-
-13:14.320 --> 13:16.530
-So this is fantastically useful.
-
-13:16.540 --> 13:20.230
-Then those on the team that are interested can get an email.
-
-13:20.230 --> 13:26.080
-There's a little snippet of an email there that just shows, hey, somebody on the team did a build.
-
-13:26.110 --> 13:30.610
-The build was triggered because this branch was merged to that branch or whatever it was.
-
-13:30.640 --> 13:32.340
-And here are the results.
-
-13:32.350 --> 13:35.820
-They can allow you to click through to a web page or summarize it in the email.
-
-13:35.830 --> 13:42.940
-Now this CI CD topic, as well as the basics of unit testing, the fundamentals of them, advanced topics
-
-13:42.940 --> 13:48.880
-as well, like talking about pure functions and handling individual workshops for some advanced topics
-
-13:48.880 --> 13:51.310
-like scenes, prefabs and adjustables.
-
-13:51.310 --> 13:55.450
-It's all part of this course here you can check out the link below.
-
-13:55.450 --> 13:59.920
-If you are not yet in the course and check out the trailers.
-
-13:59.920 --> 14:02.800
-Enroll in the course and get started on your learning today.
-
-14:02.800 --> 14:07.330
-And if you're already a student of the course and you're finding this video inside the course itself,
-
-14:07.330 --> 14:11.260
-thank you for being a student and I look forward to seeing you in future classes as well.
-
-14:11.260 --> 14:17.620
-So overall here, what we've been able to see is that is that unit testing itself is a tremendously
-
-14:17.620 --> 14:24.550
-powerful tool that helps you to have more efficiencies in the areas of development where you're spending
-
-14:24.550 --> 14:25.850
-lots of time.
-
-14:25.870 --> 14:33.160
-Remember that 80% we saw of overall development effort is maintenance and debugging of existing systems.
-
-14:33.160 --> 14:39.040
-So since we recognize how big of an area of our life that is, it's awesome that we have tools like
-
-14:39.040 --> 14:46.960
-unity Unit testing and CI CD with tools like Unity Cloud Build or other community tools to be able to
-
-14:46.960 --> 14:53.890
-give us all these benefits and automate the delivery of these testing results, the build results and
-
-14:53.890 --> 14:56.200
-the delivery of the builds themselves.
+03:51.620 --> 03

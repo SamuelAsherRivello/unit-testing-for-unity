@@ -1,706 +1,165 @@
 WEBVTT
 
 00:00.020 --> 00:02.750
-Hello and welcome to Unit testing for unity.
+Hallo und willkommen zu Unit Testing für Unity.
 
 00:02.780 --> 00:10.010
-Here we're going to talk about Unity Cloud Build as a popular way to do continuous integration and continuous
+Hier werden wir über Unity Cloud Build sprechen, eine beliebte Methode für kontinuierliche Integration und kontinuierliche
 
 00:10.010 --> 00:11.270
-deployment with unity.
+Bereitstellung mit Unity.
 
 00:11.300 --> 00:17.480
-So we've seen the tremendous benefits of unit testing and setting up an automated process for performing
+Wir haben also die enormen Vorteile von Unit-Tests und der Einrichtung eines automatisierten Prozesses zur Durchführung von
 
 00:17.480 --> 00:18.620
-those unit tests.
+dieser Einheitstests.
 
 00:18.650 --> 00:23.640
-One of those popular options that you can use out there is Unity's Cloud build.
+Eine dieser beliebten Optionen, die man nutzen kann, ist Unitys Cloud-Build.
 
 00:23.660 --> 00:25.820
-This is offered by unity themselves.
+Dies wird von Unity selbst angeboten.
 
 00:25.850 --> 00:31.040
-There's also plenty of third party or community based alternatives to what I'm about to show you.
+Es gibt auch viele Alternativen von Drittanbietern oder aus der Community zu dem, was ich euch jetzt zeigen werde.
 
 00:31.070 --> 00:37.820
-Because cloud build is unity specific, built by unity, and it just works quite easily.
+Denn Cloud Build ist Unity-spezifisch, von Unity erstellt, und es funktioniert ganz einfach.
 
 00:37.820 --> 00:43.280
-I'm going to focus on that here, but most of the steps that you're seeing here would be very similar
+Ich werde mich hier darauf konzentrieren, aber die meisten der Schritte, die du hier siehst, sind sehr ähnlich
 
 00:43.280 --> 00:45.560
-in setting up some competitive tools.
+bei der Einrichtung einiger wettbewerbsfähiger Werkzeuge.
 
 00:45.560 --> 00:49.100
-So Unity Cloud Build offers unity build automation.
+Unity Cloud Build bietet also Unity Build Automation.
 
 00:49.100 --> 00:55.750
-Making quality games means having a CI CD pipeline that's ready for frequent testing and releasing.
+Qualitativ hochwertige Spiele zu entwickeln bedeutet, eine CI-CD-Pipeline zu haben, die für häufige Tests und Freigaben bereit ist.
 
 00:55.760 --> 01:00.440
-Automate your build pipeline in the cloud and keep development moving with unity.
+Automatisieren Sie Ihre Build-Pipeline in der Cloud und halten Sie die Entwicklung mit Unity in Gang.
 
 01:00.440 --> 01:01.460
-Build automation.
+Build-Automatisierung.
 
 01:01.460 --> 01:03.530
-So in this video we'll go through the whole process.
+In diesem Video werden wir den gesamten Prozess durchgehen.
 
 01:03.530 --> 01:07.880
-But Unity Cloud Build is a web based software as a service.
+Aber Unity Cloud Build ist eine webbasierte Software als Service.
 
 01:07.910 --> 01:12.710
-It does cost, but there is a free beginning tier that we'll use for today.
+Sie kostet, aber es gibt eine kostenlose Einstiegsversion, die wir heute benutzen werden.
 
 01:12.740 --> 01:17.870
-Companies that have a lot of builds to do and want to minimize the wait time of their building would
+Unternehmen, die viele Gebäude bauen müssen und die Wartezeit für ihre Gebäude minimieren wollen, sollten
 
 01:17.870 --> 01:23.480
-be best suited with paid tiers for this service or finding an alternative.
+am besten mit bezahlten Stufen für diesen Dienst oder einer Alternative.
 
 01:23.870 --> 01:27.350
-Once you're using the Unity Cloud build, it's web based.
+Sobald man die Unity Cloud verwendet, ist sie webbasiert.
 
 01:27.350 --> 01:30.710
-As I mentioned, you open up the build history and click build.
+Wie ich bereits erwähnt habe, öffnet man die Build-Historie und klickt auf Build.
 
 01:30.710 --> 01:36.350
-If you want to manually do a test, or you can schedule those builds, you could have them, for example,
+Wenn Sie manuell einen Test durchführen wollen, oder Sie können diese Builds planen, können Sie sie zum Beispiel haben,
 
 01:36.350 --> 01:42.260
-happen only on your main branch, but happen every night at 1 a.m. and it will just automatically build
+nur auf Ihrem Hauptzweig stattfinden, aber jede Nacht um 1 Uhr nachts und es wird einfach automatisch gebaut
 
 01:42.260 --> 01:43.310
-once a day at that.
+einmal am Tag zu diesem Zeitpunkt.
 
 01:43.340 --> 01:45.190
-You could also set up a trigger.
+Sie können auch einen Auslöser einrichten.
 
 01:45.200 --> 01:52.220
-You could also set up triggers so that it builds automatically based on certain criteria, like when
+Man kann auch Auslöser einrichten, so dass es sich automatisch nach bestimmten Kriterien aufbaut, z.B. wenn
 
 01:52.220 --> 01:56.540
-code is committed from one branch to another, automatically run it.
+Code von einem Zweig auf einen anderen übertragen wird, automatisch ausgeführt wird.
 
 01:56.540 --> 01:57.920
-So you've got some options there.
+Sie haben also einige Optionen.
 
 01:57.920 --> 02:02.570
-And once you kick off that build, either manually or automatically, you and all the members of your
+Und sobald Sie den Build gestartet haben, entweder manuell oder automatisch, werden Sie und alle Mitglieder Ihres
 
 02:02.570 --> 02:08.300
-team who want will receive an email confirming successful builds, failed builds, or whatever level
+Teams, die dies wünschen, eine E-Mail erhalten, in der erfolgreiche oder fehlgeschlagene Builds bestätigt werden, oder was auch immer für ein Level
 
 02:08.300 --> 02:09.200
-of info you want.
+der Informationen, die Sie wünschen.
 
 02:09.230 --> 02:10.940
-Let's see a demo of this in action.
+Sehen wir uns eine Demo davon in Aktion an.
 
 02:10.940 --> 02:17.180
-Now I've already gone through and created a project, tested that it makes sure it works well with Unity
+Jetzt habe ich bereits ein Projekt erstellt und getestet, ob es mit Unity funktioniert
 
 02:17.180 --> 02:17.600
-Cloud.
+Wolke.
 
 02:17.600 --> 02:19.310
-Build and finish that up.
+Erstelle und beende es.
 
 02:19.310 --> 02:22.550
-I did some of that work so that I could understand how the system works.
+Ich habe etwas von dieser Arbeit gemacht, damit ich verstehe, wie das System funktioniert.
 
 02:22.550 --> 02:25.990
-And also to take some of the screenshots we've seen here in this presentation.
+Und auch, um einige der Screenshots zu machen, die wir hier in dieser Präsentation gesehen haben.
 
 02:26.000 --> 02:32.750
-However, what I'm going to do is just start the process from scratch so you can see every step involved.
+Ich werde jedoch den Prozess von vorne beginnen, damit Sie jeden Schritt sehen können.
 
 02:32.780 --> 02:38.150
-Now, I'm not going to create the project itself, but I'll do all of the automation on top of that.
+Jetzt werde ich nicht das Projekt selbst erstellen, sondern die gesamte Automatisierung darauf aufbauen.
 
 02:38.150 --> 02:44.780
-So here's our unity project that already has the unit tests added and all the different example scenes.
+Hier ist also unser Unity-Projekt, das bereits die Unit-Tests und alle verschiedenen Beispielszenen enthält.
 
 02:44.780 --> 02:49.760
-It's the one project for this course and it's linked in the course resources section.
+Es ist das einzige Projekt für diesen Kurs und es ist im Abschnitt Kursressourcen verlinkt.
 
 02:49.760 --> 02:55.460
-We can find that here on GitHub just to explore the page to confirm that it is indeed ready.
+Wir können es hier auf GitHub finden, um die Seite zu erkunden und zu bestätigen, dass es tatsächlich fertig ist.
 
 02:55.460 --> 02:57.170
-And I'll open it up inside unity.
+Und ich werde es in Unity öffnen.
 
 02:57.170 --> 02:59.390
-Here we are in the project inside unity.
+Hier sind wir im Projekt innerhalb von Unity.
 
 02:59.420 --> 03:01.430
-We can see up here in the Inspector.
+Wir können hier oben im Inspektor sehen.
 
 03:01.430 --> 03:07.070
-We've got some links that we can click through to different areas of the project to get started seeing
+Wir haben einige Links, durch die wir zu verschiedenen Bereichen des Projekts klicken können, um zu sehen
 
 03:07.070 --> 03:12.290
-some of the examples, as well as clicking through to the course and the sample project link itself.
+einige der Beispiele sowie den Link zum Kurs und zum Beispielprojekt selbst anklicken.
 
 03:12.380 --> 03:15.830
-We can also test that all the unit tests pass inside the test runner.
+Wir können auch testen, ob alle Unit-Tests im Test-Runner erfolgreich sind.
 
 03:15.830 --> 03:16.850
-So let's do that.
+Das sollten wir also tun.
 
 03:19.000 --> 03:21.610
-You can see all 148 tests pass.
+Sie können sehen, dass alle 148 Tests erfolgreich waren.
 
 03:21.760 --> 03:27.340
-Something else that I want to do is go into the build settings, and if it's not already there, I want
+Etwas anderes, was ich tun möchte, ist in die Build-Einstellungen zu gehen, und wenn es nicht bereits dort ist, möchte ich
 
 03:27.340 --> 03:33.280
-to add in this keep this scene in Build Settings for Cloud Build, and I'll make sure to commit that
+diese Szene in den Build Settings for Cloud Build hinzufügen, und ich werde sicherstellen, dass ich das
 
 03:33.280 --> 03:34.030
-to the repo.
+in das Repo.
 
 03:34.060 --> 03:37.900
-Now each of these build processes works quite differently.
-
-03:37.930 --> 03:45.670
-Unity Cloud Build does want to build at least one scene in order for it to be considered a passing build
-
-03:45.670 --> 03:46.660
-process.
-
-03:46.660 --> 03:49.060
-So that's why it needs one scene in there.
-
-03:49.060 --> 03:52.540
-And that scene is quite simple, quite empty.
-
-03:52.570 --> 03:56.530
-It's just there to test very minimal functionality.
-
-03:56.560 --> 04:02.410
-You could also have a more involved scene if you wanted, and have that be the one test that gets built,
-
-04:02.410 --> 04:08.620
-but I'm assuming that my unit test coverage in edit mode and in play mode is doing that for me.
-
-04:08.620 --> 04:12.410
-So I have a pretty empty test scene that I drag into there.
-
-04:12.430 --> 04:14.550
-Here we see the Unity Hub opened up.
-
-04:14.560 --> 04:19.780
-Typically we're logged in, but I've purposely logged myself out so I can create a brand new account.
-
-04:19.810 --> 04:24.550
-If you've already created an account for use in unity, you can skip this step.
-
-04:24.550 --> 04:26.310
-I'm just showing it to be complete.
-
-04:26.320 --> 04:30.820
-There's nothing unique that you need to do here, specifically cloud building just yet.
-
-04:30.910 --> 04:33.690
-So what I'll do here is I'll go to create an account.
-
-04:33.700 --> 04:40.000
-Then once the most basic setup is complete, I'll then go to Cloud unity.com.
-
-04:40.000 --> 04:43.240
-And this is where I need to do some additional configuration.
-
-04:43.240 --> 04:47.500
-So that my project that I showed on GitHub gets built automatically.
-
-04:47.950 --> 04:51.970
-Now I've already done these steps, but I'm going to do them again from scratch so we can see it all
-
-04:51.970 --> 04:52.300
-here.
-
-04:52.300 --> 04:57.990
-So I'm going to go to projects here in the sidebar and then click new to grab a new project.
-
-04:58.000 --> 05:06.010
-I will call this unit testing for unity two because I already have one that I used.
-
-05:06.040 --> 05:08.520
-Will this be targeted to children under 13?
-
-05:08.530 --> 05:09.520
-No, it will not.
-
-05:14.670 --> 05:15.480
-Okay.
-
-05:15.720 --> 05:17.290
-So let's look at some of these details.
-
-05:17.310 --> 05:25.470
-We've got the project name an icon a project ID the Google license key for in-app purchases is not there
-
-05:25.470 --> 05:26.060
-yet.
-
-05:26.070 --> 05:32.730
-This dashboard that we're seeing does all sorts of different features that unity offers from its services.
-
-05:32.760 --> 05:34.950
-We don't need to do any of that stuff here.
-
-05:35.040 --> 05:35.310
-All right.
-
-05:35.340 --> 05:38.460
-Now that that project's been set up, we're going to go to dev ops here.
-
-05:41.900 --> 05:44.420
-One of the things that we can do is build automation.
-
-05:44.420 --> 05:46.640
-We'll go to the settings for build automation.
-
-05:46.760 --> 05:49.790
-So here we are with build automation settings.
-
-05:49.910 --> 05:52.760
-We can see some general info here.
-
-06:00.250 --> 06:00.760
-Yep.
-
-06:01.480 --> 06:03.370
-I'll go to the source control.
-
-06:05.470 --> 06:09.010
-Source control has a dropdown, we can choose Git Hub.
-
-06:09.140 --> 06:09.430
-Okay.
-
-06:09.460 --> 06:13.660
-So this is telling us that we need to have a personal access token from git.
-
-06:13.690 --> 06:14.020
-Okay.
-
-06:14.020 --> 06:19.490
-What we have to do is connect our Unity Cloud bill account here with our GitHub account.
-
-06:19.510 --> 06:26.950
-This way the building process knows where our code lives and can listen in on certain events, like
-
-06:26.950 --> 06:32.480
-when the code has been updated or merged, etcetera, in order to allow permission for Unity Cloud build.
-
-06:32.500 --> 06:38.220
-We'll go into the settings here and we'll grab a personal access token from our GitHub.
-
-06:38.230 --> 06:42.180
-So this says creates and provides your GitHub personal access token.
-
-06:42.190 --> 06:46.960
-You'll need to select the repo read org scope.
-
-06:50.800 --> 06:55.330
-So you'll need a GitHub account for wherever the repo is.
-
-06:55.360 --> 06:57.760
-It doesn't need to be the repo that I've set up here.
-
-06:57.760 --> 07:02.590
-You could run this on your own, but in order to get that personal access token, that is something
-
-07:02.590 --> 07:04.270
-specific to your account.
-
-07:04.300 --> 07:06.910
-Nothing to do with me as the instructor here.
-
-07:07.030 --> 07:12.010
-So we can go here up to the profile and go down to settings.
-
-07:16.450 --> 07:20.320
-Then down here on the side we go to Developer Settings.
-
-07:30.250 --> 07:33.580
-Then under personal access tokens, we can go to classic.
-
-07:35.260 --> 07:38.000
-I've already got one in there that I created recently.
-
-07:38.020 --> 07:42.130
-This one is project read org and repo.
-
-07:42.460 --> 07:45.460
-I'll generate a new token, so I'll give this a name.
-
-07:45.460 --> 07:51.040
-It'll be Unity Cloud build token to.
-
-07:54.200 --> 07:56.480
-I'll give it no expiration.
-
-07:56.480 --> 07:58.910
-So here I'll choose repo.
-
-07:59.120 --> 08:03.860
-I'll choose read, read and read on a few of these settings.
-
-08:04.760 --> 08:07.250
-This may not be all required.
-
-08:07.250 --> 08:08.450
-Perhaps you could do less.
-
-08:08.450 --> 08:09.530
-But I'll do this.
-
-08:13.200 --> 08:13.530
-Okay.
-
-08:13.560 --> 08:15.780
-Then we copy the value from there.
-
-08:22.760 --> 08:25.490
-We paste in the value and we authorize.
-
-08:32.850 --> 08:33.750
-Choose my unit.
-
-08:33.750 --> 08:35.040
-Testing for unity.
-
-08:36.210 --> 08:38.670
-Now let's look at the configurations here.
-
-08:40.080 --> 08:47.070
-We will do a quick target setup and we'll choose windows 64.
-
-08:47.580 --> 08:55.290
-Now, if your end project is being played by users of particular target devices like Android, iOS,
-
-08:55.320 --> 08:59.520
-etcetera, you may want to do builds for all of those early on.
-
-08:59.550 --> 09:02.850
-Here we can see that we've got lots of different things to select.
-
-09:02.880 --> 09:08.760
-Typically, there's the least friction in getting a windows build to work on a windows machine, so
-
-09:08.760 --> 09:09.930
-I just choose that one.
-
-09:16.830 --> 09:17.160
-Here.
-
-09:17.160 --> 09:19.260
-We'll choose the branch we want to build.
-
-09:19.290 --> 09:22.350
-Now here we see project subfolder path.
-
-09:22.350 --> 09:23.550
-And this is optional.
-
-09:23.550 --> 09:30.030
-But it says if your assets and project settings are not in the root folder of your repo, we recommend
-
-09:30.030 --> 09:31.740
-entering the folder path.
-
-09:31.770 --> 09:34.230
-Let's take a look at my project here.
-
-09:34.260 --> 09:43.380
-Now here is the repo and my convention is that my unity project is always under a repo slash unity slash
-
-09:43.410 --> 09:44.750
-assets, for example.
-
-09:44.760 --> 09:49.200
-I find on larger projects that's always helpful to have that separation there.
-
-09:49.200 --> 09:53.070
-So all projects of all scales do I start them out this way?
-
-09:53.160 --> 09:58.660
-Inside that unity folder we can see the familiar assets, packages and project settings.
-
-09:58.680 --> 10:02.040
-Now these three folders are immediately in your root.
-
-10:02.070 --> 10:07.860
-You don't need any custom configuration, but if these three folders are not in your root, then you
-
-10:07.860 --> 10:10.500
-need to address exactly where those come from.
-
-10:12.180 --> 10:15.570
-So in my case it is just unity slash.
-
-10:16.780 --> 10:19.140
-Then we can talk about the unity version.
-
-10:19.150 --> 10:26.290
-Now, I find that automatically detecting the unity version probably a good idea so that it can build
-
-10:26.290 --> 10:31.250
-one based on whichever latest version has been pushed into the repo.
-
-10:31.270 --> 10:37.720
-However, I suspect it doesn't work for me because of my pathing, so I'm going to turn auto detect
-
-10:37.750 --> 10:38.560
-off.
-
-10:39.530 --> 10:48.530
-And I will say always use the latest 2022 because that's what my project is being built on and I will
-
-10:48.530 --> 10:50.900
-use a Windows server here.
-
-10:51.870 --> 10:57.570
-I'm not doing any builds to iOS or Android, so I don't need to take advantage of the additional configuration
-
-10:57.570 --> 10:57.930
-there.
-
-10:57.930 --> 11:00.690
-But the Xcode version for iOS stuff is here.
-
-11:00.690 --> 11:04.170
-For example, you can skip a lot of that stuff as you're configuring.
-
-11:05.060 --> 11:10.720
-Now as it continues the build configuration, it allows me to choose a more or less powerful computer.
-
-11:10.730 --> 11:14.060
-I'm not looking to do any paid builds here.
-
-11:14.090 --> 11:18.590
-This is not meant for a real use case, so I'm not going to think too deeply about that.
-
-11:18.590 --> 11:24.440
-I'll just use the free tier eligible then I can choose here as one of my screenshots alluded to.
-
-11:24.440 --> 11:29.300
-Automatically build or configure a repeating build schedule.
-
-11:30.300 --> 11:30.820
-Mhm.
-
-11:31.200 --> 11:35.880
-Let's say that I wanted to do automatically build when your repository is updated.
-
-11:37.090 --> 11:39.300
-Then we're going to save that configuration.
-
-11:45.430 --> 11:47.230
-Okay, we've got that there.
-
-11:50.480 --> 11:55.580
-Now, continuing with the settings of the build automation, we can see that under caching we can have
-
-11:55.580 --> 11:56.660
-no cache.
-
-11:57.290 --> 12:01.280
-Cache, just the library or cache the entire project.
-
-12:01.430 --> 12:09.890
-If we choose no cache, then each build will take more time, but it will have less chance for error
-
-12:09.890 --> 12:13.230
-because it is not using any older cache files.
-
-12:13.250 --> 12:20.750
-If I cache just the library directory, then the first build ever will not be benefited because it first
-
-12:20.750 --> 12:27.800
-needs to build the project and cache it, but then every project build after it will be faster than
-
-12:27.800 --> 12:32.900
-the first one because it is not needing to rebuild that every single time.
-
-12:33.020 --> 12:39.260
-One of the dangers with doing this is that it could potentially be using some old files and giving a
-
-12:39.260 --> 12:44.240
-bad result, but generally we just understand that risk as possible.
-
-12:44.240 --> 12:47.660
-And what my approach would be is to cache the library directory.
-
-12:47.660 --> 12:57.230
-And if you're ever unsure why the project is failing to build or why tests are passing in your local
-
-12:57.230 --> 13:01.520
-unity editor, but they're not passing in the cloud build, then maybe I would turn off the cache in
-
-13:01.520 --> 13:02.720
-that situation.
-
-13:03.390 --> 13:04.890
-So here I'll just use cash.
-
-13:04.890 --> 13:05.640
-Library.
-
-13:09.610 --> 13:11.500
-Then here under build consumption.
-
-13:11.500 --> 13:16.490
-Since these builds are part of a potentially pay as you go scenario.
-
-13:16.510 --> 13:18.130
-Take a look at this info.
-
-13:18.160 --> 13:24.250
-You want to add any sort of limits to how quickly your builds can build, to save you some real world
-
-13:24.250 --> 13:24.700
-money.
-
-13:24.730 --> 13:30.220
-Here in the build configurations, we can see that there's some options we want to look at for testing.
-
-13:30.400 --> 13:34.210
-So if I scroll down here we see build output.
-
-13:34.240 --> 13:44.080
-We see the caching section that we saw before, some specific dependency settings, script hooks and
-
-13:44.080 --> 13:44.620
-more.
-
-13:45.130 --> 13:50.110
-The important thing we want to reach here for our needs is running the tests.
-
-13:50.110 --> 13:54.310
-We'll run the edit mode tests and the play mode test.
-
-13:54.340 --> 14:01.840
-We want to mark the build failed if the test fails, so that we only push through and deliver code that
-
-14:01.840 --> 14:03.820
-has passed all of our testing.
-
-14:04.000 --> 14:08.080
-You may have a situation where you have a known test that fails.
-
-14:08.080 --> 14:11.020
-You know why it fails and you plan to fix it.
-
-14:11.020 --> 14:17.590
-So you may choose to have failing tests, not fail the whole build in those moments.
-
-14:17.590 --> 14:21.160
-So having your configuration look like this is probably the best.
-
-14:21.190 --> 14:28.420
-Now when I go to the Build history page here, it allows me to build locally and upload the build here
-
-14:28.420 --> 14:36.040
-so that you could distribute it or have the continuous development or deployment rather take over.
-
-14:36.550 --> 14:42.040
-Or you can do the build here automatically, which I think is probably much more likely the use case.
-
-14:42.040 --> 14:48.100
-So remember I chose to automatically build any time the main branch gets updated.
-
-14:48.100 --> 14:49.840
-So that would happen automatically.
-
-14:49.840 --> 14:56.530
-I could have done an every night at 1 a.m. do an automatic build regardless of any changes.
-
-14:56.560 --> 14:57.640
-You can always do that one.
-
-14:57.640 --> 14:59.410
-So let's go ahead and do a build now.
-
-15:19.390 --> 15:24.040
-And here we can see the results of a passing successful build.
-
-15:24.070 --> 15:27.840
-Now typically you would get notified via email.
-
-15:27.850 --> 15:30.610
-There's configuration settings here where you can do that.
-
-15:30.610 --> 15:35.890
-So you can go about continuing your day without really thinking about what the build server is doing.
-
-15:35.890 --> 15:42.130
-And only when you get an email confirming a failed test or a failed build do you react.
-
-15:42.880 --> 15:48.010
-Over the course of a given week, you would expect most of the incoming traffic from that notification
-
-15:48.010 --> 15:52.390
-system to be confirming that yes, another build worked and it worked well.
-
-15:54.760 --> 15:59.830
-So just scrolling down here, we can see an overview of the full log, which is going to be helpful
-
-15:59.830 --> 16:01.060
-if you have some issues.
-
-16:01.060 --> 16:06.880
-You need to debug the compact log, which will show only the most relevant errors.
-
-16:07.990 --> 16:09.610
-And there's more info as well.
-
-16:09.610 --> 16:15.550
-You can see lots of different reporting about how it went and then regarding tests, you can see which
-
-16:15.550 --> 16:21.520
-tests passed and if any did not pass, you'd be able to dig in and figure out how to make them work.
-
-16:21.520 --> 16:29.620
-Well, a workflow if you do see a failing notification, what I would do is schedule time to open up
-
-16:29.620 --> 16:32.140
-that particular build of the project.
-
-16:32.140 --> 16:36.330
-Wherever in version control, it's sitting, perhaps merging together some code.
-
-16:36.340 --> 16:42.370
-I would open that up locally, and then I would run the test from inside unity, being able to debug
-
-16:42.370 --> 16:42.790
-them.
-
-16:43.270 --> 16:49.930
-So that's it here for setting up Unity Cloud Build to automate a cloud build of your project, either
-
-16:49.960 --> 16:56.170
-on a regular schedule triggered by particular events, or doing it manually within the dashboard.
-
-16:56.170 --> 17:01.780
-Within all those scenarios, we get a nice history of all of our builds forever in the past.
-
-17:01.780 --> 17:08.500
-So having this automated system set up, having hopefully mostly successful messaging coming your way,
-
-17:08.530 --> 17:14.740
-gives you just enough info on when and where the code base is broken so that you can go in and you can
-
-17:14.740 --> 17:16.060
-fix any issues.
-
-17:16.150 --> 17:18.310
-That's it for setting up Unity Cloud Build.
-
-17:18.310 --> 17:19.060
-Thanks.
