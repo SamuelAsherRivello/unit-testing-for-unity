@@ -1,706 +1,706 @@
 WEBVTT
 
-00:00.020 --> 00:02.750
-Hello and welcome to Unit testing for unity.
+00:00:00.020 --> 00:00:02.750
+Hola y bienvenido a las pruebas unitarias para Unity.
 
-00:02.780 --> 00:10.010
-Here we're going to talk about Unity Cloud Build as a popular way to do continuous integration and continuous
+00:00:02.780 --> 00:00:10.010
+Aquí vamos a hablar sobre Unity Cloud Build como una forma popular de realizar integración continua y
 
-00:10.010 --> 00:11.270
-deployment with unity.
+00:00:10.010 --> 00:00:11.270
+despliegue con unidad.
 
-00:11.300 --> 00:17.480
-So we've seen the tremendous benefits of unit testing and setting up an automated process for performing
+00:00:11.300 --> 00:00:17.480
+Hemos visto los tremendos beneficios de las pruebas unitarias y la configuración de un proceso automatizado para realizar
 
-00:17.480 --> 00:18.620
-those unit tests.
+00:00:17.480 --> 00:00:18.620
+esas pruebas unitarias.
 
-00:18.650 --> 00:23.640
-One of those popular options that you can use out there is Unity's Cloud build.
+00:00:18.650 --> 00:00:23.640
+Una de esas opciones populares que puedes usar es la compilación en la nube de Unity.
 
-00:23.660 --> 00:25.820
-This is offered by unity themselves.
+00:00:23.660 --> 00:00:25.820
+Esto lo ofrece la propia unidad.
 
-00:25.850 --> 00:31.040
-There's also plenty of third party or community based alternatives to what I'm about to show you.
+00:00:25.850 --> 00:00:31.040
+También hay muchas alternativas de terceros o basadas en la comunidad a lo que estoy a punto de mostrarles.
 
-00:31.070 --> 00:37.820
-Because cloud build is unity specific, built by unity, and it just works quite easily.
+00:00:31.070 --> 00:00:37.820
+Porque la construcción de la nube es específica de Unity, construida por Unity y funciona con bastante facilidad.
 
-00:37.820 --> 00:43.280
-I'm going to focus on that here, but most of the steps that you're seeing here would be very similar
+00:00:37.820 --> 00:00:43.280
+Me centraré en eso aquí, pero la mayoría de los pasos que estás viendo aquí serían muy similares.
 
-00:43.280 --> 00:45.560
-in setting up some competitive tools.
+00:00:43.280 --> 00:00:45.560
+en la creación de algunas herramientas competitivas.
 
-00:45.560 --> 00:49.100
-So Unity Cloud Build offers unity build automation.
+00:00:45.560 --> 00:00:49.100
+Por eso, Unity Cloud Build ofrece automatización de construcción de Unity.
 
-00:49.100 --> 00:55.750
-Making quality games means having a CI CD pipeline that's ready for frequent testing and releasing.
+00:00:49.100 --> 00:00:55.750
+Crear juegos de calidad significa tener una canalización de CD de CI que esté lista para pruebas y lanzamientos frecuentes.
 
-00:55.760 --> 01:00.440
-Automate your build pipeline in the cloud and keep development moving with unity.
+00:00:55.760 --> 00:01:00.440
+Automatice su proceso de construcción en la nube y mantenga el desarrollo avanzando con unidad.
 
-01:00.440 --> 01:01.460
-Build automation.
+00:01:00.440 --> 00:01:01.460
+Construir automatización.
 
-01:01.460 --> 01:03.530
-So in this video we'll go through the whole process.
+00:01:01.460 --> 00:01:03.530
+Entonces, en este video veremos todo el proceso.
 
-01:03.530 --> 01:07.880
-But Unity Cloud Build is a web based software as a service.
+00:01:03.530 --> 00:01:07.880
+Pero Unity Cloud Build es un software como servicio basado en web.
 
-01:07.910 --> 01:12.710
-It does cost, but there is a free beginning tier that we'll use for today.
+00:01:07.910 --> 00:01:12.710
+Tiene un costo, pero hay un nivel inicial gratuito que usaremos por hoy.
 
-01:12.740 --> 01:17.870
-Companies that have a lot of builds to do and want to minimize the wait time of their building would
+00:01:12.740 --> 00:01:17.870
+Las empresas que tienen muchas construcciones por hacer y desean minimizar el tiempo de espera de su edificio
 
-01:17.870 --> 01:23.480
-be best suited with paid tiers for this service or finding an alternative.
+00:01:17.870 --> 00:01:23.480
+ser más adecuado con niveles pagos para este servicio o encontrar una alternativa.
 
-01:23.870 --> 01:27.350
-Once you're using the Unity Cloud build, it's web based.
+00:01:23.870 --> 00:01:27.350
+Una vez que esté utilizando la compilación de Unity Cloud, estará basada en la web.
 
-01:27.350 --> 01:30.710
-As I mentioned, you open up the build history and click build.
+00:01:27.350 --> 00:01:30.710
+Como mencioné, abres el historial de compilación y haces clic en compilar.
 
-01:30.710 --> 01:36.350
-If you want to manually do a test, or you can schedule those builds, you could have them, for example,
+00:01:30.710 --> 00:01:36.350
+Si desea realizar una prueba manualmente o puede programar esas compilaciones, puede tenerlas, por ejemplo,
 
-01:36.350 --> 01:42.260
-happen only on your main branch, but happen every night at 1 a.m. and it will just automatically build
+00:01:36.350 --> 00:01:42.260
+Esto sucede solo en su sucursal principal, pero sucede todas las noches a la 1 am y se construirá automáticamente.
 
-01:42.260 --> 01:43.310
-once a day at that.
+00:01:42.260 --> 00:01:43.310
+una vez al día.
 
-01:43.340 --> 01:45.190
-You could also set up a trigger.
+00:01:43.340 --> 00:01:45.190
+También puedes configurar un disparador.
 
-01:45.200 --> 01:52.220
-You could also set up triggers so that it builds automatically based on certain criteria, like when
+00:01:45.200 --> 00:01:52.220
+También puede configurar activadores para que se genere automáticamente en función de ciertos criterios, como cuándo
 
-01:52.220 --> 01:56.540
-code is committed from one branch to another, automatically run it.
+00:01:52.220 --> 00:01:56.540
+El código se envía de una rama a otra, ejecútelo automáticamente.
 
-01:56.540 --> 01:57.920
-So you've got some options there.
+00:01:56.540 --> 00:01:57.920
+Entonces tienes algunas opciones allí.
 
-01:57.920 --> 02:02.570
-And once you kick off that build, either manually or automatically, you and all the members of your
+00:01:57.920 --> 00:02:02.570
+Y una vez que inicies esa compilación, ya sea manual o automáticamente, tú y todos los miembros de tu
 
-02:02.570 --> 02:08.300
-team who want will receive an email confirming successful builds, failed builds, or whatever level
+00:02:02.570 --> 00:02:08.300
+El equipo que lo desee recibirá un correo electrónico confirmando las compilaciones exitosas, las compilaciones fallidas o cualquier nivel.
 
-02:08.300 --> 02:09.200
-of info you want.
+00:02:08.300 --> 00:02:09.200
+de información que deseas.
 
-02:09.230 --> 02:10.940
-Let's see a demo of this in action.
+00:02:09.230 --> 00:02:10.940
+Veamos una demostración de esto en acción.
 
-02:10.940 --> 02:17.180
-Now I've already gone through and created a project, tested that it makes sure it works well with Unity
+00:02:10.940 --> 00:02:17.180
+Ahora ya revisé y creé un proyecto, probé que funciona bien con Unity.
 
-02:17.180 --> 02:17.600
-Cloud.
+00:02:17.180 --> 00:02:17.600
+Nube.
 
-02:17.600 --> 02:19.310
-Build and finish that up.
+00:02:17.600 --> 00:02:19.310
+Construye y termina eso.
 
-02:19.310 --> 02:22.550
-I did some of that work so that I could understand how the system works.
+00:02:19.310 --> 00:02:22.550
+Hice parte de ese trabajo para poder entender cómo funciona el sistema.
 
-02:22.550 --> 02:25.990
-And also to take some of the screenshots we've seen here in this presentation.
+00:02:22.550 --> 00:02:25.990
+Y también para tomar algunas de las capturas de pantalla que hemos visto aquí en esta presentación.
 
-02:26.000 --> 02:32.750
-However, what I'm going to do is just start the process from scratch so you can see every step involved.
+00:02:26.000 --> 00:02:32.750
+Sin embargo, lo que voy a hacer es comenzar el proceso desde cero para que puedas ver cada paso involucrado.
 
-02:32.780 --> 02:38.150
-Now, I'm not going to create the project itself, but I'll do all of the automation on top of that.
+00:02:32.780 --> 00:02:38.150
+Ahora, no voy a crear el proyecto en sí, pero además haré toda la automatización.
 
-02:38.150 --> 02:44.780
-So here's our unity project that already has the unit tests added and all the different example scenes.
+00:02:38.150 --> 00:02:44.780
+Así que aquí está nuestro proyecto unity que ya tiene las pruebas unitarias agregadas y todas las diferentes escenas de ejemplo.
 
-02:44.780 --> 02:49.760
-It's the one project for this course and it's linked in the course resources section.
+00:02:44.780 --> 00:02:49.760
+Es el único proyecto de este curso y está vinculado en la sección de recursos del curso.
 
-02:49.760 --> 02:55.460
-We can find that here on GitHub just to explore the page to confirm that it is indeed ready.
+00:02:49.760 --> 00:02:55.460
+Podemos encontrarlo aquí en GitHub simplemente para explorar la página y confirmar que realmente está lista.
 
-02:55.460 --> 02:57.170
-And I'll open it up inside unity.
+00:02:55.460 --> 00:02:57.170
+Y lo abriré dentro de la unidad.
 
-02:57.170 --> 02:59.390
-Here we are in the project inside unity.
+00:02:57.170 --> 00:02:59.390
+Aquí estamos en el proyecto dentro de la unidad.
 
-02:59.420 --> 03:01.430
-We can see up here in the Inspector.
+00:02:59.420 --> 00:03:01.430
+Podemos verlo aquí arriba en el Inspector.
 
-03:01.430 --> 03:07.070
-We've got some links that we can click through to different areas of the project to get started seeing
+00:03:01.430 --> 00:03:07.070
+Tenemos algunos enlaces en los que podemos hacer clic para acceder a diferentes áreas del proyecto para comenzar a ver.
 
-03:07.070 --> 03:12.290
-some of the examples, as well as clicking through to the course and the sample project link itself.
+00:03:07.070 --> 00:03:12.290
+algunos de los ejemplos, además de hacer clic en el curso y en el enlace del proyecto de muestra.
 
-03:12.380 --> 03:15.830
-We can also test that all the unit tests pass inside the test runner.
+00:03:12.380 --> 00:03:15.830
+También podemos probar que todas las pruebas unitarias pasan dentro del ejecutor de pruebas.
 
-03:15.830 --> 03:16.850
-So let's do that.
+00:03:15.830 --> 00:03:16.850
+Así que hagamos eso.
 
-03:19.000 --> 03:21.610
-You can see all 148 tests pass.
+00:03:19.000 --> 00:03:21.610
+Puedes ver pasar las 148 pruebas.
 
-03:21.760 --> 03:27.340
-Something else that I want to do is go into the build settings, and if it's not already there, I want
+00:03:21.760 --> 00:03:27.340
+Otra cosa que quiero hacer es ir a la configuración de compilación y, si aún no está allí, quiero
 
-03:27.340 --> 03:33.280
-to add in this keep this scene in Build Settings for Cloud Build, and I'll make sure to commit that
+00:03:27.340 --> 00:03:33.280
+para agregar esto, mantenga esta escena en Configuración de compilación para Cloud Build, y me aseguraré de confirmarla
 
-03:33.280 --> 03:34.030
-to the repo.
+00:03:33.280 --> 00:03:34.030
+al repositorio.
 
-03:34.060 --> 03:37.900
-Now each of these build processes works quite differently.
+00:03:34.060 --> 00:03:37.900
+Ahora cada uno de estos procesos de construcción funciona de manera bastante diferente.
 
-03:37.930 --> 03:45.670
-Unity Cloud Build does want to build at least one scene in order for it to be considered a passing build
+00:03:37.930 --> 00:03:45.670
+Unity Cloud Build quiere crear al menos una escena para que se considere una compilación pasajera.
 
-03:45.670 --> 03:46.660
-process.
+00:03:45.670 --> 00:03:46.660
+proceso.
 
-03:46.660 --> 03:49.060
-So that's why it needs one scene in there.
+00:03:46.660 --> 00:03:49.060
+Por eso es que necesita una escena allí.
 
-03:49.060 --> 03:52.540
-And that scene is quite simple, quite empty.
+00:03:49.060 --> 00:03:52.540
+Y esa escena es bastante simple, bastante vacía.
 
-03:52.570 --> 03:56.530
-It's just there to test very minimal functionality.
+00:03:52.570 --> 00:03:56.530
+Sólo está ahí para probar una funcionalidad mínima.
 
-03:56.560 --> 04:02.410
-You could also have a more involved scene if you wanted, and have that be the one test that gets built,
+00:03:56.560 --> 00:04:02.410
+También podrías tener una escena más complicada si quisieras, y hacer que esa sea la única prueba que se construya.
 
-04:02.410 --> 04:08.620
-but I'm assuming that my unit test coverage in edit mode and in play mode is doing that for me.
+00:04:02.410 --> 00:04:08.620
+pero supongo que la cobertura de mi prueba unitaria en modo de edición y en modo de reproducción lo hace por mí.
 
-04:08.620 --> 04:12.410
-So I have a pretty empty test scene that I drag into there.
+00:04:08.620 --> 00:04:12.410
+Entonces tengo una escena de prueba bastante vacía que arrastro allí.
 
-04:12.430 --> 04:14.550
-Here we see the Unity Hub opened up.
+00:04:12.430 --> 00:04:14.550
+Aquí vemos el Unity Hub abierto.
 
-04:14.560 --> 04:19.780
-Typically we're logged in, but I've purposely logged myself out so I can create a brand new account.
+00:04:14.560 --> 00:04:19.780
+Por lo general, iniciamos sesión, pero yo me desconecté deliberadamente para poder crear una cuenta nueva.
 
-04:19.810 --> 04:24.550
-If you've already created an account for use in unity, you can skip this step.
+00:04:19.810 --> 00:04:24.550
+Si ya creó una cuenta para usar en Unity, puede omitir este paso.
 
-04:24.550 --> 04:26.310
-I'm just showing it to be complete.
+00:04:24.550 --> 00:04:26.310
+Sólo lo muestro completo.
 
-04:26.320 --> 04:30.820
-There's nothing unique that you need to do here, specifically cloud building just yet.
+00:04:26.320 --> 00:04:30.820
+No hay nada especial que deba hacer aquí, específicamente la creación de la nube por el momento.
 
-04:30.910 --> 04:33.690
-So what I'll do here is I'll go to create an account.
+00:04:30.910 --> 00:04:33.690
+Entonces, lo que haré aquí es crear una cuenta.
 
-04:33.700 --> 04:40.000
-Then once the most basic setup is complete, I'll then go to Cloud unity.com.
+00:04:33.700 --> 00:04:40.000
+Luego, una vez completada la configuración más básica, iré a Cloud unity.com.
 
-04:40.000 --> 04:43.240
-And this is where I need to do some additional configuration.
+00:04:40.000 --> 00:04:43.240
+Y aquí es donde necesito hacer alguna configuración adicional.
 
-04:43.240 --> 04:47.500
-So that my project that I showed on GitHub gets built automatically.
+00:04:43.240 --> 00:04:47.500
+Para que mi proyecto que mostré en GitHub se construya automáticamente.
 
-04:47.950 --> 04:51.970
-Now I've already done these steps, but I'm going to do them again from scratch so we can see it all
+00:04:47.950 --> 00:04:51.970
+Ahora ya hice estos pasos, pero los voy a hacer nuevamente desde cero para que podamos verlo todo.
 
-04:51.970 --> 04:52.300
-here.
+00:04:51.970 --> 00:04:52.300
+aquí.
 
-04:52.300 --> 04:57.990
-So I'm going to go to projects here in the sidebar and then click new to grab a new project.
+00:04:52.300 --> 00:04:57.990
+Así que iré a proyectos aquí en la barra lateral y luego haré clic en nuevo para obtener un nuevo proyecto.
 
-04:58.000 --> 05:06.010
-I will call this unit testing for unity two because I already have one that I used.
+00:04:58.000 --> 00:05:06.010
+Llamaré a esta unidad prueba para la unidad dos porque ya tengo una que usé.
 
-05:06.040 --> 05:08.520
-Will this be targeted to children under 13?
+00:05:06.040 --> 00:05:08.520
+¿Estará dirigido a niños menores de 13 años?
 
-05:08.530 --> 05:09.520
-No, it will not.
+00:05:08.530 --> 00:05:09.520
+No, no lo hará.
 
-05:14.670 --> 05:15.480
-Okay.
+00:05:14.670 --> 00:05:15.480
+Bueno.
 
-05:15.720 --> 05:17.290
-So let's look at some of these details.
+00:05:15.720 --> 00:05:17.290
+Así que veamos algunos de estos detalles.
 
-05:17.310 --> 05:25.470
-We've got the project name an icon a project ID the Google license key for in-app purchases is not there
+00:05:17.310 --> 00:05:25.470
+Tenemos el nombre del proyecto, un ícono, una identificación del proyecto, la clave de licencia de Google para compras dentro de la aplicación no está allí.
 
-05:25.470 --> 05:26.060
-yet.
+00:05:25.470 --> 00:05:26.060
+todavía.
 
-05:26.070 --> 05:32.730
-This dashboard that we're seeing does all sorts of different features that unity offers from its services.
+00:05:26.070 --> 00:05:32.730
+Este panel que estamos viendo incluye todo tipo de características diferentes que Unity ofrece en sus servicios.
 
-05:32.760 --> 05:34.950
-We don't need to do any of that stuff here.
+00:05:32.760 --> 00:05:34.950
+No necesitamos hacer nada de eso aquí.
 
-05:35.040 --> 05:35.310
-All right.
+00:05:35.040 --> 00:05:35.310
+Está bien.
 
-05:35.340 --> 05:38.460
-Now that that project's been set up, we're going to go to dev ops here.
+00:05:35.340 --> 00:05:38.460
+Ahora que el proyecto se ha configurado, vamos a pasar a las operaciones de desarrollo aquí.
 
-05:41.900 --> 05:44.420
-One of the things that we can do is build automation.
+00:05:41.900 --> 00:05:44.420
+Una de las cosas que podemos hacer es crear automatización.
 
-05:44.420 --> 05:46.640
-We'll go to the settings for build automation.
+00:05:44.420 --> 00:05:46.640
+Iremos a la configuración para la automatización de compilación.
 
-05:46.760 --> 05:49.790
-So here we are with build automation settings.
+00:05:46.760 --> 00:05:49.790
+Así que aquí estamos con la configuración de automatización de compilación.
 
-05:49.910 --> 05:52.760
-We can see some general info here.
+00:05:49.910 --> 00:05:52.760
+Podemos ver información general aquí.
 
-06:00.250 --> 06:00.760
-Yep.
+00:06:00.250 --> 00:06:00.760
+Sí.
 
-06:01.480 --> 06:03.370
-I'll go to the source control.
+00:06:01.480 --> 00:06:03.370
+Iré al control de fuente.
 
-06:05.470 --> 06:09.010
-Source control has a dropdown, we can choose Git Hub.
+00:06:05.470 --> 00:06:09.010
+El control de fuente tiene un menú desplegable, podemos elegir Git Hub.
 
-06:09.140 --> 06:09.430
-Okay.
+00:06:09.140 --> 00:06:09.430
+Bueno.
 
-06:09.460 --> 06:13.660
-So this is telling us that we need to have a personal access token from git.
+00:06:09.460 --> 00:06:13.660
+Entonces esto nos dice que necesitamos tener un token de acceso personal de git.
 
-06:13.690 --> 06:14.020
-Okay.
+00:06:13.690 --> 00:06:14.020
+Bueno.
 
-06:14.020 --> 06:19.490
-What we have to do is connect our Unity Cloud bill account here with our GitHub account.
+00:06:14.020 --> 00:06:19.490
+Lo que tenemos que hacer es conectar nuestra cuenta de facturación de Unity Cloud aquí con nuestra cuenta de GitHub.
 
-06:19.510 --> 06:26.950
-This way the building process knows where our code lives and can listen in on certain events, like
+00:06:19.510 --> 00:06:26.950
+De esta manera, el proceso de construcción sabe dónde reside nuestro código y puede escuchar ciertos eventos, como
 
-06:26.950 --> 06:32.480
-when the code has been updated or merged, etcetera, in order to allow permission for Unity Cloud build.
+00:06:26.950 --> 00:06:32.480
+cuando el código se ha actualizado o fusionado, etcétera, para permitir el permiso para la compilación de Unity Cloud.
 
-06:32.500 --> 06:38.220
-We'll go into the settings here and we'll grab a personal access token from our GitHub.
+00:06:32.500 --> 00:06:38.220
+Iremos a la configuración aquí y tomaremos un token de acceso personal de nuestro GitHub.
 
-06:38.230 --> 06:42.180
-So this says creates and provides your GitHub personal access token.
+00:06:38.230 --> 00:06:42.180
+Esto dice crea y proporciona su token de acceso personal de GitHub.
 
-06:42.190 --> 06:46.960
-You'll need to select the repo read org scope.
+00:06:42.190 --> 00:06:46.960
+Deberá seleccionar el alcance de la organización de lectura del repositorio.
 
-06:50.800 --> 06:55.330
-So you'll need a GitHub account for wherever the repo is.
+00:06:50.800 --> 00:06:55.330
+Por lo tanto, necesitará una cuenta de GitHub para dondequiera que esté el repositorio.
 
-06:55.360 --> 06:57.760
-It doesn't need to be the repo that I've set up here.
+00:06:55.360 --> 00:06:57.760
+No es necesario que sea el repositorio que configuré aquí.
 
-06:57.760 --> 07:02.590
-You could run this on your own, but in order to get that personal access token, that is something
+00:06:57.760 --> 00:07:02.590
+Podrías ejecutar esto por tu cuenta, pero para obtener ese token de acceso personal, eso es algo
 
-07:02.590 --> 07:04.270
-specific to your account.
+00:07:02.590 --> 00:07:04.270
+específico para su cuenta.
 
-07:04.300 --> 07:06.910
-Nothing to do with me as the instructor here.
+00:07:04.300 --> 00:07:06.910
+Nada que ver conmigo como instructor aquí.
 
-07:07.030 --> 07:12.010
-So we can go here up to the profile and go down to settings.
+00:07:07.030 --> 00:07:12.010
+Entonces podemos ir aquí hasta el perfil y bajar a configuración.
 
-07:16.450 --> 07:20.320
-Then down here on the side we go to Developer Settings.
+00:07:16.450 --> 00:07:20.320
+Luego aquí abajo vamos a Configuración de desarrollador.
 
-07:30.250 --> 07:33.580
-Then under personal access tokens, we can go to classic.
+00:07:30.250 --> 00:07:33.580
+Luego, en tokens de acceso personal, podemos pasar al clásico.
 
-07:35.260 --> 07:38.000
-I've already got one in there that I created recently.
+00:07:35.260 --> 00:07:38.000
+Ya tengo uno allí que creé recientemente.
 
-07:38.020 --> 07:42.130
-This one is project read org and repo.
+00:07:38.020 --> 00:07:42.130
+Este es el proyecto read org y repo.
 
-07:42.460 --> 07:45.460
-I'll generate a new token, so I'll give this a name.
+00:07:42.460 --> 00:07:45.460
+Generaré un nuevo token, así que le daré un nombre.
 
-07:45.460 --> 07:51.040
-It'll be Unity Cloud build token to.
+00:07:45.460 --> 00:07:51.040
+Será el token de compilación de Unity Cloud.
 
-07:54.200 --> 07:56.480
-I'll give it no expiration.
+00:07:54.200 --> 00:07:56.480
+No le daré caducidad.
 
-07:56.480 --> 07:58.910
-So here I'll choose repo.
+00:07:56.480 --> 00:07:58.910
+Así que aquí elegiré repositorio.
 
-07:59.120 --> 08:03.860
-I'll choose read, read and read on a few of these settings.
+00:07:59.120 --> 00:08:03.860
+Elegiré leer, leer y leer en algunas de estas configuraciones.
 
-08:04.760 --> 08:07.250
-This may not be all required.
+00:08:04.760 --> 00:08:07.250
+Puede que esto no sea todo necesario.
 
-08:07.250 --> 08:08.450
-Perhaps you could do less.
+00:08:07.250 --> 00:08:08.450
+Quizás podrías hacer menos.
 
-08:08.450 --> 08:09.530
-But I'll do this.
+00:08:08.450 --> 00:08:09.530
+Pero haré esto.
 
-08:13.200 --> 08:13.530
-Okay.
+00:08:13.200 --> 00:08:13.530
+Bueno.
 
-08:13.560 --> 08:15.780
-Then we copy the value from there.
+00:08:13.560 --> 00:08:15.780
+Luego copiamos el valor de allí.
 
-08:22.760 --> 08:25.490
-We paste in the value and we authorize.
+00:08:22.760 --> 00:08:25.490
+Pegamos el valor y autorizamos.
 
-08:32.850 --> 08:33.750
-Choose my unit.
+00:08:32.850 --> 00:08:33.750
+Elige mi unidad.
 
-08:33.750 --> 08:35.040
-Testing for unity.
+00:08:33.750 --> 00:08:35.040
+Prueba de unidad.
 
-08:36.210 --> 08:38.670
-Now let's look at the configurations here.
+00:08:36.210 --> 00:08:38.670
+Ahora veamos las configuraciones aquí.
 
-08:40.080 --> 08:47.070
-We will do a quick target setup and we'll choose windows 64.
+00:08:40.080 --> 00:08:47.070
+Haremos una configuración rápida del objetivo y elegiremos Windows 64.
 
-08:47.580 --> 08:55.290
-Now, if your end project is being played by users of particular target devices like Android, iOS,
+00:08:47.580 --> 00:08:55.290
+Ahora, si su proyecto final está siendo reproducido por usuarios de dispositivos de destino particulares como Android, iOS,
 
-08:55.320 --> 08:59.520
-etcetera, you may want to do builds for all of those early on.
+00:08:55.320 --> 00:08:59.520
+etcétera, es posible que desees crear compilaciones para todos ellos desde el principio.
 
-08:59.550 --> 09:02.850
-Here we can see that we've got lots of different things to select.
+00:08:59.550 --> 00:09:02.850
+Aquí podemos ver que tenemos muchas cosas diferentes para seleccionar.
 
-09:02.880 --> 09:08.760
-Typically, there's the least friction in getting a windows build to work on a windows machine, so
+00:09:02.880 --> 00:09:08.760
+Normalmente, existe la menor fricción para lograr que una compilación de Windows funcione en una máquina con Windows, por lo que
 
-09:08.760 --> 09:09.930
-I just choose that one.
+00:09:08.760 --> 00:09:09.930
+Sólo elijo ese.
 
-09:16.830 --> 09:17.160
-Here.
+00:09:16.830 --> 00:09:17.160
+Aquí.
 
-09:17.160 --> 09:19.260
-We'll choose the branch we want to build.
+00:09:17.160 --> 00:09:19.260
+Elegiremos la rama que queremos construir.
 
-09:19.290 --> 09:22.350
-Now here we see project subfolder path.
+00:09:19.290 --> 00:09:22.350
+Ahora aquí vemos la ruta de la subcarpeta del proyecto.
 
-09:22.350 --> 09:23.550
-And this is optional.
+00:09:22.350 --> 00:09:23.550
+Y esto es opcional.
 
-09:23.550 --> 09:30.030
-But it says if your assets and project settings are not in the root folder of your repo, we recommend
+00:09:23.550 --> 00:09:30.030
+Pero dice que si sus activos y la configuración del proyecto no están en la carpeta raíz de su repositorio, le recomendamos
 
-09:30.030 --> 09:31.740
-entering the folder path.
+00:09:30.030 --> 00:09:31.740
+ingresando la ruta de la carpeta.
 
-09:31.770 --> 09:34.230
-Let's take a look at my project here.
+00:09:31.770 --> 00:09:34.230
+Echemos un vistazo a mi proyecto aquí.
 
-09:34.260 --> 09:43.380
-Now here is the repo and my convention is that my unity project is always under a repo slash unity slash
+00:09:34.260 --> 00:09:43.380
+Ahora aquí está el repositorio y mi convención es que mi proyecto de unidad siempre está bajo una barra de repositorio barra de unidad
 
-09:43.410 --> 09:44.750
-assets, for example.
+00:09:43.410 --> 00:09:44.750
+activos, por ejemplo.
 
-09:44.760 --> 09:49.200
-I find on larger projects that's always helpful to have that separation there.
+00:09:44.760 --> 00:09:49.200
+En proyectos más grandes siempre es útil tener esa separación ahí.
 
-09:49.200 --> 09:53.070
-So all projects of all scales do I start them out this way?
+00:09:49.200 --> 00:09:53.070
+Entonces, ¿todos los proyectos de todas las escalas los comienzo de esta manera?
 
-09:53.160 --> 09:58.660
-Inside that unity folder we can see the familiar assets, packages and project settings.
+00:09:53.160 --> 00:09:58.660
+Dentro de esa carpeta de unidad podemos ver los activos, paquetes y configuraciones del proyecto familiares.
 
-09:58.680 --> 10:02.040
-Now these three folders are immediately in your root.
+00:09:58.680 --> 00:10:02.040
+Ahora estas tres carpetas están inmediatamente en tu raíz.
 
-10:02.070 --> 10:07.860
-You don't need any custom configuration, but if these three folders are not in your root, then you
+00:10:02.070 --> 00:10:07.860
+No necesita ninguna configuración personalizada, pero si estas tres carpetas no están en su raíz, entonces
 
-10:07.860 --> 10:10.500
-need to address exactly where those come from.
+00:10:07.860 --> 00:10:10.500
+Es necesario abordar exactamente de dónde provienen.
 
-10:12.180 --> 10:15.570
-So in my case it is just unity slash.
+00:10:12.180 --> 00:10:15.570
+Entonces, en mi caso, es solo una barra unitaria.
 
-10:16.780 --> 10:19.140
-Then we can talk about the unity version.
+00:10:16.780 --> 00:10:19.140
+Entonces podemos hablar de la versión unity.
 
-10:19.150 --> 10:26.290
-Now, I find that automatically detecting the unity version probably a good idea so that it can build
+00:10:19.150 --> 00:10:26.290
+Ahora, creo que detectar automáticamente la versión de Unity probablemente sea una buena idea para que pueda compilar
 
-10:26.290 --> 10:31.250
-one based on whichever latest version has been pushed into the repo.
+00:10:26.290 --> 00:10:31.250
+uno basado en la última versión que se haya incluido en el repositorio.
 
-10:31.270 --> 10:37.720
-However, I suspect it doesn't work for me because of my pathing, so I'm going to turn auto detect
+00:10:31.270 --> 00:10:37.720
+Sin embargo, sospecho que no me funciona debido a mi ruta, así que activaré la detección automática.
 
-10:37.750 --> 10:38.560
-off.
+00:10:37.750 --> 00:10:38.560
+apagado.
 
-10:39.530 --> 10:48.530
-And I will say always use the latest 2022 because that's what my project is being built on and I will
+00:10:39.530 --> 00:10:48.530
+Y diré que siempre use la última versión de 2022 porque en eso se basa mi proyecto y lo haré.
 
-10:48.530 --> 10:50.900
-use a Windows server here.
+00:10:48.530 --> 00:10:50.900
+utilice un servidor de Windows aquí.
 
-10:51.870 --> 10:57.570
-I'm not doing any builds to iOS or Android, so I don't need to take advantage of the additional configuration
+00:10:51.870 --> 00:10:57.570
+No estoy haciendo ninguna compilación para iOS o Android, por lo que no necesito aprovechar la configuración adicional.
 
-10:57.570 --> 10:57.930
-there.
+00:10:57.570 --> 00:10:57.930
+allá.
 
-10:57.930 --> 11:00.690
-But the Xcode version for iOS stuff is here.
+00:10:57.930 --> 00:11:00.690
+Pero la versión de Xcode para iOS ya está aquí.
 
-11:00.690 --> 11:04.170
-For example, you can skip a lot of that stuff as you're configuring.
+00:11:00.690 --> 00:11:04.170
+Por ejemplo, puedes omitir muchas de esas cosas mientras configuras.
 
-11:05.060 --> 11:10.720
-Now as it continues the build configuration, it allows me to choose a more or less powerful computer.
+00:11:05.060 --> 00:11:10.720
+Ahora, mientras continúa con la configuración de compilación, me permite elegir una computadora más o menos potente.
 
-11:10.730 --> 11:14.060
-I'm not looking to do any paid builds here.
+00:11:10.730 --> 00:11:14.060
+No busco hacer ninguna compilación paga aquí.
 
-11:14.090 --> 11:18.590
-This is not meant for a real use case, so I'm not going to think too deeply about that.
+00:11:14.090 --> 00:11:18.590
+Esto no está pensado para un caso de uso real, así que no voy a pensar demasiado en ello.
 
-11:18.590 --> 11:24.440
-I'll just use the free tier eligible then I can choose here as one of my screenshots alluded to.
+00:11:18.590 --> 00:11:24.440
+Usaré el nivel gratuito elegible y luego podré elegir aquí como una de mis capturas de pantalla a las que aludo.
 
-11:24.440 --> 11:29.300
-Automatically build or configure a repeating build schedule.
+00:11:24.440 --> 00:11:29.300
+Cree o configure automáticamente un programa de compilación repetido.
 
-11:30.300 --> 11:30.820
-Mhm.
+00:11:30.300 --> 00:11:30.820
+Mmmm.
 
-11:31.200 --> 11:35.880
-Let's say that I wanted to do automatically build when your repository is updated.
+00:11:31.200 --> 00:11:35.880
+Digamos que quería compilar automáticamente cuando se actualice su repositorio.
 
-11:37.090 --> 11:39.300
-Then we're going to save that configuration.
+00:11:37.090 --> 00:11:39.300
+Luego vamos a guardar esa configuración.
 
-11:45.430 --> 11:47.230
-Okay, we've got that there.
+00:11:45.430 --> 00:11:47.230
+Bien, lo tenemos ahí.
 
-11:50.480 --> 11:55.580
-Now, continuing with the settings of the build automation, we can see that under caching we can have
+00:11:50.480 --> 00:11:55.580
+Ahora, continuando con la configuración de la automatización de compilación, podemos ver que en el almacenamiento en caché podemos tener
 
-11:55.580 --> 11:56.660
+00:11:55.580 --> 00:11:56.660
 no cache.
 
-11:57.290 --> 12:01.280
-Cache, just the library or cache the entire project.
+00:11:57.290 --> 00:12:01.280
+Caché, solo la biblioteca o caché de todo el proyecto.
 
-12:01.430 --> 12:09.890
-If we choose no cache, then each build will take more time, but it will have less chance for error
+00:12:01.430 --> 00:12:09.890
+Si elegimos no tener caché, cada compilación llevará más tiempo, pero habrá menos posibilidades de error.
 
-12:09.890 --> 12:13.230
-because it is not using any older cache files.
+00:12:09.890 --> 00:12:13.230
+porque no utiliza ningún archivo de caché más antiguo.
 
-12:13.250 --> 12:20.750
-If I cache just the library directory, then the first build ever will not be benefited because it first
+00:12:13.250 --> 00:12:20.750
+Si guardo en caché solo el directorio de la biblioteca, entonces la primera compilación no se beneficiará porque primero
 
-12:20.750 --> 12:27.800
-needs to build the project and cache it, but then every project build after it will be faster than
+00:12:20.750 --> 00:12:27.800
+necesita construir el proyecto y almacenarlo en caché, pero luego cada proyecto que se construya después será más rápido que
 
-12:27.800 --> 12:32.900
-the first one because it is not needing to rebuild that every single time.
+00:12:27.800 --> 00:12:32.900
+el primero porque no es necesario reconstruirlo cada vez.
 
-12:33.020 --> 12:39.260
-One of the dangers with doing this is that it could potentially be using some old files and giving a
+00:12:33.020 --> 00:12:39.260
+Uno de los peligros de hacer esto es que podría estar utilizando algunos archivos antiguos y dando un
 
-12:39.260 --> 12:44.240
-bad result, but generally we just understand that risk as possible.
+00:12:39.260 --> 00:12:44.240
+mal resultado, pero generalmente entendemos ese riesgo como posible.
 
-12:44.240 --> 12:47.660
-And what my approach would be is to cache the library directory.
+00:12:44.240 --> 00:12:47.660
+Y mi enfoque sería almacenar en caché el directorio de la biblioteca.
 
-12:47.660 --> 12:57.230
-And if you're ever unsure why the project is failing to build or why tests are passing in your local
+00:12:47.660 --> 00:12:57.230
+Y si alguna vez no está seguro de por qué el proyecto no se puede construir o por qué las pruebas pasan en su local
 
-12:57.230 --> 13:01.520
-unity editor, but they're not passing in the cloud build, then maybe I would turn off the cache in
+00:12:57.230 --> 00:13:01.520
+editor de Unity, pero no pasan la compilación en la nube, entonces tal vez apagaría el caché en
 
-13:01.520 --> 13:02.720
-that situation.
+00:13:01.520 --> 00:13:02.720
+esa situación.
 
-13:03.390 --> 13:04.890
-So here I'll just use cash.
+00:13:03.390 --> 00:13:04.890
+Entonces aquí solo usaré efectivo.
 
-13:04.890 --> 13:05.640
-Library.
+00:13:04.890 --> 00:13:05.640
+Biblioteca.
 
-13:09.610 --> 13:11.500
-Then here under build consumption.
+00:13:09.610 --> 00:13:11.500
+Luego aquí bajo consumo de construcción.
 
-13:11.500 --> 13:16.490
-Since these builds are part of a potentially pay as you go scenario.
+00:13:11.500 --> 00:13:16.490
+Dado que estas compilaciones son parte de un escenario potencialmente de pago por uso.
 
-13:16.510 --> 13:18.130
-Take a look at this info.
+00:13:16.510 --> 00:13:18.130
+Echa un vistazo a esta información.
 
-13:18.160 --> 13:24.250
-You want to add any sort of limits to how quickly your builds can build, to save you some real world
+00:13:18.160 --> 00:13:24.250
+Desea agregar algún tipo de límite a la rapidez con la que se pueden construir sus compilaciones, para ahorrar algo del mundo real.
 
-13:24.250 --> 13:24.700
-money.
+00:13:24.250 --> 00:13:24.700
+dinero.
 
-13:24.730 --> 13:30.220
-Here in the build configurations, we can see that there's some options we want to look at for testing.
+00:13:24.730 --> 00:13:30.220
+Aquí, en las configuraciones de compilación, podemos ver que hay algunas opciones que queremos analizar para probar.
 
-13:30.400 --> 13:34.210
-So if I scroll down here we see build output.
+00:13:30.400 --> 00:13:34.210
+Entonces, si me desplazo hacia abajo aquí, vemos el resultado de la compilación.
 
-13:34.240 --> 13:44.080
-We see the caching section that we saw before, some specific dependency settings, script hooks and
+00:13:34.240 --> 00:13:44.080
+Vemos la sección de almacenamiento en caché que vimos antes, algunas configuraciones de dependencia específicas, enlaces de script y
 
-13:44.080 --> 13:44.620
-more.
+00:13:44.080 --> 00:13:44.620
+más.
 
-13:45.130 --> 13:50.110
-The important thing we want to reach here for our needs is running the tests.
+00:13:45.130 --> 00:13:50.110
+Lo importante que queremos alcanzar aquí para nuestras necesidades es ejecutar las pruebas.
 
-13:50.110 --> 13:54.310
-We'll run the edit mode tests and the play mode test.
+00:13:50.110 --> 00:13:54.310
+Ejecutaremos las pruebas del modo de edición y la prueba del modo de reproducción.
 
-13:54.340 --> 14:01.840
-We want to mark the build failed if the test fails, so that we only push through and deliver code that
+00:13:54.340 --> 00:14:01.840
+Queremos marcar que la compilación falló si la prueba falla, de modo que solo impulsemos y entreguemos el código que
 
-14:01.840 --> 14:03.820
-has passed all of our testing.
+00:14:01.840 --> 00:14:03.820
+ha pasado todas nuestras pruebas.
 
-14:04.000 --> 14:08.080
-You may have a situation where you have a known test that fails.
+00:14:04.000 --> 00:14:08.080
+Es posible que tenga una situación en la que tenga una prueba conocida que falle.
 
-14:08.080 --> 14:11.020
-You know why it fails and you plan to fix it.
+00:14:08.080 --> 00:14:11.020
+Sabes por qué falla y planeas solucionarlo.
 
-14:11.020 --> 14:17.590
-So you may choose to have failing tests, not fail the whole build in those moments.
+00:14:11.020 --> 00:14:17.590
+Por lo tanto, puede optar por realizar pruebas fallidas, no fallar toda la compilación en esos momentos.
 
-14:17.590 --> 14:21.160
-So having your configuration look like this is probably the best.
+00:14:17.590 --> 00:14:21.160
+Así que tener una configuración así es probablemente lo mejor.
 
-14:21.190 --> 14:28.420
-Now when I go to the Build history page here, it allows me to build locally and upload the build here
+00:14:21.190 --> 00:14:28.420
+Ahora, cuando voy a la página Historial de compilación aquí, me permite compilar localmente y cargar la compilación aquí.
 
-14:28.420 --> 14:36.040
-so that you could distribute it or have the continuous development or deployment rather take over.
+00:14:28.420 --> 00:14:36.040
+para que pueda distribuirlo o hacer que el desarrollo o implementación continuo se haga cargo.
 
-14:36.550 --> 14:42.040
-Or you can do the build here automatically, which I think is probably much more likely the use case.
+00:14:36.550 --> 00:14:42.040
+O puede hacer la compilación aquí automáticamente, lo que creo que probablemente sea el caso de uso mucho más probable.
 
-14:42.040 --> 14:48.100
-So remember I chose to automatically build any time the main branch gets updated.
+00:14:42.040 --> 00:14:48.100
+Recuerde que elegí compilar automáticamente cada vez que se actualiza la rama principal.
 
-14:48.100 --> 14:49.840
-So that would happen automatically.
+00:14:48.100 --> 00:14:49.840
+Entonces eso sucedería automáticamente.
 
-14:49.840 --> 14:56.530
-I could have done an every night at 1 a.m. do an automatic build regardless of any changes.
+00:14:49.840 --> 00:14:56.530
+Podría haber hecho todas las noches a la 1 am hacer una compilación automática independientemente de los cambios.
 
-14:56.560 --> 14:57.640
-You can always do that one.
+00:14:56.560 --> 00:14:57.640
+Siempre puedes hacer eso.
 
-14:57.640 --> 14:59.410
-So let's go ahead and do a build now.
+00:14:57.640 --> 00:14:59.410
+Así que sigamos adelante y hagamos una compilación ahora.
 
-15:19.390 --> 15:24.040
-And here we can see the results of a passing successful build.
+00:15:19.390 --> 00:15:24.040
+Y aquí podemos ver los resultados de una construcción exitosa.
 
-15:24.070 --> 15:27.840
-Now typically you would get notified via email.
+00:15:24.070 --> 00:15:27.840
+Ahora normalmente recibirás una notificación por correo electrónico.
 
-15:27.850 --> 15:30.610
-There's configuration settings here where you can do that.
+00:15:27.850 --> 00:15:30.610
+Hay ajustes de configuración aquí donde puedes hacer eso.
 
-15:30.610 --> 15:35.890
-So you can go about continuing your day without really thinking about what the build server is doing.
+00:15:30.610 --> 00:15:35.890
+Por lo tanto, puede continuar con su día sin pensar realmente en lo que está haciendo el servidor de compilación.
 
-15:35.890 --> 15:42.130
-And only when you get an email confirming a failed test or a failed build do you react.
+00:15:35.890 --> 00:15:42.130
+Y solo reacciona cuando recibe un correo electrónico que confirma una prueba fallida o una compilación fallida.
 
-15:42.880 --> 15:48.010
-Over the course of a given week, you would expect most of the incoming traffic from that notification
+00:15:42.880 --> 00:15:48.010
+En el transcurso de una semana determinada, se esperaría que la mayor parte del tráfico entrante provenga de esa notificación.
 
-15:48.010 --> 15:52.390
-system to be confirming that yes, another build worked and it worked well.
+00:15:48.010 --> 00:15:52.390
+El sistema confirma que sí, otra compilación funcionó y funcionó bien.
 
-15:54.760 --> 15:59.830
-So just scrolling down here, we can see an overview of the full log, which is going to be helpful
+00:15:54.760 --> 00:15:59.830
+Con solo desplazarnos hacia abajo aquí, podemos ver una descripción general del registro completo, lo cual será útil.
 
-15:59.830 --> 16:01.060
-if you have some issues.
+00:15:59.830 --> 00:16:01.060
+si tienes algunos problemas.
 
-16:01.060 --> 16:06.880
-You need to debug the compact log, which will show only the most relevant errors.
+00:16:01.060 --> 00:16:06.880
+Debe depurar el registro compacto, que mostrará sólo los errores más relevantes.
 
-16:07.990 --> 16:09.610
-And there's more info as well.
+00:16:07.990 --> 00:16:09.610
+Y también hay más información.
 
-16:09.610 --> 16:15.550
-You can see lots of different reporting about how it went and then regarding tests, you can see which
+00:16:09.610 --> 00:16:15.550
+Puede ver muchos informes diferentes sobre cómo fue y luego, con respecto a las pruebas, puede ver cuáles
 
-16:15.550 --> 16:21.520
-tests passed and if any did not pass, you'd be able to dig in and figure out how to make them work.
+00:16:15.550 --> 00:16:21.520
+Las pruebas pasaron y, si alguna no pasó, podrá profundizar y descubrir cómo hacer que funcionen.
 
-16:21.520 --> 16:29.620
-Well, a workflow if you do see a failing notification, what I would do is schedule time to open up
+00:16:21.520 --> 00:16:29.620
+Bueno, un flujo de trabajo, si ves una notificación fallida, lo que yo haría es programar un tiempo para abrir
 
-16:29.620 --> 16:32.140
-that particular build of the project.
+00:16:29.620 --> 00:16:32.140
+esa construcción particular del proyecto.
 
-16:32.140 --> 16:36.330
-Wherever in version control, it's sitting, perhaps merging together some code.
+00:16:32.140 --> 00:16:36.330
+En cualquier lugar del control de versiones, está sentado, tal vez fusionando algún código.
 
-16:36.340 --> 16:42.370
-I would open that up locally, and then I would run the test from inside unity, being able to debug
+00:16:36.340 --> 00:16:42.370
+Lo abriría localmente y luego ejecutaría la prueba desde dentro de Unity, pudiendo depurar
 
-16:42.370 --> 16:42.790
-them.
+00:16:42.370 --> 00:16:42.790
+a ellos.
 
-16:43.270 --> 16:49.930
-So that's it here for setting up Unity Cloud Build to automate a cloud build of your project, either
+00:16:43.270 --> 00:16:49.930
+Eso es todo aquí para configurar Unity Cloud Build para automatizar una compilación en la nube de su proyecto, ya sea
 
-16:49.960 --> 16:56.170
-on a regular schedule triggered by particular events, or doing it manually within the dashboard.
+00:16:49.960 --> 00:16:56.170
+en un cronograma regular activado por eventos particulares, o hacerlo manualmente dentro del tablero.
 
-16:56.170 --> 17:01.780
-Within all those scenarios, we get a nice history of all of our builds forever in the past.
+00:16:56.170 --> 00:17:01.780
+Dentro de todos esos escenarios, obtenemos una buena historia de todas nuestras compilaciones en el pasado.
 
-17:01.780 --> 17:08.500
-So having this automated system set up, having hopefully mostly successful messaging coming your way,
+00:17:01.780 --> 00:17:08.500
+Entonces, al tener este sistema automatizado configurado y, con suerte, recibir mensajes en su mayoría exitosos,
 
-17:08.530 --> 17:14.740
-gives you just enough info on when and where the code base is broken so that you can go in and you can
+00:17:08.530 --> 00:17:14.740
+le brinda suficiente información sobre cuándo y dónde se rompe el código base para que pueda ingresar y poder
 
-17:14.740 --> 17:16.060
-fix any issues.
+00:17:14.740 --> 00:17:16.060
+solucionar cualquier problema.
 
-17:16.150 --> 17:18.310
-That's it for setting up Unity Cloud Build.
+00:17:16.150 --> 00:17:18.310
+Eso es todo para configurar Unity Cloud Build.
 
-17:18.310 --> 17:19.060
-Thanks.
+00:17:18.310 --> 00:17:19.060
+Gracias.

@@ -1,601 +1,601 @@
 WEBVTT
 
-00:00.050 --> 00:02.970
-Hello and welcome to Continuous Integration with unity.
+00:00:00.050 --> 00:00:02.970
+Hola y bienvenidos a la Integración Continua con Unity.
 
-00:02.990 --> 00:08.600
-This is part of learning about unit testing and the ways that unit testing can fit into your workflows.
+00:00:02.990 --> 00:00:08.600
+Esto es parte del aprendizaje sobre las pruebas unitarias y las formas en que las pruebas unitarias pueden adaptarse a sus flujos de trabajo.
 
-00:08.630 --> 00:14.510
-In this section, we'll do a brief introduction of the topic, and then we'll look at Unity Cloud build
+00:00:08.630 --> 00:00:14.510
+En esta sección, haremos una breve introducción del tema y luego veremos la compilación de Unity Cloud.
 
-00:14.510 --> 00:21.530
-as one way that you can set up continuous integration and continuous deployment for your unity projects.
+00:00:14.510 --> 00:00:21.530
+como una forma de configurar la integración continua y la implementación continua para sus proyectos de Unity.
 
-00:21.560 --> 00:28.550
-As we've seen in the software development life cycle for creating games, unity is used most predominantly
+00:00:21.560 --> 00:00:28.550
+Como hemos visto en el ciclo de vida del desarrollo de software para la creación de juegos, unity se utiliza predominantemente
 
-00:28.550 --> 00:31.970
-in the development, testing and deployment phases.
+00:00:28.550 --> 00:00:31.970
+en las fases de desarrollo, prueba y despliegue.
 
-00:32.000 --> 00:36.650
-When we talk about doing unit testing, we're adding that into steps five and six here.
+00:00:32.000 --> 00:00:36.650
+Cuando hablamos de realizar pruebas unitarias, las agregamos aquí en los pasos cinco y seis.
 
-00:36.650 --> 00:41.180
-And when we're talking about continuous integration and continuous deployment, we're really looking
+00:00:36.650 --> 00:00:41.180
+Y cuando hablamos de integración continua e implementación continua, realmente buscamos
 
-00:41.180 --> 00:47.770
-at all three of those steps in ways to automate our testing and folded into our production workflows.
+00:00:41.180 --> 00:00:47.770
+en esos tres pasos para automatizar nuestras pruebas y incorporarlos a nuestros flujos de trabajo de producción.
 
-00:47.780 --> 00:51.360
-So what is continuous integration and continuous deployment?
+00:00:47.780 --> 00:00:51.360
+Entonces, ¿qué es la integración continua y el despliegue continuo?
 
-00:51.380 --> 00:59.120
-CI CD as it's called, reduces code errors and defects, making it crucial to every DevOps workflow.
+00:00:51.380 --> 00:00:59.120
+CI CD, como se le llama, reduce los errores y defectos de código, lo que lo hace crucial para cada flujo de trabajo de DevOps.
 
-00:59.450 --> 01:06.530
-The developer operations is typically the final stage or stages where your project is being tested,
+00:00:59.450 --> 00:01:06.530
+Las operaciones del desarrollador suelen ser la etapa o etapas finales en las que se prueba su proyecto.
 
-01:06.560 --> 01:10.580
-going live, and having new updates added to the live experience.
+00:01:06.560 --> 00:01:10.580
+estar en vivo y agregar nuevas actualizaciones a la experiencia en vivo.
 
-01:10.610 --> 01:17.510
-CI CD involves practices of frequently integrating your code changes, automatically integrating that
+00:01:10.610 --> 00:01:17.510
+CI CD implica prácticas de integración frecuente de los cambios de código, integrando automáticamente esos
 
-01:17.510 --> 01:20.930
-code, and then releasing builds to your end users.
+00:01:17.510 --> 00:01:20.930
+código y luego lanzar compilaciones a sus usuarios finales.
 
-01:20.930 --> 01:25.730
-So if you're doing all of that together, you're doing the full CI CD process.
+00:01:20.930 --> 00:01:25.730
+Entonces, si haces todo eso juntos, estás haciendo el proceso completo de CI CD.
 
-01:25.730 --> 01:30.590
-But you can also do one or the other or focus on key areas of the workflow for yourself.
+00:01:25.730 --> 00:01:30.590
+Pero también puedes hacer una cosa u otra o centrarte en áreas clave del flujo de trabajo por ti mismo.
 
-01:30.590 --> 01:30.860
-Now.
+00:01:30.590 --> 00:01:30.860
+Ahora.
 
-01:30.890 --> 01:37.940
-CI CD is not unique to unity, and during the years of Unity's professional development and being used
+00:01:30.890 --> 00:01:37.940
+CI CD no es exclusivo de Unity, y durante los años de desarrollo profesional y uso de Unity
 
-01:37.940 --> 01:45.650
-in the industry, more and more third parties have added tools to give you continuous integration and
+00:01:37.940 --> 00:01:45.650
+En la industria, cada vez más terceros han agregado herramientas para brindarle integración continua y
 
-01:45.650 --> 01:47.960
-continuous deployment inside unity.
+00:01:45.650 --> 00:01:47.960
+despliegue continuo dentro de la unidad.
 
-01:47.990 --> 01:55.220
-Some of the technologies that are used are GitHub and GitLab to hold the code or to store the code where
+00:01:47.990 --> 00:01:55.220
+Algunas de las tecnologías que se utilizan son GitHub y GitLab para guardar el código o almacenar el código donde
 
-01:55.220 --> 02:00.170
-you have it online, and version control, but there's other operations you can use as well for that.
+00:01:55.220 --> 00:02:00.170
+Lo tienes en línea y control de versiones, pero también hay otras operaciones que puedes usar para eso.
 
-02:00.170 --> 02:02.480
-But there's other technologies in there as well.
+00:02:00.170 --> 00:02:02.480
+Pero también existen otras tecnologías.
 
-02:02.480 --> 02:11.480
-And then tools like circle CI or game CI, code Magic bamboo, Unity Cloud Build, Jenkins.
+00:02:02.480 --> 00:02:11.480
+Y luego herramientas como Circle CI o Game CI, Code Magic Bamboo, Unity Cloud Build, Jenkins.
 
-02:11.510 --> 02:17.300
-These are technologies built on top of wherever your code is being version controlled, and being able
+00:02:11.510 --> 00:02:17.300
+Estas son tecnologías creadas sobre cualquier lugar donde se controle la versión de su código y puedan
 
-02:17.300 --> 02:21.590
-to plug in the right triggers to cause the right actions for the workflow.
+00:02:17.300 --> 00:02:21.590
+para conectar los desencadenantes correctos para provocar las acciones correctas para el flujo de trabajo.
 
-02:21.620 --> 02:26.690
-That makes sense for you two that are most relevant to this video, because it's what I've used, is
+00:02:21.620 --> 00:02:26.690
+Eso tiene sentido para ustedes dos que son más relevantes para este video, porque es lo que he usado, es
 
-02:26.720 --> 02:32.600
-GitHub to host the repo that we're going to build in Unity Cloud, build as the tool that will do the
+00:02:26.720 --> 00:02:32.600
+GitHub para alojar el repositorio que vamos a crear en Unity Cloud, compilarlo como la herramienta que hará el
 
-02:32.600 --> 02:33.770
-building and the testing.
+00:02:32.600 --> 00:02:33.770
+construcción y pruebas.
 
-02:33.770 --> 02:39.980
-So we've mentioned that CI CD combines the practices of continuous integration and continuous delivery.
+00:02:33.770 --> 00:02:39.980
+Entonces hemos mencionado que CI CD combina las prácticas de integración continua y entrega continua.
 
-02:39.980 --> 02:44.810
-So the integration is about putting your new code into the production.
+00:02:39.980 --> 00:02:44.810
+Entonces, la integración consiste en poner el nuevo código en producción.
 
-02:44.810 --> 02:49.250
-That includes testing it, building it and getting it into the code.
+00:02:44.810 --> 00:02:49.250
+Eso incluye probarlo, construirlo e incorporarlo al código.
 
-02:49.370 --> 02:54.740
-The continuous delivery or continuous deployment, as it's also called.
+00:02:49.370 --> 00:02:54.740
+La entrega continua o despliegue continuo, como también se le llama.
 
-02:54.740 --> 02:58.310
-This automates the delivery of that code to the build target.
+00:02:54.740 --> 00:02:58.310
+Esto automatiza la entrega de ese código al objetivo de compilación.
 
-02:58.310 --> 02:59.380
-So this is different.
+00:02:58.310 --> 00:02:59.380
+Entonces esto es diferente.
 
-02:59.390 --> 03:02.900
-This isn't just putting your code into the project, that's CI.
+00:02:59.390 --> 00:03:02.900
+No se trata simplemente de poner su código en el proyecto, eso es CI.
 
-03:03.140 --> 03:05.990
-This is putting it into the hands of your end users.
+00:03:03.140 --> 00:03:05.990
+Esto es ponerlo en manos de sus usuarios finales.
 
-03:05.990 --> 03:07.490
-So that is the CD.
+00:03:05.990 --> 00:03:07.490
+Entonces ese es el CD.
 
-03:07.550 --> 03:13.280
-Now up until this point in the course, we've seen that unit testing is incredibly useful to help shape
+00:03:07.550 --> 00:03:13.280
+Hasta este punto del curso, hemos visto que las pruebas unitarias son increíblemente útiles para ayudar a dar forma
 
-03:13.280 --> 03:18.290
-how our code matures and then certainly how we maintain and debug that code.
+00:03:13.280 --> 00:03:18.290
+cómo madura nuestro código y luego, ciertamente, cómo mantenemos y depuramos ese código.
 
-03:18.290 --> 03:20.720
-And we've been manually doing the testing.
+00:03:18.290 --> 00:03:20.720
+Y hemos estado haciendo las pruebas manualmente.
 
-03:20.720 --> 03:26.450
-So that means even though we create some automated testing, we either play the runtime experience as
+00:03:20.720 --> 00:03:26.450
+Eso significa que aunque creamos algunas pruebas automatizadas, jugamos la experiencia de tiempo de ejecución como
 
-03:26.450 --> 03:27.950
-a user and look for bugs.
+00:03:26.450 --> 00:03:27.950
+un usuario y buscar errores.
 
-03:27.950 --> 03:30.980
-That way there's one way to manually test.
+00:03:27.950 --> 00:03:30.980
+De esa manera, hay una forma de realizar la prueba manualmente.
 
-03:30.980 --> 03:36.470
-And the other thing that we're doing is we're manually clicking the button in the Unity Test Runner
+00:03:30.980 --> 00:03:36.470
+Y la otra cosa que estamos haciendo es hacer clic manualmente en el botón en Unity Test Runner.
 
-03:36.470 --> 03:38.330
-window to run those tests.
+00:03:36.470 --> 00:03:38.330
+ventana para ejecutar esas pruebas.
 
-03:38.330 --> 03:40.850
-So let's take a look at some bullet points for manual.
+00:03:38.330 --> 00:03:40.850
+Así que echemos un vistazo a algunos puntos del manual.
 
-03:40.880 --> 03:46.520
-First of all, we're not guaranteeing any automated process happens so we can't guarantee any results.
+00:03:40.880 --> 00:03:46.520
+En primer lugar, no garantizamos que se realice ningún proceso automatizado, por lo que no podemos garantizar ningún resultado.
 
-03:46.550 --> 03:51.530
-It is more unreliable and error prone than an automated alternative.
+00:03:46.550 --> 00:03:51.530
+Es menos confiable y propenso a errores que una alternativa automatizada.
 
-03:51.620 --> 03:57.530
-These repetitive tasks running them yourself every once in a while, remembering to do that, looking
+00:03:51.620 --> 00:03:57.530
+Estas tareas repetitivas, ejecútelas usted mismo de vez en cuando, recuerde hacerlo, mire
 
-03:57.530 --> 03:59.840
-diligently at the results that all takes energy.
+00:03:57.530 --> 00:03:59.840
+diligentemente en los resultados que todo requiere energía.
 
-03:59.840 --> 04:02.120
-And these repetitive tasks can be boring.
+00:03:59.840 --> 00:04:02.120
+Y estas tareas repetitivas pueden resultar aburridas.
 
-04:02.120 --> 04:05.930
-And when things are boring, developers may skip them or do them less frequently.
+00:04:02.120 --> 00:04:05.930
+Y cuando las cosas son aburridas, los desarrolladores pueden omitirlas o hacerlas con menos frecuencia.
 
-04:05.930 --> 04:11.690
-And lastly, if we forget to test, then we don't have any good updated status on how our project is
+00:04:05.930 --> 00:04:11.690
+Y, por último, si nos olvidamos de realizar la prueba, entonces no tendremos ningún buen estado actualizado sobre cómo está nuestro proyecto.
 
-04:11.690 --> 04:12.110
-doing.
+00:04:11.690 --> 00:04:12.110
+haciendo.
 
-04:12.110 --> 04:18.350
-However, if we take all the best practices we have in setting up those tests, and we also automate
+00:04:12.110 --> 00:04:18.350
+Sin embargo, si tomamos todas las mejores prácticas que tenemos para configurar esas pruebas y también automatizamos
 
-04:18.350 --> 04:24.140
-the running of those tasks and even the delivery of our code to our end users, we can take advantage
+00:04:18.350 --> 00:04:24.140
+la ejecución de esas tareas e incluso la entrega de nuestro código a nuestros usuarios finales, podemos aprovechar
 
-04:24.140 --> 04:25.430
-of more benefits.
+00:04:24.140 --> 00:04:25.430
+de más beneficios.
 
-04:25.610 --> 04:29.150
-For example, we have a reliable repetitive process here.
+00:04:25.610 --> 00:04:29.150
+Por ejemplo, aquí tenemos un proceso repetitivo confiable.
 
-04:29.150 --> 04:35.990
-When we have automatic CI CD setup, we have quick and relevant feedback we can choose and we'll see
+00:04:29.150 --> 00:04:35.990
+Cuando tenemos la configuración automática de CI CD, tenemos comentarios rápidos y relevantes que podemos elegir y veremos
 
-04:36.020 --> 04:37.670
-what triggers each build.
+00:04:36.020 --> 00:04:37.670
+qué desencadena cada construcción.
 
-04:37.670 --> 04:43.670
-But if we want to do it for every commit to git repo, then every time we do a commit to a git repo,
+00:04:37.670 --> 00:04:43.670
+Pero si queremos hacerlo para cada confirmación de un repositorio de git, entonces cada vez que hagamos una confirmación de un repositorio de git,
 
-04:43.700 --> 04:48.620
-the test get run, the build gets verified and we get notified about that.
+00:04:43.700 --> 00:04:48.620
+Se ejecuta la prueba, se verifica la compilación y se nos notifica al respecto.
 
-04:48.620 --> 04:51.920
-So you could do it more or less frequently depending on what your needs are.
+00:04:48.620 --> 00:04:51.920
+Así que podrías hacerlo con mayor o menor frecuencia dependiendo de cuáles sean tus necesidades.
 
-04:51.950 --> 04:54.740
-It gives you more confidence in your code so there's less risk.
+00:04:51.950 --> 00:04:54.740
+Le brinda más confianza en su código, por lo que hay menos riesgo.
 
-04:54.740 --> 04:57.980
-So when you go into refactoring systems or adding new features.
+00:04:54.740 --> 00:04:57.980
+Entonces, cuando entras en refactorización de sistemas o agregas nuevas funciones.
 
-04:57.980 --> 04:59.780
-And lastly by having one.
+00:04:57.980 --> 00:04:59.780
+Y por último tener uno.
 
-05:00.340 --> 05:04.630
-Builds available to everyone and then automating that on top.
+00:05:00.340 --> 00:05:04.630
+Compilaciones disponibles para todos y luego automatizarlas en la parte superior.
 
-05:04.630 --> 05:10.870
-We have a foundation of this confidence and the security in our code base that allows us to more easily
+00:05:04.630 --> 00:05:10.870
+Tenemos una base de confianza y seguridad en nuestro código base que nos permite más fácilmente
 
-05:10.870 --> 05:12.360
-collaborate with others.
+00:05:10.870 --> 00:05:12.360
+colaborar con otros.
 
-05:12.370 --> 05:18.340
-We'll be able to know who's contributions continue to keep the project stable, which is an incredibly
+00:05:12.370 --> 00:05:18.340
+Podremos saber quiénes contribuyen a mantener estable el proyecto, lo cual es increíblemente
 
-05:18.340 --> 05:22.060
-effective piece of info to have when you're working on a team.
+00:05:18.340 --> 00:05:22.060
+información eficaz que debes tener cuando trabajas en un equipo.
 
-05:22.060 --> 05:29.800
-So stepping back here, looking at a visual way, the continuous integration is the code merges, the
+00:05:22.060 --> 00:05:29.800
+Entonces, volviendo aquí, mirando de manera visual, la integración continua es el código que se fusiona, el
 
-05:29.800 --> 05:31.240
-code gets built.
+00:05:29.800 --> 00:05:31.240
+se construye el código.
 
-05:31.270 --> 05:36.010
-Then in the continuous delivery we look to see that our tests have passed.
+00:05:31.270 --> 00:05:36.010
+Luego, en la entrega continua, verificamos que nuestras pruebas hayan pasado.
 
-05:36.040 --> 05:42.910
-Then we move it to a staging environment, which is somewhere that is not yet ready for the end users,
+00:05:36.040 --> 00:05:42.910
+Luego lo trasladamos a un entorno de prueba, que es un lugar que aún no está listo para los usuarios finales.
 
-05:42.910 --> 05:44.020
-but almost there.
+00:05:42.910 --> 00:05:44.020
+pero ya casi llegamos.
 
-05:44.020 --> 05:48.400
-And we make sure that the process works really well before we deploy it out to the end users.
+00:05:44.020 --> 00:05:48.400
+Y nos aseguramos de que el proceso funcione realmente bien antes de implementarlo para los usuarios finales.
 
-05:48.430 --> 05:55.930
-Now, you can do automated testing and automated delivery of those testing results, regardless of having
+00:05:48.430 --> 00:05:55.930
+Ahora, puede realizar pruebas automatizadas y entregar automáticamente los resultados de esas pruebas, independientemente de tener
 
-05:55.930 --> 06:01.750
-any particular flow to how you program your code in the version control.
+00:05:55.930 --> 00:06:01.750
+cualquier flujo particular sobre cómo programa su código en el control de versiones.
 
-06:01.750 --> 06:08.920
-But just to talk about the potential alignment and connections here, this shows what could be different
+00:06:01.750 --> 00:06:08.920
+Pero solo para hablar sobre la posible alineación y conexiones aquí, esto muestra lo que podría ser diferente.
 
-06:08.920 --> 06:10.690
-commits on different branches.
+00:06:08.920 --> 00:06:10.690
+se compromete en diferentes ramas.
 
-06:10.690 --> 06:16.240
-In version control I'm using git, so let's just pretend I'm using git here and I have a main or a master
+00:06:10.690 --> 00:06:16.240
+En el control de versiones estoy usando git, así que supongamos que estoy usando git aquí y tengo un main o master.
 
-06:16.240 --> 06:17.110
-branch there.
+00:06:16.240 --> 00:06:17.110
+sucursal allí.
 
-06:17.110 --> 06:21.580
-And then I do all my development work on a second developer branch.
+00:06:17.110 --> 00:06:21.580
+Y luego hago todo mi trabajo de desarrollo en una segunda rama de desarrollador.
 
-06:21.580 --> 06:28.420
-And then each time I want to create a new feature, I would branch off of development, give it a name
+00:06:21.580 --> 00:06:28.420
+Y luego, cada vez que quiero crear una nueva función, me desvío del desarrollo y le doy un nombre.
 
-06:28.420 --> 06:35.420
-like let's say feature, main menu, quick button, and then I would go and add that main menu quit
+00:06:28.420 --> 00:06:35.420
+como digamos función, menú principal, botón rápido, y luego iría y agregaría ese menú principal para salir.
 
-06:35.440 --> 06:41.770
-button and be sure that that branch only speaks to the changes required for that particular feature.
+00:06:35.440 --> 00:06:41.770
+y asegúrese de que esa rama solo se refiera a los cambios necesarios para esa característica en particular.
 
-06:41.890 --> 06:45.310
-So let's say I had feature number one there at the bottom.
+00:06:41.890 --> 00:06:45.310
+Entonces digamos que tengo la característica número uno en la parte inferior.
 
-06:45.310 --> 06:46.510
-I'd finished it up.
+00:06:45.310 --> 00:06:46.510
+Lo había terminado.
 
-06:46.540 --> 06:52.570
-Here's some of the potential places that we could have the automated CI CD process run.
+00:06:46.540 --> 00:06:52.570
+Estos son algunos de los lugares potenciales donde podríamos ejecutar el proceso de CD de CI automatizado.
 
-06:52.570 --> 06:58.330
-First of all, starting at the bottom there, each time I commit to my development feature branch,
+00:06:52.570 --> 00:06:58.330
+En primer lugar, comenzando desde abajo, cada vez que me comprometo con mi rama de funciones de desarrollo,
 
-06:58.330 --> 07:04.450
-I could kick off a automated build to make sure that all the tests run and that everything is working
+00:06:58.330 --> 00:07:04.450
+Podría iniciar una compilación automatizada para asegurarme de que todas las pruebas se ejecuten y que todo esté funcionando.
 
-07:04.450 --> 07:05.560
-particularly well.
+00:07:04.450 --> 00:07:05.560
+particularmente bien.
 
-07:05.560 --> 07:06.730
-That's number one.
+00:07:05.560 --> 00:07:06.730
+Ese es el número uno.
 
-07:06.760 --> 07:13.210
-Then I might kick that back to a larger feature in step number two, and as I merge it back to that
+00:07:06.760 --> 00:07:13.210
+Luego, podría devolverlo a una función más grande en el paso número dos y, a medida que lo fusiono nuevamente con eso
 
-07:13.210 --> 07:18.940
-development branch, I want to do an automated build test, hitting potentially all the different target
+00:07:13.210 --> 00:07:18.940
+rama de desarrollo, quiero hacer una prueba de compilación automatizada, alcanzando potencialmente todos los objetivos diferentes
 
-07:18.940 --> 07:19.750
-platforms.
+00:07:18.940 --> 00:07:19.750
+plataformas.
 
-07:19.750 --> 07:26.290
-That means the automated test could be run inside the unity editor in iOS, in Android, on device,
+00:07:19.750 --> 00:07:26.290
+Eso significa que la prueba automatizada podría ejecutarse dentro del editor de Unity en iOS, en Android, en el dispositivo,
 
-07:26.290 --> 07:27.040
-not on device.
+00:07:26.290 --> 00:07:27.040
+no en el dispositivo.
 
-07:27.040 --> 07:28.780
-You've got lots of different options there.
+00:07:27.040 --> 00:07:28.780
+Tienes muchas opciones diferentes allí.
 
-07:29.500 --> 07:35.350
-Then lastly, when that develop, branch is ready and has all of the latest features put to it, and
+00:07:29.500 --> 00:07:35.350
+Luego, por último, cuando esa rama se desarrolle, esté lista y tenga todas las características más recientes, y
 
-07:35.350 --> 07:38.980
-we want to test out how that would work on the master branch.
+00:07:35.350 --> 00:07:38.980
+Queremos probar cómo funcionaría eso en la rama maestra.
 
-07:38.980 --> 07:46.480
-We have number three there where before I go to commit it into the the top line there the main or the
+00:07:38.980 --> 00:07:46.480
+Tenemos el número tres allí donde antes de ir a enviarlo a la línea superior, allí está el principal o el
 
-07:46.480 --> 07:53.620
-master branch, what I could do is merge from the main branch back to develop, then make sure that
+00:07:46.480 --> 00:07:53.620
+rama maestra, lo que podría hacer es fusionar desde la rama principal nuevamente para desarrollar, luego asegurarme de que
 
-07:53.620 --> 07:59.320
-everything works well on the development branch and then only if that works well, then I commit to
+00:07:53.620 --> 00:07:59.320
+todo funciona bien en la rama de desarrollo y solo si funciona bien, entonces me comprometo a
 
-07:59.320 --> 08:00.520
-the main or master branch.
+00:07:59.320 --> 00:08:00.520
+la rama principal o master.
 
-08:01.220 --> 08:07.160
-So you can see that you don't have to have these certain steps in any particular order, but you can
+00:08:01.220 --> 00:08:07.160
+Así que puedes ver que no es necesario seguir estos ciertos pasos en ningún orden en particular, pero puedes
 
-08:07.160 --> 08:11.440
-have testing help as much or as little as you like along this workflow.
+00:08:07.160 --> 00:08:11.440
+Obtenga ayuda para las pruebas tanto como desee a lo largo de este flujo de trabajo.
 
-08:11.450 --> 08:15.440
-Another high level recap just to see this information a few different ways.
+00:08:11.450 --> 00:08:15.440
+Otro resumen de alto nivel solo para ver esta información de diferentes maneras.
 
-08:15.440 --> 08:21.350
-This is specifically to Unity Cloud build instructions here, but I think the steps given are high level
+00:08:15.440 --> 00:08:21.350
+Esto es específicamente para las instrucciones de compilación de Unity Cloud aquí, pero creo que los pasos dados son de alto nivel.
 
-08:21.350 --> 08:21.850
-enough.
+00:08:21.350 --> 00:08:21.850
+suficiente.
 
-08:21.860 --> 08:24.290
-It's true of most competitors as well.
+00:08:21.860 --> 00:08:24.290
+Esto también se aplica a la mayoría de los competidores.
 
-08:24.320 --> 08:27.830
-The first thing you want to do is set up your build automation.
+00:08:24.320 --> 00:08:27.830
+Lo primero que debe hacer es configurar la automatización de su compilación.
 
-08:27.830 --> 08:32.810
-So you point the build automation to the version control where your code is sitting.
+00:08:27.830 --> 00:08:32.810
+Entonces apunta la automatización de compilación al control de versiones donde se encuentra su código.
 
-08:32.810 --> 08:38.090
-In my case, that would be connecting Unity Cloud build and connecting it into GitHub where I have a
+00:08:32.810 --> 00:08:38.090
+En mi caso, eso sería conectar la compilación de Unity Cloud y conectarla a GitHub donde tengo una
 
-08:38.090 --> 08:39.440
-repo for the project.
+00:08:38.090 --> 00:08:39.440
+repositorio para el proyecto.
 
-08:39.470 --> 08:42.080
-Then you decide on what trigger to have.
+00:08:39.470 --> 00:08:42.080
+Luego decides qué disparador tener.
 
-08:42.110 --> 08:49.490
-This is perhaps committing a change to your project on a specific branch, or merging from one branch
+00:08:42.110 --> 00:08:49.490
+Quizás se trate de realizar un cambio en su proyecto en una rama específica o fusionarse desde una rama.
 
-08:49.490 --> 08:53.240
-into another branch, or you can set up different rules you want.
+00:08:49.490 --> 00:08:53.240
+en otra rama, o puede configurar las diferentes reglas que desee.
 
-08:53.270 --> 08:59.990
-The idea here is to not be running it manually, but instead have some part of your development process
+00:08:53.270 --> 00:08:59.990
+La idea aquí es no ejecutarlo manualmente, sino que parte de su proceso de desarrollo
 
-08:59.990 --> 09:01.610
-automatically trigger.
+00:08:59.990 --> 00:09:01.610
+disparar automáticamente.
 
-09:01.610 --> 09:03.140
-So that would be number two here.
+00:09:01.610 --> 00:09:03.140
+Entonces ese sería el número dos aquí.
 
-09:03.170 --> 09:09.260
-Then number three on some trigger when you release the code, when you commit the code, when you merge
+00:09:03.170 --> 00:09:09.260
+Luego el número tres en algún disparador cuando liberas el código, cuando confirmas el código, cuando fusionas
 
-09:09.260 --> 09:13.100
-the code, whatever you decide, the build gets automatically created.
+00:09:09.260 --> 00:09:13.100
+el código, decidas lo que decidas, la compilación se crea automáticamente.
 
-09:13.100 --> 09:16.700
-And in step three is where the test would be run as well.
+00:09:13.100 --> 00:09:16.700
+Y en el paso tres es donde también se ejecutará la prueba.
 
-09:16.700 --> 09:21.980
-And then finally the team gets notified when the project has been deployed.
+00:09:16.700 --> 00:09:21.980
+Y finalmente, el equipo recibe una notificación cuando se implementa el proyecto.
 
-09:21.980 --> 09:29.660
-So in that example flow, we just saw at each of those moments, whoever wants to could subscribe to
+00:09:21.980 --> 00:09:29.660
+Entonces, en ese flujo de ejemplo, que acabamos de ver en cada uno de esos momentos, quien quiera puede suscribirse a
 
-09:29.660 --> 09:34.490
-an email that says this feature branch was merged to this one.
+00:09:29.660 --> 00:09:34.490
+un correo electrónico que dice que esta rama de funciones se fusionó con esta.
 
-09:34.490 --> 09:39.020
-That's not really my area of expertise, so I'm not going to listen to any notifications there.
+00:09:34.490 --> 00:09:39.020
+Esa no es realmente mi área de especialización, por lo que no escucharé ninguna notificación allí.
 
-09:39.020 --> 09:46.310
-But all developers perhaps would want to be notified through the system for anything merged to that
+00:09:39.020 --> 00:09:46.310
+Pero todos los desarrolladores tal vez quieran ser notificados a través del sistema sobre cualquier cosa que se fusione con ese
 
-09:46.310 --> 09:52.820
-final main or master branch, and having that CI CD system in there at those key steps is going to confirm
+00:09:46.310 --> 00:09:52.820
+rama principal o maestra final, y tener ese sistema CI CD allí en esos pasos clave confirmará
 
-09:52.820 --> 09:58.700
-that your unit tests all pass, that none of them fail, and all that works with success that your project
+00:09:52.820 --> 00:09:58.700
+que las pruebas de tu unidad todas pasen, que ninguna falle, y que todo funcione con éxito que tu proyecto
 
-09:58.700 --> 09:59.510
-builds.
+00:09:58.700 --> 00:09:59.510
+construye.
 
-09:59.510 --> 10:04.940
-You can imagine there's scenarios even where the tests would all pass, that maybe the build doesn't
+00:09:59.510 --> 00:10:04.940
+Puedes imaginar que hay escenarios incluso en los que todas las pruebas pasarían, y tal vez la compilación no
 
-10:04.940 --> 10:05.510
-work.
+00:10:04.940 --> 00:10:05.510
+trabajar.
 
-10:05.510 --> 10:12.080
-Maybe there's some code that is broken or some asset that is broken that does not have test coverage
+00:10:05.510 --> 00:10:12.080
+Tal vez haya algún código roto o algún activo roto que no tenga cobertura de prueba.
 
-10:12.080 --> 10:12.530
-yet.
+00:10:12.080 --> 00:10:12.530
+todavía.
 
-10:12.530 --> 10:18.470
-And just the fact that the project gives an error during the build process is a very solid piece of
+00:10:12.530 --> 00:10:18.470
+Y el solo hecho de que el proyecto dé un error durante el proceso de construcción es una pieza muy sólida de
 
-10:18.470 --> 10:19.910
-debugging info to have.
+00:10:18.470 --> 00:10:19.910
+información de depuración para tener.
 
-10:19.940 --> 10:25.370
-You'll also know the time, date, and branch that caused the issue, so that helps you focus out where
+00:10:19.940 --> 00:10:25.370
+También sabrá la hora, fecha y sucursal que causó el problema, lo que le ayudará a concentrarse en dónde
 
-10:25.370 --> 10:27.320
-where to look to fix the problem.
+00:10:25.370 --> 00:10:27.320
+dónde buscar para solucionar el problema.
 
-10:27.320 --> 10:29.900
-And then finally the project would deploy with success.
+00:10:27.320 --> 00:10:29.900
+Y finalmente el proyecto se implementaría con éxito.
 
-10:29.900 --> 10:35.870
-So we've seen that the CI CD is important for us to be able to know that the project built, but it's
+00:10:29.900 --> 00:10:35.870
+Hemos visto que el CI CD es importante para que podamos saber si el proyecto se desarrolló, pero es
 
-10:35.870 --> 10:38.900
-especially powerful combining with unit testing.
+00:10:35.870 --> 00:10:38.900
+combinación especialmente poderosa con pruebas unitarias.
 
-10:38.900 --> 10:44.570
-So not only did it build, but it built with all passing tests and a recap on unit testing, since that's
+00:10:38.900 --> 00:10:44.570
+Así que no sólo se compiló, sino que se construyó con todas las pruebas aprobadas y un resumen de las pruebas unitarias, ya que eso es
 
-10:44.570 --> 10:46.160
-the topic of the whole course.
+00:10:44.570 --> 00:10:46.160
+el tema de todo el curso.
 
-10:46.190 --> 10:52.370
-As your project grows with more scripts, classes and methods, it becomes difficult to ensure that
+00:10:46.190 --> 00:10:52.370
+A medida que su proyecto crece con más scripts, clases y métodos, se vuelve difícil garantizar que
 
-10:52.370 --> 10:56.360
-a change in one part of your code doesn't break things somewhere else.
+00:10:52.370 --> 00:10:56.360
+un cambio en una parte de su código no rompe cosas en otra parte.
 
-10:56.390 --> 11:00.950
-Automated testing helps you check your code is functioning as expected.
+00:10:56.390 --> 00:11:00.950
+Las pruebas automatizadas le ayudan a comprobar que su código funciona como se esperaba.
 
-11:00.980 --> 11:07.130
-Testing saves you time by finding out when and where problems occur as soon as they are introduced,
+00:11:00.980 --> 00:11:07.130
+Las pruebas le ahorran tiempo al descubrir cuándo y dónde ocurren los problemas tan pronto como se presentan.
 
-11:07.130 --> 11:14.240
-rather than waiting for manual testing users testing it becomes much more expensive the later you find
+00:11:07.130 --> 00:11:14.240
+en lugar de esperar a que los usuarios realicen pruebas manuales, se vuelve mucho más costoso cuanto más tarde lo encuentre
 
-11:14.240 --> 11:14.930
-these bugs.
+00:11:14.240 --> 00:11:14.930
+estos errores.
 
-11:14.930 --> 11:16.460
-So having the system is quite good.
+00:11:14.930 --> 00:11:16.460
+Entonces tener el sistema es bastante bueno.
 
-11:16.460 --> 11:21.400
-And we remember something quite counterintuitive is the 8020 rule.
+00:11:16.460 --> 00:11:21.400
+Y recordamos que algo bastante contradictorio es la regla 8020.
 
-11:21.410 --> 11:29.300
-It is that 80% of the time we're working on fixing bugs and maintaining our existing code base, and
+00:11:21.410 --> 00:11:29.300
+Es que el 80% del tiempo trabajamos para corregir errores y mantener nuestra base de código existente, y
 
-11:29.300 --> 11:33.740
-20% of time is where we're adding new features and new functionality.
+00:11:29.300 --> 00:11:33.740
+El 20% del tiempo es cuando agregamos nuevas características y nuevas funcionalidades.
 
-11:33.770 --> 11:38.900
-We often think that most of our day is spent adding new features, so that's where we want to place
+00:11:33.770 --> 00:11:38.900
+A menudo pensamos que pasamos la mayor parte del día agregando nuevas funciones, así que ahí es donde queremos ubicar
 
-11:38.900 --> 11:40.370
-our mental energy.
+00:11:38.900 --> 00:11:40.370
+nuestra energía mental.
 
-11:40.370 --> 11:49.250
-However, we see from research that having good test unit test practices, having good automated testing,
+00:11:40.370 --> 00:11:49.250
+Sin embargo, según la investigación, vemos que tener buenas prácticas de prueba unitaria, tener buenas pruebas automatizadas,
 
-11:49.280 --> 11:56.210
-having a CI CD system, it tremendously impacts and improves the efficiency of your 80%.
+00:11:49.280 --> 00:11:56.210
+Tener un sistema CI CD impacta enormemente y mejora la eficiencia de su 80%.
 
-11:56.210 --> 12:01.550
-So it's really looking at where you can make the most impact with changes to your workflow.
+00:11:56.210 --> 00:12:01.550
+Por lo tanto, realmente se trata de determinar dónde puede lograr el mayor impacto con los cambios en su flujo de trabajo.
 
-12:01.550 --> 12:09.190
-So before we look at an example of doing the ci CD itself, let's recap the simplest type of class here.
+00:12:01.550 --> 00:12:09.190
+Entonces, antes de ver un ejemplo de cómo hacer el CD ci en sí, recapitulemos el tipo de clase más simple aquí.
 
-12:09.200 --> 12:14.180
-Imagine we have a my math system that does some addition and does some subtraction.
+00:12:09.200 --> 00:12:14.180
+Imaginemos que tenemos un sistema matemático que hace algunas sumas y algunas restas.
 
-12:16.120 --> 12:23.620
-Then here we have a unit test, which is a separate file and a separate class using the test attribute
+00:12:16.120 --> 00:12:23.620
+Luego aquí tenemos una prueba unitaria, que es un archivo separado y una clase separada que usa el atributo de prueba.
 
-12:23.620 --> 12:24.070
-here.
+00:12:23.620 --> 00:12:24.070
+aquí.
 
-12:24.100 --> 12:30.640
-This will grab an instance of that last class we saw, create it test one particular unit or method
+00:12:24.100 --> 00:12:30.640
+Esto tomará una instancia de la última clase que vimos, la creará y probará una unidad o método en particular.
 
-12:30.640 --> 12:38.530
-of it, being wary of unintended inputs and unintended outputs to that system, and verifying that the
+00:12:30.640 --> 00:12:38.530
+de ello, siendo cauteloso con las entradas y salidas no deseadas a ese sistema, y ​​verificando que el
 
-12:38.530 --> 12:40.810
-asserted result is the one that we get.
+00:12:38.530 --> 00:12:40.810
+El resultado afirmado es el que obtenemos.
 
-12:40.840 --> 12:45.550
-Now, in the case of Unity Cloud Build, when you've got tests like that set up in your project and
+00:12:40.840 --> 00:12:45.550
+Ahora, en el caso de Unity Cloud Build, cuando tienes pruebas como esa configuradas en tu proyecto y
 
-12:45.550 --> 12:52.120
-you've got the project itself configured in the CI CD system, you can expect to be able to manually
+00:12:45.550 --> 00:12:52.120
+Si tiene el proyecto configurado en el sistema CI CD, puede esperar poder configurarlo manualmente.
 
-12:52.120 --> 12:57.700
-or automatically run those builds by visiting Unity Cloud Build in this case, which is a web based
+00:12:52.120 --> 00:12:57.700
+o ejecutar esas compilaciones automáticamente visitando Unity Cloud Build en este caso, que es una plataforma web
 
-12:57.730 --> 12:58.420
-tool.
+00:12:57.730 --> 00:12:58.420
+herramienta.
 
-12:58.450 --> 13:01.750
-See that the build built for the target platform?
+00:12:58.450 --> 00:13:01.750
+¿Ves que la compilación se creó para la plataforma de destino?
 
-13:01.750 --> 13:04.780
-In this case, we're testing windows desktop 64 bit.
+00:13:01.750 --> 00:13:04.780
+En este caso, estamos probando el escritorio de Windows de 64 bits.
 
-13:04.810 --> 13:09.850
-We see that all the edit mode tests pass and all the play mode tests pass.
+00:13:04.810 --> 00:13:09.850
+Vemos que pasan todas las pruebas del modo edición y pasan todas las pruebas del modo reproducción.
 
-13:09.880 --> 13:14.320
-All that happens for you automatically based on the trigger that you've decided.
+00:13:09.880 --> 00:13:14.320
+Todo eso sucede automáticamente según el desencadenante que hayas decidido.
 
-13:14.320 --> 13:16.530
-So this is fantastically useful.
+00:13:14.320 --> 00:13:16.530
+Entonces esto es increíblemente útil.
 
-13:16.540 --> 13:20.230
-Then those on the team that are interested can get an email.
+00:13:16.540 --> 00:13:20.230
+Luego, aquellos miembros del equipo que estén interesados ​​pueden recibir un correo electrónico.
 
-13:20.230 --> 13:26.080
-There's a little snippet of an email there that just shows, hey, somebody on the team did a build.
+00:13:20.230 --> 00:13:26.080
+Hay un pequeño fragmento de un correo electrónico que muestra: "Oye, alguien del equipo hizo una compilación".
 
-13:26.110 --> 13:30.610
-The build was triggered because this branch was merged to that branch or whatever it was.
+00:13:26.110 --> 00:13:30.610
+La compilación se activó porque esta rama se fusionó con esa rama o lo que fuera.
 
-13:30.640 --> 13:32.340
-And here are the results.
+00:13:30.640 --> 00:13:32.340
+Y aquí están los resultados.
 
-13:32.350 --> 13:35.820
-They can allow you to click through to a web page or summarize it in the email.
+00:13:32.350 --> 00:13:35.820
+Pueden permitirle hacer clic en una página web o resumirla en el correo electrónico.
 
-13:35.830 --> 13:42.940
-Now this CI CD topic, as well as the basics of unit testing, the fundamentals of them, advanced topics
+00:13:35.830 --> 00:13:42.940
+Ahora este tema de CI CD, así como los conceptos básicos de las pruebas unitarias, los fundamentos de las mismas, temas avanzados.
 
-13:42.940 --> 13:48.880
-as well, like talking about pure functions and handling individual workshops for some advanced topics
+00:13:42.940 --> 00:13:48.880
+además, como hablar de funciones puras y manejar talleres individuales para algunos temas avanzados.
 
-13:48.880 --> 13:51.310
-like scenes, prefabs and adjustables.
+00:13:48.880 --> 00:13:51.310
+como escenas, prefabricados y ajustables.
 
-13:51.310 --> 13:55.450
-It's all part of this course here you can check out the link below.
+00:13:51.310 --> 00:13:55.450
+Todo es parte de este curso. Aquí puedes consultar el enlace a continuación.
 
-13:55.450 --> 13:59.920
-If you are not yet in the course and check out the trailers.
+00:13:55.450 --> 00:13:59.920
+Si aún no estás en el curso, mira los avances.
 
-13:59.920 --> 14:02.800
-Enroll in the course and get started on your learning today.
+00:13:59.920 --> 00:14:02.800
+Inscríbase en el curso y comience su aprendizaje hoy.
 
-14:02.800 --> 14:07.330
-And if you're already a student of the course and you're finding this video inside the course itself,
+00:14:02.800 --> 00:14:07.330
+Y si ya eres estudiante del curso y encuentras este video dentro del curso mismo,
 
-14:07.330 --> 14:11.260
-thank you for being a student and I look forward to seeing you in future classes as well.
+00:14:07.330 --> 00:14:11.260
+Gracias por ser estudiante y espero verte también en futuras clases.
 
-14:11.260 --> 14:17.620
-So overall here, what we've been able to see is that is that unit testing itself is a tremendously
+00:14:11.260 --> 00:14:17.620
+Entonces, en general, lo que hemos podido ver es que las pruebas unitarias en sí mismas son tremendamente
 
-14:17.620 --> 14:24.550
-powerful tool that helps you to have more efficiencies in the areas of development where you're spending
+00:14:17.620 --> 00:14:24.550
+poderosa herramienta que te ayuda a tener más eficiencias en las áreas de desarrollo donde estás gastando
 
-14:24.550 --> 14:25.850
-lots of time.
+00:14:24.550 --> 00:14:25.850
+mucho tiempo.
 
-14:25.870 --> 14:33.160
-Remember that 80% we saw of overall development effort is maintenance and debugging of existing systems.
+00:14:25.870 --> 00:14:33.160
+Recuerde que el 80% que vimos del esfuerzo general de desarrollo es mantenimiento y depuración de sistemas existentes.
 
-14:33.160 --> 14:39.040
-So since we recognize how big of an area of our life that is, it's awesome that we have tools like
+00:14:33.160 --> 00:14:39.040
+Entonces, dado que reconocemos cuán grande es un área de nuestra vida, es fantástico que tengamos herramientas como
 
-14:39.040 --> 14:46.960
-unity Unit testing and CI CD with tools like Unity Cloud Build or other community tools to be able to
+00:14:39.040 --> 00:14:46.960
+Unity Unit testing y CI CD con herramientas como Unity Cloud Build u otras herramientas comunitarias para poder
 
-14:46.960 --> 14:53.890
-give us all these benefits and automate the delivery of these testing results, the build results and
+00:14:46.960 --> 00:14:53.890
+Bríndenos todos estos beneficios y automatice la entrega de estos resultados de pruebas, los resultados de construcción y
 
-14:53.890 --> 14:56.200
-the delivery of the builds themselves.
+00:14:53.890 --> 00:14:56.200
+la entrega de las propias construcciones.
