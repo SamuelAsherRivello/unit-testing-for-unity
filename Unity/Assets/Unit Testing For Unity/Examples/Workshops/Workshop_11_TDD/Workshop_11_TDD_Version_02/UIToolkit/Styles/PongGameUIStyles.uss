@@ -1,0 +1,12 @@
+#Screen {
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+Label {
+    font-size: 90px;
+    -unity-font: url('project://database/Library/unity%20default%20resources?fileID=10102&guid=0000000000000000e000000000000000&type=0#LegacyRuntime');
+    -unity-font-definition: url('project://database/Assets/Unit%20Testing%20For%20Unity/Shared/Art/Fonts/ArialBold_SDF.asset?fileID=11400000&guid=9dad3462254aee741b44992a62fa8388&type=2#ArialBold_SDF');
+}

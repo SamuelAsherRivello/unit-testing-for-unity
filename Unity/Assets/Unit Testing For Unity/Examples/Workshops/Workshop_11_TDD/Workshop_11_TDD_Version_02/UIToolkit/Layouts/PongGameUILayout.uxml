@@ -1,0 +1,15 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Unit%20Testing%20For%20Unity/Examples/Workshops/Workshop_11_TDD/Workshop_11_TDD_Version_02/UIToolkit/Styles/PongGameUIStyles.uss?fileID=7433441132597879392&amp;guid=28c3a8348ddce754ab7bee9c1d9e1548&amp;type=3#PongGameUIStyles" />
+    <ui:VisualElement name="Screen" style="flex-grow: 1;">
+        <ui:VisualElement name="Header" style="flex-grow: 1; flex-direction: row;">
+            <ui:VisualElement name="ScoreLeft" style="flex-grow: 1;">
+                <ui:Label tabindex="-1" text="Player: 000" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ScoreLabelLeft" />
+            </ui:VisualElement>
+            <ui:VisualElement name="ScoreRight" style="flex-grow: 1;">
+                <ui:Label tabindex="-1" text="CPU: 000" parse-escape-sequences="true" display-tooltip-when-elided="true" name="ScoreLabelRight" style="-unity-text-align: upper-right;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="Body" style="flex-grow: 1;" />
+        <ui:VisualElement name="Footer" style="flex-grow: 1;" />
+    </ui:VisualElement>
+</ui:UXML>
