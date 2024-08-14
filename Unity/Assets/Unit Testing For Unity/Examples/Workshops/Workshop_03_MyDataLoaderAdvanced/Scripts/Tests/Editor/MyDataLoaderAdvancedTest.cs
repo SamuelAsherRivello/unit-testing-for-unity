@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Threading.Tasks;
 using NSubstitute;
 using NUnit.Framework;
@@ -6,6 +7,15 @@ using UnityEngine;
 #pragma warning disable CS4014 // Ignore await warning
 namespace RMC.UnitTesting.Examples.MyDataLoaderAdvanced
 {
+    public static class TaskExtensions
+    {
+        public static IEnumerator AsIEnumerator(this Task task)
+        {
+            while (!task.IsCompleted) yield return null;
+            // if task is faulted, throws the exception
+            task.GetAwaiter ().GetResult ();
+        }
+    }
     /// <summary>
     /// This Unit Test validates that code executes as expected.
     /// </summary>
@@ -16,7 +26,7 @@ namespace RMC.UnitTesting.Examples.MyDataLoaderAdvanced
         private const string _urlInvalid = "";
 
         [Test]
-        public async Task LoadAsync_ResultContainsDOCTYPE_WhenIsLoaded()
+        public void LoadAsync_ResultContainsDOCTYPE_WhenIsLoaded()
         {
             // Arrange
             string expectedResult = "DOCTYPE"; // Silly test, to prove we loaded a webpage
@@ -30,11 +40,11 @@ namespace RMC.UnitTesting.Examples.MyDataLoaderAdvanced
             });
             
             // Act
-            await myDataLoader.LoadAsync(_url);
+            myDataLoader.LoadAsync(_url);
         }
 
         [Test]
-        public async Task MockLoadAsync_ResultContainsMockedData_WhenIsLoaded()
+        public void MockLoadAsync_ResultContainsMockedData_WhenIsLoaded()
         {
             // Arrange
             string expectedResult = "MockedData";
@@ -49,7 +59,7 @@ namespace RMC.UnitTesting.Examples.MyDataLoaderAdvanced
             });
 
             // Act
-            await myDataLoader.LoadAsync(_url);
+            myDataLoader.LoadAsync(_url);
         }
 
         public async Task MockLoadAsync_ThrowsError_WhenUrlIsInvalid()
