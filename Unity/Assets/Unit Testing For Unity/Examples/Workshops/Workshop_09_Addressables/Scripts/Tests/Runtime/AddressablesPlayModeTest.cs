@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.TestTools;
 
-namespace RMC.UnitTesting.Examples.Addressables
+namespace RMC.UnitTesting.Examples.Addressable
 {
     /// <summary>
     /// This Unit Test validates that code executes as expected.
