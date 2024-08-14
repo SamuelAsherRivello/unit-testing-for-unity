@@ -1,7 +1,8 @@
 
+using System;
 using UnityEngine;
 
-namespace RMC.UnitTesting.Examples.Addressables
+namespace RMC.UnitTesting.Examples.Addressable
 {
     /// <summary>
     /// Represent ann addressable 
@@ -17,6 +18,11 @@ namespace RMC.UnitTesting.Examples.Addressables
         public int Grow (int height)
         {
             return height + 1;
+        }
+
+        protected void Update()
+        {
+            transform.Rotate(new Vector3 ( 0, Time.deltaTime * 100, 0));
         }
     }
 }
