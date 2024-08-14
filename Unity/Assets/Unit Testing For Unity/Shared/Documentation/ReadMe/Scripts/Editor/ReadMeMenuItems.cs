@@ -9,7 +9,7 @@ namespace RMC.MyProject.ReadMe
 		public const string PathMenuItemWindowCompanyProject = "Window/" + CompanyName + "/" + ProjectName;
 		public const string CompanyName = "RMC";
 		public const string ProjectName = "Unit Testing For Unity";
-		public const int PriorityMenuItem_Examples = 1;
+		public const int PriorityMenuItem_Examples = -1000;
         
 		//  Fields ----------------------------------------
 		
