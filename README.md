@@ -66,22 +66,23 @@ Resources
 * Samuel Asher Rivello's Medium Article - <a href="https://sam-16930.medium.com/unity-project-structure-a694792cefed">Unity — Project Structure Best Practices</a>
 * Samuel Asher Rivello's Medium Article - <a href="https://sam-16930.medium.com/coding-standards-in-c-39aefee92db8">Unity — C# Coding Standards</a>
 
+<BR>
+<BR>
 
-Created By
-=============
+## Credits
+
+**Created By**
 
 - Samuel Asher Rivello 
-- Over 24 years XP with game development (2024)
+- Over 25 years XP with game development (2024)
 - Over 11 years XP with Unity (2024)
 
-Contact
-=============
+**Contact**
 
 - Twitter - <a href="https://twitter.com/srivello/">@srivello</a>
-- Resume & Portfolio - <a href="http://www.SamuelAsherRivello.com">SamuelAsherRivello.com</a>
 - Git - <a href="https://github.com/SamuelAsherRivello/">Github.com/SamuelAsherRivello</a>
+- Resume & Portfolio - <a href="http://www.SamuelAsherRivello.com">SamuelAsherRivello.com</a>
 - LinkedIn - <a href="https://Linkedin.com/in/SamuelAsherRivello">Linkedin.com/in/SamuelAsherRivello</a> <--- Say Hello! :)
-Update To Unity Editor 2022.3.41f1
 
 **License**
 
