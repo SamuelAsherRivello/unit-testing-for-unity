@@ -81,6 +81,7 @@ Contact
 - Resume & Portfolio - <a href="http://www.SamuelAsherRivello.com">SamuelAsherRivello.com</a>
 - Git - <a href="https://github.com/SamuelAsherRivello/">Github.com/SamuelAsherRivello</a>
 - LinkedIn - <a href="https://Linkedin.com/in/SamuelAsherRivello">Linkedin.com/in/SamuelAsherRivello</a> <--- Say Hello! :)
+Update To Unity Editor 2022.3.41f1
 
 **License**
 
